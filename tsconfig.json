@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "rootDir": "./src/script/",
+    "removeComments": true,                      
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,                   
+    "noUncheckedIndexedAccess": true,            
+    "noPropertyAccessFromIndexSignature": true,  
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true 
+  },
+  "include": ["./src/script/**/*"],
+  "exclude": ["node_modules/", "./build/"],
+}

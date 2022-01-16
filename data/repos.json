@@ -1,0 +1,52 @@
+{
+  "ruleSources": [
+    {
+      "name": "Carpet",
+      "url": "https://github.com/gnembon/fabric-carpet",
+      "settingsFilePath": "/src/main/java/carpet/CarpetSettings.java",
+      "branches": ["master", "future"]
+    },
+    {
+      "name": "Carpet Extra",
+      "url": "https://github.com/gnembon/carpet-extra",
+      "settingsFilePath": "src/main/java/carpetextra/CarpetExtraSettings.java",
+      "branches": ["master", "future"]
+    },
+    {
+      "name": "Auto Crafting Table",
+      "url": "https://github.com/gnembon/carpet-autoCraftingTable",
+      "settingsFilePath": "src/main/java/carpet_autocraftingtable/AutoCraftingTableSettings.java",
+      "branches": ["master"]
+    },
+    {
+      "name": "Carpet Fixes",
+      "url": "https://github.com/fxmorin/carpet-fixes",
+      "settingsFilePath": "src/main/java/carpetfixes/CarpetFixesSettings.java",
+      "branches": ["1.18", "1.17", "1.16"]
+    },
+    {
+      "name": "Skyblock Fork",
+      "url": "https://github.com/jsorrell/skyblock",
+      "settingsFilePath": "src/main/java/com/jsorrell/skyblock/SkyBlockSettings.java",
+      "branches": ["master"]
+    },
+    {
+      "name": "Carpet TIS Addition",
+      "url": "https://github.com/TISUnion/Carpet-TIS-Addition",
+      "settingsFilePath": "src/main/java/carpettisaddition/CarpetTISAdditionSettings.java",
+      "branches": ["1.14.4", "1.15.2", "1.16.5", "1.17.x", "1.18.x"]
+    },
+    {
+      "name": "Carpet Addons",
+      "url": "https://github.com/whoImT/carpet-addons",
+      "settingsFilePath": "src/main/java/carpetaddons/CarpetAddonsSettings.java",
+      "branches": ["1.15.2", "1.16.x", "1.17"]
+    },
+    {
+      "name": "name",
+      "url": "url",
+      "settingsFilePath": "settingsFilePath",
+      "branches": ["branch"]
+    }
+  ]
+}
