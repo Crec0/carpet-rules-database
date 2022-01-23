@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components  {
+    #rules {
+        @apply grid grid-cols-1 gap-4 content-center p-2 max-w-4xl m-auto;
+    }
+    
+    .rule {
+        @apply bg-slate-50 rounded grid grid-cols-1 p-4;
+    }
+
+    .rule > ul > li {
+        @apply p-1 font-semibold;
+    }
+    
+    .ruleName {
+        @apply text-2xl text-gray-900 font-bold p-2 pl-0;
+    }
+    
+    .ruleDesc {
+        @apply text-gray-700 text-lg p-1;
+    }
+
+    .codeSpan {
+        @apply bg-gray-300 text-gray-900 p-1 rounded font-mono font-medium;
+    }
+}
+
+.hideScrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.hideScrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* npx tailwindcss -i ./src/css/input.css -o ./dist/output.css --watch */
