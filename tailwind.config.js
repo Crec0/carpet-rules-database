@@ -1,3 +1,3 @@
 module.exports = {
-  content: ["./frontend/**/*.html"]
+  content: ["./src/**/*.{html,js}"]
 }
