@@ -5,6 +5,9 @@ MissingStringList = Union[list[str], None]
 
 
 class Rule:
+    """
+    Rule class that contains all the information about the carpet rule.
+    """
     def __init__(self):
         self.name: MissingString = None
         self.type: MissingString = None
@@ -32,6 +35,13 @@ class Rule:
 
 
 def get_default_values_for_type(value_type):
+    """
+    Returns the default value for the given value type.
+
+    Expects the value type to be boolean, string, or int
+    :param value_type: a string representing the value type
+    :return: the default value for the given value type
+    """
     match value_type:
         case 'boolean':
             return 'false'
