@@ -49,6 +49,7 @@ class Tokenizer:
         for _ in range(amount):
             if self.has_next():
                 self.__index += 1
+        return self.peek()
 
     def recede(self, amount: int = 1):
         if not self.has_prev():
@@ -56,3 +57,4 @@ class Tokenizer:
         for _ in range(amount):
             if self.has_prev():
                 self.__index -= 1
+        return self.peek()
