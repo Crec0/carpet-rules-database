@@ -19,6 +19,7 @@ class Parser:
         self.rules: list[Rule] = []
         self.fields: list[str] = []
         self.validators: dict[str, str] = {}
+        self.enums: dict[str, list[str]] = {}
 
     def parse(self) -> 'Parser':
         self.extract_rules_and_fields()
@@ -69,15 +70,18 @@ class Parser:
 
         return Parser.join_string(read_tokens)
 
-    def parse_validator(self) -> None:
-        # 7 here is a hacky fix to get the whole declaration of validator
-        candidate = ''.join(self.advance() for _ in range(7) if self.has_next())
-        [self.recede() for _ in range(7)]
-
-        if match := re.match(Patterns.VALIDATOR_CLASS, candidate):
-            class_block = self.read_block()
-            if desc := re.search(Patterns.VALIDATOR_DESCRIPTION, class_block):
-                self.validators[match.groupdict()['name']] = Parser.concat_to_format(desc.group('description'))
+    def extract_rules_and_fields(self) -> None:
+        while self.has_next():
+            token = self.peek()
+            match token:
+                case 'Rule':
+                    self.rules.append(self.parse_rule())
+                case 'class':
+                    self.parse_validator()
+                case 'enum':
+                    self.parse_enum()
+            self.advance()
+        print(self.enums.items())
 
     def parse_optional_list_type_values(self, is_string: bool = False) -> list[str]:
         self.advance(2)
@@ -88,7 +92,7 @@ class Parser:
         else:
             if is_string:
                 self.advance()
-                parsed_values.extend(self.read_until('"').split(', '))
+                parsed_values.extend(self.read_until('"'))
             else:
                 parsed_values.append(self.peek())
         return parsed_values
@@ -126,19 +130,14 @@ class Parser:
                 case 'extra':
                     rule.extras = [
                         extra.strip('" ')
-                        for extra in self.parse_optional_list_type_values(True)
+                        for extra in self.parse_optional_list_type_values(is_string=True)
                     ]
 
                 case 'static':
-                    self.advance()
+                    rule.type = self.advance()
+                    rule.name = self.advance()
 
-                    rule.type = self.peek()
-                    self.advance()
-
-                    rule.name = self.peek()
-                    self.advance()
-
-                    if self.peek() == '=':
+                    if self.advance() == '=':
                         self.advance()
                         rule.value = self.read_until(';').strip('" ')
                         self.recede()  # go back to ;
@@ -149,15 +148,22 @@ class Parser:
             self.advance()
         return rule
 
-    def extract_rules_and_fields(self) -> None:
-        while self.has_next():
-            token = self.peek()
-            match token:
-                case 'Rule':
-                    self.rules.append(self.parse_rule())
-                case 'class':
-                    self.parse_validator()
-            self.advance()
+    def parse_validator(self) -> None:
+        # 7 here is a hacky fix to get the whole declaration of validator
+        candidate = ''.join(self.advance() for _ in range(7) if self.has_next())
+        [self.recede() for _ in range(7)]
+
+        if match := re.match(Patterns.VALIDATOR_CLASS, candidate):
+            class_block = self.read_block()
+            if desc := re.search(Patterns.VALIDATOR_DESCRIPTION, class_block):
+                self.validators[match.groupdict()['name']] = Parser.concat_to_format(desc.group('description'))
+
+    def parse_enum(self) -> None:
+        enum_name = self.advance().strip(" ")
+        self.advance(2)
+        enum_arg_removed = re.sub(Patterns.ENUM_FILTER, '', self.read_until(";"))
+        enums = re.findall(Patterns.WORD, enum_arg_removed)
+        self.enums[enum_name] = [enum.lower() for enum in enums]
 
     @staticmethod
     def concat_to_format(string: str) -> str:
