@@ -2,7 +2,7 @@
   "name": "carpet-rules-database",
   "version": "1.0.0",
   "description": "A database for carpet rules",
-  "main": "frontend/script/index.js",
+  "main": "script/ReadAndDisplayRules.js",
   "repository": "https://github.com/Crec0/carpet-rule-database",
   "author": "Crec0",
   "license": "MIT",

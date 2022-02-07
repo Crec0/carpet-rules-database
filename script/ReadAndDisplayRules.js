@@ -2,10 +2,8 @@ const RULES = [];
 
 $(function () {
     $.ajax({
-        url: '../data/rules.json',
-        dataType: 'json',
-        success: function (rules) {
-            // RULES.push(...rules);
+        url: '../data/rules.json', dataType: 'json', success: function (rules) {
+            RULES.push(...rules);
             renderRules((_) => true);
         }
     })
