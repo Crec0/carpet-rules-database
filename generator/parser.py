@@ -17,7 +17,7 @@ class Parser:
     def __init__(self, source_code: str):
         self.__tokenizer = Tokenizer(source_code)
         self.rules: list[Rule] = []
-        self.fields: list[str] = []
+        self.fields: dict[str, str] = {}
         self.validators: dict[str, str] = {}
         self.enums: dict[str, list[str]] = {}
 
@@ -32,15 +32,21 @@ class Parser:
         """
         while self.has_next():
             token = self.peek()
-            match token:
-                case 'Rule':
-                    self.rules.append(self.parse_rule())
-                case 'class':
-                    self.parse_validator()
-                case 'enum':
-                    self.parse_enum()
+
+            if token == 'Rule':
+                self.rules.append(self.parse_rule())
+            elif token == 'class':
+                self.parse_validator()
+            elif token == 'enum':
+                self.parse_enum()
+            elif token in ('public', 'private'):
+                self.parse_field_if_field()
+
             self.advance()
-        print(self.enums.items())
+        print(self.rules, len(self.rules))
+        print(self.enums, len(self.enums))
+        print(self.validators, len(self.validators))
+        print(self.fields, len(self.fields))
         return self
 
     def has_next(self):
@@ -80,21 +86,22 @@ class Parser:
         """
         return self.__tokenizer.recede(amount)
 
-    def read_until(self, token_to_match: str) -> str:
+    def read_until(self, token_to_match: str) -> tuple[str, int]:
         """
         Reads the tokens until the given token is reached
         :param token_to_match: The token to match to terminate the reading
         :return: The combined string of tokens read
         """
-        read_string = []
+        read_string: list[str] = []
+        advance_count: int = 0
 
         while self.has_next() and (token := self.peek()) != token_to_match:
             read_string.append(token)
-            self.advance()
+            advance_count += 1 * self.advance() is not None
 
-        self.advance()
+        advance_count += 1 * self.advance() is not None
 
-        return Parser.join_string(read_string)
+        return Parser.join_string(read_string), advance_count
 
     def read_block(self) -> str:
         """
@@ -133,11 +140,13 @@ class Parser:
         parsed_values = []
         if self.peek() == '{':
             self.advance()
-            parsed_values.extend(self.read_until('}').split(', '))
+            array, _ = self.read_until('}')
+            parsed_values.extend(array.split(', '))
         else:
             if is_string:
                 self.advance()
-                parsed_values.extend(self.read_until('"'))
+                string, _ = self.read_until('"')
+                parsed_values.extend(string)
             else:
                 parsed_values.append(self.peek())
         return parsed_values
@@ -188,7 +197,8 @@ class Parser:
 
                     if self.advance() == '=':
                         self.advance()
-                        rule.value = self.read_until(';').strip('" ')
+                        value, _ = self.read_until(';')
+                        rule.value = value.strip('" ')
                         self.recede()  # go back to ;
                     else:
                         rule.value = get_default_values_for_type(rule.type)
@@ -201,11 +211,11 @@ class Parser:
         """
         Parses the validator and stores it in the validators list
         """
-        # 7 here is a hacky fix to get the whole declaration of validator
-        candidate = ''.join(self.advance() for _ in range(7) if self.has_next())
-        [self.recede() for _ in range(7)]
+        candidate, _ = self.read_until('{')
+        # step back before { so the read_block can function properly
+        self.recede()
 
-        if match := re.match(Patterns.VALIDATOR_CLASS, candidate):
+        if match := re.search(Patterns.VALIDATOR_CLASS, candidate):
             class_block = self.read_block()
             if desc := re.search(Patterns.VALIDATOR_DESCRIPTION, class_block):
                 self.validators[match.groupdict()['name']] = Parser.concat_to_format(desc.group('description'))
@@ -216,9 +226,34 @@ class Parser:
         """
         enum_name = self.advance().strip(" ")
         self.advance(2)
-        enum_arg_removed = re.sub(Patterns.ENUM_FILTER, '', self.read_until(";"))
+        enum_values, _ = self.read_until('}')
+        enum_arg_removed = re.sub(Patterns.ENUM_FILTER, '', enum_values)
         enums = re.findall(Patterns.WORD, enum_arg_removed)
         self.enums[enum_name] = [enum.lower() for enum in enums]
+
+    def parse_field_if_field(self):
+        """
+        Parses a field if it is a field otherwise does nothing
+        :return:
+        """
+        advance_count = 1
+        self.advance()
+
+        if self.peek() == 'static':
+            advance_count += 1 * self.advance() is not None
+
+        if self.peek() == 'final':
+            advance_count += 1 * self.advance() is not None
+
+        candidate_name = self.advance()
+        advance_count += 1 * candidate_name is not None
+        if name_match := re.match(Patterns.WORD, candidate_name):
+            name = name_match.group(1)
+            value, count = self.read_until(';')
+            advance_count += count
+            self.fields[name] = value
+
+        self.recede(advance_count)
 
     @staticmethod
     def concat_to_format(string: str) -> str:
@@ -258,7 +293,7 @@ class Parser:
             elif token in Parser.SPACE_BEFORE:
                 string += ' ' * (len(string) > 0 and string[-1] != ' ') + token
             elif token in Parser.SPACE_AFTER:
-                if string[-1] == ' ':
+                if len(string) > 0 and string[-1] == ' ':
                     string = string[:-1]
                 string += token + ' '
             elif token in Parser.SPACE_AROUND:
