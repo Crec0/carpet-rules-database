@@ -41,7 +41,6 @@ class Parser:
                 self.parse_enum()
             elif token in ('public', 'private'):
                 self.parse_field_if_field()
-
             self.advance()
         return self
 
@@ -142,7 +141,7 @@ class Parser:
             if is_string:
                 self.advance()
                 string, _ = self.read_until('"')
-                parsed_values.extend(string)
+                parsed_values.append(string)
             else:
                 parsed_values.append(self.peek())
         return parsed_values
@@ -157,7 +156,7 @@ class Parser:
             match token:
                 case 'desc':
                     self.advance(3)
-                    rule.description = self.read_until('"')
+                    rule.description, _ = self.read_until('"')
 
                 case 'strict':
                     self.advance(2)
