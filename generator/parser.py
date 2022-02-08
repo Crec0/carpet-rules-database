@@ -22,7 +22,7 @@ class Parser:
         self.__tokenizer = Tokenizer(source_code)
         self.rules: list[Rule] = []
         self.fields: dict[str, str] = {}
-        self.validators: dict[str, str] = {}
+        self.validator_descriptions: dict[str, str] = {}
         self.enums: dict[str, list[str]] = {}
 
     def parse(self) -> 'Parser':
@@ -34,7 +34,7 @@ class Parser:
             token = self.peek()
 
             if token == 'Rule':
-                self.rules.append(self.parse_rule())
+                self.parse_rule()
             elif token == 'class':
                 self.parse_validator()
             elif token == 'enum':
@@ -43,10 +43,6 @@ class Parser:
                 self.parse_field_if_field()
 
             self.advance()
-        print(self.rules, len(self.rules))
-        print(self.enums, len(self.enums))
-        print(self.validators, len(self.validators))
-        print(self.fields, len(self.fields))
         return self
 
     def has_next(self):
@@ -151,7 +147,7 @@ class Parser:
                 parsed_values.append(self.peek())
         return parsed_values
 
-    def parse_rule(self) -> Rule:
+    def parse_rule(self) -> None:
         """
         Parses the rule itself
         :return: The parsed rule
@@ -205,7 +201,7 @@ class Parser:
 
                     self.recede()  # go back before ; so the next advance will be a rule
             self.advance()
-        return rule
+        self.rules.append(rule)
 
     def parse_validator(self) -> None:
         """
@@ -218,7 +214,7 @@ class Parser:
         if match := re.search(Patterns.VALIDATOR_CLASS, candidate):
             class_block = self.read_block()
             if desc := re.search(Patterns.VALIDATOR_DESCRIPTION, class_block):
-                self.validators[match.groupdict()['name']] = Parser.concat_to_format(desc.group('description'))
+                self.validator_descriptions[match.groupdict()['name']] = Parser.concat_to_format(desc.group('description'))
 
     def parse_enum(self) -> None:
         """
