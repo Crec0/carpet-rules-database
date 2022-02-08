@@ -7,7 +7,11 @@ from generator.tokenizer import Tokenizer
 
 class Parser:
     """
-    Parser parses the input code and extracts the carpet rules from it.
+    Parses the input code and extracts the following:
+    - Rules (carpet rules)
+    - Fields used in the rules
+    - Validator descriptions
+    - Enums values
     """
     NO_SPACE = "-@#'!:"
     SPACE_AFTER = ',)}]>?'
@@ -23,11 +27,7 @@ class Parser:
 
     def parse(self) -> 'Parser':
         """
-        Parses the input code and extracts the following:
-        - Rules (carpet rules)
-        - Fields used in the rules
-        - Validator descriptions
-        - Enums values
+        parse method performs the parsing.  **REQUIRED** to be run to perform the parsing
         :return: The parser itself for chaining
         """
         while self.has_next():
