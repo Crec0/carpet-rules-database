@@ -6,7 +6,7 @@ class Patterns:
     Class to store regex patterns used in the program.
     """
     JAVADOC = re.compile(r'/\*[\s\S]*?\*/', re.MULTILINE)
-    JAVA_COMMENT = re.compile(r'//.*', re.MULTILINE)
+    JAVA_COMMENT = re.compile(r'(?<!:)//.*$', re.MULTILINE)
     DOUBLE_SPACE = re.compile(r'(?:\s\s)+', re.MULTILINE)
     TOKEN_SPLITTER = re.compile(r'(["\-\\=,;:/(){}@[\]<>&*!|?`+#%~^$])')
     WORD = re.compile(r'(\w+)')

@@ -153,8 +153,6 @@ class Parser:
         else:
             values, _ = self.read_until(',)')
 
-        print(values)
-
         return [
             value
             for match in re.findall(Patterns.LIST_ITEM_READER, values)
