@@ -7,14 +7,12 @@ class Linker:
     """
 
     def __init__(self, parser: Parser):
-        self.rules = parser.rules
-        self.fields = parser.fields
-        self.validators = parser.validators
-        self.enums = parser.enums
+        self.parser = parser
 
     def link(self) -> 'Linker':
         """
         link method performs the linking. **REQUIRED** to be run to perform linking
         :return: returns itself for chaining
         """
-        pass
+        return self
+

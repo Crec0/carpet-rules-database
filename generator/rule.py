@@ -1,13 +1,15 @@
-from typing import Union
+import json
+from typing import Any
 
-MissingString = Union[str, None]
-MissingStringList = Union[list[str], None]
+MissingString = str | None
+MissingStringList = list[str] | None
 
 
 class Rule:
     """
     Rule class that contains all the information about the carpet rule.
     """
+
     def __init__(self):
         self.name: MissingString = None
         self.type: MissingString = None
@@ -18,6 +20,7 @@ class Rule:
         self.options: MissingStringList = None
         self.extras: MissingStringList = None
         self.validators: MissingStringList = None
+        self.validator_description: MissingString = None
 
     def build(self):
         pass
@@ -31,7 +34,27 @@ class Rule:
                f'Default Value: {self.value}\n' \
                f'Options: {self.options}\n' \
                f'Strict: {self.strict}\n' \
-               f'Validators: {self.validators}\n'
+               f'Validators: {self.validators}\n' \
+               f'Validator Description: {self.validator_description}\n'
+
+
+class RuleEncoder(json.JSONEncoder):
+    def default(self, obj: Any) -> Any:
+        if isinstance(obj, Rule):
+            rule_dict = {
+                "name": obj.name,
+                "description": obj.description,
+                "type": obj.type,
+                "value": obj.value,
+                "categories": obj.categories,
+                "strict": obj.strict,
+                "options": obj.options,
+                "extras": obj.extras,
+                "validators": obj.validators,
+                "validator_description": obj.validator_description,
+            }
+            return rule_dict
+        return super().default(obj)
 
 
 def get_default_values_for_type(value_type):

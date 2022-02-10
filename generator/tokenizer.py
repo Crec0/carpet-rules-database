@@ -99,3 +99,9 @@ class Tokenizer:
             if self.has_prev():
                 self.__index -= 1
         return self.peek()
+
+    def reset(self):
+        """
+        Reset the tokenizer.
+        """
+        self.__index = 0

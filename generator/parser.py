@@ -12,6 +12,10 @@ class Parser:
     - Fields used in the rules
     - Validator descriptions
     - Enums values
+
+    Parsing is done in two steps:
+    - First, fields, validators, enums are parsed and extracted from the code
+    - Second, rules are parsed and enum/fiend/validator references are resolved
     """
     NO_SPACE = "-@#'!:"
     SPACE_AFTER = ',)}]>?'
@@ -32,15 +36,20 @@ class Parser:
         """
         while self.has_next():
             token = self.peek()
-
-            if token == 'Rule':
-                self.parse_rule()
-            elif token == 'class':
+            if token == 'class':
                 self.parse_validator()
             elif token == 'enum':
                 self.parse_enum()
             elif token in ('public', 'private'):
                 self.parse_field_if_field()
+            self.advance()
+
+        self.reset()
+
+        while self.has_next():
+            token = self.peek()
+            if token == 'Rule':
+                self.parse_rule()
             self.advance()
         return self
 
@@ -81,20 +90,26 @@ class Parser:
         """
         return self.__tokenizer.recede(amount)
 
-    def read_until(self, token_to_match: str) -> tuple[str, int]:
+    def reset(self) -> None:
+        """
+        Resets the tokenizer to the beginning
+        """
+        self.__tokenizer.reset()
+
+    def read_until(self, tokens_to_match: str) -> tuple[str, int]:
         """
         Reads the tokens until the given token is reached
-        :param token_to_match: The token to match to terminate the reading
+        :param tokens_to_match: The tokens to match to terminate the reading
         :return: The combined string of tokens read
         """
         read_string: list[str] = []
         advance_count: int = 0
 
-        while self.has_next() and (token := self.peek()) != token_to_match:
+        while self.has_next() and (token := self.peek()) not in tokens_to_match:
             read_string.append(token)
-            advance_count += 1 * self.advance() is not None
+            advance_count += 1 * (self.advance() is not None)
 
-        advance_count += 1 * self.advance() is not None
+        advance_count += 1 * (self.advance() is not None)
 
         return Parser.join_string(read_string), advance_count
 
@@ -121,30 +136,31 @@ class Parser:
 
         return Parser.join_string(read_tokens)
 
-    def parse_optional_list_type_values(self, is_string: bool = False) -> list[str]:
+    def parse_optional_list_type_values(self) -> list[str]:
         """
         Reads the string array type values. Examples:
          { "foo", "bar" } -> ["foo", "bar"]
-         "foo"            -> ["foo"]
+         { "foo", bar }   -> ["foo", "bar"]
          { foo, bar }     -> ["foo", "bar"]
+         "foo"            -> ["foo"]
          bar              -> ["bar"]
-        :param is_string: Whether the values are quoted strings or not
         :return: the list of values
         """
         self.advance(2)
-        parsed_values = []
         if self.peek() == '{':
-            self.advance()
-            array, _ = self.read_until('}')
-            parsed_values.extend(array.split(', '))
+            self.recede()
+            values = self.read_block()[:-1]
         else:
-            if is_string:
-                self.advance()
-                string, _ = self.read_until('"')
-                parsed_values.append(string)
-            else:
-                parsed_values.append(self.peek())
-        return parsed_values
+            values, _ = self.read_until(',)')
+
+        print(values)
+
+        return [
+            value
+            for match in re.findall(Patterns.LIST_ITEM_READER, values)
+            for value in map(lambda m: m.strip(' '), match.split(', '))
+            if value
+        ]
 
     def parse_rule(self) -> None:
         """
@@ -164,26 +180,26 @@ class Parser:
 
                 case 'category':
                     rule.categories = [
-                        category.strip('" ').upper()
+                        category.upper()
                         for category in self.parse_optional_list_type_values()
                     ]
 
                 case 'options':
                     rule.options = [
-                        option.strip('" ').lower()
+                        option.lower()
                         for option in self.parse_optional_list_type_values()
                     ]
 
                 case 'validate':
                     rule.validators = [
-                        validator.strip('" ').removesuffix('.class')
+                        validator.removesuffix('.class')
                         for validator in self.parse_optional_list_type_values()
                     ]
 
                 case 'extra':
                     rule.extras = [
-                        extra.strip('" ')
-                        for extra in self.parse_optional_list_type_values(is_string=True)
+                        extra
+                        for extra in self.parse_optional_list_type_values()
                     ]
 
                 case 'static':
@@ -235,10 +251,10 @@ class Parser:
         self.advance()
 
         if self.peek() == 'static':
-            advance_count += 1 * self.advance() is not None
+            advance_count += 1 * (self.advance() is not None)
 
         if self.peek() == 'final':
-            advance_count += 1 * self.advance() is not None
+            advance_count += 1 * (self.advance() is not None)
 
         candidate_name = self.advance()
         advance_count += 1 * candidate_name is not None
