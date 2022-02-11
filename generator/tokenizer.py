@@ -9,11 +9,8 @@ class Tokenizer:
 
     Convert a string into a list of tokens.
     """
-    ignored = [
-        Patterns.JAVADOC,
-        Patterns.JAVA_COMMENT,
-        Patterns.DOUBLE_SPACE
-    ]
+
+    ignored = [Patterns.JAVADOC, Patterns.JAVA_COMMENT, Patterns.DOUBLE_SPACE]
 
     def __init__(self, data: str):
         self.__data = data
@@ -27,17 +24,15 @@ class Tokenizer:
         Remove ignorable tokens from the token list.
         """
         for expr in Tokenizer.ignored:
-            self.__data = re.sub(expr, '', self.__data)
+            self.__data = re.sub(expr, "", self.__data)
 
     def __tokenize_data(self):
         """
         the main processing method which splits string to tokens.
         """
-        self.__tokens.extend(re.sub(
-            Patterns.TOKEN_SPLITTER,
-            r' \1 ',
-            self.__data
-        ).split())
+        self.__tokens.extend(
+            re.sub(Patterns.TOKEN_SPLITTER, r" \1 ", self.__data).split()
+        )
 
     @property
     def tokens(self) -> list[str]:
@@ -71,7 +66,7 @@ class Tokenizer:
         :raise: IndexError: if token list is empty.
         """
         if len(self.__tokens) == 0:
-            raise IndexError('Token list is empty')
+            raise IndexError("Token list is empty")
         return self.__tokens[self.__index]
 
     def advance(self, amount: int = 1) -> str | None:

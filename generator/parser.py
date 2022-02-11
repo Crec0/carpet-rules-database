@@ -17,38 +17,41 @@ class Parser:
     - First, fields, validators, enums are parsed and extracted from the code
     - Second, rules are parsed and enum/fiend/validator references are resolved
     """
+
     NO_SPACE = "-@#'!:"
-    SPACE_AFTER = ',)}]>?'
-    SPACE_AROUND = '~+*^%=&|'
-    SPACE_BEFORE = '`;/\\([{<$'
+    SPACE_AFTER = ",)}]>?"
+    SPACE_AROUND = "~+*^%=&|"
+    SPACE_BEFORE = "`;/\\([{<$"
 
     def __init__(self, source_code: str):
         self.__tokenizer = Tokenizer(source_code)
         self.rules: list[Rule] = []
         self.fields: dict[str, str] = {}
-        self.validator_descriptions: dict[str, str] = {}
+        self.validator_info: dict[str, str] = {}
         self.enums: dict[str, list[str]] = {}
 
-    def parse(self) -> 'Parser':
+    def parse(self) -> "Parser":
         """
         parse method performs the parsing.  **REQUIRED** to be run to perform the parsing
         :return: The parser itself for chaining
         """
         while self.has_next():
             token = self.peek()
-            if token == 'class':
+            if token == "class":
                 self.parse_validator()
-            elif token == 'enum':
+            elif token == "enum":
                 self.parse_enum()
-            elif token in ('public', 'private'):
-                self.parse_field_if_field()
+            elif token in ("public", "private"):
+                match_dict = self.parse_field_if_field()
+                if match_dict:
+                    self.fields[match_dict["name"]] = match_dict["value"]
             self.advance()
 
         self.reset()
 
         while self.has_next():
             token = self.peek()
-            if token == 'Rule':
+            if token == "Rule":
                 self.parse_rule()
             self.advance()
         return self
@@ -107,10 +110,8 @@ class Parser:
 
         while self.has_next() and (token := self.peek()) not in tokens_to_match:
             read_string.append(token)
-            advance_count += 1 * (self.advance() is not None)
-
-        advance_count += 1 * (self.advance() is not None)
-
+            advance_count += 1
+            self.advance()
         return Parser.join_string(read_string), advance_count
 
     def read_block(self) -> str:
@@ -121,18 +122,15 @@ class Parser:
         brace_count = 1
         read_tokens = []
 
-        self.read_until('{')
+        self.read_until("{")
 
         while brace_count > 0:
-            token = self.peek()
-
-            if token == '{':
+            token = self.advance()
+            if token == "{":
                 brace_count += 1
-            elif token == '}':
+            elif token == "}":
                 brace_count -= 1
-
             read_tokens.append(token)
-            self.advance()
 
         return Parser.join_string(read_tokens)
 
@@ -147,16 +145,15 @@ class Parser:
         :return: the list of values
         """
         self.advance(2)
-        if self.peek() == '{':
-            self.recede()
+        if self.peek() == "{":
             values = self.read_block()[:-1]
         else:
-            values, _ = self.read_until(',)')
+            values, _ = self.read_until(",)")
 
         return [
             value
             for match in re.findall(Patterns.LIST_ITEM_READER, values)
-            for value in map(lambda m: m.strip(' '), match.split(', '))
+            for value in map(lambda m: m.strip(" "), match.split(", "))
             if value
         ]
 
@@ -166,68 +163,59 @@ class Parser:
         :return: The parsed rule
         """
         rule = Rule()
-        while self.has_next() and (token := self.peek()) != ';':
+        while self.has_next() and (token := self.advance()) != ";":
             match token:
-                case 'desc':
+                case "desc":
                     self.advance(3)
                     rule.description, _ = self.read_until('"')
 
-                case 'strict':
+                case "strict":
                     self.advance(2)
-                    rule.strict = self.peek() == 'true'
+                    rule.strict = self.peek() == "true"
 
-                case 'category':
+                case "category":
                     rule.categories = [
                         category.upper()
                         for category in self.parse_optional_list_type_values()
                     ]
 
-                case 'options':
+                case "options":
                     rule.options = [
                         option.lower()
                         for option in self.parse_optional_list_type_values()
                     ]
 
-                case 'validate':
+                case "validate":
                     rule.validators = [
-                        validator.removesuffix('.class')
+                        validator.removesuffix(".class")
                         for validator in self.parse_optional_list_type_values()
                     ]
 
-                case 'extra':
-                    rule.extras = [
-                        extra
-                        for extra in self.parse_optional_list_type_values()
-                    ]
+                case "extra":
+                    rule.extras = self.parse_optional_list_type_values()
 
-                case 'static':
-                    rule.type = self.advance()
-                    rule.name = self.advance()
-
-                    if self.advance() == '=':
-                        self.advance()
-                        value, _ = self.read_until(';')
-                        rule.value = value.strip('" ')
-                        self.recede()  # go back to ;
-                    else:
-                        rule.value = get_default_values_for_type(rule.type)
-
-                    self.recede()  # go back before ; so the next advance will be a rule
-            self.advance()
+                case "public":
+                    match_dict = self.parse_field_if_field()
+                    if match_dict:
+                        rule.type = match_dict["type"]
+                        rule.name = match_dict["name"]
+                        rule.value = match_dict["value"]
         self.rules.append(rule)
 
     def parse_validator(self) -> None:
         """
         Parses the validator and stores it in the validators list
         """
-        candidate, _ = self.read_until('{')
+        candidate, _ = self.read_until("{")
         # step back before { so the read_block can function properly
         self.recede()
 
         if match := re.search(Patterns.VALIDATOR_CLASS, candidate):
             class_block = self.read_block()
             if desc := re.search(Patterns.VALIDATOR_DESCRIPTION, class_block):
-                self.validator_descriptions[match.groupdict()['name']] = Parser.concat_to_format(desc.group('description'))
+                self.validator_info[
+                    match.groupdict()["name"]
+                ] = Parser.concat_to_format(desc.group("description"))
 
     def parse_enum(self) -> None:
         """
@@ -235,8 +223,8 @@ class Parser:
         """
         enum_name = self.advance().strip(" ")
         self.advance(2)
-        enum_values, _ = self.read_until('}')
-        enum_arg_removed = re.sub(Patterns.ENUM_FILTER, '', enum_values)
+        enum_values, _ = self.read_until(";")
+        enum_arg_removed = re.sub(Patterns.ENUM_FILTER, "", enum_values)
         enums = re.findall(Patterns.WORD, enum_arg_removed)
         self.enums[enum_name] = [enum.lower() for enum in enums]
 
@@ -245,24 +233,11 @@ class Parser:
         Parses a field if it is a field otherwise does nothing
         :return:
         """
-        advance_count = 1
-        self.advance()
-
-        if self.peek() == 'static':
-            advance_count += 1 * (self.advance() is not None)
-
-        if self.peek() == 'final':
-            advance_count += 1 * (self.advance() is not None)
-
-        candidate_name = self.advance()
-        advance_count += 1 * candidate_name is not None
-        if name_match := re.match(Patterns.WORD, candidate_name):
-            name = name_match.group(1)
-            value, count = self.read_until(';')
-            advance_count += count
-            self.fields[name] = value
-
-        self.recede(advance_count)
+        candidate, amount = self.read_until(";")
+        self.recede(amount)
+        if match := re.match(Patterns.STATIC_FIELD, candidate):
+            return match.groupdict()
+        return None
 
     @staticmethod
     def concat_to_format(string: str) -> str:
@@ -276,14 +251,14 @@ class Parser:
         :param string: the string to be converted
         :return: the format converted string
         """
-        ret = ''
-        for segment in string.split('+'):
-            segment = segment.strip(' ')
+        ret = ""
+        for segment in string.split("+"):
+            segment = segment.strip(" ")
             if segment and segment[0] != '"' and segment[-1] != '"':
-                ret += f' {{{segment}}} '
+                ret += f" {{{segment}}} "
             else:
                 ret += segment.strip('" ')
-        return ret.strip(' ')
+        return ret.strip(" ")
 
     # TODO improve this
     @staticmethod
@@ -295,18 +270,18 @@ class Parser:
         :param tokens: the tokens to be joined
         :return: the joined string
         """
-        string = ''
+        string = ""
         for token in tokens:
             if token in Parser.NO_SPACE:
                 string += token
             elif token in Parser.SPACE_BEFORE:
-                string += ' ' * (len(string) > 0 and string[-1] != ' ') + token
+                string += " " * (len(string) > 0 and string[-1] != " ") + token
             elif token in Parser.SPACE_AFTER:
-                if len(string) > 0 and string[-1] == ' ':
+                if len(string) > 0 and string[-1] == " ":
                     string = string[:-1]
-                string += token + ' '
+                string += token + " "
             elif token in Parser.SPACE_AROUND:
-                string += ' ' + token + ' '
+                string += " " + token + " "
             else:
-                string += token + ' '
+                string += token + " "
         return string.strip()
