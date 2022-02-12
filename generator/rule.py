@@ -1,29 +1,42 @@
 import json
 from typing import Any
 
-MissingString = str | None
-MissingStringList = list[str] | None
-
 
 class Rule:
     """
     Rule class that contains all the information about the carpet rule.
+
+    Attributes:
+        name (str): Name of the rule.
+        description (str): Description of the rule.
+        type (str): Type of the rule.
+        value (str): Value of the rule.
+        strict (bool): if options provided are strictly required or not.
+        categories (list): List of categories for the rule.
+        options (list): List of options for the rule.
+        extras (list): List of extra information for the rule.
+        validators (list): List of validators info for the rule.
     """
 
     def __init__(self):
-        self.name: MissingString = None
-        self.type: MissingString = None
-        self.description: MissingString = None
-        self.categories: MissingStringList = None
-        self.value: MissingString = None
+        self.name: str = ""
+        self.description: str = ""
+        self.type: str = ""
+        self.value: str = ""
         self.strict: bool = True
-        self.options: MissingStringList = None
-        self.extras: MissingStringList = None
-        self.validators: MissingStringList = None
-        self.validator_description: MissingString = None
+        self.categories: list[str] = []
+        self.options: list[str] | None = None
+        self.extras: list[str] | None = None
+        self.validators: list[str] | None = None
+        self.repo_branch: str = ""
 
-    def build(self):
-        pass
+    def __hash__(self) -> int:
+        return hash((hash(self.name), hash(self.repo_branch)))
+
+    def __eq__(self, other: Any) -> bool:
+        if not isinstance(other, Rule):
+            return False
+        return self.name == other.name and self.description == other.description
 
     def __repr__(self):
         return (
@@ -36,7 +49,7 @@ class Rule:
             f"Options: {self.options}\n"
             f"Strict: {self.strict}\n"
             f"Validators: {self.validators}\n"
-            f"Validator Description: {self.validator_description}\n"
+            f"Repo Branch: {self.repo_branch}\n"
         )
 
 
@@ -53,7 +66,6 @@ class RuleEncoder(json.JSONEncoder):
                 "options": obj.options,
                 "extras": obj.extras,
                 "validators": obj.validators,
-                "validator_description": obj.validator_description,
             }
             return rule_dict
         return super().default(obj)
