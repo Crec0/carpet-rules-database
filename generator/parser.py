@@ -1,7 +1,7 @@
 import re
 
 from generator.regex import Patterns
-from generator.rule import Rule, get_default_values_for_type
+from generator.rule import Rule
 from generator.tokenizer import Tokenizer
 
 
@@ -24,7 +24,8 @@ class Parser:
     SPACE_AROUND = "~+*^%=&|"
     SPACE_BEFORE = "`;/\\([{<$"
 
-    def __init__(self, source_code: str):
+    def __init__(self, repo_branch: str, source_code: str):
+        self.repo_branch = repo_branch
         self.__tokenizer = Tokenizer(source_code)
         self.rules: list[Rule] = []
         self.fields: dict[str, str] = {}
@@ -173,6 +174,10 @@ class Parser:
         :return: The parsed rule
         """
         rule = Rule()
+        repo, branch = self.repo_branch.split("/tree/")
+        rule.repo = repo
+        rule.branches.add(branch)
+
         while self.has_next() and (token := self.advance()) != ";":
             match token:
                 case "desc":

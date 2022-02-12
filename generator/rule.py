@@ -15,6 +15,8 @@ class Rule:
     - options (list): List of options for the rule.
     - extras (list): List of extra information for the rule.
     - validators (list): List of validators info for the rule.
+    - repo (str): Repository of the rule.
+    - branches (list): List of branches the rule is available in the repository.
     """
 
     def __init__(self):
@@ -27,15 +29,8 @@ class Rule:
         self.options: list[str] | None = None
         self.extras: list[str] | None = None
         self.validators: list[str] | None = None
-        self.repo_branch: str = ""
-
-    def __hash__(self) -> int:
-        return hash((hash(self.name), hash(self.repo_branch)))
-
-    def __eq__(self, other: Any) -> bool:
-        if not isinstance(other, Rule):
-            return False
-        return self.name == other.name and self.repo_branch == other.repo_branch
+        self.repo: str = ""
+        self.branches: set[str] = set()
 
     def __repr__(self):
         return (
@@ -48,7 +43,8 @@ class Rule:
             f"Options: {self.options}\n"
             f"Strict: {self.strict}\n"
             f"Validators: {self.validators}\n"
-            f"Repo Branch: {self.repo_branch}\n"
+            f"Repo: {self.repo}\n"
+            f"Branches: {self.branches}"
         )
 
 
@@ -65,7 +61,8 @@ class RuleEncoder(json.JSONEncoder):
                 "options": obj.options,
                 "extras": obj.extras,
                 "validators": obj.validators,
-                "branch": obj.repo_branch,
+                "repo": obj.repo,
+                "branches": list(obj.branches),
             }
             return rule_dict
         return super().default(obj)
@@ -87,3 +84,19 @@ def get_default_values_for_type(value_type):
             return "0"
         case "String":
             return ""
+
+
+def group_by_repo(rules: list[Rule]) -> list[Rule]:
+    """
+    Combines the rules into one instance if they have different branch but same repo
+
+    :param rules: list of rules
+    :return: dictionary of rules grouped by repository
+    """
+    grouped_rules: dict[str, Rule] = {}
+    for rule in rules:
+        if rule.name not in grouped_rules:
+            grouped_rules[rule.name] = rule
+        else:
+            grouped_rules[rule.name].branches |= rule.branches
+    return list(grouped_rules.values())
