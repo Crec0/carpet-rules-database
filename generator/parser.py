@@ -223,7 +223,11 @@ class Parser:
                     if match_dict:
                         rule.type = match_dict["type"]
                         rule.name = match_dict["name"]
-                        rule.value = match_dict["value"].strip('" ')
+                        value = match_dict["value"].strip('" ')
+                        if value in self.fields:
+                            rule.value = self.fields[value]
+                        else:
+                            rule.value = value
 
         self.rules.append(rule)
 
@@ -240,7 +244,7 @@ class Parser:
             if desc := re.search(Patterns.VALIDATOR_DESCRIPTION, class_block):
                 self.validator_info[
                     match.groupdict()["name"]
-                ] = Parser.concat_to_format(desc.group("description"))
+                ] = self.replace_variable_with_value(desc.group("description"))
 
     def parse_enum(self) -> None:
         """
@@ -264,8 +268,7 @@ class Parser:
             return match.groupdict()
         return None
 
-    @staticmethod
-    def concat_to_format(string: str) -> str:
+    def replace_variable_with_value(self, string: str) -> str:
         """
         converts the concatenated strings to the formatted string
 
@@ -282,7 +285,7 @@ class Parser:
         for segment in string.split("+"):
             segment = segment.strip(" ")
             if segment and segment[0] != '"' and segment[-1] != '"':
-                ret += f" {{{segment}}} "
+                ret += f" {self.fields[segment]} "
             else:
                 ret += segment.strip('" ')
         return ret.strip(" ")
