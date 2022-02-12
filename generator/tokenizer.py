@@ -56,6 +56,7 @@ class Tokenizer:
         Check if there is a previous token.
 
         same concept as has_next() just in reverse.
+
         :return: True if there is a previous token, False otherwise.
         """
         return self.__index > 0
@@ -63,7 +64,8 @@ class Tokenizer:
     def peek(self) -> str:
         """
         Gets the current token.
-        :raise: IndexError: if token list is empty.
+
+        :raises IndexError: if token list is empty.
         """
         if len(self.__tokens) == 0:
             raise IndexError("Token list is empty")
@@ -72,6 +74,7 @@ class Tokenizer:
     def advance(self, amount: int = 1) -> str | None:
         """
         Move forward by the specified amount.
+
         :param: amount: amount to move forward.
         :return: the current token after advancing. If it can't advance, return None.
         """
@@ -85,6 +88,7 @@ class Tokenizer:
     def recede(self, amount: int = 1):
         """
         Move backward by the specified amount.
+
         :param: amount: amount to move backward.
         :return: the current token after receding. If it can't recede, return None.
         """

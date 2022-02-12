@@ -6,16 +6,15 @@ class Rule:
     """
     Rule class that contains all the information about the carpet rule.
 
-    Attributes:
-        name (str): Name of the rule.
-        description (str): Description of the rule.
-        type (str): Type of the rule.
-        value (str): Value of the rule.
-        strict (bool): if options provided are strictly required or not.
-        categories (list): List of categories for the rule.
-        options (list): List of options for the rule.
-        extras (list): List of extra information for the rule.
-        validators (list): List of validators info for the rule.
+    - name (str): Name of the rule.
+    - description (str): Description of the rule.
+    - type (str): Type of the rule.
+    - value (str): Value of the rule.
+    - strict (bool): if options provided are strictly required or not.
+    - categories (list): List of categories for the rule.
+    - options (list): List of options for the rule.
+    - extras (list): List of extra information for the rule.
+    - validators (list): List of validators info for the rule.
     """
 
     def __init__(self):
@@ -36,7 +35,7 @@ class Rule:
     def __eq__(self, other: Any) -> bool:
         if not isinstance(other, Rule):
             return False
-        return self.name == other.name and self.description == other.description
+        return self.name == other.name and self.repo_branch == other.repo_branch
 
     def __repr__(self):
         return (
@@ -76,6 +75,7 @@ def get_default_values_for_type(value_type):
     Returns the default value for the given value type.
 
     Expects the value type to be boolean, string, or int
+
     :param value_type: a string representing the value type
     :return: the default value for the given value type
     """

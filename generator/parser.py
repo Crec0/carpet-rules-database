@@ -8,14 +8,15 @@ from generator.tokenizer import Tokenizer
 class Parser:
     """
     Parses the input code and extracts the following:
+
     - Rules (carpet rules)
     - Fields used in the rules
     - Validator descriptions
     - Enums values
 
-    Parsing is done in two steps:
-    - First, fields, validators, enums are parsed and extracted from the code
-    - Second, rules are parsed and enum/fiend/validator references are resolved
+    Parsing is done in two steps:\n
+    - First, fields, validators, enums are parsed and extracted from the code\n
+    - Second, rules are parsed and enum/fiend/validator references are resolved\n
     """
 
     NO_SPACE = "-@#'!:"
@@ -30,9 +31,58 @@ class Parser:
         self.validator_info: dict[str, str] = {}
         self.enums: dict[str, list[str]] = {}
 
+    def has_next(self):
+        """
+        A wrapper for the tokenizer's has_next method for qol
+
+        :return: True if the tokenizer has a next token, False otherwise
+        """
+        return self.__tokenizer.has_next()
+
+    def has_prev(self):
+        """
+        A wrapper for the tokenizer's has_prev method for qol
+
+        :return: True if the tokenizer has a previous token, False otherwise
+        """
+        return self.__tokenizer.has_prev()
+
+    def peek(self):
+        """
+        A wrapper for the tokenizer's peek method for qol
+
+        :return: The next token in the tokenizer
+        """
+        return self.__tokenizer.peek()
+
+    def advance(self, amount: int = 1) -> str:
+        """
+        Advances the tokenizer by the given amount
+
+        :param amount: The amount to advance by
+        :return: The token that was advanced to
+        """
+        return self.__tokenizer.advance(amount)
+
+    def recede(self, amount: int = 1) -> str:
+        """
+        Recedes the tokenizer by the given amount
+
+        :param amount: The amount to recede by
+        :return: The token that was receded to
+        """
+        return self.__tokenizer.recede(amount)
+
+    def reset(self) -> None:
+        """
+        Resets the tokenizer to the beginning
+        """
+        self.__tokenizer.reset()
+
     def parse(self) -> "Parser":
         """
-        parse method performs the parsing.  **REQUIRED** to be run to perform the parsing
+        parse method performs the parsing
+
         :return: The parser itself for chaining
         """
         while self.has_next():
@@ -42,8 +92,7 @@ class Parser:
             elif token == "enum":
                 self.parse_enum()
             elif token in ("public", "private"):
-                match_dict = self.parse_field_if_field()
-                if match_dict:
+                if match_dict := self.parse_field_if_field():
                     self.fields[match_dict["name"]] = match_dict["value"]
             self.advance()
 
@@ -56,52 +105,10 @@ class Parser:
             self.advance()
         return self
 
-    def has_next(self):
-        """
-        A wrapper for the tokenizer's has_next method for qol
-        :return: True if the tokenizer has a next token, False otherwise
-        """
-        return self.__tokenizer.has_next()
-
-    def has_prev(self):
-        """
-        A wrapper for the tokenizer's has_prev method for qol
-        :return: True if the tokenizer has a previous token, False otherwise
-        """
-        return self.__tokenizer.has_prev()
-
-    def peek(self):
-        """
-        A wrapper for the tokenizer's peek method for qol
-        :return: The next token in the tokenizer
-        """
-        return self.__tokenizer.peek()
-
-    def advance(self, amount: int = 1) -> str:
-        """
-        Advances the tokenizer by the given amount
-        :param amount: The amount to advance by
-        :return: The token that was advanced to
-        """
-        return self.__tokenizer.advance(amount)
-
-    def recede(self, amount: int = 1) -> str:
-        """
-        Recedes the tokenizer by the given amount
-        :param amount: The amount to recede by
-        :return: The token that was receded to
-        """
-        return self.__tokenizer.recede(amount)
-
-    def reset(self) -> None:
-        """
-        Resets the tokenizer to the beginning
-        """
-        self.__tokenizer.reset()
-
     def read_until(self, tokens_to_match: str) -> tuple[str, int]:
         """
         Reads the tokens until the given token is reached
+
         :param tokens_to_match: The tokens to match to terminate the reading
         :return: The combined string of tokens read
         """
@@ -117,6 +124,7 @@ class Parser:
     def read_block(self) -> str:
         """
         Reads the whole block of the scope. ie { ... }
+
         :return: The combined string repr of the block
         """
         brace_count = 1
@@ -137,11 +145,12 @@ class Parser:
     def parse_optional_list_type_values(self) -> list[str]:
         """
         Reads the string array type values. Examples:
-         { "foo", "bar" } -> ["foo", "bar"]
-         { "foo", bar }   -> ["foo", "bar"]
-         { foo, bar }     -> ["foo", "bar"]
-         "foo"            -> ["foo"]
-         bar              -> ["bar"]
+         - { "foo", "bar" } -> ["foo", "bar"]
+         - { "foo", bar }   -> ["foo", "bar"]
+         - { foo, bar }     -> ["foo", "bar"]
+         - "foo"            -> ["foo"]
+         - bar              -> ["bar"]
+
         :return: the list of values
         """
         self.advance(2)
@@ -160,6 +169,7 @@ class Parser:
     def parse_rule(self) -> None:
         """
         Parses the rule itself
+
         :return: The parsed rule
         """
         rule = Rule()
@@ -186,10 +196,19 @@ class Parser:
                     ]
 
                 case "validate":
-                    rule.validators = [
+                    validator_names = [
                         validator.removesuffix(".class")
                         for validator in self.parse_optional_list_type_values()
                     ]
+                    rule.validators = list(
+                        filter(
+                            lambda v: v is not None,
+                            map(
+                                lambda name: self.validator_info.get(name, None),
+                                validator_names,
+                            ),
+                        )
+                    )
 
                 case "extra":
                     rule.extras = self.parse_optional_list_type_values()
@@ -199,7 +218,8 @@ class Parser:
                     if match_dict:
                         rule.type = match_dict["type"]
                         rule.name = match_dict["name"]
-                        rule.value = match_dict["value"]
+                        rule.value = match_dict["value"].strip('" ')
+
         self.rules.append(rule)
 
     def parse_validator(self) -> None:
@@ -244,10 +264,12 @@ class Parser:
         """
         converts the concatenated strings to the formatted string
 
-        This is done to use str.format() on it later on instead of evaluating it
+        This is done to use str.format() on it later on instead of evaluating it\n
         Examples:
-        "for" + bar     -> "foo {bar}"
-        "for" + bar + "baz" -> "foo {bar} baz"
+
+        - "for" + bar     -> "foo {bar}"
+        - "for" + bar + "baz" -> "foo {bar} baz"
+
         :param string: the string to be converted
         :return: the format converted string
         """
@@ -267,6 +289,7 @@ class Parser:
         Joins the tokens to a string with the correct spacing
 
         It's not smart and has some funny edge cases
+
         :param tokens: the tokens to be joined
         :return: the joined string
         """
