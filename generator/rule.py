@@ -65,6 +65,7 @@ class RuleEncoder(json.JSONEncoder):
                 "options": obj.options,
                 "extras": obj.extras,
                 "validators": obj.validators,
+                "branch": obj.repo_branch,
             }
             return rule_dict
         return super().default(obj)
