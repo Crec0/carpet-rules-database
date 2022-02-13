@@ -72,7 +72,8 @@
       "name": "minitweaks",
       "ownerRepo": "manyrandomthings/minitweaks",
       "settingsFiles": [
-        "minitweaks/MiniTweaksSettings.java"
+        "minitweaks/MiniTweaksSettings.java",
+        "minitweaks/MiniTweaksRuleCategory.java"
       ],
       "branches": [
         "1.16",
