@@ -82,7 +82,7 @@ function objToHTML(rule) {
     const description = rule['description']
     let extra = ""
     if (rule['extras'] !== null) {
-        extra += rule['extras'].map(e => `<div>${e}</div>`)
+        extra = rule['extras'].map(e => `<div>${e}</div>`).join("")
     }
     const type = wrapWithSpan([rule['type']])
     const value = wrapWithSpan([rule['value']])
