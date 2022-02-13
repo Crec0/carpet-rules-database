@@ -32,6 +32,13 @@ class Rule:
         self.repo: str = ""
         self.branches: set[str] = set()
 
+    def __hash__(self) -> int:
+        return hash((
+            hash(self.name),
+            hash(self.type),
+            hash(self.repo)
+        ))
+
     def __repr__(self):
         return (
             f"{self.name}\n"
@@ -93,10 +100,11 @@ def group_by_repo(rules: list[Rule]) -> list[Rule]:
     :param rules: list of rules
     :return: dictionary of rules grouped by repository
     """
-    grouped_rules: dict[str, Rule] = {}
+    grouped_rules: dict[int, Rule] = {}
     for rule in rules:
-        if rule.name not in grouped_rules:
-            grouped_rules[rule.name] = rule
+        rule_hash = hash(rule)
+        if rule_hash not in grouped_rules:
+            grouped_rules[rule_hash] = rule
         else:
-            grouped_rules[rule.name].branches |= rule.branches
+            grouped_rules[rule_hash].branches |= rule.branches
     return list(grouped_rules.values())
