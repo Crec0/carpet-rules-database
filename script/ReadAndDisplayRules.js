@@ -43,15 +43,21 @@ $(function () {
     window.addEventListener('scroll', () => {
         const {scrollTop, scrollHeight, clientHeight} = document.documentElement
         if (scrollTop + clientHeight >= scrollHeight - 100 && currentPage * RULES_PER_PAGE < FILTERED_RULES.length) {
+            // If we have rules remaining to render and
             renderRules()
             LOADING_WHEEL.hide()
         } else {
             LOADING_WHEEL.show()
         }
+        // If all rules are loaded. hide the wheel.
         if ((currentPage + 1) * RULES_PER_PAGE >= FILTERED_RULES.length) {
             LOADING_WHEEL.hide()
         }
     }, {passive: true})
+
+    $('#topButton').on('click', function () {
+        document.documentElement.scrollTo({top:0})
+    })
 })
 
 function isInvalid(event) {
@@ -79,10 +85,9 @@ function wrapBranches(repo, branches) {
 
 function objToHTML(rule) {
     const name = rule['name']
-    const description = rule['description']
-    let extra = ""
+    let description = rule['description']
     if (rule['extras'] !== null) {
-        extra = rule['extras'].map(e => `<div>${e}</div>`).join("")
+        description += rule['extras'].map(e => `<div>${e}</div>`).join("")
     }
     const type = wrapWithSpan([rule['type']])
     const value = wrapWithSpan([rule['value']])
@@ -94,7 +99,7 @@ function objToHTML(rule) {
     }
     let additionalNotes = ""
     if (rule['validators']?.length > 0) {
-        additionalNotes = `<li class="ruleListItem">Additional Notes:&nbsp;<div class="normalText indent-8">${rule['validators'].sort()}</div></li>`
+        additionalNotes = `<li class="ruleListItem">Additional Notes:&nbsp;<div class="font-normal indent-8">${rule['validators'].sort()}</div></li>`
     }
     const repo = wrapRepo(rule['repo'])
     const branches = wrapBranches(rule['repo'], rule['branches'])
@@ -102,8 +107,7 @@ function objToHTML(rule) {
     return `
     <div class="rule">
         <span class="ruleName">${name}</span>
-        <span class="normalText">${description}</span>
-        <span class="normalText">${extra}</span>
+        <span class="font-normal ruleDesc">${description}</span>
         <ul class="ruleOptions">
             <li class="ruleListItem">Type:&nbsp;${type}</li>
             <li class="ruleListItem">Default value:&nbsp;${value}</li>
@@ -111,7 +115,7 @@ function objToHTML(rule) {
             <li class="ruleListItem">Categories:&nbsp;${categories}</li>
             ${additionalNotes}
             <li class="ruleListItem">Repo:&nbsp;${repo}</li>
-            <li class="ruleLisItem">Branches:&nbsp;${branches}</li>
+            <li class="ruleListItem">Branches:&nbsp;${branches}</li>
         </ul>
     </div>
     `

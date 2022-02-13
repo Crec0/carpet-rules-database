@@ -8,7 +8,7 @@
     }
     
     .rule {
-        @apply bg-slate-50 rounded grid grid-cols-1 p-4;
+        @apply bg-secondary rounded grid grid-cols-1 p-4;
     }
 
     .rule > ul > li {
@@ -16,14 +16,22 @@
     }
     
     .ruleName {
-        @apply text-2xl text-gray-900 font-bold p-2 pl-0;
+        @apply text-2xl text-ternary font-bold p-2 pl-0;
     }
     
     .ruleDesc {
-        @apply text-gray-700 text-lg p-1;
+        @apply text-accent text-lg p-1;
+    }
+
+    .ruleListItem {
+        @apply text-accent font-bold;
     }
 
     .codeSpan {
-        @apply bg-gray-300 text-gray-900 p-1 rounded font-mono font-medium;
+        @apply bg-primary text-accent px-2 py-1 rounded font-mono font-medium;
+    }
+
+    .link {
+        @apply text-ternary px-0.5 hover:text-accent font-semibold;
     }
 }
