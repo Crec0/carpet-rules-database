@@ -56,9 +56,3 @@ def assemble_data(data: Iterable) -> dict:
     for branch, content in data:
         data_dict[branch] = "\n".join([data_dict[branch], content])
     return data_dict
-
-
-if __name__ == "__main__":
-    owner_content = assemble_data(fetch_data())
-    with open("../data/downloaded_data.json", "w") as f:
-        json.dump(owner_content, f, indent=4)
