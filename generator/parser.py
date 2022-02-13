@@ -190,7 +190,7 @@ class Parser:
 
                 case "category":
                     rule.categories = [
-                        category.upper()
+                        self.resolve(category).upper()
                         for category in self.parse_optional_list_type_values()
                     ]
 
@@ -222,12 +222,12 @@ class Parser:
                     match_dict = self.parse_field_if_field()
                     if match_dict:
                         rule.type = match_dict["type"]
+                        # if the type is enum, the options are the enum values
+                        if match_dict["type"] in self.enums:
+                            rule.options = self.enums[match_dict["type"]]
                         rule.name = match_dict["name"]
                         value = match_dict["value"].strip('" ')
-                        if value in self.fields:
-                            rule.value = self.fields[value]
-                        else:
-                            rule.value = value
+                        rule.value = self.resolve(value)
 
         self.rules.append(rule)
 
@@ -289,6 +289,24 @@ class Parser:
             else:
                 ret += segment.strip('" ')
         return ret.strip(" ")
+
+    def resolve(self, resolvable: str) -> str:
+        """
+        Resolves the string to the value of the field
+
+        :param resolvable: the string to be resolved
+        :return: the resolved string
+        """
+        if re.match(Patterns.FLOATING_POINT_NUMBER, resolvable):
+            return resolvable
+
+        if "." in resolvable:
+            resolvable = resolvable.split(".")[-1]
+
+        if resolvable in self.fields:
+            return self.fields[resolvable].strip('" ')
+
+        return resolvable
 
     # TODO improve this
     @staticmethod

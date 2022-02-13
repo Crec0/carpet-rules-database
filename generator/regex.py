@@ -18,3 +18,4 @@ class Patterns:
     STATIC_FIELD = re.compile(
         r"(?:public|private) ?static (?:final)? ?(?P<type>[^ ]+) ?(?P<name>\w+)\s*=\s*(?P<value>[^;]+)"
     )
+    FLOATING_POINT_NUMBER = re.compile(r"([-+]?[0-9]*\.?[0-9]+)")
