@@ -1,58 +1,127 @@
-const RULES = [];
+const ALL_RULES = []
+const RULES_PER_PAGE = 25
+const RULES_DIV = $('#rules')
+const LOADING_WHEEL = $('#loadingWheel')
+
+let FILTERED_RULES = []
+let currentPage = 0
 
 $(function () {
     $.ajax({
-        url: '../data/rules.json', dataType: 'json', success: function (rules) {
-            RULES.push(...rules);
-            renderRules((_) => true);
+        url: 'data/parsed_data.json', dataType: 'json', success: function (rules) {
+            ALL_RULES.push(...rules.sort((r1, r2) => r1.name.localeCompare(r2.name)))
+            FILTERED_RULES = ALL_RULES.slice()
+            renderRules()
         }
     })
 
-    const placeholder = 'what are you looking for ?...';
+    const placeholder = 'what are you looking for ?...'
 
     $('#searchKeyword')
         .attr('placeholder', placeholder)
         .on('focusin', function () {
-            $(this).attr('placeholder', '');
+            $(this).attr('placeholder', '')
         })
         .on('focusout', function () {
             $(this).attr('placeholder', placeholder)
         })
-        .on('keyup change', function () {
-            const v = $(this).val();
-            const regex = new RegExp(`\w*${v}\w*`);
-            renderRules(rule => regex.test(rule['Name'].toLowerCase()));
+        .on('keyup change', function (event) {
+            if (isInvalid(event)) return
+            const v = $(this).val()
+            const regex = new RegExp(`\w*${v.toLowerCase()}\w*`)
+            FILTERED_RULES = ALL_RULES.filter(
+                rule => regex.test(rule['name']?.toLowerCase())
+            )
+            if ((currentPage + 1) * RULES_PER_PAGE >= FILTERED_RULES.length) {
+                LOADING_WHEEL.hide()
+            }
+            RULES_DIV.empty()
+            currentPage = 0
+            renderRules()
         })
+
+    window.addEventListener('scroll', () => {
+        const {scrollTop, scrollHeight, clientHeight} = document.documentElement
+        if (scrollTop + clientHeight >= scrollHeight - 100 && currentPage * RULES_PER_PAGE < FILTERED_RULES.length) {
+            renderRules()
+            LOADING_WHEEL.hide()
+        } else {
+            LOADING_WHEEL.show()
+        }
+        if ((currentPage + 1) * RULES_PER_PAGE >= FILTERED_RULES.length) {
+            LOADING_WHEEL.hide()
+        }
+    }, {passive: true})
 })
 
+function isInvalid(event) {
+    // shift, ctrl, alt, pageup, pagedown
+    return [16, 17, 18, 33, 34].includes(event.keyCode)
+}
+
+function wrapWithSpan(list) {
+    return list
+        .sort()
+        .map(val => `<span class="codeSpan">${val}</span>`)
+        .join(",&nbsp;")
+}
+
+function wrapRepo(repo) {
+    return `<a href="https://github.com/${repo}" class="link">${repo}</a>`
+}
+
+function wrapBranches(repo, branches) {
+    return branches
+        .sort()
+        .map(branch => `<a href="https://github.com/${repo}/tree/${branch}" class="link">${branch}</a>`)
+        .join(",&nbsp;")
+}
+
 function objToHTML(rule) {
-    let description = rule["Description"];
-    if (rule["Extra"] != null) {
-        description += rule["Extra"].join('<br>')
+    const name = rule['name']
+    const description = rule['description']
+    let extra = ""
+    if (rule['extras'] !== null) {
+        extra += rule['extras'].map(e => `<div>${e}</div>`)
     }
-    let options = "";
-    if (rule["Options"] != null) {
-        const joinedOptions = "Required options: " + rule["Options"].map(o => `<span class="codeSpan">${o}</span>`).join(', ');
-        options += `<li class="ruleListItem"> ${joinedOptions} </li>`
+    const type = wrapWithSpan([rule['type']])
+    const value = wrapWithSpan([rule['value']])
+    const categories = wrapWithSpan(rule['categories'])
+    let options = ""
+    if (rule['options'] !== null) {
+        const required = rule['strict'] ? 'Required' : 'Suggested'
+        options = `<li class="ruleListItem">${required} options:&nbsp;${wrapWithSpan(rule['options'])}</li>`
     }
-    const categories = rule["Categories"].map(category => `<span class="codeSpan">${category}</span>`).join(', ');
+    let additionalNotes = ""
+    if (rule['validators']?.length > 0) {
+        additionalNotes = `<li class="ruleListItem">Additional Notes:&nbsp;<div class="normalText indent-8">${rule['validators'].sort()}</div></li>`
+    }
+    const repo = wrapRepo(rule['repo'])
+    const branches = wrapBranches(rule['repo'], rule['branches'])
 
     return `
     <div class="rule">
-        <span class="ruleName">${rule['Name']}</span>
-        <span class="ruleDesc">${description}</span>
+        <span class="ruleName">${name}</span>
+        <span class="normalText">${description}</span>
+        <span class="normalText">${extra}</span>
         <ul class="ruleOptions">
-            <li class="ruleListItem">Type: <span class="codeSpan">${rule['Type']}</span></li>
-            <li class="ruleListItem">Default value: <span class="codeSpan">${rule['Value']}</span></li>
+            <li class="ruleListItem">Type:&nbsp;${type}</li>
+            <li class="ruleListItem">Default value:&nbsp;${value}</li>
             ${options}
-            <li class="ruleListItem">Categories: ${categories}</li>
+            <li class="ruleListItem">Categories:&nbsp;${categories}</li>
+            ${additionalNotes}
+            <li class="ruleListItem">Repo:&nbsp;${repo}</li>
+            <li class="ruleLisItem">Branches:&nbsp;${branches}</li>
         </ul>
     </div>
     `
 }
 
-function renderRules(predicate) {
-    const rulesDiv = $('#rules');
-    rulesDiv.empty()
-    RULES.filter(predicate).forEach(rule => rulesDiv.append(objToHTML(rule)));
+function renderRules() {
+    const prev = RULES_PER_PAGE * currentPage
+    currentPage++
+    const next = RULES_PER_PAGE * currentPage
+    const newRules = FILTERED_RULES.slice(prev, next)
+    newRules
+        .forEach(rule => RULES_DIV.append(objToHTML(rule)))
 }

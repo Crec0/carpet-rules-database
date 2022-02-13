@@ -10,20 +10,34 @@
     <title>Rules</title>
 </head>
 
-<body class="hideScrollbar">
-    <div class="bg-[#34495e] min-h-screen">
+<body>
+    <div class="bg-[#34495e] min-h-screen selection:bg-[#c7ecee]">
         <header class="bg-[#2c3e50] shadow-lg p-12 rounded">
             <p class="text-[#ecf0f1] font-mono text-5xl">Carpet Rules Database</p>
         </header>
         <div class="p-8 flex justify-center text-4xl">
             <label for="searchKeyword"></label>
             <input type="text" name="searchKeyword" id="searchKeyword"
-                class="text-gray-600 max-h-40 rounded bg-[#dfe6e9] w-1/2 italic p-5 focus:outline-none caret-gray-600"
+                class="text-gray-600 rounded bg-[#dfe6e9] w-1/2 italic text-4xl leading-8 p-5 min-w-max align-baseline focus:outline-none caret-gray-600"
                 placeholder="" />
         </div>
         <div id="rules">
 
         </div>
+        <footer class="p-5 flex flex-col items-center text-lg font-normal">
+            <div class="">
+                <svg class="motion-reduce:hidden animate-spin w-20 text-white" id="loadingWheel" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            </div>
+            <p class="p-5 text-[#ecf0f1]">
+                If you have any questions or find any bugs, please contact
+                <span class="font-bold">Crec0#0420</span> on discord
+                or make an issue on
+                <a class="link text-[#ecf0f1]" href="https://github.com/Crec0/carpet-rule-database/issues/new">the repo issue tracker</a>
+            </p>
+        </footer>
     </div>
 </body>
 
