@@ -75,24 +75,6 @@ class RuleEncoder(json.JSONEncoder):
         return super().default(obj)
 
 
-def get_default_values_for_type(value_type):
-    """
-    Returns the default value for the given value type.
-
-    Expects the value type to be boolean, string, or int
-
-    :param value_type: a string representing the value type
-    :return: the default value for the given value type
-    """
-    match value_type:
-        case "boolean":
-            return "false"
-        case "int":
-            return "0"
-        case "String":
-            return ""
-
-
 def group_by_repo(rules: list[Rule]) -> list[Rule]:
     """
     Combines the rules into one instance if they have different branch but same repo

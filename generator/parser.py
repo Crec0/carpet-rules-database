@@ -226,7 +226,10 @@ class Parser:
                         if match_dict["type"] in self.enums:
                             rule.options = self.enums[match_dict["type"]]
                         rule.name = match_dict["name"]
-                        value = match_dict["value"].strip('" ')
+                        if match_dict["value"] is None:
+                            value = Parser.get_default_values_for_type(match_dict["type"])
+                        else:
+                            value = match_dict["value"].strip('" ')
                         rule.value = self.resolve(value)
 
         self.rules.append(rule)
@@ -307,6 +310,24 @@ class Parser:
             return self.fields[resolvable].strip('" ')
 
         return resolvable
+
+    @staticmethod
+    def get_default_values_for_type(value_type: str) -> str:
+        """
+        Returns the default value for the given value type.
+
+        Expects the value type to be boolean, string, or int
+
+        :param value_type: a string representing the value type
+        :return: the default value for the given value type
+        """
+        match value_type:
+            case "boolean":
+                return "false"
+            case "int":
+                return "0"
+            case "String":
+                return ""
 
     # TODO improve this
     @staticmethod
