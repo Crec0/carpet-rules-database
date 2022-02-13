@@ -255,7 +255,7 @@ class Parser:
         """
         enum_name = self.advance().strip(" ")
         self.advance(2)
-        enum_values, _ = self.read_until(";")
+        enum_values, _ = self.read_until(";}")
         enum_arg_removed = re.sub(Patterns.ENUM_FILTER, "", enum_values)
         enums = re.findall(Patterns.WORD, enum_arg_removed)
         self.enums[enum_name] = [enum.lower() for enum in enums]
