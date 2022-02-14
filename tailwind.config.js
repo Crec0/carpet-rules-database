@@ -1,11 +1,12 @@
 module.exports = {
   theme: {
     colors: {
-      primary: "#222831",
-      secondary: "#393E46",
-      ternary: "#00ADB5",
-      accent: "#EEEEEE",
+      primary: "#11161E",
+      secondary: "#282C2F",
+      ternary: "#48FFFF",
+      accent: "#E6E3DF",
     }
   },
-  content: ["./index.html", "./script/**.js"]
+  content: ["./index.html", "./script/**.js"],
+  plugins: [require('tailwind-scrollbar')]
 }
