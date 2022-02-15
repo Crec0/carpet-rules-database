@@ -2,36 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components  {
-    #rules {
-        @apply grid grid-cols-1 gap-4 content-center p-2 max-w-4xl m-auto;
+@layer components {
+    .flat-scrollbar {
+        @apply scrollbar scrollbar-thin scrollbar-track-secondary scrollbar-thumb-selection;
     }
-    
+
     .rule {
-        @apply bg-secondary rounded grid grid-cols-1 p-4;
+        @apply mb-2 grid grid-cols-1 gap-2 rounded bg-secondary p-4 text-neutral;
     }
 
-    .rule > ul > li {
-        @apply p-1 font-semibold;
-    }
-    
     .ruleName {
-        @apply text-2xl text-ternary font-bold p-2 pl-0;
-    }
-    
-    .ruleDesc {
-        @apply text-accent text-lg p-1;
+        @apply text-lg font-semibold text-accent;
     }
 
-    .ruleListItem {
-        @apply text-accent font-bold;
+    .ruleDesc {
+        @apply text-opacity-0;
     }
 
     .codeSpan {
-        @apply bg-primary text-accent px-2 py-1 rounded font-mono font-medium;
+        @apply my-0.5 inline-block rounded bg-primary bg-opacity-60 px-1 py-0.5 font-mono font-medium;
     }
 
     .link {
-        @apply text-ternary px-0.5 hover:text-accent font-semibold;
+        @apply px-0.5 font-semibold text-accent hover:text-accent;
     }
 }
