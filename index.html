@@ -13,20 +13,30 @@
     <body
         class="flat-scrollbar bg-primary selection:bg-selection selection:bg-opacity-50"
     >
-        <header class="bg-secondary text-2xl text-accent">
-            <p class="font-mono p-3">Carpet Rules Database</p>
+        <header class="bg-secondary text-2xl text-accent md:text-4xl">
+            <p class="p-3 font-mono">Carpet Rules Database</p>
         </header>
-        <div class="m-3 mb-1 flex justify-center">
-            <label for="searchBar"></label>
-            <input
-                    class="w-full max-w-4xl rounded px-3 py-2 placeholder-shown:italic focus:outline-none"
-                id="searchBar"
-                name="searchBar"
-                type="text"
-            />
+        <div class="flex flex-col items-center">
+            <div class="m-3 mb-1 w-full px-3 md:max-w-3xl">
+                <label for="searchBar"></label>
+                <input
+                    class="w-full rounded px-3 py-2 placeholder-shown:italic focus:outline-none md:p-5 md:text-xl lg:text-2xl"
+                    id="searchBar"
+                    name="searchBar"
+                    type="text"
+                />
+            </div>
+            <button
+                class="fixed bottom-10 right-10 z-10 m-auto m-auto rounded border-2 bg-accent px-3 py-2 font-semibold ring-2 ring-primary"
+                id="topButton"
+            >
+                Back to top
+            </button>
+            <div
+                class="flex max-w-4xl flex-col justify-center p-3"
+                id="rules"
+            ></div>
         </div>
-        <button class="fixed bottom-10 right-10 z-10 m-auto m-auto rounded border-2 bg-accent px-3 py-2 font-semibold ring-2 ring-primary" id="topButton">Back to top</button>
-        <div class="flex flex-col justify-center w-full p-3" id="rules"></div>
         <footer class="flex flex-col items-center p-5 text-lg font-normal">
             <svg
                 class="text-ternary w-20 animate-spin motion-reduce:hidden"
