@@ -4,7 +4,7 @@ class RuleHTMLBuilder {
     }
 
     withName(name) {
-        this.__element += `<div class="ruleName">${name}</div>`;
+        this.__element += `<div class="ruleName overflow-x-scroll scrollbar-none">${name}</div>`;
         return this;
     }
 
@@ -19,7 +19,10 @@ class RuleHTMLBuilder {
     }
 
     withDefaultValue(value) {
-        this.addAttribute(`Default value:&nbsp;${value}`);
+        this.addAttribute(
+            `Default value:&nbsp;${value}`,
+            "overflow-x-scroll scrollbar-none whitespace-nowrap"
+        );
         return this;
     }
 
@@ -27,7 +30,8 @@ class RuleHTMLBuilder {
         if (options !== "") {
             this.addWrappingAttribute(
                 `${strict ? "Required" : "Suggested"} options:&nbsp;`,
-                options
+                options,
+                "overflow-x-scroll scrollbar-none"
             );
         }
         return this;
@@ -48,7 +52,10 @@ class RuleHTMLBuilder {
     }
 
     withRepo(repo) {
-        this.addAttribute(`Repo:&nbsp;${repo}`);
+        this.addAttribute(
+            `Repo:&nbsp;${repo}`,
+            "overflow-x-scroll scrollbar-none"
+        );
         return this;
     }
 
@@ -62,13 +69,13 @@ class RuleHTMLBuilder {
         return this.__element;
     }
 
-    addAttribute(value) {
-        this.__element += `<div class="font-bold">${value}</div>`;
+    addAttribute(value, extraClass = "") {
+        this.__element += `<div class="font-bold ${extraClass}">${value}</div>`;
     }
 
-    addWrappingAttribute(name, value) {
+    addWrappingAttribute(name, value, extraClass = "") {
         this.__element += `
-            <div class="font-bold flex">
+            <div class="font-bold flex ${extraClass}">
                 <span class="mt-0.5 whitespace-nowrap">${name}</span>
                 <div class="inline-block max-w-4xl">${value}</div>
             </div>
