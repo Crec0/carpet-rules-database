@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "A database for carpet rules",
   "main": "script/ReadAndDisplayRules.js",
+  "scripts": {
+    "start": "npx tailwindcss -i ./css/input.css -o ./css/output.css --watch",
+    "build": "npx tailwindcss -i ./css/input.css -o ./css/output.css --minify --build",
+    "serve": "python -m http.server"
+  },
   "repository": "https://github.com/Crec0/carpet-rule-database",
   "author": "Crec0",
   "license": "MIT",
