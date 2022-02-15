@@ -83,7 +83,6 @@ function isInvalid(event) {
 
 function wrapWithSpan(list, convertToUpperCase = false) {
     return list
-        .sort()
         .map((val) =>
             convertToUpperCase ? val.toUpperCase() : val.toLowerCase()
         )
@@ -97,7 +96,6 @@ function wrapRepo(repo) {
 
 function wrapBranches(repo, branches) {
     return branches
-        .sort()
         .map((branch) => {
             return `
                 <a href="https://github.com/${repo}/tree/${branch}" class="link">
@@ -121,7 +119,7 @@ function objToHTML(rule) {
 
     let additionalNotes = "";
     if (rule["validators"]?.length > 0) {
-        additionalNotes = rule["validators"].sort();
+        additionalNotes = rule["validators"];
     }
 
     return new RuleHTMLBuilder()

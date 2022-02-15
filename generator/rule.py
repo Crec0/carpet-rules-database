@@ -63,13 +63,13 @@ class RuleEncoder(json.JSONEncoder):
                 "description": obj.description,
                 "type": obj.type,
                 "value": obj.value,
-                "categories": obj.categories,
+                "categories": sorted(obj.categories),
                 "strict": obj.strict,
-                "options": obj.options,
+                "options": sorted(obj.options) if obj.options else None,
                 "extras": obj.extras,
-                "validators": obj.validators,
+                "validators": sorted(obj.validators) if obj.validators else None,
                 "repo": obj.repo,
-                "branches": list(obj.branches),
+                "branches": sorted(obj.branches),
             }
             return rule_dict
         return super().default(obj)

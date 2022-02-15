@@ -117,6 +117,9 @@ class Parser:
         advance_count: int = 0
 
         while self.has_next() and (token := self.peek()) not in tokens_to_match:
+            if token == "\\":
+                advance_count += 1
+                token = self.advance()
             read_string.append(token)
             advance_count += 1
             self.advance()
@@ -227,7 +230,9 @@ class Parser:
                             rule.options = self.enums[match_dict["type"]]
                         rule.name = match_dict["name"]
                         if match_dict["value"] is None:
-                            value = Parser.get_default_values_for_type(match_dict["type"])
+                            value = Parser.get_default_values_for_type(
+                                match_dict["type"]
+                            )
                         else:
                             value = match_dict["value"].strip('" ')
                         rule.value = self.resolve(value)
