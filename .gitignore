@@ -1,5 +1,8 @@
 # Node
 node_modules/
 
-# GoLang brr
+# GoLang
 .idea/
+venv/
+
+data/downloaded_data.json
