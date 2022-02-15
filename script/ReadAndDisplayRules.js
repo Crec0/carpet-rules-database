@@ -1,5 +1,5 @@
 const ALL_RULES = [];
-const RULES_PER_PAGE = 10;
+const RULES_PER_PAGE = 25;
 const RULES_DIV = $("#rules");
 const LOADING_WHEEL = $("#loadingWheel");
 

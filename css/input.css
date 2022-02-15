@@ -12,7 +12,7 @@
     }
 
     .ruleName {
-        @apply text-lg font-semibold text-accent md:text-2xl;
+        @apply text-xl font-semibold text-accent md:text-2xl;
     }
 
     .ruleDesc {
