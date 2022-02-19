@@ -8,7 +8,7 @@
     }
 
     .rule {
-        @apply mb-2 grid grid-cols-1 gap-2 rounded bg-secondary p-4 text-neutral;
+        @apply mb-2 grid grid-cols-1 gap-2 rounded bg-secondary p-4 text-neutral lg:text-lg;
     }
 
     .ruleName {
@@ -16,7 +16,7 @@
     }
 
     .ruleDesc {
-        @apply text-opacity-0;
+        @apply text-opacity-0 lg:text-xl;
     }
 
     .codeSpan {

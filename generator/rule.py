@@ -33,11 +33,7 @@ class Rule:
         self.branches: set[str] = set()
 
     def __hash__(self) -> int:
-        return hash((
-            hash(self.name),
-            hash(self.type),
-            hash(self.repo)
-        ))
+        return hash((hash(self.name), hash(self.type), hash(self.repo)))
 
     def __repr__(self):
         return (

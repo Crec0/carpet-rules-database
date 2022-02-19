@@ -3,6 +3,7 @@ import re
 from generator.regex import Patterns
 from generator.rule import Rule
 from generator.tokenizer import Tokenizer
+from generator.util import get_default_values_for_type, replace_md_html, strip
 
 
 class Parser:
@@ -18,11 +19,6 @@ class Parser:
     - First, fields, validators, enums are parsed and extracted from the code\n
     - Second, rules are parsed and enum/fiend/validator references are resolved\n
     """
-
-    NO_SPACE = "-@#'!:"
-    SPACE_AFTER = ",)}]>?"
-    SPACE_AROUND = "~+*^%=&|"
-    SPACE_BEFORE = "`;/\\([{<$"
 
     def __init__(self, repo_branch: str, source_code: str):
         self.repo_branch = repo_branch
@@ -80,29 +76,44 @@ class Parser:
         """
         self.__tokenizer.reset()
 
+    def skip_space(self) -> None:
+        """
+        Skips all whitespace tokens
+        """
+        while self.has_next() and self.peek().isspace():
+            self.advance()
+
     def parse(self) -> "Parser":
         """
         parse method performs the parsing
 
         :return: The parser itself for chaining
         """
+        prev_token: str = ""
         while self.has_next():
             token = self.peek()
-            if token == "class":
+            # print(f"Parsing token: {token}")
+            if token == "class" and prev_token != ".":
                 self.parse_validator()
-            elif token == "enum":
+            if token == "enum":
                 self.parse_enum()
             elif token in ("public", "private"):
                 if match_dict := self.parse_field_if_field():
-                    self.fields[match_dict["name"]] = match_dict["value"]
+                    value = match_dict["value"]
+                    self.fields[match_dict["name"]] = strip(value)
+            if not token.isspace():
+                prev_token = token
             self.advance()
 
         self.reset()
 
+        prev_token: str = ""
         while self.has_next():
             token = self.peek()
-            if token == "Rule":
+            if token == "Rule" and prev_token == "@":
                 self.parse_rule()
+            if not token.isspace():
+                prev_token = token
             self.advance()
         return self
 
@@ -123,7 +134,7 @@ class Parser:
             read_string.append(token)
             advance_count += 1
             self.advance()
-        return Parser.join_string(read_string), advance_count
+        return "".join(read_string).strip(), advance_count
 
     def read_block(self) -> str:
         """
@@ -144,7 +155,7 @@ class Parser:
                 brace_count -= 1
             read_tokens.append(token)
 
-        return Parser.join_string(read_tokens)
+        return "".join(read_tokens).strip()
 
     def parse_optional_list_type_values(self) -> list[str]:
         """
@@ -157,7 +168,9 @@ class Parser:
 
         :return: the list of values
         """
-        self.advance(2)
+        self.read_until("=")
+        self.advance()
+        self.skip_space()
         if self.peek() == "{":
             values = self.read_block()[:-1]
         else:
@@ -166,7 +179,7 @@ class Parser:
         return [
             value
             for match in re.findall(Patterns.LIST_ITEM_READER, values)
-            for value in map(lambda m: m.strip(" "), match.split(", "))
+            for value in map(lambda m: m.strip(" "), match.split(","))
             if value
         ]
 
@@ -184,11 +197,14 @@ class Parser:
         while self.has_next() and (token := self.advance()) != ";":
             match token:
                 case "desc":
-                    self.advance(3)
-                    rule.description, _ = self.read_until('"')
+                    self.read_until('"')
+                    self.advance()
+                    desc = self.read_until('"')[0].capitalize()
+                    rule.description = replace_md_html(desc)
 
                 case "strict":
-                    self.advance(2)
+                    self.read_until("=")
+                    self.skip_space()
                     rule.strict = self.peek() == "true"
 
                 case "category":
@@ -219,7 +235,10 @@ class Parser:
                     )
 
                 case "extra":
-                    rule.extras = self.parse_optional_list_type_values()
+                    rule.extras = [
+                        replace_md_html(extra)
+                        for extra in self.parse_optional_list_type_values()
+                    ]
 
                 case "public":
                     match_dict = self.parse_field_if_field()
@@ -230,11 +249,9 @@ class Parser:
                             rule.options = self.enums[match_dict["type"]]
                         rule.name = match_dict["name"]
                         if match_dict["value"] is None:
-                            value = Parser.get_default_values_for_type(
-                                match_dict["type"]
-                            )
+                            value = get_default_values_for_type(match_dict["type"])
                         else:
-                            value = match_dict["value"].strip('" ')
+                            value = strip(match_dict["value"])
                         rule.value = self.resolve(value)
 
         self.rules.append(rule)
@@ -258,7 +275,7 @@ class Parser:
         """
         Parses the enum and stores it in the enums list
         """
-        enum_name = self.advance().strip(" ")
+        enum_name = strip(self.advance(2))
         self.advance(2)
         enum_values, _ = self.read_until(";}")
         enum_arg_removed = re.sub(Patterns.ENUM_FILTER, "", enum_values)
@@ -291,12 +308,12 @@ class Parser:
         """
         ret = ""
         for segment in string.split("+"):
-            segment = segment.strip(" ")
+            segment = segment.strip()
             if segment and segment[0] != '"' and segment[-1] != '"':
                 ret += f" {self.fields[segment]} "
             else:
-                ret += segment.strip('" ')
-        return ret.strip(" ")
+                ret += strip(segment)
+        return strip(ret)
 
     def resolve(self, resolvable: str) -> str:
         """
@@ -312,51 +329,6 @@ class Parser:
             resolvable = resolvable.split(".")[-1]
 
         if resolvable in self.fields:
-            return self.fields[resolvable].strip('" ')
+            return strip(self.fields[resolvable])
 
         return resolvable
-
-    @staticmethod
-    def get_default_values_for_type(value_type: str) -> str:
-        """
-        Returns the default value for the given value type.
-
-        Expects the value type to be boolean, string, or int
-
-        :param value_type: a string representing the value type
-        :return: the default value for the given value type
-        """
-        match value_type:
-            case "boolean":
-                return "false"
-            case "int":
-                return "0"
-            case "String":
-                return ""
-
-    # TODO improve this
-    @staticmethod
-    def join_string(tokens: list[str]) -> str:
-        """
-        Joins the tokens to a string with the correct spacing
-
-        It's not smart and has some funny edge cases
-
-        :param tokens: the tokens to be joined
-        :return: the joined string
-        """
-        string = ""
-        for token in tokens:
-            if token in Parser.NO_SPACE:
-                string += token
-            elif token in Parser.SPACE_BEFORE:
-                string += " " * (len(string) > 0 and string[-1] != " ") + token
-            elif token in Parser.SPACE_AFTER:
-                if len(string) > 0 and string[-1] == " ":
-                    string = string[:-1]
-                string += token + " "
-            elif token in Parser.SPACE_AROUND:
-                string += " " + token + " "
-            else:
-                string += token + " "
-        return string.strip()

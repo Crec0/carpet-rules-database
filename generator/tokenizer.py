@@ -4,6 +4,8 @@ from generator.regex import Patterns
 
 
 class Tokenizer:
+    # Using sheep and disk as delimiters. Hopefully they are not used in the input.
+    SPLITTER_STR = "🐑"
     """
     Tokenizer class.
 
@@ -30,9 +32,12 @@ class Tokenizer:
         """
         the main processing method which splits string to tokens.
         """
-        self.__tokens.extend(
-            re.sub(Patterns.TOKEN_SPLITTER, r" \1 ", self.__data).split()
-        )
+        tokens = re.sub(
+            Patterns.TOKEN_SPLITTER,
+            rf"{Tokenizer.SPLITTER_STR}\1{Tokenizer.SPLITTER_STR}",
+            self.__data,
+        ).split(Tokenizer.SPLITTER_STR)
+        self.__tokens.extend(filter(lambda w: w, tokens))
 
     @property
     def tokens(self) -> list[str]:
