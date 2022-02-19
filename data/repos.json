@@ -7,7 +7,9 @@
         "carpet/CarpetSettings.java"
       ],
       "branches": [
-        "master"
+        "master",
+        "1.16.5",
+        "1.17.1"
       ]
     },
     {
@@ -17,7 +19,9 @@
         "carpetextra/CarpetExtraSettings.java"
       ],
       "branches": [
-        "master"
+        "master",
+        "1.16.5",
+        "1.17.1"
       ]
     },
     {
@@ -40,6 +44,17 @@
         "1.18",
         "1.17",
         "1.16"
+      ]
+    },
+    {
+      "name": "Skyblock Fork",
+      "ownerRepo": "jsorrell/skyblock",
+      "settingsFiles": [
+        "com/jsorrell/skyblock/SkyBlockSettings.java"
+      ],
+      "branches": [
+        "1.18",
+        "1.17"
       ]
     },
     {
