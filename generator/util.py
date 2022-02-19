@@ -21,7 +21,7 @@ def get_default_values_for_type(value_type: str) -> str:
             return ""
 
 
-def replace_md_html(string: str) -> str:
+def replace_md_links_with_key(string: str) -> str:
     """
     Replaces markdown with HTML tags.
 
@@ -29,7 +29,7 @@ def replace_md_html(string: str) -> str:
     :return: the replaced string
     """
     return re.sub(
-        Patterns.MD_LINK, r'<a class="link" href="\g<url>">\g<text></a>', string
+        Patterns.MD_LINK, r"'\g<text>'", string
     )
 
 

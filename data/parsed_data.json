@@ -1741,7 +1741,7 @@
         "options": null,
         "extras": [
             "Setting to true will prevent lightning from killing drops",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-206922\">MC-206922</a>."
+            "Fixes 'MC-206922'."
         ],
         "validators": null,
         "repo": "gnembon/fabric-carpet",
@@ -2252,7 +2252,7 @@
         "options": null,
         "extras": [
             "Gives pistons the ability to double retract without side effects.",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-88959\">MC-88959</a>."
+            "Fixes 'MC-88959'."
         ],
         "validators": null,
         "repo": "gnembon/carpet-extra",
@@ -2421,7 +2421,7 @@
         "options": null,
         "extras": [
             "Can cause slight differences in mobs behaviour.",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-2025\">MC-2025</a>."
+            "Fixes 'MC-2025'."
         ],
         "validators": null,
         "repo": "gnembon/carpet-extra",
@@ -2463,7 +2463,7 @@
         "options": null,
         "extras": [
             "Probably brings back pre 1.8 behaviour.",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-54711\">MC-54711</a>."
+            "Fixes 'MC-54711'."
         ],
         "validators": null,
         "repo": "gnembon/carpet-extra",
@@ -2814,7 +2814,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-118429\">MC-118429</a>"
+            "Fixes 'MC-118429'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -2835,7 +2835,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-220636\">MC-220636</a>"
+            "Fixes 'MC-220636'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -2878,7 +2878,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-136566\">MC-136566</a>"
+            "Fixes 'MC-136566'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -2902,7 +2902,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes ChunkRegen & <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-134892\">MC-134892</a>"
+            "Fixes ChunkRegen & 'MC-134892'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -2922,7 +2922,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-123364\">MC-123364</a>"
+            "Fixes 'MC-123364'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -2944,7 +2944,7 @@
         "options": null,
         "extras": [
             "Warning! This changes how block updates are done and could effect some contraptions",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-161402\">MC-161402</a>"
+            "Fixes 'MC-161402'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -2965,7 +2965,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-120986\">MC-120986</a>"
+            "Fixes 'MC-120986'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3008,7 +3008,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-216985\">MC-216985</a>"
+            "Fixes 'MC-216985'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3030,7 +3030,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-207866\">MC-207866</a>"
+            "Fixes 'MC-207866'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3051,7 +3051,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-202654\">MC-202654</a>"
+            "Fixes 'MC-202654'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3073,7 +3073,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-202607\">MC-202607</a>"
+            "Fixes 'MC-202607'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3095,7 +3095,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-173303\">MC-173303</a>"
+            "Fixes 'MC-173303'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3117,7 +3117,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-183054\">MC-183054</a>"
+            "Fixes 'MC-183054'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3139,7 +3139,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-227008\">MC-227008</a>"
+            "Fixes 'MC-227008'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3159,7 +3159,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-174864\">MC-174864</a>"
+            "Fixes 'MC-174864'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3181,7 +3181,7 @@
         "options": null,
         "extras": [
             "Prevents redstone budding from working",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-123311\">MC-123311</a>"
+            "Fixes 'MC-123311'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3202,7 +3202,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-96224\">MC-96224</a>"
+            "Fixes 'MC-96224'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3224,7 +3224,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-159283\">MC-159283</a>"
+            "Fixes 'MC-159283'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3247,7 +3247,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-98727\">MC-98727</a>"
+            "Fixes 'MC-98727'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3269,7 +3269,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-19830\">MC-19830</a>"
+            "Fixes 'MC-19830'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3290,7 +3290,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-8983\">MC-8983</a>"
+            "Fixes 'MC-8983'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3311,7 +3311,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-9644\">MC-9644</a>"
+            "Fixes 'MC-9644'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3333,7 +3333,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-59134\">MC-59134</a>"
+            "Fixes 'MC-59134'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3355,7 +3355,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-197473\">MC-197473</a>"
+            "Fixes 'MC-197473'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3376,7 +3376,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-127321\">MC-127321</a>"
+            "Fixes 'MC-127321'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3397,7 +3397,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-1133\">MC-1133</a>"
+            "Fixes 'MC-1133'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3420,7 +3420,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-147659\">MC-147659</a>"
+            "Fixes 'MC-147659'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3440,7 +3440,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-226687\">MC-226687</a>"
+            "Fixes 'MC-226687'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3461,7 +3461,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-175544\">MC-175544</a>"
+            "Fixes 'MC-175544'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3482,7 +3482,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-226961\">MC-226961</a>"
+            "Fixes 'MC-226961'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3503,7 +3503,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-88967\">MC-88967</a>"
+            "Fixes 'MC-88967'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3523,7 +3523,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-3697\">MC-3697</a>"
+            "Fixes 'MC-3697'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3543,7 +3543,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-161026\">MC-161026</a>"
+            "Fixes 'MC-161026'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3565,7 +3565,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-60792\">MC-60792</a>"
+            "Fixes 'MC-60792'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3587,7 +3587,7 @@
         "options": null,
         "extras": [
             "Illegal blocks are any blocks that have a hardness value of -1.0F",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-188220\">MC-188220</a>"
+            "Fixes 'MC-188220'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3608,7 +3608,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-27056\">MC-27056</a>"
+            "Fixes 'MC-27056'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3648,7 +3648,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-232355\">MC-232355</a>"
+            "Fixes 'MC-232355'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3672,7 +3672,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-231071\">MC-231071</a>"
+            "Fixes 'MC-231071'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3692,7 +3692,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-157300\">MC-157300</a>"
+            "Fixes 'MC-157300'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3731,7 +3731,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-167279\">MC-167279</a>"
+            "Fixes 'MC-167279'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3771,7 +3771,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-218222\">MC-218222</a>"
+            "Fixes 'MC-218222'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3791,7 +3791,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-234754\">MC-234754</a>"
+            "Fixes 'MC-234754'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3812,7 +3812,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-200991\">MC-200991</a>"
+            "Fixes 'MC-200991'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3833,7 +3833,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-215763\">MC-215763</a>"
+            "Fixes 'MC-215763'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3853,7 +3853,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-102774\">MC-102774</a>"
+            "Fixes 'MC-102774'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3950,7 +3950,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-199752\">MC-199752</a>"
+            "Fixes 'MC-199752'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3971,7 +3971,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-2474\">MC-2474</a>"
+            "Fixes 'MC-2474'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -3991,7 +3991,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-67844\">MC-67844</a>"
+            "Fixes 'MC-67844'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4012,7 +4012,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-123450\">MC-123450</a>"
+            "Fixes 'MC-123450'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4033,7 +4033,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-112257\">MC-112257</a>"
+            "Fixes 'MC-112257'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4054,7 +4054,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-6431\">MC-6431</a>"
+            "Fixes 'MC-6431'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4075,7 +4075,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-120938\">MC-120938</a>"
+            "Fixes 'MC-120938'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4095,7 +4095,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-153010\">MC-153010</a>"
+            "Fixes 'MC-153010'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4118,7 +4118,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-194811\">MC-194811</a>"
+            "Fixes 'MC-194811'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4138,7 +4138,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-215636\">MC-215636</a>"
+            "Fixes 'MC-215636'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4179,7 +4179,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-207289\">MC-207289</a>"
+            "Fixes 'MC-207289'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4199,7 +4199,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-168329\">MC-168329</a>"
+            "Fixes 'MC-168329'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4219,7 +4219,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-82055\">MC-82055</a>"
+            "Fixes 'MC-82055'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4239,7 +4239,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-119369\">MC-119369</a>"
+            "Fixes 'MC-119369'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4259,7 +4259,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-98160\">MC-98160</a>"
+            "Fixes 'MC-98160'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4317,7 +4317,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-227443\">MC-227443</a>"
+            "Fixes 'MC-227443'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4337,7 +4337,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-14800\">MC-14800</a>"
+            "Fixes 'MC-14800'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4357,7 +4357,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-14167\">MC-14167</a>"
+            "Fixes 'MC-14167'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4378,7 +4378,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-125755\">MC-125755</a>"
+            "Fixes 'MC-125755'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4397,7 +4397,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-145557\">MC-145557</a>"
+            "Fixes 'MC-145557'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4417,7 +4417,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-209284\">MC-209284</a>"
+            "Fixes 'MC-209284'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4437,7 +4437,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-206307\">MC-206307</a>"
+            "Fixes 'MC-206307'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4457,7 +4457,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-227250\">MC-227250</a>"
+            "Fixes 'MC-227250'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4476,7 +4476,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-120578\">MC-120578</a>"
+            "Fixes 'MC-120578'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4513,7 +4513,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-157644\">MC-157644</a>"
+            "Fixes 'MC-157644'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4532,7 +4532,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-151488\">MC-151488</a>"
+            "Fixes 'MC-151488'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4551,7 +4551,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-241951\">MC-241951</a>"
+            "Fixes 'MC-241951'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4571,7 +4571,7 @@
         "options": null,
         "extras": [
             "The marker tag while still prevent interaction though",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-244956\">MC-244956</a>"
+            "Fixes 'MC-244956'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4591,7 +4591,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-65668\">MC-65668</a>"
+            "Fixes 'MC-65668'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4610,7 +4610,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-3703\">MC-3703</a>"
+            "Fixes 'MC-3703'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4629,7 +4629,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-130183\">MC-130183</a>"
+            "Fixes 'MC-130183'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4648,7 +4648,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Relates to <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-4\">MC-4</a>"
+            "Relates to 'MC-4'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4751,7 +4751,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-247422\">MC-247422</a>"
+            "Fixes 'MC-247422'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4770,7 +4770,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-247420\">MC-247420</a>"
+            "Fixes 'MC-247420'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4789,8 +4789,8 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-63578\">MC-63578</a>",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-223613\">MC-223613</a>"
+            "Fixes 'MC-63578'",
+            "Fixes 'MC-223613'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4809,7 +4809,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-82010\">MC-82010</a>"
+            "Fixes 'MC-82010'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4828,7 +4828,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-54606\">MC-54606</a>"
+            "Fixes 'MC-54606'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4847,7 +4847,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-247417\">MC-247417</a>"
+            "Fixes 'MC-247417'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4866,7 +4866,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-208771\">MC-208771</a>"
+            "Fixes 'MC-208771'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4885,7 +4885,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-208597\">MC-208597</a>"
+            "Fixes 'MC-208597'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4904,7 +4904,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-247643\">MC-247643</a>"
+            "Fixes 'MC-247643'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4923,7 +4923,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-247645\">MC-247645</a>"
+            "Fixes 'MC-247645'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4942,7 +4942,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-213823\">MC-213823</a>"
+            "Fixes 'MC-213823'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -4961,7 +4961,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-247647\">MC-247647</a>"
+            "Fixes 'MC-247647'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5004,7 +5004,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-246465\">MC-246465</a>",
+            "Fixes 'MC-246465'",
             "This is client-side only"
         ],
         "validators": null,
@@ -5026,7 +5026,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-53850\">MC-53850</a>",
+            "Fixes 'MC-53850'",
             "This is client-side only"
         ],
         "validators": null,
@@ -5048,7 +5048,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-247973\">MC-247973</a>",
+            "Fixes 'MC-247973'",
             "unlike other fixes",
             "we dont just put it in a thread since that might change the order of the messages",
             "Instead we allow the first message to go through",
@@ -5093,7 +5093,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "<a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-205044\">MC-205044</a>"
+            "'MC-205044'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5177,7 +5177,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-120507\">MC-120507</a>"
+            "Fixes 'MC-120507'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5200,7 +5200,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-112826\">MC-112826</a>"
+            "Fixes 'MC-112826'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5222,7 +5222,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-234471\">MC-234471</a>"
+            "Fixes 'MC-234471'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5298,7 +5298,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Reverts <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-173244\">MC-173244</a>"
+            "Reverts 'MC-173244'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5317,7 +5317,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Reverts <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-203718\">MC-203718</a>"
+            "Reverts 'MC-203718'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5354,7 +5354,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Reverts <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-4923\">MC-4923</a>"
+            "Reverts 'MC-4923'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5375,7 +5375,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Reverts <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-181241\">MC-181241</a> from 18w05a",
+            "Reverts 'MC-181241' from 18w05a",
             "This has not been tested in 1.18 and may not work!"
         ],
         "validators": null,
@@ -5386,7 +5386,7 @@
     },
     {
         "name": "reIntroduceItemShadowing",
-        "description": "Re-introduces item shadowing! <a class=\"link\" href=\"https://www.youtube.com/watch?v=i8_fpyn20ns\">video</a>",
+        "description": "Re-introduces item shadowing! 'video'",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -5413,7 +5413,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Reverts <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-113809\">MC-113809</a>"
+            "Reverts 'MC-113809'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5454,7 +5454,7 @@
         "options": null,
         "extras": [
             "Setting to true will prevent lightning from killing drops",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-206922\">MC-206922</a>"
+            "Fixes 'MC-206922'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5477,7 +5477,7 @@
         "options": null,
         "extras": [
             "Gives pistons the ability to double retract without side effects",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-88959\">MC-88959</a>"
+            "Fixes 'MC-88959'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5499,7 +5499,7 @@
         "options": null,
         "extras": [
             "Probably brings back pre 1.8 behaviour.",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-54711\">MC-54711</a>"
+            "Fixes 'MC-54711'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5768,7 +5768,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "related to java bug report <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-64394\">MC-64394</a>"
+            "related to java bug report 'MC-64394'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5788,7 +5788,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-63340\">MC-63340</a>"
+            "Fixes 'MC-63340'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5808,7 +5808,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-117800\">MC-117800</a>"
+            "Fixes 'MC-117800'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5847,7 +5847,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-216362\">MC-216362</a>"
+            "Fixes 'MC-216362'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5868,7 +5868,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-125755\">MC-125755</a>"
+            "Fixes 'MC-125755'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5888,7 +5888,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Backports <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-173244\">MC-173244</a>"
+            "Backports 'MC-173244'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5908,7 +5908,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Backports <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-203718\">MC-203718</a>"
+            "Backports 'MC-203718'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5947,7 +5947,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Backports <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-4923\">MC-4923</a>"
+            "Backports 'MC-4923'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -5970,7 +5970,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Backports <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-181241\">MC-181241</a> from 18w05a",
+            "Backports 'MC-181241' from 18w05a",
             "This has not been tested in 1.17 and may not work!"
         ],
         "validators": null,
@@ -6024,7 +6024,7 @@
         "options": null,
         "extras": [
             "Warning! This is extremely unstable and modifies vanilla mechanics. Should be enabled before stating the server!",
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-610\">MC-610</a>"
+            "Fixes 'MC-610'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6045,7 +6045,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes ChunkRegen & <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-134892\">MC-134892</a>"
+            "Fixes ChunkRegen & 'MC-134892'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6066,7 +6066,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-202249\">MC-202249</a>"
+            "Fixes 'MC-202249'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6086,7 +6086,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-173244\">MC-173244</a>"
+            "Fixes 'MC-173244'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6126,7 +6126,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixed <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-139265\">MC-139265</a>"
+            "Fixed 'MC-139265'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6147,7 +6147,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixed <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-202246\">MC-202246</a>"
+            "Fixed 'MC-202246'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6168,7 +6168,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixed <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-176615\">MC-176615</a>"
+            "Fixed 'MC-176615'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6189,7 +6189,7 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixed <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-181241\">MC-181241</a>"
+            "Fixed 'MC-181241'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -9425,7 +9425,7 @@
         "options": null,
         "extras": [
             "From FX's Carpet-Fixes",
-            "Fixes ChunkRegen & <a class=\"link\" href=\"https://bugs.mojang.com/browse/MC-134892\">MC-134892</a>"
+            "Fixes ChunkRegen & 'MC-134892'"
         ],
         "validators": null,
         "repo": "Lunaar-SMP/lunaar-carpet-addons",

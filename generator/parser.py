@@ -3,7 +3,7 @@ import re
 from generator.regex import Patterns
 from generator.rule import Rule
 from generator.tokenizer import Tokenizer
-from generator.util import get_default_values_for_type, replace_md_html, strip
+from generator.util import get_default_values_for_type, strip, replace_md_links_with_key
 
 
 class Parser:
@@ -200,7 +200,7 @@ class Parser:
                     self.read_until('"')
                     self.advance()
                     desc = self.read_until('"')[0].capitalize()
-                    rule.description = replace_md_html(desc)
+                    rule.description = replace_md_links_with_key(desc)
 
                 case "strict":
                     self.read_until("=")
@@ -236,7 +236,7 @@ class Parser:
 
                 case "extra":
                     rule.extras = [
-                        replace_md_html(extra)
+                        replace_md_links_with_key(extra)
                         for extra in self.parse_optional_list_type_values()
                     ]
 
