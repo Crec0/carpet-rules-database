@@ -6859,7 +6859,7 @@
         "name": "blockEventPacketRange",
         "description": "Set the range where player will receive a block event packet after a block event fires successfully",
         "type": "double",
-        "value": "VANILLA_BLOCK_EVENT_PACKET_RANGE",
+        "value": "64.0D",
         "categories": [
             "OPTIMIZATION",
             "TIS"
@@ -6936,7 +6936,7 @@
         "name": "chunkUpdatePacketThreshold",
         "description": "The threshold which the game will just send an chunk data packet if the amount of block changes is more than it",
         "type": "int",
-        "value": "VANILLA_CHUNK_UPDATE_PACKET_THRESHOLD",
+        "value": "64",
         "categories": [
             "EXPERIMENTAL",
             "OPTIMIZATION",
@@ -7240,7 +7240,7 @@
         "name": "explosionPacketRange",
         "description": "Set the range where player will receive an explosion packet when an explosion happens",
         "type": "double",
-        "value": "VANILLA_EXPLOSION_PACKET_RANGE",
+        "value": "64.0D",
         "categories": [
             "CREATIVE",
             "TIS"
@@ -7294,7 +7294,7 @@
         "name": "fakePlayerNamePrefix",
         "description": "Add a name prefix for fake players spawned with /player command",
         "type": "String",
-        "value": "fakePlayerNameNoExtra",
+        "value": "#none",
         "categories": [
             "CARPET_MOD",
             "TIS"
@@ -7326,7 +7326,7 @@
         "name": "fakePlayerNameSuffix",
         "description": "Add a name suffix for fake players spawned with /player command",
         "type": "String",
-        "value": "fakePlayerNameNoExtra",
+        "value": "#none",
         "categories": [
             "CARPET_MOD",
             "TIS"
@@ -8168,7 +8168,7 @@
         "name": "snowMeltMinLightLevel",
         "description": "The minimum light level allowed for snow to melt",
         "type": "int",
-        "value": "VANILLA_SNOW_MELT_MIN_LIGHT_LEVEL",
+        "value": "12",
         "categories": [
             "CREATIVE",
             "TIS"

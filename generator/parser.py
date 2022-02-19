@@ -91,11 +91,10 @@ class Parser:
         """
         prev_token: str = ""
         while self.has_next():
-            token = self.peek()
-            # print(f"Parsing token: {token}")
+            token = self.peek().strip()
             if token == "class" and prev_token != ".":
                 self.parse_validator()
-            if token == "enum":
+            elif token == "enum":
                 self.parse_enum()
             elif token in ("public", "private"):
                 if match_dict := self.parse_field_if_field():
