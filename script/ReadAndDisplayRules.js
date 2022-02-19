@@ -97,11 +97,7 @@ function wrapRepo(repo) {
 function wrapBranches(repo, branches) {
     return branches
         .map((branch) => {
-            return `
-                <a href="https://github.com/${repo}/tree/${branch}" class="link">
-                    ${branch}
-                </a>
-            `;
+            return `<a href="https://github.com/${repo}/tree/${branch}" class="link">${branch}</a>`;
         })
         .join(",&nbsp;");
 }

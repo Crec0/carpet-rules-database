@@ -9,7 +9,7 @@ class RuleHTMLBuilder {
     }
 
     withDesc(description) {
-        this.__element += `<div class="ruleDesc">${description}</div>`;
+        this.__element += `<div class="ruleDesc">${replace_bugs_with_links(description)}</div>`;
         return this;
     }
 
@@ -81,4 +81,10 @@ class RuleHTMLBuilder {
             </div>
         `;
     }
+}
+
+const MOJANG_BUG = new RegExp(/((?:MC|MCAPI|MCCE|MCD|MCL|MCPE|REALMS|BDS|WEB)-\d+)/g)
+
+const replace_bugs_with_links = function (text) {
+    return text.replaceAll(MOJANG_BUG, '<a href="https://bugs.mojang.com/browse/$1" class="link">$1</a>')
 }
