@@ -2515,29 +2515,6 @@
         ]
     },
     {
-        "name": "renewableLava",
-        "description": "Obsidian surrounded by 6 lava sources has a chance of converting to lava.",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "Credits: Skyrising"
-        ],
-        "validators": null,
-        "repo": "gnembon/carpet-extra",
-        "branches": [
-            "1.16.5",
-            "1.17.1",
-            "master"
-        ]
-    },
-    {
         "name": "doubleRetraction",
         "description": "Re-adds 1.8 double retraction to pistons.",
         "type": "boolean",
@@ -3147,6 +3124,28 @@
         "repo": "gnembon/carpet-extra",
         "branches": [
             "1.16.5"
+        ]
+    },
+    {
+        "name": "renewableLava",
+        "description": "Obsidian surrounded by 6 lava sources has a chance of converting to lava.",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "EXPERIMENTAL",
+            "EXTRAS",
+            "FEATURE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Credits: Skyrising"
+        ],
+        "validators": null,
+        "repo": "gnembon/carpet-extra",
+        "branches": [
+            "1.16.5",
+            "1.17.1"
         ]
     },
     {
@@ -17072,8 +17071,7 @@
         "validators": null,
         "repo": "Super-Santa/EssentialAddons",
         "branches": [
-            "1.16.x",
-            "1.17.x"
+            "1.16.x"
         ]
     },
     {
@@ -17393,6 +17391,57 @@
         "repo": "Super-Santa/EssentialAddons",
         "branches": [
             "1.16.x",
+            "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "commandBackup",
+        "description": "",
+        "type": "String",
+        "value": "false",
+        "categories": [
+            "COMMAND",
+            "ESSENTIAL",
+            "FEATURE",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": [
+            "false",
+            "ops",
+            "true"
+        ],
+        "extras": null,
+        "validators": null,
+        "repo": "Super-Santa/EssentialAddons",
+        "branches": [
+            "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "essentialCarefulDrop",
+        "description": "Killing mobs while crouching will put dropped items straight into your inventory",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "COMMAND",
+            "ESSENTIAL",
+            "FEATURE",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": [
+            "false",
+            "true"
+        ],
+        "extras": [
+            "requires players to subscribe to carefuldrop"
+        ],
+        "validators": null,
+        "repo": "Super-Santa/EssentialAddons",
+        "branches": [
             "1.17.x",
             "1.18.x"
         ]
