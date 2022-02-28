@@ -1,14 +1,9 @@
 name: Update rules database
 on:
-  push:
-
-  workflow_dispatch:
-
   schedule:
     - cron: '* */24 * * *'
-
 jobs:
-  setup:
+  update-and-upload:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -30,19 +25,11 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-  generate:
-    needs: [setup]
-    runs-on: ubuntu-latest
-    steps:
       - name: Run the generator
         run: |
           cd generator                    # going up one level so the relative path's in code dont freak out
           python ../setup-and-run-main.py
 
-  update:
-    needs: [generate]
-    runs-on: ubuntu-latest
-    steps:
       - name: Capture date
         id: capture-date
         run: |
@@ -53,5 +40,5 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit -am "Update rules database '${{ steps.capture-date.outputs.date }}'" || exit 0
+          git commit -am "Update rules database '${{ steps.capture-date.outputs.date }}'"
           git push origin main
