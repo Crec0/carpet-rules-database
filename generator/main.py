@@ -4,8 +4,8 @@ from generator import rule
 from generator.downloader import assemble_data, fetch_data
 from generator.parser import Parser
 
-if __name__ == "__main__":
 
+def main():
     data_json = assemble_data(fetch_data())
     # with open("../data/downloaded_data.json", "w") as f:
     #     json.dump(data_json, f, indent=4)

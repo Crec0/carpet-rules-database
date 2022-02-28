@@ -193,7 +193,16 @@
         "essentialaddons/EssentialAddonsSettings.java"
       ],
       "branches": [
-        "1.16.x",
+        "1.16.x"
+      ]
+    },
+    {
+      "name": "Essential Addons",
+      "ownerRepo": "Super-Santa/EssentialAddons",
+      "settingsFiles": [
+        "essentialaddons/EssentialSettings.java"
+      ],
+      "branches": [
         "1.17.x",
         "1.18.x"
       ]

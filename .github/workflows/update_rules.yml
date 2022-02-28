@@ -1,0 +1,44 @@
+name: Update rules database
+on:
+  schedule:
+    - cron: '* */24 * * *'
+jobs:
+  update-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10.2'
+
+      - name: Cache packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run the generator
+        run: |
+          cd generator                    # going up one level so the relative path's in code dont freak out
+          python ../setup-and-run-main.py
+
+      - name: Capture date
+        id: capture-date
+        run: |
+          echo "::set-output name=date::$(date -u)"
+
+      - name: Push update
+        continue-on-error: true
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -am "Update rules database '${{ steps.capture-date.outputs.date }}'"
+          git push origin main
