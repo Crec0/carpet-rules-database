@@ -41,9 +41,18 @@
         "carpetfixes/CarpetFixesSettings.java"
       ],
       "branches": [
-        "1.18",
         "1.17",
         "1.16"
+      ]
+    },
+    {
+      "name": "Carpet Fixes",
+      "ownerRepo": "fxmorin/carpet-fixes",
+      "settingsFiles": [
+        "carpetfixes/CFSettings.java"
+      ],
+      "branches": [
+        "1.18"
       ]
     },
     {
