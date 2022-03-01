@@ -5524,6 +5524,26 @@
         ]
     },
     {
+        "name": "chunkLoadingFix",
+        "description": "Backports the fix for chunk loading to 1.18.1",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "RECOMMENDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-245010'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
         "name": "fallingBlockDuplicationFix",
         "description": "Fixes falling blocks duping using the end portal",
         "type": "boolean",
@@ -6052,93 +6072,6 @@
             "5s",
             "1s]"
         ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18"
-        ]
-    },
-    {
-        "name": "toggleOnlineMode",
-        "description": "Allows you to toggle onlinemode without needing to restart the server",
-        "type": "boolean",
-        "value": "isOnlineMode()",
-        "categories": [
-            "ADVANCED",
-            "EXPERIMENTAL"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18"
-        ]
-    },
-    {
-        "name": "togglePreventProxyConnections",
-        "description": "Allows you to toggle preventing proxy connections without needing to restart the server",
-        "type": "boolean",
-        "value": "shouldPreventProxyConnections()",
-        "categories": [
-            "ADVANCED",
-            "EXPERIMENTAL"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18"
-        ]
-    },
-    {
-        "name": "togglePvpEnabled",
-        "description": "Allows you to toggle pvpenabled without needing to restart the server",
-        "type": "boolean",
-        "value": "isPvpEnabled()",
-        "categories": [
-            "ADVANCED"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18"
-        ]
-    },
-    {
-        "name": "toggleFlightEnabled",
-        "description": "Allows you to toggle flightenabled without needing to restart the server",
-        "type": "boolean",
-        "value": "isFlightEnabled()",
-        "categories": [
-            "ADVANCED"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18"
-        ]
-    },
-    {
-        "name": "toggleEnforceWhitelist",
-        "description": "Allows you to toggle enforcing the whitelist without needing to restart the server",
-        "type": "boolean",
-        "value": "isEnforceWhitelist()",
-        "categories": [
-            "ADVANCED"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
