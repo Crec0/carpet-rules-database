@@ -285,6 +285,17 @@
         "master",
         "1.18"
       ]
+    },
+    {
+      "name": "Chronos Addons",
+      "ownerRepo": "ChronosServer/chronos-carpet-addons",
+      "settingsFiles": [
+        "chronos/ChronosSettings.java",
+        "chronos/ChronosSettings.java"
+      ],
+      "branches": [
+        "master"
+      ]
     }
   ]
 }
