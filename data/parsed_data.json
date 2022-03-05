@@ -19747,5 +19747,100 @@
         "branches": [
             "1.18"
         ]
+    },
+    {
+        "name": "netheritePickaxeInstantMineDeepslate",
+        "description": "Deepslate can be instant mined with netherite pickaxe",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CHRONOS",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "ChronosServer/chronos-carpet-addons",
+        "branches": [
+            "master"
+        ]
+    },
+    {
+        "name": "commandSidebar",
+        "description": "Enables players without op to change what objective is being displayed, and query a player's objectives",
+        "type": "boolean",
+        "value": "true",
+        "categories": [
+            "CHRONOS",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Players with OP level 1 can also freeze or unfreeze an objective",
+            "which will stop scores for an objective from increasing"
+        ],
+        "validators": null,
+        "repo": "ChronosServer/chronos-carpet-addons",
+        "branches": [
+            "master"
+        ]
+    },
+    {
+        "name": "commandGoal",
+        "description": "Set a goal for a scoreboard objective to complete.",
+        "type": "boolean",
+        "value": "true",
+        "categories": [
+            "CHRONOS",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "This goal is for individual players and is not persistent between logins"
+        ],
+        "validators": null,
+        "repo": "ChronosServer/chronos-carpet-addons",
+        "branches": [
+            "master"
+        ]
+    },
+    {
+        "name": "totalScore",
+        "description": "Display total score on the sidebar",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CHRONOS",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "ChronosServer/chronos-carpet-addons",
+        "branches": [
+            "master"
+        ]
+    },
+    {
+        "name": "bedrockBrokenStatistics",
+        "description": "Player's bedrock \"mined\\",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CHRONOS",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "ChronosServer/chronos-carpet-addons",
+        "branches": [
+            "master"
+        ]
     }
 ]
