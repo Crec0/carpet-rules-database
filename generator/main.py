@@ -23,3 +23,7 @@ def main():
 
     with open("../data/parsed_data.json", "w") as f:
         json.dump(rules, f, cls=rule.RuleEncoder, indent=4)
+
+
+if __name__ == "__main__":
+    main()
