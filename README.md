@@ -33,7 +33,7 @@ Once you are good to go, follow the steps below to submit a pull request.
 
 - Fork/Clone the repo
 - Change your directory to the local copy
-- Run `npm -i yarn` if you dont have yarn already
+- Run `npm install yarn` if you dont have yarn already
 - Run `yarn install`
 - Run `yarn serve` to start python http local server on port 8000
 - Run `yarn start` to start tailwind with watch flag if you are working on css related things
