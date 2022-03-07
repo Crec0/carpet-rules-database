@@ -10587,7 +10587,7 @@
     },
     {
         "name": "bedrockBrokenStatistics",
-        "description": "Player's bedrock \"mined\\",
+        "description": "Player's bedrock \"mined\" statistic is increased when a bedrock block is broken 2 game ticks after a piston is placed",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -18322,7 +18322,7 @@
     },
     {
         "name": "xaeroWorldName",
-        "description": "Set xaero world name to sync word id to xaerominimap, \"#none\\",
+        "description": "Set xaero world name to sync word id to xaerominimap, \"#none\" is disable.",
         "type": "String",
         "value": "#none",
         "categories": [
@@ -19827,7 +19827,7 @@
     },
     {
         "name": "bedrockBrokenStatistics",
-        "description": "Player's bedrock \"mined\\",
+        "description": "Player's bedrock \"mined\" statistic is increased when a bedrock block is broken 2 game ticks after a piston is placed",
         "type": "boolean",
         "value": "false",
         "categories": [
