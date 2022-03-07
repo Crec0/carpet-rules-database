@@ -130,6 +130,9 @@ class Parser:
             if token == "\\":
                 advance_count += 1
                 token = self.advance()
+            elif "\\" in token:
+                advance_count += 1
+                token = token.replace("\\", "") + self.advance()
             read_string.append(token)
             advance_count += 1
             self.advance()
