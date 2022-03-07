@@ -36,4 +36,4 @@ def replace_md_links_with_key(string: str) -> str:
 def strip(string: str | None) -> str | None:
     if string is None:
         return None
-    return string.strip('" ')
+    return string.strip('", ')

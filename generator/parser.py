@@ -159,7 +159,7 @@ class Parser:
 
         return "".join(read_tokens).strip()
 
-    def parse_optional_list_type_values(self) -> list[str]:
+    def parse_optional_list_type_values(self, preserve_comma: bool = False) -> list[str]:
         """
         Reads the string array type values. Examples:
          - { "foo", "bar" } -> ["foo", "bar"]
@@ -178,12 +178,12 @@ class Parser:
         else:
             values, _ = self.read_until(",)")
 
-        return [
-            value.replace("\\", "").strip()
-            for match in re.findall(Patterns.LIST_ITEM_READER, values)
-            for value in map(lambda m: m.strip(" "), match.split(","))
-            if value
-        ]
+        list_items: list[str] = []
+
+        for match in re.findall(Patterns.LIST_ITEM_READER, values):
+            cleaned_match = map(strip, match.split("," + (" " if preserve_comma else "")))
+            list_items.extend(v for v in cleaned_match if v)
+        return list_items
 
     def parse_rule(self) -> None:
         """
@@ -218,7 +218,7 @@ class Parser:
                 case "options":
                     rule.options = [
                         option.lower()
-                        for option in self.parse_optional_list_type_values()
+                        for option in self.parse_optional_list_type_values(preserve_comma=True)
                     ]
 
                 case "validate":
