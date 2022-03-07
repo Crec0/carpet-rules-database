@@ -794,9 +794,8 @@
         ],
         "strict": false,
         "options": [
-            "mobcaps",
+            "mobcaps,tps",
             "none",
-            "tps",
             "tps"
         ],
         "extras": [
@@ -8341,8 +8340,8 @@
         "strict": true,
         "options": null,
         "extras": [
-            "When a dragon egg is in dragon breath effect cloud it has a possibility to absorb the effect cloud and \"summon\" a new dragon egg",
-            "Use with rule \"dispensersFireDragonBreath\" for more ease"
+            "When a dragon egg is in dragon breath effect cloud it has a possibility to absorb the effect cloud and \\\"summon\\\" a new dragon egg",
+            "Use with rule \\\"dispensersFireDragonBreath\\\" for more ease"
         ],
         "validators": null,
         "repo": "TISUnion/Carpet-TIS-Addition",
@@ -10386,7 +10385,7 @@
             "When maxHostileSpawnLightLevel < 7",
             "block light level is used to determine whether the position",
             "+",
-            "is considered \"dark\" or not",
+            "is considered \\\"dark\\\" or not",
             "while leaving spawn chances at and below the maximum light level intact",
             "When maxHostileSpawnLightLevel > 7",
             "the upper bound of the random integer generator is increased",
@@ -10679,12 +10678,9 @@
         ],
         "strict": false,
         "options": [
-            "alex",
-            "alex",
             "bot_loader",
-            "bot_loader",
-            "steve",
-            "steve"
+            "steve,alex",
+            "steve,alex,bot_loader"
         ],
         "extras": [
             "Use '",
@@ -10772,9 +10768,8 @@
         "options": [
             "_",
             "skeleton",
-            "skeleton",
             "zombie",
-            "zombie"
+            "zombie,skeleton"
         ],
         "extras": [
             "Use '",
@@ -10803,9 +10798,8 @@
         "options": [
             "_",
             "skeleton",
-            "skeleton",
             "zombie",
-            "zombie"
+            "zombie,skeleton"
         ],
         "extras": [
             "Use '",
@@ -13495,14 +13489,11 @@
         "options": [
             "all",
             "dragon_egg",
-            "dragon_egg",
-            "dragon_egg",
-            "dragon_head",
-            "dragon_head",
+            "dragon_egg,dragon_head",
+            "dragon_egg,elytra",
             "dragon_head",
             "elytra",
-            "elytra",
-            "elytra",
+            "elytra,dragon_head",
             "none"
         ],
         "extras": null,
