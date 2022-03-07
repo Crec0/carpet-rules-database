@@ -32,8 +32,13 @@ Please make an issue or contact me over on [discord](#contact) to discuss your i
 Once you are good to go, follow the steps below to submit a pull request.
 
 - Fork/Clone the repo
+- Change your directory to the local copy
+- Run `yarn install`
+- Run `yarn serve` to start python http local server on port 8000
+- Run `yarn start` to start tailwind with watch flag if you are working on css related things
 - Add your modifications to the repo
-- Create a pull request
+- Run `yarn build` to build the css
+- Push the changes and create a pull request
 
 ### Contact
 
