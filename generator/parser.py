@@ -179,7 +179,7 @@ class Parser:
             values, _ = self.read_until(",)")
 
         return [
-            value
+            value.replace("\\", "").strip()
             for match in re.findall(Patterns.LIST_ITEM_READER, values)
             for value in map(lambda m: m.strip(" "), match.split(","))
             if value
