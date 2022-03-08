@@ -10,6 +10,8 @@ This project uses a custom parser to read and process the rules from java files 
 If you want to add your extension to the database,  
 please add your extension to [data/repos.json](data/repos.json) and submit a pull request.
 
+NOTE: If different branches use differnt settings file, please dont put them all inside "settingsFile" property. Duplicate the object and change branch and settings file path.
+
 The schema for rule follows:
 ```json
 {
@@ -33,13 +35,25 @@ Once you are good to go, follow the steps below to submit a pull request.
 
 - Fork/Clone the repo
 - Change your directory to the local copy
+
+#### Working on HTML, CSS, JS
+
 - Run `npm install yarn` if you dont have yarn already
-- Run `yarn install`
+- Run `yarn install` to install js packages and tailwindcss
 - Run `yarn serve` to start python http local server on port 8000
 - Run `yarn start` to start tailwind with watch flag if you are working on css related things
 - Add your modifications to the repo
 - Run `yarn build` to build the css
-- Push the changes and create a pull request
+
+#### Working on generator
+
+- Run `npm install yarn` if you dont have yarn already
+- Run `pip install -r requirements.txt` to install httpx
+- Run `yarn serve` to start python http local server on port 8000
+- Follow the instructions in generator/main.py to do local testing
+- Add your modifications to the repo
+
+Once you are finished, push the changes and make a PR
 
 ### Contact
 
