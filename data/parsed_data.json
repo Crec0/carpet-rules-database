@@ -16268,25 +16268,6 @@
         ]
     },
     {
-        "name": "onlineMode",
-        "description": "Allows you to toggle onlinemode",
-        "type": "boolean",
-        "value": "isOnlineMode()",
-        "categories": [
-            "CREATIVE",
-            "EXPERIMENTAL",
-            "WEIRD"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/WeirdAddons",
-        "branches": [
-            "1.18"
-        ]
-    },
-    {
         "name": "breakableDragonEgg",
         "description": "Allows the dragon egg to be mined",
         "type": "boolean",
@@ -16407,6 +16388,24 @@
         "value": "false",
         "categories": [
             "CLIENT",
+            "CREATIVE",
+            "WEIRD"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/WeirdAddons",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "easyWither",
+        "description": "Makes the wither act as if the difficulty is easy",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
             "CREATIVE",
             "WEIRD"
         ],
