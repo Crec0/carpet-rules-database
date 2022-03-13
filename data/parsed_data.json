@@ -11322,6 +11322,51 @@
         ]
     },
     {
+        "name": "stopFreezing",
+        "description": "Stop generating ice at any biome",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "FEATURE",
+            "ICA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "Ivan-1F/Ivan-Carpet-Addition",
+        "branches": [
+            "fabric-1.16.4",
+            "fabric-1.17",
+            "fabric-1.18"
+        ]
+    },
+    {
+        "name": "experienceCounter",
+        "description": "Use players as experience counters",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CREATIVE",
+            "FEATURE",
+            "ICA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Enables /xpcounter command",
+            "Use /xpcounter <player?> reset to reset the counter",
+            "Use /xpcounter <player?> to query the counter"
+        ],
+        "validators": null,
+        "repo": "Ivan-1F/Ivan-Carpet-Addition",
+        "branches": [
+            "fabric-1.16.4",
+            "fabric-1.17",
+            "fabric-1.18"
+        ]
+    },
+    {
         "name": "catSpawnChance",
         "description": "Sets chance cat will spawn in a village",
         "type": "int",
@@ -13664,8 +13709,7 @@
         "repo": "RubixDev/Rug",
         "branches": [
             "1.16",
-            "1.17",
-            "1.18"
+            "1.17"
         ]
     },
     {
@@ -13811,8 +13855,7 @@
         "repo": "RubixDev/Rug",
         "branches": [
             "1.16",
-            "1.17",
-            "1.18"
+            "1.17"
         ]
     },
     {
@@ -13867,8 +13910,7 @@
         "repo": "RubixDev/Rug",
         "branches": [
             "1.16",
-            "1.17",
-            "1.18"
+            "1.17"
         ]
     },
     {
@@ -13988,8 +14030,7 @@
         "repo": "RubixDev/Rug",
         "branches": [
             "1.16",
-            "1.17",
-            "1.18"
+            "1.17"
         ]
     },
     {
