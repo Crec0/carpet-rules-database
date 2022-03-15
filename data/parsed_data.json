@@ -7561,6 +7561,69 @@
         ]
     },
     {
+        "name": "entityTrackerDistance",
+        "description": "The maximum horizontal chebyshev distance (in chunks) for the server to sync entities information to the client",
+        "type": "int",
+        "value": "-1",
+        "categories": [
+            "CREATIVE",
+            "TIS"
+        ],
+        "strict": false,
+        "options": [
+            "-1",
+            "16",
+            "64"
+        ],
+        "extras": [
+            "Basically this works as a \\\"entity view distance\\",
+            "but will still be limited to the server view distance",
+            "Set it to a value not less than the server view distance to make the server sync all entities within the view distance to the client",
+            "Set it to a non-positive value to use vanilla logic",
+            "Requires chunk reloading to set the new rule value to entities"
+        ],
+        "validators": null,
+        "repo": "TISUnion/Carpet-TIS-Addition",
+        "branches": [
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "entityTrackerInterval",
+        "description": "The time interval (in gametick) for the server to sync entities information to the client",
+        "type": "int",
+        "value": "-1",
+        "categories": [
+            "CREATIVE",
+            "TIS"
+        ],
+        "strict": false,
+        "options": [
+            "-1",
+            "1"
+        ],
+        "extras": [
+            "With a small number e.g. 1",
+            "entity information will be synced to the client every 1 gametick",
+            "resulting in less-likely client-side entity desync",
+            "Set it to a non-positive value to use vanilla logic",
+            "Requires chunk reloading to set the new rule value to entities"
+        ],
+        "validators": null,
+        "repo": "TISUnion/Carpet-TIS-Addition",
+        "branches": [
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.x"
+        ]
+    },
+    {
         "name": "failSoftBlockStateParsing",
         "description": "Ignore invalid property keys/values in block state arguments used in e.g. /setblock command",
         "type": "boolean",
@@ -8855,6 +8918,28 @@
         ]
     },
     {
+        "name": "witherSpawnedSoundDisabled",
+        "description": "Disable the wither spawned sound emitted when a wither fully reset its health after summoned",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CREATIVE",
+            "TIS"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "TISUnion/Carpet-TIS-Addition",
+        "branches": [
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.x"
+        ]
+    },
+    {
         "name": "xpTrackingDistance",
         "description": "Overwrite the tracking distance of xp orb",
         "type": "double",
@@ -8883,79 +8968,6 @@
             "1.16.5",
             "1.17.1",
             "1.18.x"
-        ]
-    },
-    {
-        "name": "entityTrackerDistance",
-        "description": "The maximum horizontal chebyshev distance (in chunks) for the server to sync entities information to the client",
-        "type": "int",
-        "value": "-1",
-        "categories": [
-            "CREATIVE",
-            "TIS"
-        ],
-        "strict": false,
-        "options": [
-            "-1",
-            "16",
-            "64"
-        ],
-        "extras": [
-            "Basically this works as a \\\"entity view distance\\",
-            "but will still be limited to the server view distance",
-            "Set it to a value not less than the server view distance to make the server sync all entities within the view distance to the client",
-            "Set it to a non-positive value to use vanilla logic",
-            "Requires chunk reloading to set the new rule value to entities"
-        ],
-        "validators": null,
-        "repo": "TISUnion/Carpet-TIS-Addition",
-        "branches": [
-            "1.15.2"
-        ]
-    },
-    {
-        "name": "entityTrackerInterval",
-        "description": "The time interval (in gametick) for the server to sync entities information to the client",
-        "type": "int",
-        "value": "-1",
-        "categories": [
-            "CREATIVE",
-            "TIS"
-        ],
-        "strict": false,
-        "options": [
-            "-1",
-            "1"
-        ],
-        "extras": [
-            "With a small number e.g. 1",
-            "entity information will be synced to the client every 1 gametick",
-            "resulting in less-likely client-side entity desync",
-            "Set it to a non-positive value to use vanilla logic",
-            "Requires chunk reloading to set the new rule value to entities"
-        ],
-        "validators": null,
-        "repo": "TISUnion/Carpet-TIS-Addition",
-        "branches": [
-            "1.15.2"
-        ]
-    },
-    {
-        "name": "witherSpawnedSoundDisabled",
-        "description": "Disable the wither spawned sound emitted when a wither fully reset its health after summoned",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "CREATIVE",
-            "TIS"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "TISUnion/Carpet-TIS-Addition",
-        "branches": [
-            "1.15.2"
         ]
     },
     {
