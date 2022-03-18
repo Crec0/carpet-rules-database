@@ -6142,6 +6142,26 @@
         ]
     },
     {
+        "name": "armorStandNegateCactusDamageFix",
+        "description": "Fixes armor stands not being damaged by cactus",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "RECOMMENDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-224420'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
         "name": "tripwireNotDisarmingFix",
         "description": "Fixes tripwires not being disarmed correctly",
         "type": "boolean",
@@ -6273,6 +6293,102 @@
         "options": null,
         "extras": [
             "'MC-248621'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "nocomExploitFix",
+        "description": "Prevents the nocom exploit from being able to crash the server",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "CRASHFIX",
+            "RECOMMENDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "There is a fabric mod that is able to do this in vanilla!"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "structureManagerCantLoadSnbtFix",
+        "description": "Fixes the structure manager not being able to load snbt versions of nbt files",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "CREATIVE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "This makes it possible for structure blocks to load snbt files also.",
+            "Should not be used in survival or for datapacks",
+            "since its slower than nbt"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "stepAndDestroyBlockGoalUsesOriginFix",
+        "description": "Fixes the stepanddestroyblockgoal using the origin without first checking if its valid",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "hopperMinecartSlowerAtOriginFix",
+        "description": "Fixes hopper minecarts being 4x slower at [0,0,0]",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "nonSolidBlocksBreakCactusIfPushedFix",
+        "description": "Fixes cactus breaking when moving a non-solid block next to them with a piston",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-160095'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6414,6 +6530,77 @@
         "categories": [
             "BUGFIX",
             "DUPE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "horseDupeFix",
+        "description": "Fixes a donkey/llama/horse dupe that is possible by using a client-side mod",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "DUPE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "nocomFix",
+        "description": "Prevent the nocom exploit from working",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "CRASHFIX",
+            "RECOMMENDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "mobsSpawnOnMovingPistonsFix",
+        "description": "Fixes mobs being able to spawn on moving pistons",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "geodeLavalogFix",
+        "description": "Fixes an edge case within geodes where it will waterlog a block next to lava, due to missing fluid check",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
         ],
         "strict": true,
         "options": null,
