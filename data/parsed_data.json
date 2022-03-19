@@ -7022,8 +7022,8 @@
     {
         "name": "chunkSaveCooldownDelay",
         "description": "Allows you to change the chunk save cooldown added in 22w05a",
-        "type": "long",
-        "value": "10000L",
+        "type": "int",
+        "value": "10000",
         "categories": [
             "ADVANCED",
             "OPTIMIZATION"
