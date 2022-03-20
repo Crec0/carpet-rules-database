@@ -52,7 +52,8 @@
         "carpetfixes/CFSettings.java"
       ],
       "branches": [
-        "1.18"
+        "1.18",
+        "dev"
       ]
     },
     {
