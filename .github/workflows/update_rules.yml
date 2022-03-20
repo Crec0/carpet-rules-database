@@ -58,4 +58,3 @@ jobs:
           username: "Carpet Rules Generator"
           avatar-url: ${{ secrets.CARPET_RULES_AVATAR_URL }}
           content: "${{ steps.capture-date.outputs.date }}"
-          wait: true
