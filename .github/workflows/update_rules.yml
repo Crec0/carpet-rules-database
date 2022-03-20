@@ -31,7 +31,9 @@ jobs:
         id: generator
         run: |
           cd generator                    # going up one level so the relative path's in code dont freak out
-          echo "::set-output name=embed_description::$(python ../setup-and-run-main.py)"
+          echo "EMBED_DESCRIPTION<<EOF" >> $GITHUB_ENV
+          echo "$(python ../setup-and-run-main.py)" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Capture date
         id: capture-date
@@ -50,9 +52,10 @@ jobs:
         uses: tsickert/discord-webhook@v4.0.0
         with:
           webhook-url: ${{ secrets.CARPET_RULES_WEBHOOK_URL }}
-          embed-title: "Updated rules database update '${{ steps.capture-date.outputs.date }}'"
-          embed-description: "${{ steps.generator.outputs.embed_description }}"
+          embed-title: "Carpet rules database stats"
+          embed-description: "${{ env.EMBED_DESCRIPTION }}"
           embed-color: 0xf0932b
           username: "Carpet Rules Generator"
           avatar-url: ${{ secrets.CARPET_RULES_AVATAR_URL }}
-
+          content: "${{ steps.capture-date.outputs.date }}"
+          wait: true
