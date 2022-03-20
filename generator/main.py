@@ -3,6 +3,7 @@ import json
 from generator import rule
 from generator.downloader import assemble_data, fetch_data
 from generator.parser import Parser
+from generator.util import webhook_stats
 
 
 def main():
@@ -19,7 +20,7 @@ def main():
         parsed_rules.extend(parser.rules)
 
     rules = rule.group_by_repo(parsed_rules)
-    print(f"parsed {len(rules)} rules")
+    print(webhook_stats(rules))
 
     with open("../data/parsed_data.json", "w") as f:
         json.dump(rules, f, cls=rule.RuleEncoder, indent=4)

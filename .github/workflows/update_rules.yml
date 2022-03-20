@@ -28,9 +28,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run the generator
+        id: generator
         run: |
           cd generator                    # going up one level so the relative path's in code dont freak out
-          python ../setup-and-run-main.py
+          echo "::set-output name=embed_description::$(python ../setup-and-run-main.py)"
 
       - name: Capture date
         id: capture-date
@@ -44,3 +45,14 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git commit -am "Update rules database '${{ steps.capture-date.outputs.date }}'"
           git push origin main
+
+      - name: Send discord webhook
+        uses: tsickert/discord-webhook@v4.0.0
+        with:
+          webhook-url: ${{ secrets.CARPET_RULES_WEBHOOK_URL }}
+          embed-title: "Updated rules database update '${{ steps.capture-date.outputs.date }}'"
+          embed-description: ${{ steps.generator.outputs.embed_description }}
+          embed-color: 0xf0932b
+          username: "Carpet Rules Generator"
+          avatar-url: ${{ secrets.CARPET_RULES_AVATAR_URL }}
+
