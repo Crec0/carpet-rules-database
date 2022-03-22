@@ -7281,6 +7281,31 @@
         ]
     },
     {
+        "name": "optimizedFurnaces",
+        "description": "Optimized the furnace code drastically. improving expensive checks, and expensive recipe lookups",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "OPTIMIZATION",
+            "RECOMMENDED",
+            "VANILLA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "This is a fully vanilla optimization. Improves: Furnace",
+            "Blast Furnace",
+            "Smoker",
+            "& any furnace extension",
+            "This is incredibly visible in modded scenarios"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "reIntroduceInstantBlockUpdates",
         "description": "Re-introduces instant block updates which changed in 22w11a",
         "type": "boolean",
