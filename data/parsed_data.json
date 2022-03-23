@@ -6707,8 +6707,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -7274,6 +7273,25 @@
         "strict": true,
         "options": null,
         "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "frictionlessEntitiesFix",
+        "description": "Fixes frictionless goats & frogs, currently requires to be modified per mob",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-228273'"
+        ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
