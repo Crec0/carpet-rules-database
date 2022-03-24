@@ -7299,6 +7299,63 @@
         ]
     },
     {
+        "name": "mobsTargetDeadEntitiesFix",
+        "description": "Fixes mobs that fight as a group targeting dead entities, leading to many bugs",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-183990'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "noAIStriderGetsColdFix",
+        "description": "Fixes striders with noai still getting cold",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-176081'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "oresDontDropXpWhenBlownUpFix",
+        "description": "Fixes ore blocks not dropping experience when blown up - sculk use the same block as ores",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-176840'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedFurnaces",
         "description": "Optimized the furnace code drastically. improving expensive checks, and expensive recipe lookups",
         "type": "boolean",
