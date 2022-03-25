@@ -7356,6 +7356,44 @@
         ]
     },
     {
+        "name": "entityGrowingUpCollisionClippingFix",
+        "description": "Fixes entities growing up still clipping through walls if they have a collision above them",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Suggested fix by __MethodZz__ from: https://www.youtube.com/watch?v=Tg5eQk6P-NQ"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "slowedEntityGoalsFix",
+        "description": "Fixes an optimization in 1.18 changing the behaviour of many goals even though mojang said it would change nothing",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "This bug results in many goals being slower"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedFurnaces",
         "description": "Optimized the furnace code drastically. improving expensive checks, and expensive recipe lookups",
         "type": "boolean",
@@ -7399,7 +7437,7 @@
     },
     {
         "name": "reIntroduceReverseRailUpdateOrder",
-        "description": "Re-introduces reverse rail update order which changed in 22w11a. requires optimizedpoweredrails",
+        "description": "Re-introduces reverse rail update order which only existed in 22w11a. requires optimizedpoweredrails",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -7415,8 +7453,27 @@
         ]
     },
     {
+        "name": "reIntroduceProperGoalTimings",
+        "description": "Re-introduces or better said, reverts an optimization made in 21w39a that broken many entity goal",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "REINTRODUCE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Technically this was an optimization so enabling this rule will most likely come at a performance cost!"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "debugStackDepth",
-        "description": "Placing a sculk shrieker on a barrier block will make it output the current stack depth on shape updates",
+        "description": "Placing turtle eggs on a barrier block will make it output the current stack depth on shape updates",
         "type": "boolean",
         "value": "false",
         "categories": [
