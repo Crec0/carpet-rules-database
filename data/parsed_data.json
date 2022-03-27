@@ -7394,6 +7394,25 @@
         ]
     },
     {
+        "name": "pistonUpdateOrderIsLocationalFix",
+        "description": "Fixes pistons pulling/pushing blocks using a hashmap causing order to be locational",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-233420'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedFurnaces",
         "description": "Optimized the furnace code drastically. improving expensive checks, and expensive recipe lookups",
         "type": "boolean",
@@ -7465,6 +7484,23 @@
         "extras": [
             "Technically this was an optimization so enabling this rule will most likely come at a performance cost!"
         ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "reIntroducePistonTranslocation",
+        "description": "Re-introduces piston translocation from 1.10",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "REINTRODUCE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
