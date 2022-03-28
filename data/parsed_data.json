@@ -6633,6 +6633,32 @@
         ]
     },
     {
+        "name": "optimizedFurnaces",
+        "description": "Optimized the furnace code drastically. improving expensive checks, and expensive recipe lookups",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "OPTIMIZATION",
+            "RECOMMENDED",
+            "VANILLA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "This is a fully vanilla optimization. Improves: Furnace",
+            "Blast Furnace",
+            "Smoker",
+            "& any furnace extension",
+            "This is incredibly visible in modded scenarios"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
         "name": "stringDupeFix",
         "description": "Fixes a string dupe using water & tripwire hooks",
         "type": "boolean",
@@ -7413,24 +7439,18 @@
         ]
     },
     {
-        "name": "optimizedFurnaces",
-        "description": "Optimized the furnace code drastically. improving expensive checks, and expensive recipe lookups",
+        "name": "optimizedNeighborUpdater",
+        "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
         "value": "false",
         "categories": [
+            "EXPERIMENTAL",
             "OPTIMIZATION",
-            "RECOMMENDED",
             "VANILLA"
         ],
         "strict": true,
         "options": null,
-        "extras": [
-            "This is a fully vanilla optimization. Improves: Furnace",
-            "Blast Furnace",
-            "Smoker",
-            "& any furnace extension",
-            "This is incredibly visible in modded scenarios"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
@@ -17155,6 +17175,36 @@
         ]
     },
     {
+        "name": "itemShadowingMechanic",
+        "description": "Mechanic to create shadow items without a suppressor",
+        "type": "itemShadowingMechanics",
+        "value": "OFF",
+        "categories": [
+            "EXPERIMENTAL",
+            "WEIRD"
+        ],
+        "strict": true,
+        "options": [
+            "lightning",
+            "off",
+            "spectral"
+        ],
+        "extras": [
+            "Lightning Mechanic: Lightning hitting an item frame on an inventory",
+            "+",
+            "will create a shadow item of the item in the frame and put it in the inventory.",
+            "Spectral Mechanic: Shooting an item frame on an inventory with a burning spectral arrow",
+            "+",
+            "will create a shadow item of the item in the frame and put it in the inventory.",
+            "Do this twice!"
+        ],
+        "validators": null,
+        "repo": "fxmorin/WeirdAddons",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
         "name": "broadcastToAll",
         "description": "Broadcasts all op messages to everyone",
         "type": "boolean",
@@ -19325,6 +19375,73 @@
         ]
     },
     {
+        "name": "potionRecycle",
+        "description": "Dispenser can clear potion tocauldron.",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "DISPENSER",
+            "FEATURE",
+            "PCA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "plusls/plusls-carpet-addition",
+        "branches": [
+            "1.14.x",
+            "1.15.x",
+            "1.16.x",
+            "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "trackItemPickupByPlayer",
+        "description": "When item pick up by player, item will freeze.",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CREATIVE",
+            "PCA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "plusls/plusls-carpet-addition",
+        "branches": [
+            "1.14.x",
+            "1.15.x",
+            "1.16.x",
+            "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "creativePlayerNoDirectKillArmorStand",
+        "description": "Creative player no direct kill armorstand.",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CREATIVE",
+            "PCA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "plusls/plusls-carpet-addition",
+        "branches": [
+            "1.14.x",
+            "1.15.x",
+            "1.16.x",
+            "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
         "name": "pcaDebug",
         "description": "Pcadebug mode",
         "type": "boolean",
@@ -19362,61 +19479,6 @@
         "branches": [
             "1.16.x",
             "1.17.x",
-            "1.18.x"
-        ]
-    },
-    {
-        "name": "potionRecycle",
-        "description": "Dispenser can clear potion tocauldron.",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "DISPENSER",
-            "FEATURE",
-            "PCA"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "plusls/plusls-carpet-addition",
-        "branches": [
-            "1.18.x"
-        ]
-    },
-    {
-        "name": "trackItemPickupByPlayer",
-        "description": "When item pick up by player, item will freeze.",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "CREATIVE",
-            "PCA"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "plusls/plusls-carpet-addition",
-        "branches": [
-            "1.18.x"
-        ]
-    },
-    {
-        "name": "creativePlayerNoDirectKillArmorStand",
-        "description": "Creative player no direct kill armorstand.",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "CREATIVE",
-            "PCA"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "plusls/plusls-carpet-addition",
-        "branches": [
             "1.18.x"
         ]
     },
