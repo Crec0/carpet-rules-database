@@ -1977,6 +1977,29 @@
         ]
     },
     {
+        "name": "sculkSensorRange",
+        "description": "Customizable sculk sensor range",
+        "type": "int",
+        "value": "8",
+        "categories": [
+            "CREATIVE"
+        ],
+        "strict": false,
+        "options": [
+            "16",
+            "32",
+            "8"
+        ],
+        "extras": null,
+        "validators": [
+            "You must choose a value from 1 to 1024"
+        ],
+        "repo": "gnembon/fabric-carpet",
+        "branches": [
+            "master"
+        ]
+    },
+    {
         "name": "combineXPOrbs",
         "description": "Xp orbs combine with other into bigger orbs",
         "type": "boolean",
