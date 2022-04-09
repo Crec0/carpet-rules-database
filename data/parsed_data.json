@@ -7578,6 +7578,63 @@
         ]
     },
     {
+        "name": "voidTradingFix",
+        "description": "Fixes void trading",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "The ability to trade with a villager in unloaded chunks allowing for infinite trading"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "allayWrongNoteblockFix",
+        "description": "Fixes allay going to the wrong noteblock in another dimension",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-250027'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "lavaCalculatesWrongFireStateFix",
+        "description": "Fixes lava creating fire with incorrect block states",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-250048'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -11499,8 +11556,8 @@
         ]
     },
     {
-        "name": "cobwebSlowDownSpeed",
-        "description": "Override the slow down speed of cobwebs",
+        "name": "cobwebSlowdownSpeed",
+        "description": "Overwrite the slowdown speed of cobwebs",
         "type": "double",
         "value": "0.05000000074505806D",
         "categories": [
@@ -11515,14 +11572,12 @@
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
         "branches": [
-            "fabric-1.16.4",
-            "fabric-1.17",
-            "fabric-1.18"
+            "fabric-1.16.4"
         ]
     },
     {
         "name": "fakePlayerPreset",
-        "description": "Override the player list when using /player command",
+        "description": "Overwrite the player list suggested when using /player command",
         "type": "String",
         "value": "Steve,Alex",
         "categories": [
@@ -11591,12 +11646,13 @@
     },
     {
         "name": "editableSign",
-        "description": "Right click a sign block with an empty hand when you are sneaking to reopen the sign editor",
+        "description": "Right click a sign block with main hand empty when you are sneaking to reopen the sign editor",
         "type": "boolean",
         "value": "false",
         "categories": [
             "EXPERIMENTAL",
-            "ICA"
+            "ICA",
+            "SURVIVAL"
         ],
         "strict": true,
         "options": null,
@@ -11611,7 +11667,7 @@
     },
     {
         "name": "mobBlackList",
-        "description": "Avoid some mobs from spawning",
+        "description": "Stop some mobs from spawning",
         "type": "String",
         "value": "_",
         "categories": [
@@ -11671,7 +11727,7 @@
     },
     {
         "name": "mobSpawningRestrictionMode",
-        "description": "Modify the way to restrict mob spawning (black list or white list)",
+        "description": "Modify the way to restrict mob spawning",
         "type": "String",
         "value": "none",
         "categories": [
@@ -11685,7 +11741,8 @@
             "whitelist"
         ],
         "extras": [
-            "Set the list with rule 'mobBlackList' and 'mobWhiteList'"
+            "whitelist: Only mobs defined in rule 'mobWhiteList' can spawn in the world. Rule 'mobBlackList' will be ignored",
+            "blacklist: Mobs defined in rule 'mobBlackList' cannot spawn in the world. Rule 'mobWhiteList' will be ignored"
         ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
@@ -11697,7 +11754,7 @@
     },
     {
         "name": "creeperDropCompletely",
-        "description": "Creeper explosion 100% drop",
+        "description": "Creeper explosions will have a 100% drop rate",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -11746,7 +11803,9 @@
         ],
         "strict": true,
         "options": null,
-        "extras": null,
+        "extras": [
+            "Technically piston heads will not remove any block other than itself"
+        ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
         "branches": [
@@ -11828,15 +11887,14 @@
         "type": "boolean",
         "value": "true",
         "categories": [
+            "BACKPORT",
             "FEATURE",
             "ICA"
         ],
         "strict": true,
         "options": null,
         "extras": [
-            "Default values:",
-            "1.14: false",
-            "1.15+: true"
+            "Only works in 1.14"
         ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
@@ -11848,7 +11906,7 @@
     },
     {
         "name": "mendableSnowGolem",
-        "description": "Right click a snow golem with the snowball or hit it with the snowball to mend it (+1 health)",
+        "description": "Use a snowball at a snow golem or hit a snow golem with a snowball to mend it (+1 health)",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -11873,15 +11931,14 @@
         "type": "boolean",
         "value": "true",
         "categories": [
+            "BACKPORT",
             "FEATURE",
             "ICA"
         ],
         "strict": true,
         "options": null,
         "extras": [
-            "Default values:",
-            "1.14: false",
-            "1.15+: true"
+            "Only works in 1.14"
         ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
@@ -11893,11 +11950,10 @@
     },
     {
         "name": "magmaBlockDamageItem",
-        "description": "Items on magma block get damage",
+        "description": "Items on magma block get damages",
         "type": "boolean",
         "value": "true",
         "categories": [
-            "EXPERIMENTAL",
             "FEATURE",
             "ICA"
         ],
@@ -11914,7 +11970,7 @@
     },
     {
         "name": "functionalSpongeItem",
-        "description": "Sponge item do water clearance and dry in the nether",
+        "description": "Sponge items do water clearance and dry in the nether",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -11935,7 +11991,7 @@
     },
     {
         "name": "fakePlayerPrefixCheck",
-        "description": "Check the prefix of fake players when using player command",
+        "description": "Player command will only be able to spawn fake players with the given prefix",
         "type": "String",
         "value": "#none",
         "categories": [
@@ -11949,7 +12005,7 @@
             "bot_"
         ],
         "extras": [
-            "Set to #none to disable"
+            "Set to '#none' to disable"
         ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
@@ -11961,7 +12017,7 @@
     },
     {
         "name": "fakePlayerSuffixCheck",
-        "description": "Check the suffix of fake players when using player command",
+        "description": "Player command will only be able to spawn fake players with the given suffix",
         "type": "String",
         "value": "#none",
         "categories": [
@@ -11975,7 +12031,7 @@
             "_fake"
         ],
         "extras": [
-            "Set to #none to disable"
+            "Set to '#none' to disable"
         ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
@@ -11987,7 +12043,7 @@
     },
     {
         "name": "infiniteWaterDisabled",
-        "description": "Water will act like lava",
+        "description": "Infinite water will not form",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -12029,7 +12085,7 @@
     },
     {
         "name": "containerDropInventoryDisabled",
-        "description": "Containers such as chests and barrels won't drop their inventories when removal",
+        "description": "Containers such as chests and barrels won't drop their inventories when being broke",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -12096,7 +12152,7 @@
     },
     {
         "name": "unbreakableHelmetInSunlight",
-        "description": "Helmet equipped by undead will not be damaged in sunlight",
+        "description": "Helmet equipped by an undead will not be damaged by sunlight",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -12209,13 +12265,34 @@
         "options": null,
         "extras": [
             "Enables /xpcounter command",
-            "Use /xpcounter <player?> reset to reset the counter",
-            "Use /xpcounter <player?> to query the counter"
+            "Use /xpcounter <player> reset to reset the counter",
+            "Use /xpcounter <player> to query the counter"
         ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
         "branches": [
             "fabric-1.16.4",
+            "fabric-1.17",
+            "fabric-1.18"
+        ]
+    },
+    {
+        "name": "cobwebSlowDownSpeed",
+        "description": "Override the slow down speed of cobwebs",
+        "type": "double",
+        "value": "0.05000000074505806D",
+        "categories": [
+            "CREATIVE",
+            "ICA"
+        ],
+        "strict": false,
+        "options": [
+            "0.05000000074505806"
+        ],
+        "extras": null,
+        "validators": null,
+        "repo": "Ivan-1F/Ivan-Carpet-Addition",
+        "branches": [
             "fabric-1.17",
             "fabric-1.18"
         ]
