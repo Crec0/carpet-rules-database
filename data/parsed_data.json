@@ -7635,6 +7635,44 @@
         ]
     },
     {
+        "name": "entitiesFallThroughClayFromMudFix",
+        "description": "Fixes entities falling through clay that was generated from mud",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-250034'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "allaySeesSpectatorsFix",
+        "description": "Fixes allays being able to see players in spectator mode",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-249790'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -11572,11 +11610,13 @@
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
         "branches": [
-            "fabric-1.16.4"
+            "fabric-1.16.4",
+            "fabric-1.17",
+            "fabric-1.18"
         ]
     },
     {
-        "name": "fakePlayerPreset",
+        "name": "fakePlayerNameSuggections",
         "description": "Overwrite the player list suggested when using /player command",
         "type": "String",
         "value": "Steve,Alex",
@@ -11646,7 +11686,7 @@
     },
     {
         "name": "editableSign",
-        "description": "Right click a sign block with main hand empty when you are sneaking to reopen the sign editor",
+        "description": "Use a sign block with main hand empty when you are sneaking to reopen the sign editor",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -11816,53 +11856,7 @@
     },
     {
         "name": "blockEventChunkLoading",
-        "description": "Block event can load chunks",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "FEATURE",
-            "ICA"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "Ivan-1F/Ivan-Carpet-Addition",
-        "branches": [
-            "fabric-1.16.4",
-            "fabric-1.17",
-            "fabric-1.18"
-        ]
-    },
-    {
-        "name": "blockEventChunkLoadingTicks",
-        "description": "The load duration of block event",
-        "type": "int",
-        "value": "4",
-        "categories": [
-            "EXPERIMENTAL",
-            "FEATURE",
-            "ICA"
-        ],
-        "strict": false,
-        "options": [
-            "16",
-            "4",
-            "8"
-        ],
-        "extras": null,
-        "validators": null,
-        "repo": "Ivan-1F/Ivan-Carpet-Addition",
-        "branches": [
-            "fabric-1.16.4",
-            "fabric-1.17",
-            "fabric-1.18"
-        ]
-    },
-    {
-        "name": "villageChunkLoading",
-        "description": "A villager with a bed can load 3*3 chunks",
+        "description": "Block event can load 3x3 chunks for 8gt",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -11883,7 +11877,7 @@
     },
     {
         "name": "mendableIronGolem",
-        "description": "Right click a iron golem with the iron ingot to mend it (+25 health)",
+        "description": "Use an iron ingot at an iron golem to mend it (+25 health)",
         "type": "boolean",
         "value": "true",
         "categories": [
@@ -11927,7 +11921,7 @@
     },
     {
         "name": "spongeDryInNether",
-        "description": "Wet sponge will dry in nether",
+        "description": "Wet sponge will transform to sponge immediately when placing in the nether",
         "type": "boolean",
         "value": "true",
         "categories": [
@@ -11970,7 +11964,7 @@
     },
     {
         "name": "functionalSpongeItem",
-        "description": "Sponge items do water clearance and dry in the nether",
+        "description": "Sponge items do water clearance and dry in the nether after 60gt",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -11990,8 +11984,8 @@
         ]
     },
     {
-        "name": "fakePlayerPrefixCheck",
-        "description": "Player command will only be able to spawn fake players with the given prefix",
+        "name": "fakePlayerPrefixRestriction",
+        "description": "/player command will only be able to spawn fake players with the given prefix",
         "type": "String",
         "value": "#none",
         "categories": [
@@ -12016,7 +12010,7 @@
         ]
     },
     {
-        "name": "fakePlayerSuffixCheck",
+        "name": "fakePlayerSuffixRestriction",
         "description": "Player command will only be able to spawn fake players with the given suffix",
         "type": "String",
         "value": "#none",
@@ -12272,27 +12266,6 @@
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
         "branches": [
             "fabric-1.16.4",
-            "fabric-1.17",
-            "fabric-1.18"
-        ]
-    },
-    {
-        "name": "cobwebSlowDownSpeed",
-        "description": "Override the slow down speed of cobwebs",
-        "type": "double",
-        "value": "0.05000000074505806D",
-        "categories": [
-            "CREATIVE",
-            "ICA"
-        ],
-        "strict": false,
-        "options": [
-            "0.05000000074505806"
-        ],
-        "extras": null,
-        "validators": null,
-        "repo": "Ivan-1F/Ivan-Carpet-Addition",
-        "branches": [
             "fabric-1.17",
             "fabric-1.18"
         ]
