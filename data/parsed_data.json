@@ -7329,6 +7329,26 @@
         ]
     },
     {
+        "name": "allayStuckInVoidFix",
+        "description": "Fixes allays getting stuck in the void due to gravity being disabled",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "RECOMMENDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-249859'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "frictionlessEntitiesFix",
         "description": "Fixes frictionless goats & frogs, currently requires to be modified per mob",
         "type": "boolean",
@@ -7665,6 +7685,25 @@
         "options": null,
         "extras": [
             "'MC-249790'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "frogJumpsIgnoreTemptedFix",
+        "description": "Fixes frogs being able to jump while tempted. only applies to new frog entities,",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-249328'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -11616,7 +11655,7 @@
         ]
     },
     {
-        "name": "fakePlayerNameSuggections",
+        "name": "fakePlayerNameSuggestions",
         "description": "Overwrite the player list suggested when using /player command",
         "type": "String",
         "value": "Steve,Alex",
@@ -12246,8 +12285,8 @@
         ]
     },
     {
-        "name": "experienceCounter",
-        "description": "Use players as experience counters",
+        "name": "xpCounter",
+        "description": "A tool like 'hoppercounter' to use players as xp counters",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -12258,9 +12297,10 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Enables /xpcounter command",
-            "Use /xpcounter <player> reset to reset the counter",
-            "Use /xpcounter <player> to query the counter"
+            "Enables '/xpcounter' command",
+            "Use '/xpcounter <player> reset' to reset the counter",
+            "Use '/xpcounter <player>' to query the counter",
+            "Use '/log xpcounter <players>' to subscribe xp counters"
         ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
