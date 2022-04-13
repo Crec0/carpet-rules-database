@@ -7349,6 +7349,26 @@
         ]
     },
     {
+        "name": "pistonReloadInconsistencyFix",
+        "description": "Fixes piston lastprogress not being set correctly",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "NBT"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Related to 'MC-89146'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "frictionlessEntitiesFix",
         "description": "Fixes frictionless goats & frogs, currently requires to be modified per mob",
         "type": "boolean",
@@ -7761,6 +7781,83 @@
         "options": null,
         "extras": [
             "'MC-202432'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "crystalExplosionGivesWrongEventFix",
+        "description": "Fixes end crystal explosions giving the wrong game event",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-249962'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "allayCanBeEquippedWithArmorFix",
+        "description": "Fixes being able to equip an allay with armor",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-249745'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "allayLosesItemOnUnloadFix",
+        "description": "Fixes allays losing picked up items on world restart",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "NBT"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-249745'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "shulkersAreLowerInChestBoatFix",
+        "description": "Fixes shulkers in chests boats being lowered",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-249463'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
