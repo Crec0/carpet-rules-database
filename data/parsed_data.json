@@ -7940,6 +7940,44 @@
         ]
     },
     {
+        "name": "projectileKeepsVelocityFix",
+        "description": "Fixes projectiles keeping there velocity",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-198908'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "cantJumpOffBlockWhenSneakingFix",
+        "description": "Fixes players unable to jump off the edge of blocks while sneaking and having a block above them",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-197647'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -8220,7 +8258,7 @@
     },
     {
         "name": "foxesSpawnWithBerries",
-        "description": "A spawned fox has a chance to hold berries",
+        "description": "A spawned fox has a chance to hold sweet berries",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -8234,6 +8272,42 @@
         "repo": "jsorrell/skyblock",
         "branches": [
             "1.17",
+            "1.18"
+        ]
+    },
+    {
+        "name": "poisonousPotatoesConvertSpiders",
+        "description": "Spiders convert into cave spiders when given poisonous potatoes",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "FEATURE",
+            "SKYBLOCK"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "jsorrell/skyblock",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "saplingsDieOnSand",
+        "description": "Saplings on sand eventually turn into dead bushes",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "FEATURE",
+            "SKYBLOCK"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "jsorrell/skyblock",
+        "branches": [
             "1.18"
         ]
     },
