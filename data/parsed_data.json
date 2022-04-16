@@ -7964,7 +7964,8 @@
         "type": "boolean",
         "value": "false",
         "categories": [
-            "BUGFIX"
+            "BUGFIX",
+            "CLIENT"
         ],
         "strict": true,
         "options": null,
@@ -9357,6 +9358,32 @@
         "extras": [
             "world_timer: Divides at Overworld timer increment",
             "player_action: Divides at the beginning of player action"
+        ],
+        "validators": null,
+        "repo": "TISUnion/Carpet-TIS-Addition",
+        "branches": [
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "mobcapsDisplayIgnoreMisc",
+        "description": "Ignore mob type \"misc\" in carpet mobcaps displays",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CARPET_MOD",
+            "TIS"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Since it's useless: Nothing in misc category spawns",
+            "and it's ignored when calculating mobcap",
+            "Affects mobcaps logger and /spawn mobcap command"
         ],
         "validators": null,
         "repo": "TISUnion/Carpet-TIS-Addition",
