@@ -7979,6 +7979,43 @@
         ]
     },
     {
+        "name": "giantTreesHaveExtraLogFix",
+        "description": "Fixes giant trees creating an extra single log at the top corner",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "duplicateEntityUUIDFix",
+        "description": "Fixes entities created with duplicate uuid's",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "EXPERIMENTAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-137370'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -8102,6 +8139,24 @@
         "repo": "jsorrell/skyblock",
         "branches": [
             "1.17",
+            "1.18"
+        ]
+    },
+    {
+        "name": "lavaFromWanderingTrader",
+        "description": "Lets the wandering trader sell lava, the old method",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "FEATURE",
+            "SKYBLOCK"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "jsorrell/skyblock",
+        "branches": [
             "1.18"
         ]
     },
@@ -19075,6 +19130,28 @@
         "repo": "Super-Santa/EssentialAddons",
         "branches": [
             "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "fakePlayerDropInventoryOnKill",
+        "description": "Automatically drop the fake player inventory on kill",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "ESSENTIAL",
+            "FEATURE",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": [
+            "false",
+            "true"
+        ],
+        "extras": null,
+        "validators": null,
+        "repo": "Super-Santa/EssentialAddons",
+        "branches": [
             "1.18.x"
         ]
     },
