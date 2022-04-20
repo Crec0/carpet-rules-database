@@ -7389,6 +7389,26 @@
         ]
     },
     {
+        "name": "armorStandNegateAnvilDamageFix",
+        "description": "Fixes armor stands not being damaged by anvils",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "RECOMMENDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-203302'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "frictionlessEntitiesFix",
         "description": "Fixes frictionless goats & frogs, currently requires to be modified per mob",
         "type": "boolean",
@@ -8162,6 +8182,25 @@
         "options": null,
         "extras": [
             "'MC-31819'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "fallingBlockDamageIsOffsetFix",
+        "description": "Fixes falling block damage bounding box being offset",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-203302'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
