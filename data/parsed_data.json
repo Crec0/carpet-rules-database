@@ -6796,6 +6796,26 @@
         ]
     },
     {
+        "name": "crossDimensionTeleportLosesStatsFix",
+        "description": "Fixes client stats being lost when teleporting between dimensions",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-124177'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
         "name": "reIntroduceTargetBlockPermanentlyPowered",
         "description": "Re-introduces target blocks being permanently powered when moved by pistons",
         "type": "boolean",
@@ -8123,6 +8143,25 @@
         "extras": [
             "Bees must be reloaded for the fix to take place",
             "'MC-190261'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "hungerGoesDownInPeacefulFix",
+        "description": "Fixes hunger depleting in peaceful mode",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-31819'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
