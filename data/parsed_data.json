@@ -1649,8 +1649,8 @@
         ]
     },
     {
-        "name": "extremeBehaviours",
-        "description": "Edge cases are as frequent as common cases, for testing only!!",
+        "name": "moreBlueSkulls",
+        "description": "Increases for testing purposes number of blue skulls shot by the wither",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -1658,25 +1658,10 @@
         ],
         "strict": true,
         "options": null,
-        "extras": [
-            "Velocities of items from dispensers",
-            "blaze projectiles",
-            "fireworks",
-            "Directions of fireballs",
-            "wither skulls",
-            "fishing bobbers",
-            "items dropped from blocks and inventories",
-            "llamas spit",
-            "triggered trap horses",
-            "Damage dealt with projectiles",
-            "Blaze aggro sensitivity",
-            "Mobs spawned follow range"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/fabric-carpet",
         "branches": [
-            "1.16.5",
-            "1.17.1",
             "master"
         ]
     },
@@ -2068,6 +2053,37 @@
         "repo": "gnembon/fabric-carpet",
         "branches": [
             "1.16.5"
+        ]
+    },
+    {
+        "name": "extremeBehaviours",
+        "description": "Edge cases are as frequent as common cases, for testing only!!",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CREATIVE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Velocities of items from dispensers",
+            "blaze projectiles",
+            "fireworks",
+            "Directions of fireballs",
+            "wither skulls",
+            "fishing bobbers",
+            "items dropped from blocks and inventories",
+            "llamas spit",
+            "triggered trap horses",
+            "Damage dealt with projectiles",
+            "Blaze aggro sensitivity",
+            "Mobs spawned follow range"
+        ],
+        "validators": null,
+        "repo": "gnembon/fabric-carpet",
+        "branches": [
+            "1.16.5",
+            "1.17.1"
         ]
     },
     {
@@ -12523,9 +12539,9 @@
         "type": "boolean",
         "value": "true",
         "categories": [
-            "BACKPORT",
             "FEATURE",
-            "ICA"
+            "ICA",
+            "PORTING"
         ],
         "strict": true,
         "options": null,
@@ -12571,9 +12587,9 @@
         "type": "boolean",
         "value": "false",
         "categories": [
-            "BACKPORT",
             "FEATURE",
-            "ICA"
+            "ICA",
+            "PORTING"
         ],
         "strict": true,
         "options": null,
@@ -12947,6 +12963,24 @@
             "1.16.5",
             "1.17.1",
             "1.18.2"
+        ]
+    },
+    {
+        "name": "strictBlockPlacement",
+        "description": "Player will not be able to do block placement on air (prevents litematica easyplacemode)",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "ICA",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "Ivan-1F/Ivan-Carpet-Addition",
+        "branches": [
+            "1.15.2"
         ]
     },
     {
