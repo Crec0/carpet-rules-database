@@ -8301,6 +8301,81 @@
         ]
     },
     {
+        "name": "boatsCreatedTooHighFix",
+        "description": "Fixes boats created from dispensers spawning more then half a block higher then the water",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "boatsStuckInDispensersFix",
+        "description": "Fixes boats getting created within the dispenser that created them",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-1310'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "creativeEnchantingCostsExperienceFix",
+        "description": "Fixes enchanting in creative mode still deducting experience",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "CREATIVE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-12656'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "ocelotsAndCatsTryToFleeInVehicleFix",
+        "description": "Fixes ocelots and cats trying to flee from the player while being stuck in a vehicle like a boat",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-53721'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
