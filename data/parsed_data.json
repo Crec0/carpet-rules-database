@@ -21781,5 +21781,99 @@
         "branches": [
             "master"
         ]
+    },
+    {
+        "name": "invertControlsDirection",
+        "description": "Invert controls direction",
+        "type": "int",
+        "value": "0",
+        "categories": [
+            "CLIENT",
+            "PURPLE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "McDevTeam/purple-fabric-carpet",
+        "branches": [
+            "master"
+        ]
+    },
+    {
+        "name": "microphoneEmitVibration",
+        "description": "Microphone emit vibration sensibility",
+        "type": "double",
+        "value": "-1",
+        "categories": [
+            "CLIENT",
+            "PURPLE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "-1 disabled"
+        ],
+        "validators": [
+            "From 0.00 to 1.00, except for -1"
+        ],
+        "repo": "McDevTeam/purple-fabric-carpet",
+        "branches": [
+            "master"
+        ]
+    },
+    {
+        "name": "microphoneNoiseLogger",
+        "description": "Microphone noise will be shown in actionbar",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CLIENT",
+            "PURPLE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "McDevTeam/purple-fabric-carpet",
+        "branches": [
+            "master"
+        ]
+    },
+    {
+        "name": "solidCollisionEntity",
+        "description": "Entities will have a solid collision, like shulkers and boats",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CLIENT",
+            "PURPLE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "McDevTeam/purple-fabric-carpet",
+        "branches": [
+            "master"
+        ]
+    },
+    {
+        "name": "upsideDownEntities",
+        "description": "All entities will be rendered upside-down, like dinnerbone",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CLIENT",
+            "PURPLE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "McDevTeam/purple-fabric-carpet",
+        "branches": [
+            "master"
+        ]
     }
 ]
