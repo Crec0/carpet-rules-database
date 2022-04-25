@@ -294,7 +294,16 @@
       "ownerRepo": "ChronosServer/chronos-carpet-addons",
       "settingsFiles": [
         "chronos/ChronosSettings.java",
-        "chronos/ChronosSettings.java"
+      ],
+      "branches": [
+        "master"
+      ]
+    },
+    {
+      "name": "Purple Fabric Carpet Extension",
+      "ownerRepo": "McDevTeam/purple-fabric-carpet",
+      "settingsFiles": [
+        "com/github/mcdevteam/purple/PurpleCarpetSettings.java"
       ],
       "branches": [
         "master"
