@@ -224,6 +224,24 @@
         ]
     },
     {
+        "name": "xpFromExplosions",
+        "description": "Experience will drop from all experience barring blocks with any explosion type",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "FEATURE",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "gnembon/fabric-carpet",
+        "branches": [
+            "master"
+        ]
+    },
+    {
         "name": "tntPrimerMomentumRemoved",
         "description": "Removes random tnt momentum when primed",
         "type": "boolean",
@@ -8537,6 +8555,46 @@
         "options": null,
         "extras": [
             "'MC-178119'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "mobsAttackThroughBlocksFix",
+        "description": "Fixes mobs being able to hit entities through blocks",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "This might have an impact on performance",
+            "although shouldn't be that bad",
+            "'MC-2310'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "selfHarmFix",
+        "description": "Fixes mobs attacking themselves. self-harm should not be taught to kids ;)",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-110386'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
