@@ -8603,6 +8603,44 @@
         ]
     },
     {
+        "name": "doubleBlocksSkipEntityCheckFix",
+        "description": "Fixes double blocks like beds & doors from skipping the entity check",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-123619'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "dripstoneSkipsEntityCheckFix",
+        "description": "Fixes pointed dripstone skipping the entity check",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-206599'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -8703,6 +8741,25 @@
         "options": null,
         "extras": [
             "Checking a stack depth can be expensive"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "debugStackTrace",
+        "description": "Placing turtle eggs on a jigsaw block will make it output the current stack trace on shape updates",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "DEBUG"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "The rule `reIntroduceInstantBlockUpdates` should be used for better traces!"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
