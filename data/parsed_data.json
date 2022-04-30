@@ -8641,6 +8641,42 @@
         ]
     },
     {
+        "name": "recordWorldEventFix",
+        "description": "Fixes record world events being sent at the wrong time, causing multiple disks to play at the same time",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-112245'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "bedTeleportExploitFix",
+        "description": "Fixes a 8x teleport exploit using beds",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -19902,6 +19938,7 @@
         "validators": null,
         "repo": "Super-Santa/EssentialAddons",
         "branches": [
+            "1.17.x",
             "1.18.x"
         ]
     },
