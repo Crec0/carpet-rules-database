@@ -8677,6 +8677,44 @@
         ]
     },
     {
+        "name": "viewerCountNegativesFix",
+        "description": "Fixes the viewer count for some inventories (chest, ender chest, barrel) being able to go into the negatives",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-229680'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "shulkerBoxMissingUpdateFix",
+        "description": "Fixes shulker box missing a block update",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-190815'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -8801,6 +8839,78 @@
         "repo": "fxmorin/carpet-fixes",
         "branches": [
             "dev"
+        ]
+    },
+    {
+        "name": "generateEndPortals",
+        "description": "Generates end portals",
+        "type": "boolean",
+        "value": "true",
+        "categories": [
+            "GENERATION",
+            "SKYBLOCK"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "jsorrell/skyblock",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "generateSilverfishSpawners",
+        "description": "Generates silverfish spawners",
+        "type": "boolean",
+        "value": "true",
+        "categories": [
+            "GENERATION",
+            "SKYBLOCK"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "jsorrell/skyblock",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "generateMagmaCubeSpawners",
+        "description": "Generates magma cube spawners",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "GENERATION",
+            "SKYBLOCK"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "jsorrell/skyblock",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
+        "name": "generateRandomEndGateways",
+        "description": "Generate random end gateways",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "GENERATION",
+            "SKYBLOCK"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "jsorrell/skyblock",
+        "branches": [
+            "1.18"
         ]
     },
     {
@@ -19935,6 +20045,54 @@
             "true"
         ],
         "extras": null,
+        "validators": null,
+        "repo": "Super-Santa/EssentialAddons",
+        "branches": [
+            "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "gameRuleNonOp",
+        "description": "Allows non-op players to change game rules from the client",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "ESSENTIAL",
+            "EXPERIMENTAL",
+            "FEATURE"
+        ],
+        "strict": true,
+        "options": [
+            "false",
+            "true"
+        ],
+        "extras": null,
+        "validators": null,
+        "repo": "Super-Santa/EssentialAddons",
+        "branches": [
+            "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "gameRuleSync",
+        "description": "Syncs the game rules with the client",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "ESSENTIAL",
+            "EXPERIMENTAL",
+            "FEATURE"
+        ],
+        "strict": true,
+        "options": [
+            "false",
+            "true"
+        ],
+        "extras": [
+            "Essential Client is required to change the rules on the client"
+        ],
         "validators": null,
         "repo": "Super-Santa/EssentialAddons",
         "branches": [
