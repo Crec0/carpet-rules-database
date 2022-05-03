@@ -6850,6 +6850,26 @@
         ]
     },
     {
+        "name": "inhabitedTimeFix",
+        "description": "Fixes inhabitedtime not always updating in some chunks",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-127407'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
         "name": "reIntroduceTargetBlockPermanentlyPowered",
         "description": "Re-introduces target blocks being permanently powered when moved by pistons",
         "type": "boolean",
@@ -8745,6 +8765,63 @@
         "options": null,
         "extras": [
             "'MC-93669'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "spawnInsideGatewayFix",
+        "description": "Fixes the end gateway teleport check using blocks that should be invalid as valid for teleporting",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-193421'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "enderDragonDoesntDropBlocksFix",
+        "description": "Fixes the enderdragon not dropping the blocks it breaks",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-220519'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "projectileGoalTargetsDeadEntitiesFix",
+        "description": "Fixes the projectileattackgoal targetting dead entities",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-165516'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -11108,7 +11185,8 @@
         "validators": null,
         "repo": "TISUnion/Carpet-TIS-Addition",
         "branches": [
-            "1.15.2"
+            "1.15.2",
+            "1.16.5"
         ]
     },
     {
