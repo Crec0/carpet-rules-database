@@ -8830,6 +8830,80 @@
         ]
     },
     {
+        "name": "badVillagerPyrotechnicsFix",
+        "description": "Fixes villagers being hurt by there own fireworks",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-195326'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "endermanPainfulTeleportFix",
+        "description": "Fixes enderman teleporting away during damage, making other damage systems believe the enderman got hurt. such as wither skulls applying wither",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-186119'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "endermanAvoidProjectilesInVehicleFix",
+        "description": "Fixes enderman doing teleporting effects and sounds and avoiding projectiles while in a vehicle",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-183446'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "comparatorTransparencyFix",
+        "description": "Fixes comparators not being able to get containers through opaque full blocks like pistons & observers",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -10330,6 +10404,36 @@
         ]
     },
     {
+        "name": "minecartTakePassengerMinVelocity",
+        "description": "Determine the minimum required horizontal velocity for a minecart to pick up nearby entity as its passenger",
+        "type": "double",
+        "value": "0.1D",
+        "categories": [
+            "CREATIVE",
+            "TIS"
+        ],
+        "strict": false,
+        "options": [
+            "0",
+            "0.1",
+            "nan"
+        ],
+        "extras": [
+            "Set it to 0 to let minecart always take passenger no matter how fast it is",
+            "just like a boat",
+            "Set it to NaN to let minecart never takes passenger"
+        ],
+        "validators": null,
+        "repo": "TISUnion/Carpet-TIS-Addition",
+        "branches": [
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.x"
+        ]
+    },
+    {
         "name": "mobcapsDisplayIgnoreMisc",
         "description": "Ignore mob type \"misc\" in carpet mobcaps displays",
         "type": "boolean",
@@ -11163,30 +11267,22 @@
         ]
     },
     {
-        "name": "minecartTakePassengerMinVelocity",
-        "description": "Determine the minimum required horizontal velocity for a minecart to pick up nearby entity as its passenger",
-        "type": "double",
-        "value": "0.1D",
+        "name": "commandRemoveEntity",
+        "description": "Enables /removeentity command for directly erase target entities from the world",
+        "type": "String",
+        "value": "ops",
         "categories": [
+            "COMMAND",
             "CREATIVE",
             "TIS"
         ],
-        "strict": false,
-        "options": [
-            "0",
-            "0.1",
-            "nan"
-        ],
-        "extras": [
-            "Set it to 0 to let minecart always take passenger no matter how fast it is",
-            "just like a boat",
-            "Set it to NaN to let minecart never takes passenger"
-        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
         "validators": null,
         "repo": "TISUnion/Carpet-TIS-Addition",
         "branches": [
-            "1.15.2",
-            "1.16.5"
+            "1.15.2"
         ]
     },
     {
