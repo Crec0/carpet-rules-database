@@ -8892,11 +8892,31 @@
         "type": "boolean",
         "value": "false",
         "categories": [
-            "BUGFIX"
+            "BUGFIX",
+            "PARITY"
         ],
         "strict": true,
         "options": null,
         "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "daylightSensorPlacementFix",
+        "description": "Fixes daylight sensors not setting there power state when placed by a player",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-156867'"
+        ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
@@ -9616,6 +9636,29 @@
         "value": "true",
         "categories": [
             "COMMAND",
+            "TIS"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "TISUnion/Carpet-TIS-Addition",
+        "branches": [
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "commandRemoveEntity",
+        "description": "Enables /removeentity command for directly erase target entities from the world",
+        "type": "String",
+        "value": "ops",
+        "categories": [
+            "COMMAND",
+            "CREATIVE",
             "TIS"
         ],
         "strict": true,
@@ -11264,25 +11307,6 @@
             "1.16.5",
             "1.17.1",
             "1.18.x"
-        ]
-    },
-    {
-        "name": "commandRemoveEntity",
-        "description": "Enables /removeentity command for directly erase target entities from the world",
-        "type": "String",
-        "value": "ops",
-        "categories": [
-            "COMMAND",
-            "CREATIVE",
-            "TIS"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "TISUnion/Carpet-TIS-Addition",
-        "branches": [
-            "1.15.2"
         ]
     },
     {
