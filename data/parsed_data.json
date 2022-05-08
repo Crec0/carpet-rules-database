@@ -9000,6 +9000,44 @@
         ]
     },
     {
+        "name": "comparatorSkipsBlockedChestFix",
+        "description": "Fixes comparators being unable to get the signal strength from a blocked chest",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-100302'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "chorusFruitFallDamageFix",
+        "description": "Fixes chorus fruits item not resetting fall damage on teleport",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-112133'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
