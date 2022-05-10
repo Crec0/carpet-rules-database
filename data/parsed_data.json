@@ -3165,6 +3165,27 @@
         ]
     },
     {
+        "name": "fallingBlockDispensers",
+        "description": "Dispensers/droppers with a block in front of them when powered will turn that block into a falling block",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "DISPENSER",
+            "EXTRAS",
+            "FEATURE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "dispenser & dropper give the same velocity to the falling block like they do in 22w13oneblockatatime"
+        ],
+        "validators": null,
+        "repo": "gnembon/carpet-extra",
+        "branches": [
+            "master"
+        ]
+    },
+    {
         "name": "updateSuppressionCrashFix",
         "description": "Fixes updates suppression causing server crashes.",
         "type": "boolean",
@@ -5705,6 +5726,24 @@
         ]
     },
     {
+        "name": "targetBlockUpdateFix",
+        "description": "Fixes target blocks not giving shape updates when retracted and immediately repowered",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
         "name": "extendedBlockUpdateOrderFix",
         "description": "Changes block updates that go 2 blocks out, so they have the same block update order",
         "type": "boolean",
@@ -6282,7 +6321,29 @@
         "strict": true,
         "options": null,
         "extras": [
-            "Fixes instant wires randomly breaking - Effective after chunk reload."
+            "Fixes instant wires randomly breaking - Effective after chunk reload.",
+            "Fixes 'MC-89146'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "pistonReloadInconsistencyFix",
+        "description": "Fixes piston lastprogress not being set correctly",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "NBT"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Related to 'MC-89146'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6325,6 +6386,27 @@
         "options": null,
         "extras": [
             "'MC-224420'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "armorStandNegateAnvilDamageFix",
+        "description": "Fixes armor stands not being damaged by anvils",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "RECOMMENDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-203302'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -6579,6 +6661,1638 @@
         ]
     },
     {
+        "name": "mobsSpawnOnMovingPistonsFix",
+        "description": "Fixes mobs being able to spawn on moving pistons",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "geodeLavalogFix",
+        "description": "Fixes an edge case within geodes where it will waterlog a block next to lava, due to missing fluid check",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "crossDimensionTeleportLosesStatsFix",
+        "description": "Fixes client stats being lost when teleporting between dimensions",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-124177'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "inhabitedTimeFix",
+        "description": "Fixes inhabitedtime not always updating in some chunks",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-127407'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "movableCoralFanFix",
+        "description": "Fixes coral being movable. controversial fix - if you don't like it, don't use it xd",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-133541'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "potionEffectsAffectDeadEntitiesFix",
+        "description": "Fixes dying entities being affected by splash potion effects and area effect clouds",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-114761'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "chorusFruitFallDamageFix",
+        "description": "Fixes chorus fruits item not resetting fall damage on teleport",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-112133'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "comparatorSkipsBlockedChestFix",
+        "description": "Fixes comparators being unable to get the signal strength from a blocked chest",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-100302'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "brewingResetsOnUnloadFix",
+        "description": "Fixes brewing stands resetting there brewtime when being unloaded",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-26304'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "tntExtendedHitboxClipFix",
+        "description": "Fixes tnt being created in extended hitboxes causing tnt to clip through them",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-12730'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "tntMinecartTerribleCollisionFix",
+        "description": "Fixes tnt minecarts blowing up when basically turning any rail while next to a block",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-7464'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "tridentFallingDamageFix",
+        "description": "Fixes tridents not dealing damage after having been in a block",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-130151'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "daylightSensorPlacementFix",
+        "description": "Fixes daylight sensors not setting there power state when placed by a player",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-156867'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "comparatorTransparencyFix",
+        "description": "Fixes comparators not being able to get containers through opaque full blocks like pistons & observers",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "PARITY"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "endermanAvoidProjectilesInVehicleFix",
+        "description": "Fixes enderman doing teleporting effects and sounds and avoiding projectiles while in a vehicle",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-183446'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "endermanPainfulTeleportFix",
+        "description": "Fixes enderman teleporting away during damage, making other damage systems believe the enderman got hurt. such as wither skulls applying wither",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-186119'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "badVillagerPyrotechnicsFix",
+        "description": "Fixes villagers being hurt by there own fireworks",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-195326'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "projectileGoalTargetsDeadEntitiesFix",
+        "description": "Fixes the projectileattackgoal targetting dead entities",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-165516'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "enderDragonDoesntDropBlocksFix",
+        "description": "Fixes the enderdragon not dropping the blocks it breaks",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-220519'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "spawnInsideGatewayFix",
+        "description": "Fixes the end gateway teleport check using blocks that should be invalid as valid for teleporting",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-193421'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "sweepingIgnoresFireAspectFix",
+        "description": "Fixes sweeping edge not applying fire aspect",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-93669'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "snowGolemAttackCreepersFix",
+        "description": "Fixes snow golem attacking creepers, resulting in there death",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-73964'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "shulkerBoxMissingUpdateFix",
+        "description": "Fixes shulker box missing a block update",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-190815'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "viewerCountNegativesFix",
+        "description": "Fixes the viewer count for some inventories (chest, ender chest, barrel) being able to go into the negatives",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-229680'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "bedTeleportExploitFix",
+        "description": "Fixes a 8x teleport exploit using beds",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "recordWorldEventFix",
+        "description": "Fixes record world events being sent at the wrong time, causing multiple disks to play at the same time",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-112245'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "dripstoneSkipsEntityCheckFix",
+        "description": "Fixes pointed dripstone skipping the entity check",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-206599'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "doubleBlocksSkipEntityCheckFix",
+        "description": "Fixes double blocks like beds & doors from skipping the entity check",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-123619'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "selfHarmFix",
+        "description": "Fixes mobs attacking themselves. self-harm should not be taught to kids ;)",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-110386'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "mobsAttackThroughBlocksFix",
+        "description": "Fixes mobs being able to hit entities through blocks",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "This might have an impact on performance",
+            "although shouldn't be that bad",
+            "'MC-2310'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "beesFearRainFix",
+        "description": "Fixes bees being able to feel none-existing rain",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-178119'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "convertConvertingZombieVillagersFix",
+        "description": "Fixes being able to start the conversion of zombie villagers while they are already converting",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-166984'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "pistonsPushTooFarFix",
+        "description": "Fixes pistons pushing entities too far due to the offset",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "beesDropLikeBouldersFix",
+        "description": "Fixes bees just not flying when spawning due to navigation not being set",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-190042'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "followParentGoalBreaksMovementFix",
+        "description": "Fixes the follow parent goal not setting the movement control, causing babies to move incorrectly",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-149838'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "leashKnotNotUpdatingOnBreakFix",
+        "description": "Fixes leash not updating when mobs break there leashes",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-16663'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "bucketableMobsNotDetachingLeashesFix",
+        "description": "Fixes leashes not being detached on mobs being put in a bucket. so you don't get your leash back",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-229057'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "snowmanCreateSnowWhileFloatingFix",
+        "description": "Fixes snowman creating snow while not touching the ground",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-214344'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "sheepEatGrassThroughBlocksFix",
+        "description": "Fixes sheep being able to eat grass through full blocks",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-76490'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "ocelotsAndCatsTryToFleeInVehicleFix",
+        "description": "Fixes ocelots and cats trying to flee from the player while being stuck in a vehicle like a boat",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-53721'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "creativeEnchantingCostsExperienceFix",
+        "description": "Fixes enchanting in creative mode still deducting experience",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "CREATIVE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-12656'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "boatsCreatedTooHighFix",
+        "description": "Fixes boats created from dispensers spawning more then half a block higher then the water",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "boatsStuckInDispensersFix",
+        "description": "Fixes boats getting created within the dispenser that created them",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-1310'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "armorStandsCantRideVehiclesFix",
+        "description": "Fixes armor stands not being able to ride vehicles",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-90923'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "markerArmorStandsTriggerBlocksFix",
+        "description": "Fixes marker armor stands being able to trigger traps such as pressure plates, and string",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-135809'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "markerArmorStandsCreateBubblesFix",
+        "description": "Fixes marker armor stands creating bubbles in water",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-78314'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "beaconsAlwaysPlaySoundOnBreakFix",
+        "description": "Fixes beacons always playing the depowering sound when broken even if it was not powered",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-153086'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "fallingBlockDamageIsOffsetFix",
+        "description": "Fixes falling block damage bounding box being offset",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-203302'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "hungerGoesDownInPeacefulFix",
+        "description": "Fixes hunger depleting in peaceful mode",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-31819'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "beesSwimInWaterAndDieFix",
+        "description": "Fixes bees trying to swim in water causing them to die",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Bees must be reloaded for the fix to take place",
+            "'MC-190261'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "hoppersSelectMinecartsRandomlyFix",
+        "description": "Fixes hoppers choosing a random minecart, resulting in slower item transfers",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-124099'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "jukeboxDiscItemOffsetOnBreakFix",
+        "description": "Fixes jukebox not spawning disc in the center of the block when broken",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-166032'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "deathTimeCorruptsMobsFix",
+        "description": "Fixes mobs with a deathtime higher then 19 causing entities to never die",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-84873'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "witchAndCatSpawnMergedFix",
+        "description": "Fixes witches & cats spawning inside of each other, by shifting the cat over by another block",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-163503'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "iceWaterSkipsWaterloggedFix",
+        "description": "Fixes ice not turning to water when broken by a player if the block below is waterlogged",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-206185'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "duplicateEntityUUIDFix",
+        "description": "Fixes entities created with duplicate uuid's",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "EXPERIMENTAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-137370'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "giantTreesHaveExtraLogFix",
+        "description": "Fixes giant trees creating an extra single log at the top corner",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "cantJumpOffBlockWhenSneakingFix",
+        "description": "Fixes players unable to jump off the edge of blocks while sneaking and having a block above them",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-197647'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "projectileKeepsVelocityFix",
+        "description": "Fixes projectiles keeping there velocity",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-198908'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "doorBreakNotStoppedOnDeathFix",
+        "description": "Fixes breakdoorgoal not stopping on entity death, leading to cracks that stay for a while",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-185597'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "shipwreckChunkBorderIssuesFix",
+        "description": "Fixes shipwrecks having different block palettes and heights between chunk borders",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-131745'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "noteBlockNotPoweredOnPlaceFix",
+        "description": "Fixes note blocks not setting there powered state when placed by a player",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "zeroDamageHurtsWolvesFix",
+        "description": "Fixes wolves getting hurt from damage that should not hurt, such as snowballs",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-72151'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "absorptionStaysWithoutHeartsFix",
+        "description": "Fixes absorption effect not going away even after the absorption hearts are gone",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-202432'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "brokenHiddenStatusEffectFix",
+        "description": "Fixes broken status effect logic resulting in hidden status effects not running onremove() or",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-182497'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "powderSnowOnlySlowIfFeetInBlockFix",
+        "description": "Fixes powder snow only slowing down players when there feet are in the block",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-205242'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "lavaCalculatesWrongFireStateFix",
+        "description": "Fixes lava creating fire with incorrect block states",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-250048'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "voidTradingFix",
+        "description": "Fixes void trading",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "The ability to trade with a villager in unloaded chunks allowing for infinite trading"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "tradeDemandDecreasesIndefinitelyFix",
+        "description": "Fixes villager trade demand decreases indefinitely",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-163962'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "unableToModifyPlayerDataFix",
+        "description": "Fixes not being able to use /data on players",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "EXPERIMENTAL",
+            "INTENDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-122102'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "wrongPressurePlateHitboxFix",
+        "description": "Fixes the pressure plate hitbox not matching the model",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-248753'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "merchantTradePacketExceptionFix",
+        "description": "Fixes an arrayindexoutofboundsexception error within the merchant trade packet",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-200000'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "eatCakeFromAllSidesFix",
+        "description": "Fixes cakes being eaten from all sides",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-249685'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "missingObserverUpdatesFix",
+        "description": "Fixes some events / actions not triggering observers",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-107664'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "pistonUpdateOrderIsLocationalFix",
+        "description": "Fixes pistons pulling/pushing blocks using a hashmap causing order to be locational",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-233420'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "slowedEntityGoalsFix",
+        "description": "Fixes an optimization in 1.18 changing the behaviour of many goals even though mojang said it would change nothing",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "This bug results in many goals being slower"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "entityGrowingUpCollisionClippingFix",
+        "description": "Fixes entities growing up still clipping through walls if they have a collision above them",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Suggested fix by __MethodZz__ from: https://www.youtube.com/watch?v=Tg5eQk6P-NQ"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "noAIStriderGetsColdFix",
+        "description": "Fixes striders with noai still getting cold",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-176081'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "mobsTargetDeadEntitiesFix",
+        "description": "Fixes mobs that fight as a group targeting dead entities, leading to many bugs",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-183990'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "frictionlessEntitiesFix",
+        "description": "Fixes frictionless goats, currently requires to be modified per mob",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-228273'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "obsidianPlatformDestroysBlocksFix",
+        "description": "Fixes the end obsidian platform breaking blocks above the platform every time you travel to the end",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-902'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "grindstonesNotMovableFix",
+        "description": "Fixes grindstones not being movable",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-140498'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedRounding",
         "description": "Changes math.round to a faster implementation. although it does not give the exact same results",
         "type": "boolean",
@@ -6767,101 +8481,6 @@
         "strict": true,
         "options": null,
         "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18",
-            "dev"
-        ]
-    },
-    {
-        "name": "nocomFix",
-        "description": "Prevent the nocom exploit from working",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "CRASHFIX",
-            "RECOMMENDED"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18"
-        ]
-    },
-    {
-        "name": "mobsSpawnOnMovingPistonsFix",
-        "description": "Fixes mobs being able to spawn on moving pistons",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18",
-            "dev"
-        ]
-    },
-    {
-        "name": "geodeLavalogFix",
-        "description": "Fixes an edge case within geodes where it will waterlog a block next to lava, due to missing fluid check",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18",
-            "dev"
-        ]
-    },
-    {
-        "name": "crossDimensionTeleportLosesStatsFix",
-        "description": "Fixes client stats being lost when teleporting between dimensions",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-124177'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "1.18",
-            "dev"
-        ]
-    },
-    {
-        "name": "inhabitedTimeFix",
-        "description": "Fixes inhabitedtime not always updating in some chunks",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-127407'"
-        ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
@@ -7066,6 +8685,44 @@
         "strict": true,
         "options": null,
         "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "reIntroducePistonTranslocation",
+        "description": "Re-introduces piston translocation from 1.10",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "REINTRODUCE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "reIntroduceProperGoalTimings",
+        "description": "Re-introduces or better said, reverts an optimization made in 21w39a that broken many entity goal",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "REINTRODUCE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Technically this was an optimization so enabling this rule will most likely come at a performance cost!"
+        ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
@@ -7386,23 +9043,6 @@
         ]
     },
     {
-        "name": "targetBlockUpdateFix",
-        "description": "Fixes target blocks not giving shape updates when retracted and immediately repowered",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
         "name": "allayStuckInVoidFix",
         "description": "Fixes allays getting stuck in the void due to gravity being disabled",
         "type": "boolean",
@@ -7415,103 +9055,6 @@
         "options": null,
         "extras": [
             "'MC-249859'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "pistonReloadInconsistencyFix",
-        "description": "Fixes piston lastprogress not being set correctly",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "NBT"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "Related to 'MC-89146'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "armorStandNegateAnvilDamageFix",
-        "description": "Fixes armor stands not being damaged by anvils",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "RECOMMENDED"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-203302'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "frictionlessEntitiesFix",
-        "description": "Fixes frictionless goats & frogs, currently requires to be modified per mob",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-228273'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "mobsTargetDeadEntitiesFix",
-        "description": "Fixes mobs that fight as a group targeting dead entities, leading to many bugs",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-183990'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "noAIStriderGetsColdFix",
-        "description": "Fixes striders with noai still getting cold",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-176081'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -7539,198 +9082,6 @@
         ]
     },
     {
-        "name": "entityGrowingUpCollisionClippingFix",
-        "description": "Fixes entities growing up still clipping through walls if they have a collision above them",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "Suggested fix by __MethodZz__ from: https://www.youtube.com/watch?v=Tg5eQk6P-NQ"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "slowedEntityGoalsFix",
-        "description": "Fixes an optimization in 1.18 changing the behaviour of many goals even though mojang said it would change nothing",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "This bug results in many goals being slower"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "pistonUpdateOrderIsLocationalFix",
-        "description": "Fixes pistons pulling/pushing blocks using a hashmap causing order to be locational",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-233420'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "missingObserverUpdatesFix",
-        "description": "Fixes some events / actions not triggering observers",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-107664'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "eatCakeFromAllSidesFix",
-        "description": "Fixes cakes being eaten from all sides",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-249685'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "merchantTradePacketExceptionFix",
-        "description": "Fixes an arrayindexoutofboundsexception error within the merchant trade packet",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-200000'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "wrongPressurePlateHitboxFix",
-        "description": "Fixes the pressure plate hitbox not matching the model",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-248753'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "unableToModifyPlayerDataFix",
-        "description": "Fixes not being able to use /data on players",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "EXPERIMENTAL",
-            "INTENDED"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-122102'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "tradeDemandDecreasesIndefinitelyFix",
-        "description": "Fixes villager trade demand decreases indefinitely",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-163962'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "voidTradingFix",
-        "description": "Fixes void trading",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "The ability to trade with a villager in unloaded chunks allowing for infinite trading"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
         "name": "allayWrongNoteblockFix",
         "description": "Fixes allay going to the wrong noteblock in another dimension",
         "type": "boolean",
@@ -7742,25 +9093,6 @@
         "options": null,
         "extras": [
             "'MC-250027'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "lavaCalculatesWrongFireStateFix",
-        "description": "Fixes lava creating fire with incorrect block states",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-250048'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -7818,63 +9150,6 @@
         "options": null,
         "extras": [
             "'MC-249328'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "powderSnowOnlySlowIfFeetInBlockFix",
-        "description": "Fixes powder snow only slowing down players when there feet are in the block",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-205242'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "brokenHiddenStatusEffectFix",
-        "description": "Fixes broken status effect logic resulting in hidden status effects not running onremove() or",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-182497'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "absorptionStaysWithoutHeartsFix",
-        "description": "Fixes absorption effect not going away even after the absorption hearts are gone",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-202432'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -7960,1122 +9235,6 @@
         ]
     },
     {
-        "name": "zeroDamageHurtsWolvesFix",
-        "description": "Fixes wolves getting hurt from damage that should not hurt, such as snowballs",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-72151'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "noteBlockNotPoweredOnPlaceFix",
-        "description": "Fixes note blocks not setting there powered state when placed by a player",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "shipwreckChunkBorderIssuesFix",
-        "description": "Fixes shipwrecks having different block palettes and heights between chunk borders",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-131745'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "doorBreakNotStoppedOnDeathFix",
-        "description": "Fixes breakdoorgoal not stopping on entity death, leading to cracks that stay for a while",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-185597'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "projectileKeepsVelocityFix",
-        "description": "Fixes projectiles keeping there velocity",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-198908'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "cantJumpOffBlockWhenSneakingFix",
-        "description": "Fixes players unable to jump off the edge of blocks while sneaking and having a block above them",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "CLIENT"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-197647'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "giantTreesHaveExtraLogFix",
-        "description": "Fixes giant trees creating an extra single log at the top corner",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "duplicateEntityUUIDFix",
-        "description": "Fixes entities created with duplicate uuid's",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "EXPERIMENTAL"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-137370'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "iceWaterSkipsWaterloggedFix",
-        "description": "Fixes ice not turning to water when broken by a player if the block below is waterlogged",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-206185'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "witchAndCatSpawnMergedFix",
-        "description": "Fixes witches & cats spawning inside of each other, by shifting the cat over by another block",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-163503'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "deathTimeCorruptsMobsFix",
-        "description": "Fixes mobs with a deathtime higher then 19 causing entities to never die",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-84873'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "jukeboxDiscItemOffsetOnBreakFix",
-        "description": "Fixes jukebox not spawning disc in the center of the block when broken",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-166032'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "hoppersSelectMinecartsRandomlyFix",
-        "description": "Fixes hoppers choosing a random minecart, resulting in slower item transfers",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-124099'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "beesSwimInWaterAndDieFix",
-        "description": "Fixes bees trying to swim in water causing them to die",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "Bees must be reloaded for the fix to take place",
-            "'MC-190261'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "hungerGoesDownInPeacefulFix",
-        "description": "Fixes hunger depleting in peaceful mode",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-31819'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "fallingBlockDamageIsOffsetFix",
-        "description": "Fixes falling block damage bounding box being offset",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-203302'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "beaconsAlwaysPlaySoundOnBreakFix",
-        "description": "Fixes beacons always playing the depowering sound when broken even if it was not powered",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-153086'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "markerArmorStandsTriggerBlocksFix",
-        "description": "Fixes marker armor stands being able to trigger traps such as pressure plates, and string",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-135809'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "markerArmorStandsCreateBubblesFix",
-        "description": "Fixes marker armor stands creating bubbles in water",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-78314'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "armorStandsCantRideVehiclesFix",
-        "description": "Fixes armor stands not being able to ride vehicles",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-90923'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "boatsCreatedTooHighFix",
-        "description": "Fixes boats created from dispensers spawning more then half a block higher then the water",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "boatsStuckInDispensersFix",
-        "description": "Fixes boats getting created within the dispenser that created them",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-1310'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "creativeEnchantingCostsExperienceFix",
-        "description": "Fixes enchanting in creative mode still deducting experience",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "CREATIVE"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-12656'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "ocelotsAndCatsTryToFleeInVehicleFix",
-        "description": "Fixes ocelots and cats trying to flee from the player while being stuck in a vehicle like a boat",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-53721'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "sheepEatGrassThroughBlocksFix",
-        "description": "Fixes sheep being able to eat grass through full blocks",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-76490'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "snowmanCreateSnowWhileFloatingFix",
-        "description": "Fixes snowman creating snow while not touching the ground",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-214344'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "leashKnotNotUpdatingOnBreakFix",
-        "description": "Fixes leash not updating when mobs break there leashes",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-16663'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "bucketableMobsNotDetachingLeashesFix",
-        "description": "Fixes leashes not being detached on mobs being put in a bucket. so you don't get your leash back",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-229057'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "followParentGoalBreaksMovementFix",
-        "description": "Fixes the follow parent goal not setting the movement control, causing babies to move incorrectly",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-149838'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "beesDropLikeBouldersFix",
-        "description": "Fixes bees just not flying when spawning due to navigation not being set",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-190042'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "pistonsPushTooFarFix",
-        "description": "Fixes pistons pushing entities too far due to the offset",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "convertConvertingZombieVillagersFix",
-        "description": "Fixes being able to start the conversion of zombie villagers while they are already converting",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-166984'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "beesFearRainFix",
-        "description": "Fixes bees being able to feel none-existing rain",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-178119'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "mobsAttackThroughBlocksFix",
-        "description": "Fixes mobs being able to hit entities through blocks",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "This might have an impact on performance",
-            "although shouldn't be that bad",
-            "'MC-2310'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "selfHarmFix",
-        "description": "Fixes mobs attacking themselves. self-harm should not be taught to kids ;)",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-110386'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "doubleBlocksSkipEntityCheckFix",
-        "description": "Fixes double blocks like beds & doors from skipping the entity check",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-123619'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "dripstoneSkipsEntityCheckFix",
-        "description": "Fixes pointed dripstone skipping the entity check",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-206599'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "recordWorldEventFix",
-        "description": "Fixes record world events being sent at the wrong time, causing multiple disks to play at the same time",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-112245'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "bedTeleportExploitFix",
-        "description": "Fixes a 8x teleport exploit using beds",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "viewerCountNegativesFix",
-        "description": "Fixes the viewer count for some inventories (chest, ender chest, barrel) being able to go into the negatives",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-229680'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "shulkerBoxMissingUpdateFix",
-        "description": "Fixes shulker box missing a block update",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-190815'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "snowGolemAttackCreepersFix",
-        "description": "Fixes snow golem attacking creepers, resulting in there death",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-73964'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "sweepingIgnoresFireAspectFix",
-        "description": "Fixes sweeping edge not applying fire aspect",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-93669'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "spawnInsideGatewayFix",
-        "description": "Fixes the end gateway teleport check using blocks that should be invalid as valid for teleporting",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-193421'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "enderDragonDoesntDropBlocksFix",
-        "description": "Fixes the enderdragon not dropping the blocks it breaks",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-220519'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "projectileGoalTargetsDeadEntitiesFix",
-        "description": "Fixes the projectileattackgoal targetting dead entities",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-165516'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "badVillagerPyrotechnicsFix",
-        "description": "Fixes villagers being hurt by there own fireworks",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-195326'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "endermanPainfulTeleportFix",
-        "description": "Fixes enderman teleporting away during damage, making other damage systems believe the enderman got hurt. such as wither skulls applying wither",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-186119'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "endermanAvoidProjectilesInVehicleFix",
-        "description": "Fixes enderman doing teleporting effects and sounds and avoiding projectiles while in a vehicle",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-183446'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "comparatorTransparencyFix",
-        "description": "Fixes comparators not being able to get containers through opaque full blocks like pistons & observers",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "PARITY"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "daylightSensorPlacementFix",
-        "description": "Fixes daylight sensors not setting there power state when placed by a player",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-156867'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "tridentFallingDamageFix",
-        "description": "Fixes tridents not dealing damage after having been in a block",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-130151'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "tntMinecartTerribleCollisionFix",
-        "description": "Fixes tnt minecarts blowing up when basically turning any rail while next to a block",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-7464'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "tntExtendedHitboxClipFix",
-        "description": "Fixes tnt being created in extended hitboxes causing tnt to clip through them",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-12730'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "brewingResetsOnUnloadFix",
-        "description": "Fixes brewing stands resetting there brewtime when being unloaded",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-26304'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "comparatorSkipsBlockedChestFix",
-        "description": "Fixes comparators being unable to get the signal strength from a blocked chest",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-100302'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "chorusFruitFallDamageFix",
-        "description": "Fixes chorus fruits item not resetting fall damage on teleport",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-112133'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "potionEffectsAffectDeadEntitiesFix",
-        "description": "Fixes dying entities being affected by splash potion effects and area effect clouds",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-114761'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "coralIsMovableFix",
-        "description": "Fixes coral being movable. controversial fix - if you don't like it, don't use it xd",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-133541'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -9114,42 +9273,6 @@
     {
         "name": "reIntroduceReverseRailUpdateOrder",
         "description": "Re-introduces reverse rail update order which only existed in 22w11a. requires optimizedpoweredrails",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "REINTRODUCE"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "reIntroduceProperGoalTimings",
-        "description": "Re-introduces or better said, reverts an optimization made in 21w39a that broken many entity goal",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "REINTRODUCE"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "Technically this was an optimization so enabling this rule will most likely come at a performance cost!"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "reIntroducePistonTranslocation",
-        "description": "Re-introduces piston translocation from 1.10",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -11459,6 +11582,27 @@
             "1.16.5",
             "1.17.1",
             "1.18.x"
+        ]
+    },
+    {
+        "name": "clientSettingsLostOnRespawnFix",
+        "description": "Fixed stored client settings are not migrated from the old player entity during player respawn or entering end portal in the end",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "TIS"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "So mods relies on client settings are always able to work correctly",
+            "e.g. serverside translation of this mod and worldedit mod"
+        ],
+        "validators": null,
+        "repo": "TISUnion/Carpet-TIS-Addition",
+        "branches": [
+            "1.15.2"
         ]
     },
     {
