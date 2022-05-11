@@ -9235,6 +9235,45 @@
         ]
     },
     {
+        "name": "depthStriderSlowsRiptideFix",
+        "description": "Fixes depth strider slowing down riptide, causing riptide to be slower in water and messing up the launching",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "CLIENT"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-136249'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "teleportPastWorldBorderFix",
+        "description": "Fixes enderman, chorus fruit, and some other teleports from teleporting past the world border",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-106416'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -9824,6 +9863,31 @@
             "in every chunk every game tick",
             "climate things will tick n times",
             "and randomtick will tick n * randomTickSpeed times per chunk section"
+        ],
+        "validators": null,
+        "repo": "TISUnion/Carpet-TIS-Addition",
+        "branches": [
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "clientSettingsLostOnRespawnFix",
+        "description": "Fixed stored client settings are not migrated from the old player entity during player respawn or entering end portal in the end",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "TIS"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "So mods relies on client settings are always able to work correctly",
+            "e.g. serverside translation of this mod and worldedit mod"
         ],
         "validators": null,
         "repo": "TISUnion/Carpet-TIS-Addition",
@@ -11582,27 +11646,6 @@
             "1.16.5",
             "1.17.1",
             "1.18.x"
-        ]
-    },
-    {
-        "name": "clientSettingsLostOnRespawnFix",
-        "description": "Fixed stored client settings are not migrated from the old player entity during player respawn or entering end portal in the end",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "TIS"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "So mods relies on client settings are always able to work correctly",
-            "e.g. serverside translation of this mod and worldedit mod"
-        ],
-        "validators": null,
-        "repo": "TISUnion/Carpet-TIS-Addition",
-        "branches": [
-            "1.15.2"
         ]
     },
     {
