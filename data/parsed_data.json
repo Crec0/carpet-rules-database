@@ -1569,7 +1569,7 @@
     },
     {
         "name": "renewableDeepslate",
-        "description": "Lava and water generate deepslate and cobbled deepslate instead below y16",
+        "description": "Lava and water generate deepslate and cobbled deepslate instead below y0",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -1577,9 +1577,7 @@
         ],
         "strict": true,
         "options": null,
-        "extras": [
-            "This rule may change Y value to 0 with 1.18"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/fabric-carpet",
         "branches": [
@@ -9266,6 +9264,101 @@
         "options": null,
         "extras": [
             "'MC-106416'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "grassSnowLayersFix",
+        "description": "Fixes grass turning to dirt if more then 1 snow layer is on top of it.",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-150654'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "lavaIgnoresBubbleColumnFix",
+        "description": "Fixes lava not being able to convert bubble columns to stone",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-137713'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "directionalMinecartCollisionFix",
+        "description": "Fixes minecart colliding when standing still",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-14850'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "minecartWontBounceFix",
+        "description": "Fixes minecart not bouncing from any transparent block with a full face",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-6311'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "detectorRailDetectsTooEarlyFix",
+        "description": "Fixes minecart not bouncing from any transparent block with a full face",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-6311'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
