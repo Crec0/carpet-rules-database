@@ -8291,6 +8291,147 @@
         ]
     },
     {
+        "name": "depthStriderSlowsRiptideFix",
+        "description": "Fixes depth strider slowing down riptide, causing riptide to be slower in water and messing up the launching",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "CLIENT"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-136249'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "teleportPastWorldBorderFix",
+        "description": "Fixes enderman, chorus fruit, and some other teleports from teleporting past the world border",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-106416'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "grassSnowLayersFix",
+        "description": "Fixes grass turning to dirt if more then 1 snow layer is on top of it.",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-150654'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "lavaIgnoresBubbleColumnFix",
+        "description": "Fixes lava not being able to convert bubble columns to stone",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-137713'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "directionalMinecartCollisionFix",
+        "description": "Fixes minecart colliding when standing still",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-14850'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "minecartWontBounceFix",
+        "description": "Fixes minecart not bouncing from any transparent block with a full face",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-6311'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "detectorRailDetectsTooEarlyFix",
+        "description": "Fixes detector rails detecting the minecarts to early and causing minecarts to go in the wrong direction",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-868'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedRounding",
         "description": "Changes math.round to a faster implementation. although it does not give the exact same results",
         "type": "boolean",
@@ -9225,140 +9366,6 @@
         "options": null,
         "extras": [
             "'MC-249463'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "depthStriderSlowsRiptideFix",
-        "description": "Fixes depth strider slowing down riptide, causing riptide to be slower in water and messing up the launching",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "CLIENT"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-136249'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "teleportPastWorldBorderFix",
-        "description": "Fixes enderman, chorus fruit, and some other teleports from teleporting past the world border",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-106416'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "grassSnowLayersFix",
-        "description": "Fixes grass turning to dirt if more then 1 snow layer is on top of it.",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-150654'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "lavaIgnoresBubbleColumnFix",
-        "description": "Fixes lava not being able to convert bubble columns to stone",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-137713'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "directionalMinecartCollisionFix",
-        "description": "Fixes minecart colliding when standing still",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-14850'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "minecartWontBounceFix",
-        "description": "Fixes minecart not bouncing from any transparent block with a full face",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-6311'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "detectorRailDetectsTooEarlyFix",
-        "description": "Fixes minecart not bouncing from any transparent block with a full face",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-6311'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
