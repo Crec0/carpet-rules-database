@@ -5763,6 +5763,26 @@
         ]
     },
     {
+        "name": "foxesDisregardPowderSnowFix",
+        "description": "Fixes foxes not respecting powder snow as a snow like block, therefore powder snow would not have the same effect as snow does",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-230660'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
         "name": "voidKillsLoyaltyTridentsFix",
         "description": "Fixes the void killing loyalty tridents, even though they should come back to the player",
         "type": "boolean",
@@ -8566,6 +8586,26 @@
         "options": null,
         "extras": [
             "This only fixes modded pistons that use different speeds!"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "tallGrassWaterWontSpreadFix",
+        "description": "Fixes tall grass not spreading water",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-130890'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
