@@ -1911,31 +1911,28 @@
     },
     {
         "name": "updateSuppressionBlock",
-        "description": "Placing an activator rail on top of a barrier block will update suppress when the rail turns off.",
-        "type": "String",
-        "value": "false",
+        "description": "Placing an activator rail on top of a barrier block will fill the neighbor updater stack when the rail turns off.",
+        "type": "int",
+        "value": "-1",
         "categories": [
-            "CREATIVE",
-            "EXTRAS"
+            "CREATIVE"
         ],
         "strict": false,
         "options": [
-            "1",
-            "6",
-            "false",
-            "true"
+            "-1",
+            "0",
+            "10",
+            "50"
         ],
         "extras": [
-            "Entering an integer will make the update suppression block auto-reset",
-            "Integer entered is the delay in ticks for it to reset"
+            "The integer entered is the amount of updates that should be left in the stack",
+            "-1 turns it off"
         ],
         "validators": [
-            "Cannot be negative, can be true, false, or # > 0"
+            "This value represents the amount of updates required before the logger logs them. Must be -1 or larger"
         ],
         "repo": "gnembon/fabric-carpet",
         "branches": [
-            "1.16.5",
-            "1.17.1",
             "master"
         ]
     },
@@ -2124,6 +2121,35 @@
         "repo": "gnembon/fabric-carpet",
         "branches": [
             "1.16.5"
+        ]
+    },
+    {
+        "name": "updateSuppressionBlock",
+        "description": "Placing an activator rail on top of a barrier block will update suppress when the rail turns off.",
+        "type": "String",
+        "value": "false",
+        "categories": [
+            "CREATIVE",
+            "EXTRAS"
+        ],
+        "strict": false,
+        "options": [
+            "1",
+            "6",
+            "false",
+            "true"
+        ],
+        "extras": [
+            "Entering an integer will make the update suppression block auto-reset",
+            "Integer entered is the delay in ticks for it to reset"
+        ],
+        "validators": [
+            "Cannot be negative, can be true, false, or # > 0"
+        ],
+        "repo": "gnembon/fabric-carpet",
+        "branches": [
+            "1.16.5",
+            "1.17.1"
         ]
     },
     {
