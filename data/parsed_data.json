@@ -20888,6 +20888,29 @@
         ]
     },
     {
+        "name": "dropCartItem",
+        "description": "Drops the whole minecraft item, back-ported from 1.19",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "ESSENTIAL",
+            "FEATURE",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": [
+            "false",
+            "true"
+        ],
+        "extras": null,
+        "validators": null,
+        "repo": "Super-Santa/EssentialAddons",
+        "branches": [
+            "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
         "name": "essentialCarefulDrop",
         "description": "Killing mobs while crouching will put dropped items straight into your inventory",
         "type": "boolean",
