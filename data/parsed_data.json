@@ -13050,6 +13050,24 @@
         ]
     },
     {
+        "name": "dyeableShearedSheep",
+        "description": "Sheared sheep can be dyed",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "MINITWEAKS",
+            "MOBS"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "manyrandomthings/minitweaks",
+        "branches": [
+            "1.18"
+        ]
+    },
+    {
         "name": "xpbeacons",
         "description": "If true uses experience-based amplitude on beacon status effects. see xp.fracturedcode.net",
         "type": "boolean",
