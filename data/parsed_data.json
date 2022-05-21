@@ -1937,24 +1937,6 @@
         ]
     },
     {
-        "name": "updateSuppressionCrashFix",
-        "description": "Fixes update suppression causing server crashes.",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "gnembon/fabric-carpet",
-        "branches": [
-            "1.17.1",
-            "master"
-        ]
-    },
-    {
         "name": "creativePlayersLoadChunks",
         "description": "Creative players load chunks, or they don't! just like spectators!",
         "type": "boolean",
@@ -2149,6 +2131,23 @@
         "repo": "gnembon/fabric-carpet",
         "branches": [
             "1.16.5",
+            "1.17.1"
+        ]
+    },
+    {
+        "name": "updateSuppressionCrashFix",
+        "description": "Fixes update suppression causing server crashes.",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "gnembon/fabric-carpet",
+        "branches": [
             "1.17.1"
         ]
     },
