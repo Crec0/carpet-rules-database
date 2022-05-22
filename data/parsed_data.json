@@ -3997,9 +3997,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.17",
-            "1.18",
-            "dev"
+            "1.17"
         ]
     },
     {
@@ -5779,6 +5777,26 @@
         "extras": [
             "Changes extended block update order from YZX to XZY",
             "Warning! This changes how some block updates are done and could effect some contraptions"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "1.18",
+            "dev"
+        ]
+    },
+    {
+        "name": "entityBlockCollisionUsingCenterFix",
+        "description": "Fixes multiple bugs related to effects happening only when the entity center is in the block instead of hitbox",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-1133'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -9574,6 +9592,25 @@
         "options": null,
         "extras": [
             "'MC-249463'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "enderpearlClipFix",
+        "description": "Fixes enderpearls allowing you to clip through blocks horizontally",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-2164'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
