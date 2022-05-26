@@ -9485,6 +9485,25 @@
         ]
     },
     {
+        "name": "entitiesFallThroughSculkFix",
+        "description": "Fixes entities falling through sculk that converted from soul sand or mud",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-251030'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "allaySeesSpectatorsFix",
         "description": "Fixes allays being able to see players in spectator mode",
         "type": "boolean",
@@ -9601,7 +9620,7 @@
     },
     {
         "name": "enderpearlClipFix",
-        "description": "Fixes enderpearls allowing you to clip through blocks horizontally",
+        "description": "Fixes enderpearls allowing you to clip through blocks",
         "type": "boolean",
         "value": "false",
         "categories": [
@@ -20942,29 +20961,6 @@
         ]
     },
     {
-        "name": "dropCartItem",
-        "description": "Drops the whole minecraft item, back-ported from 1.19",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "ESSENTIAL",
-            "FEATURE",
-            "SURVIVAL"
-        ],
-        "strict": true,
-        "options": [
-            "false",
-            "true"
-        ],
-        "extras": null,
-        "validators": null,
-        "repo": "Super-Santa/EssentialAddons",
-        "branches": [
-            "1.17.x",
-            "1.18.x"
-        ]
-    },
-    {
         "name": "essentialCarefulDrop",
         "description": "Killing mobs while crouching will put dropped items straight into your inventory",
         "type": "boolean",
@@ -21058,6 +21054,28 @@
         "repo": "Super-Santa/EssentialAddons",
         "branches": [
             "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
+        "name": "dropCartItem",
+        "description": "Drops the whole minecraft item, back-ported from 1.19",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "ESSENTIAL",
+            "FEATURE",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": [
+            "false",
+            "true"
+        ],
+        "extras": null,
+        "validators": null,
+        "repo": "Super-Santa/EssentialAddons",
+        "branches": [
             "1.18.x"
         ]
     },
