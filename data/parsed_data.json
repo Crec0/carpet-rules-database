@@ -1786,7 +1786,7 @@
     },
     {
         "name": "cleanLogs",
-        "description": "Removes abnoxious messages from the logs",
+        "description": "Removes obnoxious messages from the logs",
         "type": "boolean",
         "value": "false",
         "categories": [
