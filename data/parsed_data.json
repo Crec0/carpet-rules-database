@@ -10699,6 +10699,28 @@
         ]
     },
     {
+        "name": "farmlandTrampledDisabled",
+        "description": "Disable farmland being able to be trampled into dirt by mobs",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CREATIVE",
+            "TIS"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "TISUnion/Carpet-TIS-Addition",
+        "branches": [
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.x"
+        ]
+    },
+    {
         "name": "fluidDestructionDisabled",
         "description": "Disable block destruction by fluid flowing",
         "type": "boolean",
