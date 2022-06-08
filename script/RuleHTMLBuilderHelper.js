@@ -86,5 +86,5 @@ class RuleHTMLBuilder {
 const MOJANG_BUG = new RegExp(/((?:MC|MCAPI|MCCE|MCD|MCL|MCPE|REALMS|BDS|WEB)-\d+)/g)
 
 const replace_bugs_with_links = function (text) {
-    return text.replaceAll(MOJANG_BUG, '<a href="https://bugs.mojang.com/browse/$1" class="link">$1</a>')
+    return text.replaceAll(MOJANG_BUG, '<a href="https://bugs.mojang.com/browse/$1" class="link" target="_blank">$1</a>')
 }
