@@ -91,13 +91,13 @@ function wrapWithSpan(list, convertToUpperCase = false) {
 }
 
 function wrapRepo(repo) {
-    return `<a href="https://github.com/${repo}" class="link">${repo}</a>`;
+    return `<a href="https://github.com/${repo}" class="link" target="_blank">${repo}</a>`;
 }
 
 function wrapBranches(repo, branches) {
     return branches
         .map((branch) => {
-            return `<a href="https://github.com/${repo}/tree/${branch}" class="link">${branch}</a>`;
+            return `<a href="https://github.com/${repo}/tree/${branch}" class="link" target="_blank">${branch}</a>`;
         })
         .join(",&nbsp;");
 }
