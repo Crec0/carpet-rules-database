@@ -14570,6 +14570,42 @@
         ]
     },
     {
+        "name": "endermitesAlwaysHostile",
+        "description": "Endermen will be hostile to endermites spawned by spawn eggs or /summon command",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CREATIVE",
+            "ICA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "Ivan-1F/Ivan-Carpet-Addition",
+        "branches": [
+            "1.15.2"
+        ]
+    },
+    {
+        "name": "commandReplaceProperties",
+        "description": "Enables /replaceproperties command for easily replacing properties of all blocks in a range",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "COMMAND",
+            "ICA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "Ivan-1F/Ivan-Carpet-Addition",
+        "branches": [
+            "1.15.2"
+        ]
+    },
+    {
         "name": "catSpawnChance",
         "description": "Sets chance cat will spawn in a village",
         "type": "int",
