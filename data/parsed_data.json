@@ -14537,8 +14537,8 @@
         "options": null,
         "extras": [
             "Enables '/xpcounter' command",
-            "Use '/xpcounter <player> reset' to reset the counter",
-            "Use '/xpcounter <player>' to query the counter",
+            "Use '/xpcounter <player> reset' to reset a player's counter",
+            "Use '/xpcounter <player>' to query a player's counter",
             "Use '/log xpcounter <players>' to subscribe xp counters"
         ],
         "validators": null,
@@ -14566,7 +14566,11 @@
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
         "branches": [
-            "1.15.2"
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.2"
         ]
     },
     {
@@ -14584,7 +14588,10 @@
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
         "branches": [
-            "1.15.2"
+            "1.14.4",
+            "1.16.5",
+            "1.17.1",
+            "1.18.2"
         ]
     },
     {
@@ -14599,6 +14606,31 @@
         "strict": true,
         "options": null,
         "extras": null,
+        "validators": null,
+        "repo": "Ivan-1F/Ivan-Carpet-Addition",
+        "branches": [
+            "1.14.4",
+            "1.15.2",
+            "1.16.5",
+            "1.17.1",
+            "1.18.2"
+        ]
+    },
+    {
+        "name": "endermitesInconsistencyFix",
+        "description": "Endermen will be hostile to endermites spawned by spawn eggs or /summon command (fixes mc-53518)",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "CREATIVE",
+            "ICA"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "This rule is only available in <1.17 since MC-53518 got fixed in 20w46a"
+        ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
         "branches": [
@@ -15512,6 +15544,26 @@
         "branches": [
             "1.16.X",
             "1.17.X",
+            "master"
+        ]
+    },
+    {
+        "name": "rawOreBlockSmelting",
+        "description": "Allo to smelt and blast raw ore block",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "CRAFTING",
+            "FEATURE",
+            "REDCRAFT",
+            "SURVIVAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "MultiCoreNetwork/carpet-redcraft-addons",
+        "branches": [
             "master"
         ]
     },
