@@ -3438,8 +3438,7 @@
         "repo": "fxmorin/carpet-fixes",
         "branches": [
             "1.17",
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -4496,8 +4495,7 @@
         "repo": "fxmorin/carpet-fixes",
         "branches": [
             "1.17",
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -4979,8 +4977,7 @@
         "repo": "fxmorin/carpet-fixes",
         "branches": [
             "1.17",
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -6066,8 +6063,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -6207,8 +6203,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -6227,8 +6222,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -6307,8 +6301,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -6347,8 +6340,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -6616,8 +6608,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -7869,8 +7860,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -8269,8 +8259,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -8718,8 +8707,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -8790,8 +8778,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -9242,8 +9229,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -9261,8 +9247,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -9279,8 +9264,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -9297,8 +9281,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -9315,8 +9298,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -9447,82 +9429,6 @@
         ]
     },
     {
-        "name": "allayWrongNoteblockFix",
-        "description": "Fixes allay going to the wrong noteblock in another dimension",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-250027'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "entitiesFallThroughClayFromMudFix",
-        "description": "Fixes entities falling through clay that was generated from mud",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-250034'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "entitiesFallThroughSculkFix",
-        "description": "Fixes entities falling through sculk that converted from soul sand or mud",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-251030'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "allaySeesSpectatorsFix",
-        "description": "Fixes allays being able to see players in spectator mode",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-249790'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
         "name": "frogJumpsIgnoreTemptedFix",
         "description": "Fixes frogs being able to jump while tempted. only applies to new frog entities,",
         "type": "boolean",
@@ -9534,64 +9440,6 @@
         "options": null,
         "extras": [
             "'MC-249328'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "crystalExplosionGivesWrongEventFix",
-        "description": "Fixes end crystal explosions giving the wrong game event",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-249962'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "allayCanBeEquippedWithArmorFix",
-        "description": "Fixes being able to equip an allay with armor",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-249745'"
-        ],
-        "validators": null,
-        "repo": "fxmorin/carpet-fixes",
-        "branches": [
-            "dev"
-        ]
-    },
-    {
-        "name": "allayLosesItemOnUnloadFix",
-        "description": "Fixes allays losing picked up items on world restart",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "NBT"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "'MC-249745'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
@@ -9631,6 +9479,40 @@
         "extras": [
             "'MC-2164'"
         ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "wardenEatsArmorFix",
+        "description": "Fixes the warden being able to consume armor dispensed onto it",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "endCrystalsOnPushDontSummonDragonFix",
+        "description": "Fixes end crystals not attempting to respawn the dragon when being pushed by a piston",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
@@ -14574,21 +14456,25 @@
         ]
     },
     {
-        "name": "endermitesAlwaysHostile",
-        "description": "Endermen will be hostile to endermites spawned by spawn eggs or /summon command",
+        "name": "endermitesInconsistencyFix",
+        "description": "Endermen will be hostile to endermites spawned by spawn eggs or /summon command (fixes mc-53518)",
         "type": "boolean",
         "value": "false",
         "categories": [
+            "BUGFIX",
             "CREATIVE",
             "ICA"
         ],
         "strict": true,
         "options": null,
-        "extras": null,
+        "extras": [
+            "This rule is only available in <1.17 since MC-53518 got fixed in 20w46a"
+        ],
         "validators": null,
         "repo": "Ivan-1F/Ivan-Carpet-Addition",
         "branches": [
             "1.14.4",
+            "1.15.2",
             "1.16.5",
             "1.17.1",
             "1.18.2"
@@ -14614,27 +14500,6 @@
             "1.16.5",
             "1.17.1",
             "1.18.2"
-        ]
-    },
-    {
-        "name": "endermitesInconsistencyFix",
-        "description": "Endermen will be hostile to endermites spawned by spawn eggs or /summon command (fixes mc-53518)",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "BUGFIX",
-            "CREATIVE",
-            "ICA"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": [
-            "This rule is only available in <1.17 since MC-53518 got fixed in 20w46a"
-        ],
-        "validators": null,
-        "repo": "Ivan-1F/Ivan-Carpet-Addition",
-        "branches": [
-            "1.15.2"
         ]
     },
     {
@@ -22152,23 +22017,6 @@
         ]
     },
     {
-        "name": "includeInvalidBlockEvents",
-        "description": "Step through block events executed on the wrong block (these will never do anything)",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "SUBTICK"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "chiraagChakravarthy/SubTick",
-        "branches": [
-            "main"
-        ]
-    },
-    {
         "name": "vanillaPistonAnimations",
         "description": "Tells carpet clients the game isn't frozen, allowing piston animations to play immediately",
         "type": "boolean",
@@ -22186,44 +22034,27 @@
         ]
     },
     {
-        "name": "highlightBlockEvents",
-        "description": "Show where block events occur",
-        "type": "boolean",
-        "value": "true",
-        "categories": [
-            "SUBTICK"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "chiraagChakravarthy/SubTick",
-        "branches": [
-            "main"
-        ]
-    },
-    {
-        "name": "beRadius",
-        "description": "Maximum horizontal distance from the player block events will be stepped through",
-        "type": "int",
-        "value": "200",
-        "categories": [
-            "SUBTICK"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "chiraagChakravarthy/SubTick",
-        "branches": [
-            "main"
-        ]
-    },
-    {
         "name": "losslessBedrockBreaking",
         "description": "Changes one line of code that makes lossless bedrock breaking possible again (barely)",
         "type": "boolean",
         "value": "false",
+        "categories": [
+            "SUBTICK"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "chiraagChakravarthy/SubTick",
+        "branches": [
+            "main"
+        ]
+    },
+    {
+        "name": "skipInvalidEvents",
+        "description": "Skip stepping over events executed on the wrong block",
+        "type": "boolean",
+        "value": "true",
         "categories": [
             "SUBTICK"
         ],
