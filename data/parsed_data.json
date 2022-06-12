@@ -21033,28 +21033,6 @@
         ]
     },
     {
-        "name": "dropCartItem",
-        "description": "Drops the whole minecraft item, back-ported from 1.19",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "ESSENTIAL",
-            "FEATURE",
-            "SURVIVAL"
-        ],
-        "strict": true,
-        "options": [
-            "false",
-            "true"
-        ],
-        "extras": null,
-        "validators": null,
-        "repo": "Super-Santa/EssentialAddons",
-        "branches": [
-            "1.18.x"
-        ]
-    },
-    {
         "name": "fungusRandomTickGrow",
         "description": "Makes crimson fungus and nyliem fungus grow based on random ticks",
         "type": "boolean",
@@ -23015,25 +22993,6 @@
         "branches": [
             "1.18",
             "master"
-        ]
-    },
-    {
-        "name": "shadowItemOldGeneration",
-        "description": "Reintroduce pre-1.18 shadow item generation",
-        "type": "boolean",
-        "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "FEATURE",
-            "SHADOW_ITEMS"
-        ],
-        "strict": true,
-        "options": null,
-        "extras": null,
-        "validators": null,
-        "repo": "mattymatty97/carpet-shadow",
-        "branches": [
-            "1.18"
         ]
     },
     {
