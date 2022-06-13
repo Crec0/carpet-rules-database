@@ -10658,12 +10658,16 @@
         "type": "boolean",
         "value": "false",
         "categories": [
+            "COMMAND",
             "CREATIVE",
             "TIS"
         ],
         "strict": true,
         "options": null,
-        "extras": null,
+        "extras": [
+            "You can use /scounter command or subscribe to the scounter logger to track the amount of the output items",
+            "This rule is also the switch of the /scounter command"
+        ],
         "validators": null,
         "repo": "TISUnion/Carpet-TIS-Addition",
         "branches": [
