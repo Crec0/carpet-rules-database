@@ -9229,7 +9229,8 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18"
+            "1.18",
+            "dev"
         ]
     },
     {
@@ -9247,7 +9248,8 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18"
+            "1.18",
+            "dev"
         ]
     },
     {
@@ -9264,7 +9266,8 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18"
+            "1.18",
+            "dev"
         ]
     },
     {
@@ -9281,7 +9284,8 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18"
+            "1.18",
+            "dev"
         ]
     },
     {
@@ -9298,7 +9302,8 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18"
+            "1.18",
+            "dev"
         ]
     },
     {
@@ -9539,6 +9544,42 @@
         ]
     },
     {
+        "name": "chestBoatDupeFix",
+        "description": "Fixes multiple dupes using chest boats",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "DUPE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "lecternBlockDupeFix",
+        "description": "Fixes a lectern block dupe, it just dupes the lectern block",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "DUPE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "reIntroduceInstantBlockUpdates",
         "description": "Re-introduces instant block updates which changed in 22w11a",
         "type": "boolean",
@@ -9562,6 +9603,23 @@
         "value": "false",
         "categories": [
             "REINTRODUCE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "updateSuppressionCrashFix",
+        "description": "No longer fixes an actual crash, the crash is only possible if you use: `reintroduceinstantblockupdates`",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "EXPERIMENTAL"
         ],
         "strict": true,
         "options": null,
