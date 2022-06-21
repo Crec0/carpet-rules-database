@@ -14140,7 +14140,7 @@
         "name": "magmaBlockDamageItem",
         "description": "Items on magma block get damages",
         "type": "boolean",
-        "value": "true",
+        "value": "false",
         "categories": [
             "FEATURE",
             "ICA"
