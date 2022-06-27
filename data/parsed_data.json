@@ -9525,6 +9525,26 @@
         ]
     },
     {
+        "name": "sitGoalAlwaysResettingFix",
+        "description": "Fixes the sitgoal continuously restarting if the owner is offline, instead of doing the checks normally",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "MODDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Currently does not change any vanilla mechanics. Although this bug might cause issues in other mods!"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -9536,7 +9556,9 @@
         ],
         "strict": true,
         "options": null,
-        "extras": null,
+        "extras": [
+            "Does not work with updateSuppressionBlock"
+        ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
