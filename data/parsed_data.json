@@ -3,13 +3,13 @@
         "name": "language",
         "description": "Sets the language for carpet",
         "type": "String",
-        "value": "none",
+        "value": "en_us",
         "categories": [
             "FEATURE"
         ],
         "strict": false,
         "options": [
-            "none",
+            "en_us",
             "zh_cn",
             "zh_tw"
         ],
@@ -3184,6 +3184,25 @@
         "repo": "gnembon/carpet-extra",
         "branches": [
             "1.17.1",
+            "master"
+        ]
+    },
+    {
+        "name": "dispensersPlaceBoatsOnIce",
+        "description": "Dispensers can place boats on ice",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "DISPENSER",
+            "EXTRAS",
+            "FEATURE"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
+        "validators": null,
+        "repo": "gnembon/carpet-extra",
+        "branches": [
             "master"
         ]
     },
@@ -12166,7 +12185,8 @@
         "validators": null,
         "repo": "whoImT/carpet-addons",
         "branches": [
-            "1.16.x"
+            "1.16.x",
+            "1.17"
         ]
     },
     {
