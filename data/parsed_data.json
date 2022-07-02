@@ -21137,6 +21137,29 @@
         ]
     },
     {
+        "name": "maxChatLength",
+        "description": "Changes the max chat length limit, you need essentialclient for this to work, setting this rule below 256 may cause issues",
+        "type": "int",
+        "value": "256",
+        "categories": [
+            "ESSENTIAL",
+            "EXPERIMENTAL",
+            "FEATURE"
+        ],
+        "strict": false,
+        "options": [
+            "1024",
+            "256"
+        ],
+        "extras": null,
+        "validators": null,
+        "repo": "Super-Santa/EssentialAddons",
+        "branches": [
+            "1.17.x",
+            "1.18.x"
+        ]
+    },
+    {
         "name": "fungusRandomTickGrow",
         "description": "Makes crimson fungus and nyliem fungus grow based on random ticks",
         "type": "boolean",
