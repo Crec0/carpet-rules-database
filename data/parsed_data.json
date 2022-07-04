@@ -9564,6 +9564,44 @@
         ]
     },
     {
+        "name": "simulatedOutOfMemoryCrashFix",
+        "description": "Fixes crashes caused by `debugsimulatedoutofmemory`",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "EXPERIMENTAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "Should only be used if you know what you are doing!"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "someUpdatesDontCatchExceptionsFix",
+        "description": "Fixes crashes caused by block updates using the sixwayentry update. currently only useful for oom!",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "EXPERIMENTAL"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "When enabled"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
@@ -9703,6 +9741,23 @@
         "extras": [
             "The rule `reIntroduceInstantBlockUpdates` should be used for better traces!"
         ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "debugSimulatedOutOfMemory",
+        "description": "A jigsaw block with a lightning rod ontop of itself will make it throw a real out of memory exception when receiving a block update",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "DEBUG"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": null,
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
