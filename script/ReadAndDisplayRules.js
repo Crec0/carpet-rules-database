@@ -19,15 +19,15 @@ $(function () {
             // FILTERED_RULES = ALL_RULES.filter((rule) =>
             //     regex.test(rule.name?.toLowerCase())
             // );
-            renderRules();
             const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('search')) {
-                let value = urlParams.get('search');
-                if (value != "") {
-                    $("#searchBar").val(value);
-                    updateRules(value);
-                }
-            }
+            filterRules(
+                urlParams.get('name'), 
+                urlParams.get('desc'), 
+                urlParams.get('type'), 
+                urlParams.get('repo'), 
+                urlParams.get('branch'), 
+                urlParams.get('category')
+            )
         },
     });
 
@@ -43,7 +43,7 @@ $(function () {
         })
         .on("keyup change", function (event) {
             if (isInvalid(event)) return;
-            updateRules($(this).val());
+            filterRules($(this).val(), null, null, null, null, null)
         });
 
     window.addEventListener(
@@ -74,11 +74,41 @@ $(function () {
     });
 });
 
-function updateRules(search) {
-    const regex = new RegExp(`\w*${search.toLowerCase()}\w*`);
-    FILTERED_RULES = ALL_RULES.filter((rule) =>
-        regex.test(rule.name?.toLowerCase())
-    );
+function filterFrom(type, text, list) {
+    if (text != null && text != "") {
+        const regex = new RegExp(`\w*${text.toLowerCase()}\w*`);
+        return list.filter((rule) =>
+            regex.test(rule[type]?.toLowerCase())
+        );
+    }
+    return list;
+}
+
+function filterFromMultiple(type, text, list) {
+    if (text != null && text != "") {
+        const regex = new RegExp(`\w*${text.toLowerCase()}\w*`);
+        return list.filter((rule) =>
+            rule[type]?.some((branch) => 
+                regex.test(branch.toLowerCase())
+            )
+        );
+    }
+    return list;
+}
+
+function filterRules(name, description, type, repo, branch, category) {
+    let tempRules = ALL_RULES;
+    tempRules = filterFrom('name', name, tempRules);
+    tempRules = filterFrom('description', description, tempRules);
+    tempRules = filterFrom('type', type, tempRules);
+    tempRules = filterFrom('repo', repo, tempRules);
+    tempRules = filterFromMultiple('branches', branch, tempRules);
+    tempRules = filterFromMultiple('categories', category, tempRules);
+    FILTERED_RULES = tempRules;
+    updateRules();
+}
+
+function updateRules() {
     if ((currentPage + 1) * RULES_PER_PAGE >= FILTERED_RULES.length) {
         LOADING_WHEEL.hide();
     }
