@@ -20,6 +20,14 @@ $(function () {
             //     regex.test(rule.name?.toLowerCase())
             // );
             renderRules();
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('search')) {
+                let value = urlParams.get('search');
+                if (value != "") {
+                    $("#searchBar").val(value);
+                    updateRules(value);
+                }
+            }
         },
     });
 
@@ -35,17 +43,7 @@ $(function () {
         })
         .on("keyup change", function (event) {
             if (isInvalid(event)) return;
-            const v = $(this).val();
-            const regex = new RegExp(`\w*${v.toLowerCase()}\w*`);
-            FILTERED_RULES = ALL_RULES.filter((rule) =>
-                regex.test(rule.name?.toLowerCase())
-            );
-            if ((currentPage + 1) * RULES_PER_PAGE >= FILTERED_RULES.length) {
-                LOADING_WHEEL.hide();
-            }
-            RULES_DIV.empty();
-            currentPage = 0;
-            renderRules();
+            updateRules($(this).val());
         });
 
     window.addEventListener(
@@ -75,6 +73,19 @@ $(function () {
         document.documentElement.scrollTo({ top: 0 });
     });
 });
+
+function updateRules(search) {
+    const regex = new RegExp(`\w*${search.toLowerCase()}\w*`);
+    FILTERED_RULES = ALL_RULES.filter((rule) =>
+        regex.test(rule.name?.toLowerCase())
+    );
+    if ((currentPage + 1) * RULES_PER_PAGE >= FILTERED_RULES.length) {
+        LOADING_WHEEL.hide();
+    }
+    RULES_DIV.empty();
+    currentPage = 0;
+    renderRules();
+}
 
 function isInvalid(event) {
     // shift, ctrl, alt, pageup, pagedown
