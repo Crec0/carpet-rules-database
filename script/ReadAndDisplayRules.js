@@ -84,14 +84,26 @@ function filterFrom(type, text, list) {
     return list;
 }
 
+function filterFromMultiple(type, text, list) {
+    if (text != null && text != "") {
+        const regex = new RegExp(`\w*${text.toLowerCase()}\w*`);
+        return list.filter((rule) =>
+            rule[type]?.some((branch) => 
+                regex.test(branch.toLowerCase())
+            )
+        );
+    }
+    return list;
+}
+
 function filterRules(name, description, type, repo, branch, category) {
     let tempRules = ALL_RULES;
     tempRules = filterFrom('name', name, tempRules);
     tempRules = filterFrom('description', description, tempRules);
     tempRules = filterFrom('type', type, tempRules);
     tempRules = filterFrom('repo', repo, tempRules);
-    tempRules = filterFrom('branch', branch, tempRules);
-    tempRules = filterFrom('category', category, tempRules);
+    tempRules = filterFromMultiple('branches', branch, tempRules);
+    tempRules = filterFromMultiple('categories', category, tempRules);
     FILTERED_RULES = tempRules;
     updateRules();
 }
