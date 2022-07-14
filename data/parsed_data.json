@@ -9619,6 +9619,27 @@
         ]
     },
     {
+        "name": "villagersDontReleaseMemoryFix",
+        "description": "Fixes villagers not releasing there tickets & positional memories when changing dimension, causing them to attempt to pathfind to them causing insane lag",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX",
+            "CRASHFIX",
+            "RECOMMENDED"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "'MC-248208'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
         "name": "optimizedNeighborUpdater",
         "description": "A memory efficient implementation of the new neighborupdater",
         "type": "boolean",
