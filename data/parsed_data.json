@@ -7082,8 +7082,7 @@
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
         "branches": [
-            "1.18",
-            "dev"
+            "1.18"
         ]
     },
     {
@@ -9632,6 +9631,27 @@
         "options": null,
         "extras": [
             "'MC-248208'"
+        ],
+        "validators": null,
+        "repo": "fxmorin/carpet-fixes",
+        "branches": [
+            "dev"
+        ]
+    },
+    {
+        "name": "structuresIgnorePassengersFix",
+        "description": "Fixes structure blocks not being able to save entities with passengers",
+        "type": "boolean",
+        "value": "false",
+        "categories": [
+            "BUGFIX"
+        ],
+        "strict": true,
+        "options": null,
+        "extras": [
+            "It will still usually fail since both entities have the same UUID",
+            "use the rule: `duplicateEntityUUIDFix` to get around this",
+            "'MC-103452'"
         ],
         "validators": null,
         "repo": "fxmorin/carpet-fixes",
