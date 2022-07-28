@@ -2153,13 +2153,10 @@
     },
     {
         "name": "scaffoldingDistance",
-        "description": "Max distance for scaffolding.",
+        "description": "",
         "type": "int",
         "value": "7",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": false,
         "options": [
             "2",
@@ -2168,9 +2165,7 @@
             "7"
         ],
         "extras": null,
-        "validators": [
-            "You must choose a value from 0 to 7"
-        ],
+        "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
             "1.16.5",
@@ -2180,20 +2175,13 @@
     },
     {
         "name": "pistonRedirectsRedstone",
-        "description": "Pistons and sticky pistons redirect redstone",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "When retracting",
-            "they will blink visually",
-            "but that's only to minimize changes required for it to work"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2204,24 +2192,13 @@
     },
     {
         "name": "autoCraftingDropper",
-        "description": "Auto-crafting dropper",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "CREATIVE",
-            "DISPENSER",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "If a dropper points into a crafting table and contains a valid 3x3 crafting recipe",
-            "firing that",
-            "dropper will cause it to craft (drop as item) that recipe.",
-            "Overrides comparators so they indicate number of filled slots instead.",
-            "Also makes hoppers",
-            "droppers and dispensers input max 1 item per slot."
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2232,14 +2209,10 @@
     },
     {
         "name": "dispenserPlacesBlocks",
-        "description": "Dispensers can place blocks.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "CREATIVE",
-            "DISPENSER",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2253,13 +2226,10 @@
     },
     {
         "name": "variableWoodDelays",
-        "description": "Variable delays on wooden components (buttons, pressure plates).",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2273,14 +2243,10 @@
     },
     {
         "name": "comparatorReadsClock",
-        "description": "Allows comparators to read the daytime instead of the rotation of clocks in item frames.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2294,14 +2260,10 @@
     },
     {
         "name": "comparatorBetterItemFrames",
-        "description": "Allows comparators to see item frames that are horizontal in front of them and on top the the block in front of them",
+        "description": "",
         "type": "ComparatorOptions",
         "value": "VANILLA",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": [
             "behind",
@@ -2309,11 +2271,7 @@
             "lenient",
             "vanilla"
         ],
-        "extras": [
-            "Behind: Allows comparators to detect item frames in the block behind them",
-            "Lenient: Allows comparators to detect any item frames within the block behind a full block",
-            "Extended: Allows comparators to detect item frames on a full block behind the comparator"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2324,15 +2282,10 @@
     },
     {
         "name": "hopperMinecart8gtCooldown",
-        "description": "Makes hopper minecarts have an 8gt cooldown like hoppers.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "BUGFIX",
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2346,15 +2299,10 @@
     },
     {
         "name": "hopperMinecartItemTransfer",
-        "description": "Allows hopper minecarts to transfer items into containers below them.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "BUGFIX",
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2368,13 +2316,10 @@
     },
     {
         "name": "commandPing",
-        "description": "Enables `/ping` for players to get their ping.",
+        "description": "",
         "type": "boolean",
         "value": "true",
-        "categories": [
-            "COMMAND",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2388,15 +2333,10 @@
     },
     {
         "name": "dispensersFillMinecarts",
-        "description": "Minecarts can be filled with hoppers, chests, tnt and furnace.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2410,19 +2350,13 @@
     },
     {
         "name": "clericsFarmWarts",
-        "description": "Clerics can warm nether farts.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "This will also allow them to pick up wart items",
-            "as well as pathfind to soulsand."
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2433,19 +2367,13 @@
     },
     {
         "name": "renewableIce",
-        "description": "Multiple ice crushed by falling anvils make denser ice.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "frosted turns into normal"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2456,19 +2384,13 @@
     },
     {
         "name": "dispensersPlayRecords",
-        "description": "Dispensers can play records if there's a jukebox in front of them.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "If a record already exists in the jukebox"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2479,13 +2401,10 @@
     },
     {
         "name": "accurateBlockPlacement",
-        "description": "Client can provide alternative block placement.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "SURVIVAL"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2499,26 +2418,13 @@
     },
     {
         "name": "dispensersToggleThings",
-        "description": "Dispensers containing a stick can toggle/activate things.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Works with buttons",
-            "redstone",
-            "noteblocks",
-            "comparators",
-            "repeaters",
-            "daylight detectors",
-            "etc."
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2529,14 +2435,10 @@
     },
     {
         "name": "dispensersTillSoil",
-        "description": "Dispensers with hoes can till soil.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2550,20 +2452,13 @@
     },
     {
         "name": "dispensersFeedAnimals",
-        "description": "Dispensers can feed animals if given their breeding item.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Can also feed flowers to brown mooshrooms to give them a suspicious stew effect"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2574,14 +2469,10 @@
     },
     {
         "name": "disablePlayerCollision",
-        "description": "Disables player entity collision.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "CREATIVE",
-            "EXPERIMENTAL",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2595,19 +2486,13 @@
     },
     {
         "name": "doubleRetraction",
-        "description": "Re-adds 1.8 double retraction to pistons.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Gives pistons the ability to double retract without side effects.",
-            "Fixes 'MC-88959'."
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2618,23 +2503,13 @@
     },
     {
         "name": "blockStateSyncing",
-        "description": "Fixes block states in f3 debug mode not updating for some blocks.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "May cause increased network traffic.",
-            "Works with cactus",
-            "sugar cane",
-            "saplings",
-            "hoppers",
-            "dispensers and droppers."
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2645,14 +2520,10 @@
     },
     {
         "name": "renewableSand",
-        "description": "Cobblestone crushed by falling anvils makes sand.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2666,13 +2537,10 @@
     },
     {
         "name": "dragonEggBedrockBreaking",
-        "description": "Reintroduce the dragon egg bedrock breaking bug from 1.12.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2686,18 +2554,13 @@
     },
     {
         "name": "renewableNetherrack",
-        "description": "Fire charges from dispensers convert cobblestone to netherrack.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Credits: Skyrising"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2707,20 +2570,13 @@
     },
     {
         "name": "chickenShearing",
-        "description": "Chickens can be sheared to get feathers. beware! every time u shear a chicken, it gets damaged!",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Baby chickens can't be sheared.",
-            "Also works with dispensers"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2731,14 +2587,10 @@
     },
     {
         "name": "mobInFireConvertsSandToSoulsand",
-        "description": "If a living entity dies on sand with fire on top the sand will convert into soul sand.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2752,22 +2604,13 @@
     },
     {
         "name": "flowerPotChunkLoading",
-        "description": "Placing a wither rose in a flowerpot will load that chunk.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "If u enable the rule the already existing chunks with flowerpots won't be loaded.",
-            "Also disabling the carpet rule won't remove the loaded chunks",
-            "u need to manually unload them using the /forceload command.",
-            "All the loaded chunks can be seen using `/forceload query`"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2778,20 +2621,13 @@
     },
     {
         "name": "reloadSuffocationFix",
-        "description": "Won't let mobs glitch into blocks when reloaded.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "BUGFIX",
-            "EXPERIMENTAL",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Can cause slight differences in mobs behaviour.",
-            "Fixes 'MC-2025'."
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2802,15 +2638,10 @@
     },
     {
         "name": "dispensersMilkAnimals",
-        "description": "Dispensers with empty buckets can milk cows/mooshrooms/goats, and get mushroom/suspicious stew from mooshrooms with bowls.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2823,20 +2654,13 @@
     },
     {
         "name": "repeaterPriorityFix",
-        "description": "Quick pulses won't get lost in repeater setups.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "BUGFIX",
-            "EXPERIMENTAL",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Probably brings back pre 1.8 behaviour.",
-            "Fixes 'MC-54711'."
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2847,13 +2671,10 @@
     },
     {
         "name": "straySpawningInIgloos",
-        "description": "Only strays spawn in igloos.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2867,13 +2688,10 @@
     },
     {
         "name": "renewableWitherSkeletons",
-        "description": "Skeletons turn into wither skeletons when struck by lightning.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2887,13 +2705,10 @@
     },
     {
         "name": "creeperSpawningInJungleTemples",
-        "description": "Only creepers spawn in jungle temples.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2907,18 +2722,13 @@
     },
     {
         "name": "y0DragonEggBedrockBreaking",
-        "description": "Let dragon eggs break y0 bedrock.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Requires dragonEggBedrockBreaking to be set to true."
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -2929,25 +2739,18 @@
     },
     {
         "name": "spiderJockeysDropGapples",
-        "description": "Gives spider jockeys a specified chance to drop enchanted golden apples.",
+        "description": "",
         "type": "int",
         "value": "0",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": false,
         "options": [
             "0",
             "100",
             "50"
         ],
-        "extras": [
-            "0 is the default setting"
-        ],
-        "validators": [
-            "You must choose a value from 0 to 100"
-        ],
+        "extras": null,
+        "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
             "1.16.5",
@@ -2957,14 +2760,10 @@
     },
     {
         "name": "renewableEndstone",
-        "description": "Dragon's breath from dispensers convert cobblestone to end stone.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXPERIMENTAL",
-            "EXTRAS"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -2977,13 +2776,10 @@
     },
     {
         "name": "maxSpongeSuck",
-        "description": "Maximum water sucking for sponge.",
+        "description": "",
         "type": "int",
         "value": "64",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": false,
         "options": [
             "64"
@@ -2999,13 +2795,10 @@
     },
     {
         "name": "maxSpongeRange",
-        "description": "Maximum offset limit for sponge.",
+        "description": "",
         "type": "int",
         "value": "7",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": false,
         "options": [
             "7"
@@ -3021,14 +2814,10 @@
     },
     {
         "name": "emptyShulkerBoxStackAlways",
-        "description": "Empty shulker boxes will always stack, even inside inventories.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXPERIMENTAL",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -3042,13 +2831,10 @@
     },
     {
         "name": "enderPearlChunkLoading",
-        "description": "Allow horizontally moving ender pearls to load chunks as entity ticking.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -3062,14 +2848,10 @@
     },
     {
         "name": "betterBonemeal",
-        "description": "Bonemeal can be used to grow sugarcane, cactus and lily pads.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "FEATURE",
-            "SURVIVAL"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -3083,14 +2865,10 @@
     },
     {
         "name": "dispensersCarvePumpkins",
-        "description": "Dispensers containing shears can carve pumpkins.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -3104,19 +2882,13 @@
     },
     {
         "name": "blazeMeal",
-        "description": "Blaze powder fertilizes netherwart.",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "EXTRAS",
-            "FEATURE",
-            "SURVIVAL"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Via dispenser or player right click actions."
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -3127,19 +2899,13 @@
     },
     {
         "name": "dispensersStripBlocks",
-        "description": "Dispensers with axes can strip blocks",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "Can strip logs"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
@@ -3149,14 +2915,10 @@
     },
     {
         "name": "dispensersUseCauldrons",
-        "description": "Dispensers can empty/fill cauldrons with buckets or bottles, and undye leather armor/shulker boxes/banners",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -3169,14 +2931,10 @@
     },
     {
         "name": "dispensersPotPlants",
-        "description": "Dispensers can put flowers in flower pots",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -3189,14 +2947,10 @@
     },
     {
         "name": "dispensersPlaceBoatsOnIce",
-        "description": "Dispensers can place boats on ice",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
         "extras": null,
@@ -3208,19 +2962,13 @@
     },
     {
         "name": "fallingBlockDispensers",
-        "description": "Dispensers/droppers with a block in front of them when powered will turn that block into a falling block",
+        "description": "",
         "type": "boolean",
         "value": "false",
-        "categories": [
-            "DISPENSER",
-            "EXTRAS",
-            "FEATURE"
-        ],
+        "categories": [],
         "strict": true,
         "options": null,
-        "extras": [
-            "dispenser & dropper give the same velocity to the falling block like they do in 22w13oneblockatatime"
-        ],
+        "extras": null,
         "validators": null,
         "repo": "gnembon/carpet-extra",
         "branches": [
