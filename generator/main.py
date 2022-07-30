@@ -1,22 +1,22 @@
 import json
 
 from generator import rule
-from generator.downloader import assemble_data, fetch_data
-from generator.parser import Parser
+from generator.parsers.v1_parser import V1Parser
 from generator.util import webhook_stats
 
 
 def main():
-    data_json = assemble_data(fetch_data())
+    # data_json = assemble_data(fetch_data())
     # with open("../data/downloaded_data.json", "w") as f:
     #     json.dump(data_json, f, indent=4)
 
-    # with open("../data/downloaded_data.json", "r") as f:
-    #     data_json = json.load(f)
+    with open("../data/downloaded_data.json", "r") as f:
+        data_json = json.load(f)
 
     parsed_rules = []
     for branch in data_json:
-        parser = Parser(branch, data_json[branch]).parse()
+        parser = V1Parser(branch, data_json[branch])
+        parser.parse()
         parsed_rules.extend(parser.rules)
 
     rules = rule.group_by_repo(parsed_rules)
