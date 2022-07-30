@@ -23,8 +23,8 @@ class V1Parser(AbstractParser):
     - Second, rules are parsed and enum/fiend/validator references are resolved\n
     """
 
-    def __init__(self, repo_branch: str, source_code: str):
-        super().__init__(repo_branch, source_code)
+    def __init__(self, source_path: str, source_code: str):
+        super().__init__(source_path, source_code)
         self.__tokenizer: Tokenizer = Tokenizer(source_code)
         self.__rules: list[Rule] = []
         self.__fields: dict[str, str] = {}
@@ -192,7 +192,7 @@ class V1Parser(AbstractParser):
         :return: The parsed rule
         """
         rule = Rule()
-        repo, branch = self.repo_branch.split("/tree/")
+        repo, branch = self.source_path.split("/tree/")
         rule.repo = repo
         rule.branches.add(branch)
 

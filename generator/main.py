@@ -14,8 +14,8 @@ def main():
         data_json = json.load(f)
 
     parsed_rules = []
-    for branch in data_json:
-        parser = V1Parser(branch, data_json[branch])
+    for source_path in data_json:
+        parser = V1Parser(source_path, data_json[source_path])
         parser.parse()
         parsed_rules.extend(parser.rules)
 
