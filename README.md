@@ -14,8 +14,8 @@ NOTE: If different branches use different settings file, please dont put them al
 
 ##### Parser version:
 
-If your extension new language file rules system, use the parser version `v2`
-otherwise use the parser version `v1`
+If your extension new language file rules system, put your repo under `v2`
+otherwise put it in `v1`
 
 
 TIS carpet additions gets its own custom parser named `vt` because it uses it's own custom yml language file and custom Rule annotation and preprocessors.
@@ -34,13 +34,12 @@ The schema for rule follows:
 ```json
 {
     "name": "Your carpet extension name",
-    "ownerRepo": "owner/repo",
-    "settingsFiles": [
+    "owner-repo": "owner/repo",
+    "settings-files": [
         "group/path/to/settings/file.java",
         "group/path/to/another/settings/file.java"
     ],
-    "parser": "vx",
-    "langFiles": [
+    "lang-files": [
         "group/path/to/lang/file.java"
     ],
     "branches": [
