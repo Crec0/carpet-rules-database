@@ -10,7 +10,25 @@ This project uses a custom parser to read and process the rules from java files 
 If you want to add your extension to the database,  
 please add your extension to [data/repos.json](data/repos.json) and submit a pull request.
 
-NOTE: If different branches use differnt settings file, please dont put them all inside "settingsFile" property. Duplicate the object and change branch and settings file path.
+NOTE: If different branches use different settings file, please dont put them all inside "settingsFile" property. Duplicate the object and change branch and settings file path.
+
+##### Parser version:
+
+If your extension new language file rules system, use the parser version `v2`
+otherwise use the parser version `v1`
+
+
+TIS carpet additions gets its own custom parser named `vt` because it uses it's own custom yml language file and custom Rule annotation and preprocessors.
+If your extension happen to use this sort of custom system different from carpet, please contact me.
+
+##### LangFiles:
+
+If your chosen parser is `v2`, you have to include langFiles as well.
+Otherwise, langFiles tag will be ignored.
+
+
+For now please only include english lang file. Other languages will be added later.
+
 
 The schema for rule follows:
 ```json
@@ -20,6 +38,10 @@ The schema for rule follows:
     "settingsFiles": [
         "group/path/to/settings/file.java",
         "group/path/to/another/settings/file.java"
+    ],
+    "parser": "vx",
+    "langFiles": [
+        "group/path/to/lang/file.java"
     ],
     "branches": [
         "branch",
