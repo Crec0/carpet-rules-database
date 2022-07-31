@@ -6,10 +6,12 @@
       "settingsFiles": [
         "carpet/CarpetSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "master",
         "1.16.5",
-        "1.17.1"
+        "1.17.1",
+        "1.18.2"
       ]
     },
     {
@@ -18,10 +20,25 @@
       "settingsFiles": [
         "carpetextra/CarpetExtraSettings.java"
       ],
+      "parser": "v1",
       "branches": [
-        "master",
         "1.16.5",
-        "1.17.1"
+        "1.17.1",
+        "1.18.2"
+      ]
+    },
+    {
+      "name": "Carpet Extra",
+      "ownerRepo": "gnembon/carpet-extra",
+      "settingsFiles": [
+        "carpetextra/CarpetExtraSettings.java"
+      ],
+      "parser": "v2",
+      "langFiles": [
+        "assets/carpet-extra/lang/en_us.json"
+      ],
+      "branches": [
+        "master"
       ]
     },
     {
@@ -30,6 +47,7 @@
       "settingsFiles": [
         "carpet_autocraftingtable/AutoCraftingTableSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "master"
       ]
@@ -40,6 +58,7 @@
       "settingsFiles": [
         "carpetfixes/CarpetFixesSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.17",
         "1.16"
@@ -51,20 +70,34 @@
       "settingsFiles": [
         "carpetfixes/CFSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.18",
         "dev"
       ]
     },
     {
-      "name": "Skyblock Fork",
-      "ownerRepo": "jsorrell/skyblock",
+      "name": "Carpet Sky Additions",
+      "ownerRepo": "jsorrell/CarpetSkyAdditions",
       "settingsFiles": [
         "com/jsorrell/skyblock/SkyBlockSettings.java"
       ],
+      "parser": "v1",
       "branches": [
-        "1.18",
-        "1.17"
+        "1.17",
+        "1.18"
+      ]
+    },
+    {
+      "name": "Carpet Sky Additions",
+      "ownerRepo": "jsorrell/CarpetSkyAdditions",
+      "settingsFiles": [
+        "com/jsorrell/carpetskyadditions/settings/SkyAdditionsSetting.java",
+        "com/jsorrell/carpetskyadditions/settings/SkyAdditionsSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "1.19"
       ]
     },
     {
@@ -73,12 +106,12 @@
       "settingsFiles": [
         "carpettisaddition/CarpetTISAdditionSettings.java"
       ],
+      "parser": "vt",
+      "langFile": [
+        "assets/carpettisaddition/lang/en_us.yml"
+      ],
       "branches": [
-        "1.14.4",
-        "1.15.2",
-        "1.16.5",
-        "1.17.1",
-        "1.18.x"
+        "master"
       ]
     },
     {
@@ -87,23 +120,27 @@
       "settingsFiles": [
         "carpetaddons/CarpetAddonsSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.15.2",
         "1.16.x",
-        "1.17"
+        "1.17",
+        "1.18.x"
       ]
     },
     {
-      "name": "minitweaks",
+      "name": "Minitweaks",
       "ownerRepo": "manyrandomthings/minitweaks",
       "settingsFiles": [
         "minitweaks/MiniTweaksSettings.java",
         "minitweaks/MiniTweaksRuleCategory.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.16",
         "1.17",
-        "1.18"
+        "1.18",
+        "1.19"
       ]
     },
     {
@@ -112,6 +149,7 @@
       "settingsFiles": [
         "net/fracturedcode/xpbeacons/XpBeaconsSimpleSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "master"
       ]
@@ -122,6 +160,7 @@
       "settingsFiles": [
         "carpetlunaaraddons/CarpetLunaarSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.16",
         "1.17",
@@ -134,6 +173,7 @@
       "settingsFiles": [
         "cf/litetech/additions/carpet/CarpetAddonsSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "main"
       ]
@@ -144,12 +184,14 @@
       "settingsFiles": [
         "me/ivan/ivancarpetaddition/IvanCarpetAdditionSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.14.4",
         "1.15.2",
         "1.16.5",
         "1.17.1",
-        "1.18.2"
+        "1.18.2",
+        "1.19.x"
       ]
     },
     {
@@ -158,10 +200,12 @@
       "settingsFiles": [
         "totoscarpettweaks/TotoCarpetSettings.java"
       ],
+      "parser": "v1",
       "branches": [
-        "mc1.18.x",
+        "mc1.16.x",
         "mc1.17.x",
-        "mc1.16.x"
+        "mc1.18.x",
+        "mc1.19.x"
       ]
     },
     {
@@ -170,10 +214,12 @@
       "settingsFiles": [
         "it/multicoredev/carpetredcraftaddons/CarpetRedCraftSettings.java"
       ],
+      "parser": "v1",
       "branches": [
-        "master",
+        "1.16.X",
         "1.17.X",
-        "1.16.X"
+        "1.18.X",
+        "1.19.X"
       ]
     },
     {
@@ -182,10 +228,12 @@
       "settingsFiles": [
         "de/rubixdev/rug/RugSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.16",
         "1.17",
-        "1.18"
+        "1.18",
+        "1.19"
       ]
     },
     {
@@ -194,6 +242,7 @@
       "settingsFiles": [
         "weirdaddons/WeirdAddonsSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.18"
       ]
@@ -204,6 +253,7 @@
       "settingsFiles": [
         "essentialaddons/EssentialAddonsSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.16.x"
       ]
@@ -214,9 +264,11 @@
       "settingsFiles": [
         "essentialaddons/EssentialSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.17.x",
-        "1.18.x"
+        "1.18.x",
+        "1.19.x"
       ]
     },
     {
@@ -225,6 +277,7 @@
       "settingsFiles": [
         "jankaddons/JankAddonsSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.18.1",
         "1.17.1",
@@ -237,6 +290,7 @@
       "settingsFiles": [
         "intricarpet/intricarpetRules.java"
       ],
+      "parser": "v1",
       "branches": [
         "master",
         "1.17.1"
@@ -248,12 +302,14 @@
       "settingsFiles": [
         "com/plusls/carpet/PcaSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.14.x",
         "1.15.x",
         "1.16.x",
         "1.17.x",
-        "1.18.x"
+        "1.18.x",
+        "1.19.x"
       ]
     },
     {
@@ -262,6 +318,7 @@
       "settingsFiles": [
         "subtick/SubTickSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "main"
       ]
@@ -272,9 +329,22 @@
       "settingsFiles": [
         "de/rubixdev/carpetgamerules/CarpetGamerulesSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "1.17",
-        "1.18"
+        "1.18",
+        "1.19"
+      ]
+    },
+    {
+      "name": "Carpet Shadow",
+      "ownerRepo": "mattymatty97/carpet-shadow",
+      "settingsFiles": [
+        "com/carpet_shadow/CarpetShadowSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "1.16.5"
       ]
     },
     {
@@ -284,9 +354,11 @@
         "com/carpet_shadow/CarpetShadowSettings.java",
         "com/carpet_shadow/CarpetShadowServerSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "master",
-        "1.18"
+        "1.18",
+        "1.19"
       ]
     },
     {
@@ -295,6 +367,7 @@
       "settingsFiles": [
         "chronos/ChronosSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "master"
       ]
@@ -305,8 +378,174 @@
       "settingsFiles": [
         "com/github/mcdevteam/purple/PurpleCarpetSettings.java"
       ],
+      "parser": "v1",
       "branches": [
         "master"
+      ]
+    },
+    {
+      "name": "shulker-portal",
+      "ownerRepo": "Aleosiss/shulker-portal",
+      "settingsFiles": [
+        "com/aleosiss/shulkerportal/carpet/ShulkerPortalCarpetSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "main"
+      ]
+    },
+    {
+      "name": "MoistCraft Carpet Addons",
+      "ownerRepo": "CSClub05/moistcraft-carpet-addons",
+      "settingsFiles": [
+        "moistcraft/MoistcraftSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "main"
+      ]
+    },
+    {
+      "name": "Epsilon-Carpet",
+      "ownerRepo": "EpsilonSMP/Epsilon-Carpet",
+      "settingsFiles": [
+        "world/epsilonsmp/EpsilonCarpet/EpsilonCarpetSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "main",
+        "1.17"
+      ]
+    },
+    {
+      "name": "AlligatorZone Carpet Addon",
+      "ownerRepo": "CrazyHPi/Az-Carpet-Addon",
+      "settingsFiles": [
+        "azcarpetaddon/AzCarpetAddonSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "master"
+      ]
+    },
+    {
+      "name": "Carpet-DGBCraft",
+      "ownerRepo": "DGBCraft/Carpet-DGBCraft",
+      "settingsFiles": [
+        "online/dgbcraft/carpet/CarpetDGBCraftSetting.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "1.16.x",
+        "1.17.x"
+      ]
+    },
+    {
+      "name": "sus carpet addons",
+      "ownerRepo": "11-90-an/suscarpetaddons",
+      "settingsFiles": [
+        "susaddons/SusAddonsSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "main"
+      ]
+    },
+    {
+      "name": "Hosting-luisch Carpet",
+      "ownerRepo": "luisch444/Hosting-luisch-Carpet",
+      "settingsFiles": [
+        "xyz/luisch444/carpet/HostingluischSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "main",
+        "1.17"
+      ]
+    },
+    {
+      "name": "Swaggy Carpet Addon",
+      "ownerRepo": "enjarai/swaggy-carpet-addon",
+      "settingsFiles": [
+        "nl/enjarai/swaggycarpet/SwaggySettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "master"
+      ]
+    },
+    {
+      "name": "SkyBlock Helper",
+      "ownerRepo": "HuajiMURsMC/SkyBlockHelper",
+      "settingsFiles": [
+        "skyblockhelper/SkyBlockHelperSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "1.18"
+      ]
+    },
+    {
+      "name": "Carpet DRC-Addition",
+      "ownerRepo": "DreamRealmCraft/carpet-DRC-Addition",
+      "settingsFiles": [
+        "com/github/Primeppzi/DRCAdditionSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "1.16.5",
+        "1.18.2",
+        "1.19.1"
+      ]
+    },
+    {
+      "name": "Bastion SMP",
+      "ownerRepo": "luisch444/Bastion-Carpet",
+      "settingsFiles": [
+        "carpet/bastion/BastionCarpetSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "main"
+      ]
+    },
+    {
+      "name": "Ceramic",
+      "ownerRepo": "adryd325/ceramic",
+      "settingsFiles": [
+        "com/adryd/ceramic/CeramicSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "main"
+      ]
+    },
+    {
+      "name": "johan-carpet",
+      "ownerRepo": "IPalmorX/Johan-Carpet-1.18.2",
+      "settingsFiles": [
+        "com/johanvonelectrum/johan_carpet/JohanSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "1.18.2"
+      ]
+    },
+    {
+      "name": "Carpet TCTC Addition",
+      "ownerRepo": "The-Cat-Town-Craft/Carpet-TCTC-Addition",
+      "settingsFiles": [
+        "top/catowncraft/CarpetTCTCAddition/CarpetTCTCAdditionSettings.java"
+      ],
+      "parser": "v1",
+      "branches": [
+        "legacy/1.14.4",
+        "legacy/1.15.2",
+        "legacy/1.16.5",
+        "legacy/1.17.1",
+        "legacy/1.18.2",
+        "legacy/1.19-snapshot",
+        "dev"
       ]
     }
   ]
