@@ -204,7 +204,7 @@ class V1Parser(AbstractParser):
                     self.__skip_space()
                     rule.strict = self.tokenizer.peek() == "true"
 
-                case "category":
+                case "category" | "categories":
                     rule.categories = [
                         self.__resolve(category).upper()
                         for category in self.__parse_optional_list_type_values()
