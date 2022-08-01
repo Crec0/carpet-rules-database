@@ -1,5 +1,4 @@
-import json
-from typing import Any
+from typing import Callable
 
 
 class Rule:
@@ -51,26 +50,6 @@ class Rule:
         )
 
 
-class RuleEncoder(json.JSONEncoder):
-    def default(self, obj: Any) -> Any:
-        if isinstance(obj, Rule):
-            rule_dict = {
-                "name": obj.name,
-                "description": obj.description,
-                "type": obj.type,
-                "value": obj.value,
-                "categories": sorted(obj.categories),
-                "strict": obj.strict,
-                "options": sorted(obj.options) if obj.options else None,
-                "extras": obj.extras,
-                "validators": sorted(obj.validators) if obj.validators else None,
-                "repo": obj.repo,
-                "branches": sorted(obj.branches),
-            }
-            return rule_dict
-        return super().default(obj)
-
-
 def group_by_repo(rules: list[Rule]) -> list[Rule]:
     """
     Combines the rules into one instance if they have different branch but same repo
@@ -86,3 +65,17 @@ def group_by_repo(rules: list[Rule]) -> list[Rule]:
         else:
             grouped_rules[rule_hash].branches |= rule.branches
     return list(grouped_rules.values())
+
+
+def associate_by(rules: list[Rule], func: Callable[[Rule], str]) -> dict[str, Rule]:
+    """
+    Associates the rules to a key provided by the function.
+
+    :param rules: list of rules
+    :param func: key generator function that takes a rule as input and returns a string key
+    :return: dictionary of rules associated to the key
+    """
+    grouped_rules: dict[str, Rule] = {}
+    for rule in rules:
+        grouped_rules[func(rule)] = rule
+    return grouped_rules
