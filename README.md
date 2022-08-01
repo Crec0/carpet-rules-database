@@ -12,7 +12,7 @@ please add your extension to [data/repos.json](data/repos.json) and submit a pul
 
 NOTE: If different branches use different settings file, please dont put them all inside "settingsFile" property. Duplicate the object and change branch and settings file path.
 
-##### Parser version:
+#### Parser version:
 
 If your extension new language file rules system, put your repo under `v2`
 otherwise put it in `v1`
@@ -21,7 +21,7 @@ otherwise put it in `v1`
 TIS carpet additions gets its own custom parser named `vt` because it uses it's own custom yml language file and custom Rule annotation and preprocessors.
 If your extension happen to use this sort of custom system different from carpet, please contact me.
 
-##### LangFiles:
+#### LangFiles:
 
 If your chosen parser is `v2`, you have to include langFiles as well.
 Otherwise, langFiles tag will be ignored.
