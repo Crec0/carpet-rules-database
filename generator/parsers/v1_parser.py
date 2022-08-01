@@ -26,7 +26,6 @@ class V1Parser(AbstractParser):
     def __init__(self, source_path: str, source_code: str):
         super().__init__(source_path, source_code)
         self.tokenizer: Tokenizer = Tokenizer(self.source_code)
-        self.rules: list[Rule] = []
         self.fields: dict[str, str] = {}
         self.validators: dict[str, str] = {}
         self.enums: dict[str, list[str]] = {}

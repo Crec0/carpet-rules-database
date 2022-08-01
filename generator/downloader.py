@@ -6,28 +6,7 @@ import httpx
 from httpx import AsyncClient
 
 from generator.regex import Patterns
-from generator.types import REPOS_JSON, REPO_RESULT
-
-
-async def download_file(client: AsyncClient, parser: str, repo: str, branch: str, url: str) -> tuple[
-    str, str, str, str]:
-    try:
-        response = await client.get(url)
-        if response.status_code == 200:
-            return parser, repo, branch, response.text
-        print(f"Error: {response.status_code} - {url}")
-    except TimeoutError:
-        print(f"TimeoutError: {url}")
-    else:
-        return "", "", "", ""
-
-
-async def download_repos(repos: REPOS_JSON) -> tuple:
-    async with httpx.AsyncClient() as client:
-        result = await asyncio.gather(
-            *[download_file(client, parser, repo, branch, url) for (parser, repo, branch, url) in url_generator(repos)]
-        )
-    return result
+from generator.types import REPOS_JSON, REPO_RESULT, ASSEMBLED_DATA
 
 
 def source_file_uri(host: str, repo: str, branch: str, file: str) -> str:
@@ -55,6 +34,7 @@ def url_generator(repos: REPOS_JSON) -> Iterable[REPO_RESULT]:
                 for settingsFile, branch in product(repo["settings-files"], repo["branches"]):
                     owner_repo = repo["owner-repo"]
                     yield (
+                        parser,
                         "source",
                         owner_repo,
                         branch,
@@ -65,6 +45,7 @@ def url_generator(repos: REPOS_JSON) -> Iterable[REPO_RESULT]:
                     for langFile, branch in product(repo["lang-files"], repo["branches"]):
                         owner_repo = repo["owner-repo"]
                         yield (
+                            parser,
                             "lang",
                             owner_repo,
                             branch,
@@ -72,15 +53,37 @@ def url_generator(repos: REPOS_JSON) -> Iterable[REPO_RESULT]:
                         )
 
 
-def assemble_results(results: Iterable[REPO_RESULT]) -> dict[str, dict[str, str]]:
-    clean_results = {}
-    for parser, repo, branch, text in results:
+async def download_file(client: AsyncClient, parser: str, typ: str, repo: str, branch: str, url: str) -> REPO_RESULT:
+    try:
+        response = await client.get(url)
+        if response.status_code == 200:
+            return parser, typ, repo, branch, response.text
+        print(f"Error: {response.status_code} - {url}")
+    except TimeoutError:
+        print(f"TimeoutError: {url}")
+    else:
+        return "", "", "", "", ""
+
+
+async def download_repos(repos: REPOS_JSON) -> tuple:
+    async with httpx.AsyncClient() as client:
+        result = await asyncio.gather(
+            *[download_file(client, parser, typ, repo, branch, url) for (parser, typ, repo, branch, url) in url_generator(repos)]
+        )
+    return result
+
+
+def assemble_results(results: Iterable[REPO_RESULT]) -> ASSEMBLED_DATA:
+    clean_results: ASSEMBLED_DATA = {}
+    for parser, typ, repo, branch, text in results:
         if parser not in clean_results:
             clean_results[parser] = {}
-        clean_results[parser][f"{repo}{Patterns.SPLITTER_STR}{branch}"] = text
+        if typ not in clean_results[parser]:
+            clean_results[parser][typ] = {}
+        clean_results[parser][typ][f"{repo}{Patterns.SPLITTER_STR}{branch}"] = text
     return clean_results
 
 
-def fetch_data(repos: REPOS_JSON) -> dict[str, dict[str, str]]:
+def fetch_data(repos: REPOS_JSON) -> ASSEMBLED_DATA:
     results = asyncio.run(download_repos(repos))
     return assemble_results(results)
