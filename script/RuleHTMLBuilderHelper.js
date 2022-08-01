@@ -4,7 +4,7 @@ class RuleHTMLBuilder {
     }
 
     withName(name) {
-        this.__element += `<div class="ruleName break-words scrollbar-none">${name}</div>`;
+        this.__element += `<div class="ruleName break-words">${name}</div>`;
         return this;
     }
 
@@ -60,7 +60,7 @@ class RuleHTMLBuilder {
     }
 
     withBranches(branches) {
-        this.addAttribute(`Branches:&nbsp;${branches}`, "break-words");
+        this.addAttribute(`Branches:&nbsp;${branches}`);
         return this;
     }
 

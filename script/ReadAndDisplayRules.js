@@ -128,7 +128,7 @@ function wrapWithSpan(list, convertToUpperCase = false) {
             convertToUpperCase ? val.toUpperCase() : val.toLowerCase()
         )
         .map((val) => `<span class="codeSpan">${val}</span>`)
-        .join(",&nbsp;");
+        .join(", ");
 }
 
 function wrapRepo(repo) {
@@ -140,7 +140,7 @@ function wrapBranches(repo, branches) {
         .map((branch) => {
             return `<a href="https://github.com/${repo}/tree/${branch}" class="link" target="_blank">${branch}</a>`;
         })
-        .join(",&nbsp;");
+        .join(", ");
 }
 
 function objToHTML(rule) {
