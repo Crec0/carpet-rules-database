@@ -1,512 +1,532 @@
 {
-    "v1": [
-        {
-            "name": "Carpet",
-            "owner-repo": "gnembon/fabric-carpet",
-            "settings-files": [
-                "carpet/CarpetSettings.java"
-            ],
-            "branches": [
-                "master",
-                "1.16.5",
-                "1.17.1",
-                "1.18.2"
-            ]
-        },
-        {
-            "name": "Carpet Extra",
-            "owner-repo": "gnembon/carpet-extra",
-            "settings-files": [
-                "carpetextra/CarpetExtraSettings.java"
-            ],
-            "branches": [
-                "1.16.5",
-                "1.17.1",
-                "1.18.2"
-            ]
-        },
-        {
-            "name": "Auto Crafting Table",
-            "owner-repo": "gnembon/carpet-autoCraftingTable",
-            "settings-files": [
-                "carpet_autocraftingtable/AutoCraftingTableSettings.java"
-            ],
-            "branches": [
-                "master"
-            ]
-        },
-        {
-            "name": "Carpet Fixes",
-            "owner-repo": "fxmorin/carpet-fixes",
-            "settings-files": [
-                "carpetfixes/CarpetFixesSettings.java"
-            ],
-            "branches": [
-                "1.17",
-                "1.16"
-            ]
-        },
-        {
-            "name": "Carpet Fixes",
-            "owner-repo": "fxmorin/carpet-fixes",
-            "settings-files": [
-                "carpetfixes/CFSettings.java"
-            ],
-            "branches": [
-                "1.18",
-                "dev"
-            ]
-        },
-        {
-            "name": "Carpet Sky Additions",
-            "owner-repo": "jsorrell/CarpetSkyAdditions",
-            "settings-files": [
-                "com/jsorrell/skyblock/SkyBlockSettings.java"
-            ],
-            "branches": [
-                "1.17",
-                "1.18"
-            ]
-        },
-        {
-            "name": "Carpet Sky Additions",
-            "owner-repo": "jsorrell/CarpetSkyAdditions",
-            "settings-files": [
-                "com/jsorrell/carpetskyadditions/settings/SkyAdditionsSetting.java",
-                "com/jsorrell/carpetskyadditions/settings/SkyAdditionsSettings.java"
-            ],
-            "branches": [
-                "1.19"
-            ]
-        },
-        {
-            "name": "Carpet Addons",
-            "owner-repo": "whoImT/carpet-addons",
-            "settings-files": [
-                "carpetaddons/CarpetAddonsSettings.java"
-            ],
-            "branches": [
-                "1.15.2",
-                "1.16.x",
-                "1.17",
-                "1.18.x"
-            ]
-        },
-        {
-            "name": "Minitweaks",
-            "owner-repo": "manyrandomthings/minitweaks",
-            "settings-files": [
-                "minitweaks/MiniTweaksSettings.java",
-                "minitweaks/MiniTweaksRuleCategory.java"
-            ],
-            "branches": [
-                "1.16",
-                "1.17",
-                "1.18",
-                "1.19"
-            ]
-        },
-        {
-            "name": "XpBeacons",
-            "owner-repo": "FracturedCode/XpBeacons",
-            "settings-files": [
-                "net/fracturedcode/xpbeacons/XpBeaconsSimpleSettings.java"
-            ],
-            "branches": [
-                "master"
-            ]
-        },
-        {
-            "name": "Lunaar Carpet Addons",
-            "owner-repo": "Lunaar-SMP/lunaar-carpet-addons",
-            "settings-files": [
-                "carpetlunaaraddons/CarpetLunaarSettings.java"
-            ],
-            "branches": [
-                "1.16",
-                "1.17",
-                "1.18"
-            ]
-        },
-        {
-            "name": "Litetech Additions",
-            "owner-repo": "LiteTechMC/litetech-additions",
-            "settings-files": [
-                "cf/litetech/additions/carpet/CarpetAddonsSettings.java"
-            ],
-            "branches": [
-                "main"
-            ]
-        },
-        {
-            "name": "Ivan Carpet Addition",
-            "owner-repo": "Ivan-1F/Ivan-Carpet-Addition",
-            "settings-files": [
-                "me/ivan/ivancarpetaddition/IvanCarpetAdditionSettings.java"
-            ],
-            "branches": [
-                "1.14.4",
-                "1.15.2",
-                "1.16.5",
-                "1.17.1",
-                "1.18.2",
-                "1.19.x"
-            ]
-        },
-        {
-            "name": "Toto's Carpet Tweaks",
-            "owner-repo": "totorewa/totos-carpet-tweaks",
-            "settings-files": [
-                "totoscarpettweaks/TotoCarpetSettings.java"
-            ],
-            "branches": [
-                "mc1.16.x",
-                "mc1.17.x",
-                "mc1.18.x",
-                "mc1.19.x"
-            ]
-        },
-        {
-            "name": "Carpet Redcraft Addons",
-            "owner-repo": "MultiCoreNetwork/carpet-redcraft-addons",
-            "settings-files": [
-                "it/multicoredev/carpetredcraftaddons/CarpetRedCraftSettings.java"
-            ],
-            "branches": [
-                "1.16.X",
-                "1.17.X",
-                "1.18.X",
-                "1.19.X"
-            ]
-        },
-        {
-            "name": "Rug",
-            "owner-repo": "RubixDev/Rug",
-            "settings-files": [
-                "de/rubixdev/rug/RugSettings.java"
-            ],
-            "branches": [
-                "1.16",
-                "1.17",
-                "1.18",
-                "1.19"
-            ]
-        },
-        {
-            "name": "Weird Addons",
-            "owner-repo": "fxmorin/WeirdAddons",
-            "settings-files": [
-                "weirdaddons/WeirdAddonsSettings.java"
-            ],
-            "branches": [
-                "1.18"
-            ]
-        },
-        {
-            "name": "Essential Addons",
-            "owner-repo": "Super-Santa/EssentialAddons",
-            "settings-files": [
-                "essentialaddons/EssentialAddonsSettings.java"
-            ],
-            "branches": [
-                "1.16.x"
-            ]
-        },
-        {
-            "name": "Essential Addons",
-            "owner-repo": "Super-Santa/EssentialAddons",
-            "settings-files": [
-                "essentialaddons/EssentialSettings.java"
-            ],
-            "branches": [
-                "1.17.x",
-                "1.18.x",
-                "1.19.x"
-            ]
-        },
-        {
-            "name": "Jank Addons",
-            "owner-repo": "Crec0/JankAddons",
-            "settings-files": [
-                "jankaddons/JankAddonsSettings.java"
-            ],
-            "branches": [
-                "1.18.1",
-                "1.17.1",
-                "main"
-            ]
-        },
-        {
-            "name": "Intricarpet",
-            "owner-repo": "lntricate1/intricarpet",
-            "settings-files": [
-                "intricarpet/intricarpetRules.java"
-            ],
-            "branches": [
-                "master",
-                "1.17.1"
-            ]
-        },
-        {
-            "name": "Plusls Carpet Additions",
-            "owner-repo": "plusls/plusls-carpet-addition",
-            "settings-files": [
-                "com/plusls/carpet/PcaSettings.java"
-            ],
-            "branches": [
-                "1.14.x",
-                "1.15.x",
-                "1.16.x",
-                "1.17.x",
-                "1.18.x",
-                "1.19.x"
-            ]
-        },
-        {
-            "name": "SubTick",
-            "owner-repo": "chiraagChakravarthy/SubTick",
-            "settings-files": [
-                "subtick/SubTickSettings.java"
-            ],
-            "branches": [
-                "main"
-            ]
-        },
-        {
-            "name": "Carpet Gamerules",
-            "owner-repo": "RubixDev/CarpetGamerules",
-            "settings-files": [
-                "de/rubixdev/carpetgamerules/CarpetGamerulesSettings.java"
-            ],
-            "branches": [
-                "1.17",
-                "1.18",
-                "1.19"
-            ]
-        },
-        {
-            "name": "Carpet Shadow",
-            "owner-repo": "mattymatty97/carpet-shadow",
-            "settings-files": [
-                "com/carpet_shadow/CarpetShadowSettings.java"
-            ],
-            "branches": [
-                "1.16.5"
-            ]
-        },
-        {
-            "name": "Carpet Shadow",
-            "owner-repo": "mattymatty97/carpet-shadow",
-            "settings-files": [
-                "com/carpet_shadow/CarpetShadowSettings.java",
-                "com/carpet_shadow/CarpetShadowServerSettings.java"
-            ],
-            "branches": [
-                "master",
-                "1.18",
-                "1.19"
-            ]
-        },
-        {
-            "name": "Chronos Addons",
-            "owner-repo": "ChronosServer/chronos-carpet-addons",
-            "settings-files": [
-                "chronos/ChronosSettings.java"
-            ],
-            "branches": [
-                "master"
-            ]
-        },
-        {
-            "name": "Purple Fabric Carpet Extension",
-            "owner-repo": "McDevTeam/purple-fabric-carpet",
-            "settings-files": [
-                "com/github/mcdevteam/purple/PurpleCarpetSettings.java"
-            ],
-            "branches": [
-                "master"
-            ]
-        },
-        {
-            "name": "shulker-portal",
-            "owner-repo": "Aleosiss/shulker-portal",
-            "settings-files": [
-                "com/aleosiss/shulkerportal/carpet/ShulkerPortalCarpetSettings.java"
-            ],
-            "branches": [
-                "main"
-            ]
-        },
-        {
-            "name": "MoistCraft Carpet Addons",
-            "owner-repo": "CSClub05/moistcraft-carpet-addons",
-            "settings-files": [
-                "moistcraft/MoistcraftSettings.java"
-            ],
-            "branches": [
-                "main"
-            ]
-        },
-        {
-            "name": "Epsilon-Carpet",
-            "owner-repo": "EpsilonSMP/Epsilon-Carpet",
-            "settings-files": [
-                "world/epsilonsmp/EpsilonCarpet/EpsilonCarpetSettings.java"
-            ],
-            "branches": [
-                "main",
-                "1.17"
-            ]
-        },
-        {
-            "name": "AlligatorZone Carpet Addon",
-            "owner-repo": "CrazyHPi/Az-Carpet-Addon",
-            "settings-files": [
-                "azcarpetaddon/AzCarpetAddonSettings.java"
-            ],
-            "branches": [
-                "master"
-            ]
-        },
-        {
-            "name": "Carpet-DGBCraft",
-            "owner-repo": "DGBCraft/Carpet-DGBCraft",
-            "settings-files": [
-                "online/dgbcraft/carpet/CarpetDGBCraftSetting.java"
-            ],
-            "branches": [
-                "1.16.x",
-                "1.17.x"
-            ]
-        },
-        {
-            "name": "sus carpet addons",
-            "owner-repo": "11-90-an/suscarpetaddons",
-            "settings-files": [
-                "susaddons/SusAddonsSettings.java"
-            ],
-            "branches": [
-                "main"
-            ]
-        },
-        {
-            "name": "Hosting-luisch Carpet",
-            "owner-repo": "luisch444/Hosting-luisch-Carpet",
-            "settings-files": [
-                "xyz/luisch444/carpet/HostingluischSettings.java"
-            ],
-            "branches": [
-                "main",
-                "1.17"
-            ]
-        },
-        {
-            "name": "Swaggy Carpet Addon",
-            "owner-repo": "enjarai/swaggy-carpet-addon",
-            "settings-files": [
-                "nl/enjarai/swaggycarpet/SwaggySettings.java"
-            ],
-            "branches": [
-                "master"
-            ]
-        },
-        {
-            "name": "SkyBlock Helper",
-            "owner-repo": "HuajiMURsMC/SkyBlockHelper",
-            "settings-files": [
-                "skyblockhelper/SkyBlockHelperSettings.java"
-            ],
-            "branches": [
-                "1.18"
-            ]
-        },
-        {
-            "name": "Carpet DRC-Addition",
-            "owner-repo": "DreamRealmCraft/carpet-DRC-Addition",
-            "settings-files": [
-                "com/github/Primeppzi/DRCAdditionSettings.java"
-            ],
-            "branches": [
-                "1.16.5",
-                "1.18.2",
-                "1.19.1"
-            ]
-        },
-        {
-            "name": "Bastion SMP",
-            "owner-repo": "luisch444/Bastion-Carpet",
-            "settings-files": [
-                "carpet/bastion/BastionCarpetSettings.java"
-            ],
-            "branches": [
-                "main"
-            ]
-        },
-        {
-            "name": "Ceramic",
-            "owner-repo": "adryd325/ceramic",
-            "settings-files": [
-                "com/adryd/ceramic/CeramicSettings.java"
-            ],
-            "branches": [
-                "main"
-            ]
-        },
-        {
-            "name": "johan-carpet",
-            "owner-repo": "IPalmorX/Johan-Carpet-1.18.2",
-            "settings-files": [
-                "com/johanvonelectrum/johan_carpet/JohanSettings.java"
-            ],
-            "branches": [
-                "1.18.2"
-            ]
-        },
-        {
-            "name": "Carpet TCTC Addition",
-            "owner-repo": "The-Cat-Town-Craft/Carpet-TCTC-Addition",
-            "settings-files": [
-                "top/catowncraft/CarpetTCTCAddition/CarpetTCTCAdditionSettings.java"
-            ],
-            "branches": [
-                "legacy/1.14.4",
-                "legacy/1.15.2",
-                "legacy/1.16.5",
-                "legacy/1.17.1",
-                "legacy/1.18.2",
-                "legacy/1.19-snapshot",
-                "dev"
-            ]
-        }
-    ],
-    "v2": [
-        {
-            "name": "Carpet Extra",
-            "owner-repo": "gnembon/carpet-extra",
-            "settings-files": [
-                "carpetextra/CarpetExtraSettings.java"
-            ],
-            "lang-files": [
-                "assets/carpet-extra/lang/en_us.json"
-            ],
-            "branches": [
-                "master"
-            ]
-        }
-    ],
-    "vt": [
-        {
-            "name": "Carpet TIS Addition",
-            "owner-repo": "TISUnion/Carpet-TIS-Addition",
-            "settings-files": [
-                "carpettisaddition/CarpetTISAdditionSettings.java"
-            ],
-            "lang-files": [
-                "assets/carpettisaddition/lang/en_us.yml"
-            ],
-            "branches": [
-                "master"
-            ]
-        }
-    ]
+    "v1": {
+        "github": [
+            {
+                "name": "Carpet",
+                "owner-repo": "gnembon/fabric-carpet",
+                "settings-files": [
+                    "carpet/CarpetSettings.java"
+                ],
+                "branches": [
+                    "master",
+                    "1.16.5",
+                    "1.17.1",
+                    "1.18.2"
+                ]
+            },
+            {
+                "name": "Carpet Extra",
+                "owner-repo": "gnembon/carpet-extra",
+                "settings-files": [
+                    "carpetextra/CarpetExtraSettings.java"
+                ],
+                "branches": [
+                    "1.16.5",
+                    "1.17.1",
+                    "1.18.2"
+                ]
+            },
+            {
+                "name": "Auto Crafting Table",
+                "owner-repo": "gnembon/carpet-autoCraftingTable",
+                "settings-files": [
+                    "carpet_autocraftingtable/AutoCraftingTableSettings.java"
+                ],
+                "branches": [
+                    "master"
+                ]
+            },
+            {
+                "name": "Carpet Fixes",
+                "owner-repo": "fxmorin/carpet-fixes",
+                "settings-files": [
+                    "carpetfixes/CarpetFixesSettings.java"
+                ],
+                "branches": [
+                    "1.17",
+                    "1.16"
+                ]
+            },
+            {
+                "name": "Carpet Fixes",
+                "owner-repo": "fxmorin/carpet-fixes",
+                "settings-files": [
+                    "carpetfixes/CFSettings.java"
+                ],
+                "branches": [
+                    "1.18",
+                    "dev"
+                ]
+            },
+            {
+                "name": "Carpet Sky Additions",
+                "owner-repo": "jsorrell/CarpetSkyAdditions",
+                "settings-files": [
+                    "com/jsorrell/skyblock/SkyBlockSettings.java"
+                ],
+                "branches": [
+                    "1.17",
+                    "1.18"
+                ]
+            },
+            {
+                "name": "Carpet Sky Additions",
+                "owner-repo": "jsorrell/CarpetSkyAdditions",
+                "settings-files": [
+                    "com/jsorrell/carpetskyadditions/settings/SkyAdditionsSetting.java",
+                    "com/jsorrell/carpetskyadditions/settings/SkyAdditionsSettings.java"
+                ],
+                "branches": [
+                    "1.19"
+                ]
+            },
+            {
+                "name": "Carpet Addons",
+                "owner-repo": "whoImT/carpet-addons",
+                "settings-files": [
+                    "carpetaddons/CarpetAddonsSettings.java"
+                ],
+                "branches": [
+                    "1.15.2",
+                    "1.16.x",
+                    "1.17",
+                    "1.18.x"
+                ]
+            },
+            {
+                "name": "Minitweaks",
+                "owner-repo": "manyrandomthings/minitweaks",
+                "settings-files": [
+                    "minitweaks/MiniTweaksSettings.java",
+                    "minitweaks/MiniTweaksRuleCategory.java"
+                ],
+                "branches": [
+                    "1.16",
+                    "1.17",
+                    "1.18",
+                    "1.19"
+                ]
+            },
+            {
+                "name": "XpBeacons",
+                "owner-repo": "FracturedCode/XpBeacons",
+                "settings-files": [
+                    "net/fracturedcode/xpbeacons/XpBeaconsSimpleSettings.java"
+                ],
+                "branches": [
+                    "master"
+                ]
+            },
+            {
+                "name": "Lunaar Carpet Addons",
+                "owner-repo": "Lunaar-SMP/lunaar-carpet-addons",
+                "settings-files": [
+                    "carpetlunaaraddons/CarpetLunaarSettings.java"
+                ],
+                "branches": [
+                    "1.16",
+                    "1.17",
+                    "1.18"
+                ]
+            },
+            {
+                "name": "Litetech Additions",
+                "owner-repo": "LiteTechMC/litetech-additions",
+                "settings-files": [
+                    "cf/litetech/additions/carpet/CarpetAddonsSettings.java"
+                ],
+                "branches": [
+                    "main"
+                ]
+            },
+            {
+                "name": "Ivan Carpet Addition",
+                "owner-repo": "Ivan-1F/Ivan-Carpet-Addition",
+                "settings-files": [
+                    "me/ivan/ivancarpetaddition/IvanCarpetAdditionSettings.java"
+                ],
+                "branches": [
+                    "1.14.4",
+                    "1.15.2",
+                    "1.16.5",
+                    "1.17.1",
+                    "1.18.2",
+                    "1.19.x"
+                ]
+            },
+            {
+                "name": "Toto's Carpet Tweaks",
+                "owner-repo": "totorewa/totos-carpet-tweaks",
+                "settings-files": [
+                    "totoscarpettweaks/TotoCarpetSettings.java"
+                ],
+                "branches": [
+                    "mc1.16.x",
+                    "mc1.17.x",
+                    "mc1.18.x",
+                    "mc1.19.x"
+                ]
+            },
+            {
+                "name": "Carpet Redcraft Addons",
+                "owner-repo": "MultiCoreNetwork/carpet-redcraft-addons",
+                "settings-files": [
+                    "it/multicoredev/carpetredcraftaddons/CarpetRedCraftSettings.java"
+                ],
+                "branches": [
+                    "1.16.X",
+                    "1.17.X",
+                    "1.18.X",
+                    "1.19.X"
+                ]
+            },
+            {
+                "name": "Rug",
+                "owner-repo": "RubixDev/Rug",
+                "settings-files": [
+                    "de/rubixdev/rug/RugSettings.java"
+                ],
+                "branches": [
+                    "1.16",
+                    "1.17",
+                    "1.18",
+                    "1.19"
+                ]
+            },
+            {
+                "name": "Weird Addons",
+                "owner-repo": "fxmorin/WeirdAddons",
+                "settings-files": [
+                    "weirdaddons/WeirdAddonsSettings.java"
+                ],
+                "branches": [
+                    "1.18"
+                ]
+            },
+            {
+                "name": "Essential Addons",
+                "owner-repo": "Super-Santa/EssentialAddons",
+                "settings-files": [
+                    "essentialaddons/EssentialAddonsSettings.java"
+                ],
+                "branches": [
+                    "1.16.x"
+                ]
+            },
+            {
+                "name": "Essential Addons",
+                "owner-repo": "Super-Santa/EssentialAddons",
+                "settings-files": [
+                    "essentialaddons/EssentialSettings.java"
+                ],
+                "branches": [
+                    "1.17.x",
+                    "1.18.x",
+                    "1.19.x"
+                ]
+            },
+            {
+                "name": "Jank Addons",
+                "owner-repo": "Crec0/JankAddons",
+                "settings-files": [
+                    "jankaddons/JankAddonsSettings.java"
+                ],
+                "branches": [
+                    "1.18.1",
+                    "1.17.1",
+                    "main"
+                ]
+            },
+            {
+                "name": "Intricarpet",
+                "owner-repo": "lntricate1/intricarpet",
+                "settings-files": [
+                    "intricarpet/intricarpetRules.java"
+                ],
+                "branches": [
+                    "master",
+                    "1.17.1"
+                ]
+            },
+            {
+                "name": "Plusls Carpet Additions",
+                "owner-repo": "plusls/plusls-carpet-addition",
+                "settings-files": [
+                    "com/plusls/carpet/PcaSettings.java"
+                ],
+                "branches": [
+                    "1.14.x",
+                    "1.15.x",
+                    "1.16.x",
+                    "1.17.x",
+                    "1.18.x",
+                    "1.19.x"
+                ]
+            },
+            {
+                "name": "SubTick",
+                "owner-repo": "chiraagChakravarthy/SubTick",
+                "settings-files": [
+                    "subtick/SubTickSettings.java"
+                ],
+                "branches": [
+                    "main"
+                ]
+            },
+            {
+                "name": "Carpet Gamerules",
+                "owner-repo": "RubixDev/CarpetGamerules",
+                "settings-files": [
+                    "de/rubixdev/carpetgamerules/CarpetGamerulesSettings.java"
+                ],
+                "branches": [
+                    "1.17",
+                    "1.18",
+                    "1.19"
+                ]
+            },
+            {
+                "name": "Carpet Shadow",
+                "owner-repo": "mattymatty97/carpet-shadow",
+                "settings-files": [
+                    "com/carpet_shadow/CarpetShadowSettings.java"
+                ],
+                "branches": [
+                    "1.16.5"
+                ]
+            },
+            {
+                "name": "Carpet Shadow",
+                "owner-repo": "mattymatty97/carpet-shadow",
+                "settings-files": [
+                    "com/carpet_shadow/CarpetShadowSettings.java",
+                    "com/carpet_shadow/CarpetShadowServerSettings.java"
+                ],
+                "branches": [
+                    "master",
+                    "1.18",
+                    "1.19"
+                ]
+            },
+            {
+                "name": "Chronos Addons",
+                "owner-repo": "ChronosServer/chronos-carpet-addons",
+                "settings-files": [
+                    "chronos/ChronosSettings.java"
+                ],
+                "branches": [
+                    "master"
+                ]
+            },
+            {
+                "name": "Purple Fabric Carpet Extension",
+                "owner-repo": "McDevTeam/purple-fabric-carpet",
+                "settings-files": [
+                    "com/github/mcdevteam/purple/PurpleCarpetSettings.java"
+                ],
+                "branches": [
+                    "master"
+                ]
+            },
+            {
+                "name": "shulker-portal",
+                "owner-repo": "Aleosiss/shulker-portal",
+                "settings-files": [
+                    "com/aleosiss/shulkerportal/carpet/ShulkerPortalCarpetSettings.java"
+                ],
+                "branches": [
+                    "main"
+                ]
+            },
+            {
+                "name": "MoistCraft Carpet Addons",
+                "owner-repo": "CSClub05/moistcraft-carpet-addons",
+                "settings-files": [
+                    "moistcraft/MoistcraftSettings.java"
+                ],
+                "branches": [
+                    "main"
+                ]
+            },
+            {
+                "name": "Epsilon-Carpet",
+                "owner-repo": "EpsilonSMP/Epsilon-Carpet",
+                "settings-files": [
+                    "world/epsilonsmp/EpsilonCarpet/EpsilonCarpetSettings.java"
+                ],
+                "branches": [
+                    "main",
+                    "1.17"
+                ]
+            },
+            {
+                "name": "AlligatorZone Carpet Addon",
+                "owner-repo": "CrazyHPi/Az-Carpet-Addon",
+                "settings-files": [
+                    "azcarpetaddon/AzCarpetAddonSettings.java"
+                ],
+                "branches": [
+                    "master"
+                ]
+            },
+            {
+                "name": "Carpet-DGBCraft",
+                "owner-repo": "DGBCraft/Carpet-DGBCraft",
+                "settings-files": [
+                    "online/dgbcraft/carpet/CarpetDGBCraftSetting.java"
+                ],
+                "branches": [
+                    "1.16.x",
+                    "1.17.x"
+                ]
+            },
+            {
+                "name": "sus carpet addons",
+                "owner-repo": "11-90-an/suscarpetaddons",
+                "settings-files": [
+                    "susaddons/SusAddonsSettings.java"
+                ],
+                "branches": [
+                    "main"
+                ]
+            },
+            {
+                "name": "Hosting-luisch Carpet",
+                "owner-repo": "luisch444/Hosting-luisch-Carpet",
+                "settings-files": [
+                    "xyz/luisch444/carpet/HostingluischSettings.java"
+                ],
+                "branches": [
+                    "main",
+                    "1.17"
+                ]
+            },
+            {
+                "name": "Swaggy Carpet Addon",
+                "owner-repo": "enjarai/swaggy-carpet-addon",
+                "settings-files": [
+                    "nl/enjarai/swaggycarpet/SwaggySettings.java"
+                ],
+                "branches": [
+                    "master"
+                ]
+            },
+            {
+                "name": "SkyBlock Helper",
+                "owner-repo": "HuajiMURsMC/SkyBlockHelper",
+                "settings-files": [
+                    "skyblockhelper/SkyBlockHelperSettings.java"
+                ],
+                "branches": [
+                    "1.18"
+                ]
+            },
+            {
+                "name": "Carpet DRC-Addition",
+                "owner-repo": "DreamRealmCraft/carpet-DRC-Addition",
+                "settings-files": [
+                    "com/github/Primeppzi/DRCAdditionSettings.java"
+                ],
+                "branches": [
+                    "1.16.5",
+                    "1.18.2",
+                    "1.19.1"
+                ]
+            },
+            {
+                "name": "Bastion SMP",
+                "owner-repo": "luisch444/Bastion-Carpet",
+                "settings-files": [
+                    "carpet/bastion/BastionCarpetSettings.java"
+                ],
+                "branches": [
+                    "main"
+                ]
+            },
+            {
+                "name": "Ceramic",
+                "owner-repo": "adryd325/ceramic",
+                "settings-files": [
+                    "com/adryd/ceramic/CeramicSettings.java"
+                ],
+                "branches": [
+                    "main"
+                ]
+            },
+            {
+                "name": "johan-carpet",
+                "owner-repo": "IPalmorX/Johan-Carpet-1.18.2",
+                "settings-files": [
+                    "com/johanvonelectrum/johan_carpet/JohanSettings.java"
+                ],
+                "branches": [
+                    "1.18.2"
+                ]
+            },
+            {
+                "name": "Carpet TCTC Addition",
+                "owner-repo": "The-Cat-Town-Craft/Carpet-TCTC-Addition",
+                "settings-files": [
+                    "top/catowncraft/CarpetTCTCAddition/CarpetTCTCAdditionSettings.java"
+                ],
+                "branches": [
+                    "legacy/1.14.4",
+                    "legacy/1.15.2",
+                    "legacy/1.16.5",
+                    "legacy/1.17.1",
+                    "legacy/1.18.2",
+                    "legacy/1.19-snapshot",
+                    "dev"
+                ]
+            }
+        ],
+        "gitlab": [
+            {
+                "name": "Anvil Crush",
+                "owner-repo": "Ma_124/mc-anvil-crush",
+                "settings-files": [
+                    "technicalma/carpet/anvilcrush/AnvilCrushSettings.java"
+                ],
+                "branches": [
+                    "master"
+                ]
+            }
+        ]
+    },
+    "v2": {
+        "github": [
+            {
+                "name": "Carpet Extra",
+                "owner-repo": "gnembon/carpet-extra",
+                "settings-files": [
+                    "carpetextra/CarpetExtraSettings.java"
+                ],
+                "lang-files": [
+                    "assets/carpet-extra/lang/en_us.json"
+                ],
+                "branches": [
+                    "master"
+                ]
+            }
+        ],
+        "gitlab": []
+    },
+    "vt": {
+        "github": [
+            {
+                "name": "Carpet TIS Addition",
+                "owner-repo": "TISUnion/Carpet-TIS-Addition",
+                "settings-files": [
+                    "carpettisaddition/CarpetTISAdditionSettings.java"
+                ],
+                "lang-files": [
+                    "assets/carpettisaddition/lang/en_us.yml"
+                ],
+                "branches": [
+                    "master"
+                ]
+            }
+        ],
+        "gitlab": []
+    }
 }

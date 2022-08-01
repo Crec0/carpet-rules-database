@@ -1,58 +1,86 @@
 import asyncio
-import json
-from collections import defaultdict
 from itertools import product
 from typing import Iterable
 
 import httpx
+from httpx import AsyncClient
+
+from generator.regex import Patterns
+from generator.types import REPOS_JSON, REPO_RESULT
 
 
-def fetch_data() -> Iterable:
-    repo_links, branch_links = read_repos_as_list()
-    download_coro = download_repos(repo_links)
-    return zip(branch_links, asyncio.run(download_coro))
-
-
-def read_repos_as_list() -> tuple[list[str], list[str]]:
-    """
-    Converts the repos from json to list of links
-    """
-    with open("../data/repos.json", "r") as f:
-        json_data = json.load(f)
-
-    repos_list = []
-    branch_links = []
-    for repo in json_data["ruleSources"]:
-        for settingsFile, branch in product(repo["settingsFiles"], repo["branches"]):
-            repos_list.append(
-                f"https://raw.githubusercontent.com/{repo['ownerRepo']}/{branch}/src/main/java/{settingsFile}"
-            )
-            branch_links.append(f"{repo['ownerRepo']}/tree/{branch}")
-    return repos_list, branch_links
-
-
-async def download_file(client, url: str) -> str:
+async def download_file(client: AsyncClient, parser: str, repo: str, branch: str, url: str) -> tuple[
+    str, str, str, str]:
     try:
         response = await client.get(url)
         if response.status_code == 200:
-            return response.text
+            return parser, repo, branch, response.text
         print(f"Error: {response.status_code} - {url}")
     except TimeoutError:
         print(f"TimeoutError: {url}")
     else:
-        return ""
+        return "", "", "", ""
 
 
-async def download_repos(file_links: list[str]) -> tuple:
+async def download_repos(repos: REPOS_JSON) -> tuple:
     async with httpx.AsyncClient() as client:
         result = await asyncio.gather(
-            *[download_file(client, link) for link in file_links]
+            *[download_file(client, parser, repo, branch, url) for (parser, repo, branch, url) in url_generator(repos)]
         )
     return result
 
 
-def assemble_data(data: Iterable) -> dict:
-    data_dict: dict[str, str] = defaultdict(lambda: "")
-    for branch, content in data:
-        data_dict[branch] = "\n".join([data_dict[branch], content])
-    return data_dict
+def source_file_uri(host: str, repo: str, branch: str, file: str) -> str:
+    if host == "github":
+        return f"https://raw.githubusercontent.com/{repo}/{branch}/src/main/java/{file}"
+    elif host == "gitlab":
+        return f"https://gitlab.com/{repo}/-/raw/{branch}/src/main/java/{file}"
+    else:
+        raise ValueError(f"Unknown host: {host}")
+
+
+def lang_file_uri(host: str, repo: str, branch: str, file: str) -> str:
+    if host == "github":
+        return f"https://raw.githubusercontent.com/{repo}/{branch}/src/main/resources/{file}"
+    elif host == "gitlab":
+        return f"https://gitlab.com/{repo}/-/raw/{branch}/src/main/resources/{file}"
+    else:
+        raise ValueError(f"Unknown host: {host}")
+
+
+def url_generator(repos: REPOS_JSON) -> Iterable[REPO_RESULT]:
+    for parser in repos:
+        for host in repos[parser]:
+            for repo in repos[parser][host]:
+                for settingsFile, branch in product(repo["settings-files"], repo["branches"]):
+                    owner_repo = repo["owner-repo"]
+                    yield (
+                        "source",
+                        owner_repo,
+                        branch,
+                        source_file_uri(host, owner_repo, branch, settingsFile),
+                    )
+
+                if parser == "v2" or parser == "vt":
+                    for langFile, branch in product(repo["lang-files"], repo["branches"]):
+                        owner_repo = repo["owner-repo"]
+                        yield (
+                            "lang",
+                            owner_repo,
+                            branch,
+                            lang_file_uri(host, owner_repo, branch, langFile)
+                        )
+
+
+def assemble_results(results: Iterable[REPO_RESULT]) -> dict[str, dict[str, str]]:
+    clean_results = {}
+    for parser, repo, branch, text in results:
+        if parser not in clean_results:
+            clean_results[parser] = {}
+        clean_results[parser][f"{repo}{Patterns.SPLITTER_STR}{branch}"] = text
+    return clean_results
+
+
+def fetch_data(repos: REPOS_JSON) -> dict[str, dict[str, str]]:
+    results = asyncio.run(download_repos(repos))
+    return assemble_results(results)
