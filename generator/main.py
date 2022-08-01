@@ -3,6 +3,7 @@ import pyjson5 as json
 from generator.parsers.abstract_parser import AbstractParser
 from generator.parsers.v1_parser import V1Parser
 from generator.parsers.v2_parser import V2Parser
+from generator.parsers.vt_parser import VtParser
 from generator.rule import group_by_repo, Rule
 from generator.types import ASSEMBLED_DATA
 from generator.util import webhook_stats
@@ -30,10 +31,10 @@ def main():
                 parser = V1Parser(source_path, source)
             elif parser_version == "v2":
                 parser = V2Parser(source_path, source, data_set["lang"][source_path])
+            elif parser_version == "vt":
+                parser = VtParser(source_path, source, data_set["lang"][source_path])
             else:
-                # parser = VtParser(source_path, source, data_set["lang"][source_path])
-                # raise Exception("Unknown parser version: " + parser_version)
-                continue  # Skip for now
+                raise Exception("Unknown parser version: " + parser_version)
 
             parser.parse()
             parsed_rules.extend(parser.rules)
