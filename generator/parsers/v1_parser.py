@@ -25,19 +25,15 @@ class V1Parser(AbstractParser):
 
     def __init__(self, source_path: str, source_code: str):
         super().__init__(source_path, source_code)
-        self.__tokenizer: Tokenizer = Tokenizer(self.__source_code)
-        self.__rules: list[Rule] = []
-        self.__fields: dict[str, str] = {}
-        self.__validators: dict[str, str] = {}
-        self.__enums: dict[str, list[str]] = {}
-
-    @property
-    def rules(self) -> list[Rule]:
-        return self.__rules
+        self.tokenizer: Tokenizer = Tokenizer(self.source_code)
+        self.rules: list[Rule] = []
+        self.fields: dict[str, str] = {}
+        self.validators: dict[str, str] = {}
+        self.enums: dict[str, list[str]] = {}
 
     def __skip_space(self) -> None:
-        while self.__tokenizer.has_next() and self.__tokenizer.peek().isspace():
-            self.__tokenizer.advance()
+        while self.tokenizer.has_next() and self.tokenizer.peek().isspace():
+            self.tokenizer.advance()
 
     def __replace_variable_with_value(self, string: str) -> str:
         """
@@ -56,7 +52,7 @@ class V1Parser(AbstractParser):
         for segment in string.split("+"):
             segment = segment.strip()
             if segment and segment[0] != '"' and segment[-1] != '"':
-                ret += f" {self.__fields[segment]} "
+                ret += f" {self.fields[segment]} "
             else:
                 ret += strip(segment)
         return strip(ret)
@@ -74,8 +70,8 @@ class V1Parser(AbstractParser):
         if "." in resolvable:
             resolvable = resolvable.split(".")[-1]
 
-        if resolvable in self.__fields:
-            return strip(self.__fields[resolvable])
+        if resolvable in self.fields:
+            return strip(self.fields[resolvable])
 
         return resolvable
 
@@ -89,16 +85,16 @@ class V1Parser(AbstractParser):
         read_string: list[str] = []
         advance_count: int = 0
 
-        while self.__tokenizer.has_next() and (token := self.__tokenizer.peek()) not in tokens_to_match:
+        while self.tokenizer.has_next() and (token := self.tokenizer.peek()) not in tokens_to_match:
             if token == "\\":
                 advance_count += 1
-                token = self.__tokenizer.advance()
+                token = self.tokenizer.advance()
             elif "\\" in token:
                 advance_count += 1
-                token = token.replace("\\", "") + self.__tokenizer.advance()
+                token = token.replace("\\", "") + self.tokenizer.advance()
             read_string.append(token)
             advance_count += 1
-            self.__tokenizer.advance()
+            self.tokenizer.advance()
         return "".join(read_string).strip(), advance_count
 
     def __read_block(self) -> str:
@@ -113,7 +109,7 @@ class V1Parser(AbstractParser):
         self.__read_until("{")
 
         while brace_count > 0:
-            token = self.__tokenizer.advance()
+            token = self.tokenizer.advance()
             if token == "{":
                 brace_count += 1
             elif token == "}":
@@ -134,9 +130,9 @@ class V1Parser(AbstractParser):
         :return: the list of values
         """
         self.__read_until("=")
-        self.__tokenizer.advance()
+        self.tokenizer.advance()
         self.__skip_space()
-        if self.__tokenizer.peek() == "{":
+        if self.tokenizer.peek() == "{":
             values = self.__read_block()[:-1]
         else:
             values, _ = self.__read_until(",)")
@@ -154,12 +150,12 @@ class V1Parser(AbstractParser):
          """
         candidate, _ = self.__read_until("{")
         # step back before { so the read_block can function properly
-        self.__tokenizer.recede()
+        self.tokenizer.recede()
 
         if match := re.search(Patterns.VALIDATOR_CLASS, candidate):
             class_block = self.__read_block()
             if desc := re.search(Patterns.VALIDATOR_DESCRIPTION, class_block):
-                self.__validators[
+                self.validators[
                     match.groupdict()["name"]
                 ] = self.__replace_variable_with_value(desc.group("description"))
 
@@ -167,12 +163,12 @@ class V1Parser(AbstractParser):
         """
         Parses the enum and stores it in the enums list
         """
-        enum_name = strip(self.__tokenizer.advance(2))
-        self.__tokenizer.advance(2)
+        enum_name = strip(self.tokenizer.advance(2))
+        self.tokenizer.advance(2)
         enum_values, _ = self.__read_until(";}")
         enum_arg_removed = re.sub(Patterns.ENUM_FILTER, "", enum_values)
         enums = re.findall(Patterns.WORD, enum_arg_removed)
-        self.__enums[enum_name] = [enum.lower() for enum in enums]
+        self.enums[enum_name] = [enum.lower() for enum in enums]
 
     def __try_parse_field(self):
         """
@@ -180,7 +176,7 @@ class V1Parser(AbstractParser):
         :return:
         """
         candidate, amount = self.__read_until(";")
-        self.__tokenizer.recede(amount)
+        self.tokenizer.recede(amount)
         if match := re.match(Patterns.STATIC_FIELD, candidate):
             return match.groupdict()
         return None
@@ -192,22 +188,22 @@ class V1Parser(AbstractParser):
         :return: The parsed rule
         """
         rule = Rule()
-        repo, branch = self.source_path.split("/tree/")
+        repo, branch = self.source_path.split(Patterns.SPLITTER_STR)
         rule.repo = repo
         rule.branches.add(branch)
 
-        while self.__tokenizer.has_next() and (token := self.__tokenizer.advance()) != ";":
+        while self.tokenizer.has_next() and (token := self.tokenizer.advance()) != ";":
             match token:
                 case "desc":
                     self.__read_until('"')
-                    self.__tokenizer.advance()
+                    self.tokenizer.advance()
                     desc = self.__read_until('"')[0].capitalize()
                     rule.description = replace_md_links_with_key(desc)
 
                 case "strict":
                     self.__read_until("=")
                     self.__skip_space()
-                    rule.strict = self.__tokenizer.peek() == "true"
+                    rule.strict = self.tokenizer.peek() == "true"
 
                 case "category":
                     rule.categories = [
@@ -230,7 +226,7 @@ class V1Parser(AbstractParser):
                         filter(
                             lambda v: v is not None,
                             map(
-                                lambda name: self.__validators.get(name, None),
+                                lambda name: self.validators.get(name, None),
                                 validator_names,
                             ),
                         )
@@ -247,8 +243,8 @@ class V1Parser(AbstractParser):
                     if match_dict:
                         rule.type = match_dict["type"]
                         # if the type is enum, the options are the enum values
-                        if match_dict["type"] in self.__enums:
-                            rule.options = self.__enums[match_dict["type"]]
+                        if match_dict["type"] in self.enums:
+                            rule.options = self.enums[match_dict["type"]]
                         rule.name = match_dict["name"]
                         if match_dict["value"] is None:
                             value = get_default_values_for_type(match_dict["type"])
@@ -256,7 +252,7 @@ class V1Parser(AbstractParser):
                             value = strip(match_dict["value"])
                         rule.value = self.__resolve(value)
 
-        self.__rules.append(rule)
+        self.rules.append(rule)
 
     def parse(self) -> None:
         """
@@ -265,8 +261,8 @@ class V1Parser(AbstractParser):
         :return: The parser itself for chaining
         """
         prev_token = ""
-        while self.__tokenizer.has_next():
-            token = self.__tokenizer.peek().strip()
+        while self.tokenizer.has_next():
+            token = self.tokenizer.peek().strip()
             if token == "class" and prev_token != ".":
                 self.__parse_validator()
             elif token == "enum":
@@ -274,18 +270,18 @@ class V1Parser(AbstractParser):
             elif token in ("public", "private", "protected"):
                 if match_dict := self.__try_parse_field():
                     value = match_dict["value"]
-                    self.__fields[match_dict["name"]] = strip(value)
+                    self.fields[match_dict["name"]] = strip(value)
             if not token.isspace():
                 prev_token = token
-            self.__tokenizer.advance()
+            self.tokenizer.advance()
 
-        self.__tokenizer.reset()
+        self.tokenizer.reset()
 
         prev_token = ""
-        while self.__tokenizer.has_next():
-            token = self.__tokenizer.peek().strip()
+        while self.tokenizer.has_next():
+            token = self.tokenizer.peek().strip()
             if token == "Rule" and prev_token == "@":
                 self.__parse_rule()
             if not token.isspace():
                 prev_token = token
-            self.__tokenizer.advance()
+            self.tokenizer.advance()
