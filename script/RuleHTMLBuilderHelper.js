@@ -4,7 +4,7 @@ class RuleHTMLBuilder {
     }
 
     withName(name) {
-        this.__element += `<div class="ruleName overflow-x-scroll scrollbar-none">${name}</div>`;
+        this.__element += `<div class="ruleName break-words scrollbar-none">${name}</div>`;
         return this;
     }
 
@@ -21,7 +21,7 @@ class RuleHTMLBuilder {
     withDefaultValue(value) {
         this.addAttribute(
             `Default value:&nbsp;${value}`,
-            "overflow-x-scroll scrollbar-none whitespace-nowrap"
+            "break-words whitespace-nowrap"
         );
         return this;
     }
@@ -31,7 +31,7 @@ class RuleHTMLBuilder {
             this.addWrappingAttribute(
                 `${strict ? "Required" : "Suggested"} options:&nbsp;`,
                 options,
-                "overflow-x-scroll scrollbar-none"
+                "break-words"
             );
         }
         return this;
@@ -54,13 +54,13 @@ class RuleHTMLBuilder {
     withRepo(repo) {
         this.addAttribute(
             `Repo:&nbsp;${repo}`,
-            "overflow-x-scroll scrollbar-none"
+            "break-words"
         );
         return this;
     }
 
     withBranches(branches) {
-        this.addAttribute(`Branches:&nbsp;${branches}`);
+        this.addAttribute(`Branches:&nbsp;${branches}`, "break-words");
         return this;
     }
 
