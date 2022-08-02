@@ -1,5 +1,4 @@
 import pyjson5 as json
-
 from generator.parsers.v1_parser import V1Parser
 from generator.rule import associate_by
 
@@ -16,33 +15,40 @@ class V2Parser(V1Parser):
 
     def __init__(self, source_path: str, source_code: str, lang_file: str):
         super().__init__(source_path, source_code)
-        self.lang_file: dict[str, str] = json.loads(lang_file)
+        self.raw_lang_file = lang_file
+        self.lang_file: dict[str, str] = {}
+
+    def load_lang_file(self):
+        self.lang_file.clear()
+        self.lang_file.update(json.loads(self.raw_lang_file))
 
     def __extract_prefixed(self, prefix):
         return [self.lang_file[key] for key in self.lang_file if key.startswith(prefix)]
 
-    def __parse_lang_file(self):
+    def parse_lang_file(self):
         """
         Parse the language file to get the descriptions and merge it with the names.
         """
         associated_rules = associate_by(self.rules, lambda rule: rule.name)
 
         for key in self.lang_file:
-            manager, _, name, *rest = key.split('.')
+            manager, _, name, *rest = key.split(".")
             if name in associated_rules:
                 header = rest[0]
                 if header == "name":
                     associated_rules[name].name = self.lang_file[key]
                 elif header == "desc":
                     associated_rules[name].description = self.lang_file[key]
-                elif header == "category":
-                    continue # TODO: implement category
-                    # associated_rules[name].categories = self.lang_file[key]
                 elif header == "extra":
-                    associated_rules[name].extras = self.__extract_prefixed(f"{manager}.rule.{name}.extra.")
+                    associated_rules[name].extras = self.__extract_prefixed(
+                        f"{manager}.rule.{name}.extra."
+                    )
                 else:
-                    raise Exception(f"Unknown header: {header} in {key} for {self.source_path}")
+                    raise Exception(
+                        f"Unknown header: {header} in {key} for {self.source_path}"
+                    )
 
     def parse(self) -> None:
         super().parse()
-        self.__parse_lang_file()
+        self.load_lang_file()
+        self.parse_lang_file()

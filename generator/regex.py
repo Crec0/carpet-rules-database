@@ -6,6 +6,7 @@ class Patterns:
     """
     Class to store regex patterns used in the program.
     """
+
     SPLITTER_STR = "🐑"
 
     JAVADOC = re.compile(r"/\*[\s\S]*?\*/", re.MULTILINE)

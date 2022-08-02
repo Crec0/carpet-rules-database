@@ -3,10 +3,9 @@ from itertools import product
 from typing import Iterable
 
 import httpx
-from httpx import AsyncClient
-
 from generator.regex import Patterns
-from generator.types import REPOS_JSON, REPO_RESULT, ASSEMBLED_DATA
+from generator.types import ASSEMBLED_DATA, REPO_RESULT, REPOS_JSON
+from httpx import AsyncClient
 
 
 def source_file_uri(host: str, repo: str, branch: str, file: str) -> str:
@@ -20,9 +19,11 @@ def source_file_uri(host: str, repo: str, branch: str, file: str) -> str:
 
 def lang_file_uri(host: str, repo: str, branch: str, file: str) -> str:
     if host == "github":
-        return f"https://raw.githubusercontent.com/{repo}/{branch}/src/main/resources/{file}"
+        return f"https://raw.githubusercontent.com/{repo}/{branch}/src/main/resources/assets/{file}"
     elif host == "gitlab":
-        return f"https://gitlab.com/{repo}/-/raw/{branch}/src/main/resources/{file}"
+        return (
+            f"https://gitlab.com/{repo}/-/raw/{branch}/src/main/resources/assets/{file}"
+        )
     else:
         raise ValueError(f"Unknown host: {host}")
 
@@ -31,7 +32,9 @@ def url_generator(repos: REPOS_JSON) -> Iterable[REPO_RESULT]:
     for parser in repos:
         for host in repos[parser]:
             for repo in repos[parser][host]:
-                for settingsFile, branch in product(repo["settings-files"], repo["branches"]):
+                for settingsFile, branch in product(
+                    repo["settings-files"], repo["branches"]
+                ):
                     owner_repo = repo["owner-repo"]
                     yield (
                         parser,
@@ -42,18 +45,22 @@ def url_generator(repos: REPOS_JSON) -> Iterable[REPO_RESULT]:
                     )
 
                 if parser == "v2" or parser == "vt":
-                    for langFile, branch in product(repo["lang-files"], repo["branches"]):
+                    for langFile, branch in product(
+                        repo["lang-files"], repo["branches"]
+                    ):
                         owner_repo = repo["owner-repo"]
                         yield (
                             parser,
                             "lang",
                             owner_repo,
                             branch,
-                            lang_file_uri(host, owner_repo, branch, langFile)
+                            lang_file_uri(host, owner_repo, branch, langFile),
                         )
 
 
-async def download_file(client: AsyncClient, parser: str, typ: str, repo: str, branch: str, url: str) -> REPO_RESULT:
+async def download_file(
+    client: AsyncClient, parser: str, typ: str, repo: str, branch: str, url: str
+) -> REPO_RESULT:
     try:
         response = await client.get(url)
         if response.status_code == 200:
@@ -68,7 +75,10 @@ async def download_file(client: AsyncClient, parser: str, typ: str, repo: str, b
 async def download_repos(repos: REPOS_JSON) -> tuple:
     async with httpx.AsyncClient() as client:
         result = await asyncio.gather(
-            *[download_file(client, parser, typ, repo, branch, url) for (parser, typ, repo, branch, url) in url_generator(repos)]
+            *[
+                download_file(client, parser, typ, repo, branch, url)
+                for (parser, typ, repo, branch, url) in url_generator(repos)
+            ]
         )
     return result
 

@@ -189,8 +189,7 @@
                 "branches": [
                     "1.16",
                     "1.17",
-                    "1.18",
-                    "1.19"
+                    "1.18"
                 ]
             },
             {
@@ -502,10 +501,23 @@
                     "carpetextra/CarpetExtraSettings.java"
                 ],
                 "lang-files": [
-                    "assets/carpet-extra/lang/en_us.json"
+                    "carpet-extra/lang/en_us.json"
                 ],
                 "branches": [
                     "master"
+                ]
+            },
+            {
+                "name": "Rug",
+                "owner-repo": "RubixDev/Rug",
+                "settings-files": [
+                    "de/rubixdev/rug/RugSettings.java"
+                ],
+                "lang-files": [
+                    "rug/lang/en_us.json5"
+                ],
+                "branches": [
+                    "1.19"
                 ]
             }
         ],
@@ -520,7 +532,7 @@
                     "carpettisaddition/CarpetTISAdditionSettings.java"
                 ],
                 "lang-files": [
-                    "assets/carpettisaddition/lang/en_us.yml"
+                    "carpettisaddition/lang/en_us.yml"
                 ],
                 "branches": [
                     "master"

@@ -50,9 +50,7 @@ def webhook_stats(rules: list[Rule]) -> str:
 
     description += "\n".join(
         f"**{repo}**: {count}"
-        for repo, count in sorted(
-            rule_count.items(), key=lambda x: x[1], reverse=True
-        )
+        for repo, count in sorted(rule_count.items(), key=lambda x: x[1], reverse=True)
     )
 
     return description

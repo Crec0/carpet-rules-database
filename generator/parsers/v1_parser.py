@@ -4,7 +4,7 @@ from generator.parsers.abstract_parser import AbstractParser
 from generator.regex import Patterns
 from generator.rule import Rule
 from generator.tokenizer import Tokenizer
-from generator.util import strip, replace_md_links_with_key, get_default_values_for_type
+from generator.util import get_default_values_for_type, replace_md_links_with_key, strip
 
 
 class V1Parser(AbstractParser):
@@ -84,7 +84,10 @@ class V1Parser(AbstractParser):
         read_string: list[str] = []
         advance_count: int = 0
 
-        while self.tokenizer.has_next() and (token := self.tokenizer.peek()) not in tokens_to_match:
+        while (
+            self.tokenizer.has_next()
+            and (token := self.tokenizer.peek()) not in tokens_to_match
+        ):
             if token == "\\":
                 advance_count += 1
                 token = self.tokenizer.advance()
@@ -117,7 +120,9 @@ class V1Parser(AbstractParser):
 
         return "".join(read_tokens).strip()
 
-    def __parse_optional_list_type_values(self, preserve_comma: bool = False) -> list[str]:
+    def __parse_optional_list_type_values(
+        self, preserve_comma: bool = False
+    ) -> list[str]:
         """
         Reads the string array type values. Examples:
          - { "foo", "bar" } -> ["foo", "bar"]
@@ -139,14 +144,16 @@ class V1Parser(AbstractParser):
         list_items: list[str] = []
 
         for match in re.findall(Patterns.LIST_ITEM_READER, values):
-            cleaned_match = map(strip, match.split("," + (" " if preserve_comma else "")))
+            cleaned_match = map(
+                strip, match.split("," + (" " if preserve_comma else ""))
+            )
             list_items.extend(v for v in cleaned_match if v)
         return list_items
 
     def __parse_validator(self):
         """
-         Parses the validator and stores it in the validators list
-         """
+        Parses the validator and stores it in the validators list
+        """
         candidate, _ = self.__read_until("{")
         # step back before { so the read_block can function properly
         self.tokenizer.recede()
@@ -213,7 +220,9 @@ class V1Parser(AbstractParser):
                 case "options":
                     rule.options = [
                         option.lower()
-                        for option in self.__parse_optional_list_type_values(preserve_comma=True)
+                        for option in self.__parse_optional_list_type_values(
+                            preserve_comma=True
+                        )
                     ]
 
                 case "validate":
