@@ -1,4 +1,5 @@
 import pyjson5 as json
+import sys
 from generator.parsers.v1_parser import V1Parser
 from generator.rule import associate_by
 
@@ -44,8 +45,9 @@ class V2Parser(V1Parser):
                         f"{manager}.rule.{name}.extra."
                     )
                 else:
-                    raise Exception(
-                        f"Unknown header: {header} in {key} for {self.source_path}"
+                    print(
+                        f"Warning: Unknown header: {header} in {key} for {self.source_path}",
+                        file=sys.stderr
                     )
 
     def parse(self) -> None:
