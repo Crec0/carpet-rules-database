@@ -74,7 +74,7 @@ class V1Parser(AbstractParser):
 
         return resolvable
 
-    def __read_until(self, tokens_to_match: str) -> tuple[str, int]:
+    def __read_until(self, tokens_to_match: str, ending_chars_to_include: str = "") -> tuple[str, int]:
         """
         Reads the tokens until the given token is reached
 
@@ -96,7 +96,8 @@ class V1Parser(AbstractParser):
                 token = token.replace("\\", "") + self.tokenizer.advance()
             read_string.append(token)
             advance_count += 1
-            self.tokenizer.advance()
+            if self.tokenizer.advance() in ending_chars_to_include:
+                read_string.append(self.tokenizer.peek())
         return "".join(read_string).strip(), advance_count
 
     def __read_block(self) -> str:
@@ -121,7 +122,9 @@ class V1Parser(AbstractParser):
         return "".join(read_tokens).strip()
 
     def __parse_optional_list_type_values(
-        self, preserve_comma: bool = False
+        self,
+        preserve_comma: bool = False,
+        ending_chars_to_include: str = ""
     ) -> list[str]:
         """
         Reads the string array type values. Examples:
@@ -139,7 +142,7 @@ class V1Parser(AbstractParser):
         if self.tokenizer.peek() == "{":
             values = self.__read_block()[:-1]
         else:
-            values, _ = self.__read_until(",)")
+            values, _ = self.__read_until(",)", ending_chars_to_include)
 
         list_items: list[str] = []
 
@@ -241,7 +244,7 @@ class V1Parser(AbstractParser):
                     )
 
                 case "extra":
-                    rule.extras = self.__parse_optional_list_type_values()
+                    rule.extras = self.__parse_optional_list_type_values(ending_chars_to_include=")")
 
                 case "public":
                     match_dict = self.__try_parse_field()
