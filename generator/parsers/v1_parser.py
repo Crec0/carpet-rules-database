@@ -4,7 +4,7 @@ from generator.parsers.abstract_parser import AbstractParser
 from generator.regex import Patterns
 from generator.rule import Rule
 from generator.tokenizer import Tokenizer
-from generator.util import get_default_values_for_type, replace_md_links_with_key, strip
+from generator.util import get_default_values_for_type, strip
 
 
 class V1Parser(AbstractParser):
@@ -204,7 +204,7 @@ class V1Parser(AbstractParser):
                     self.__read_until('"')
                     self.tokenizer.advance()
                     desc = self.__read_until('"')[0].capitalize()
-                    rule.description = replace_md_links_with_key(desc)
+                    rule.description = desc
 
                 case "strict":
                     self.__read_until("=")
@@ -241,10 +241,7 @@ class V1Parser(AbstractParser):
                     )
 
                 case "extra":
-                    rule.extras = [
-                        replace_md_links_with_key(extra)
-                        for extra in self.__parse_optional_list_type_values()
-                    ]
+                    rule.extras = self.__parse_optional_list_type_values()
 
                 case "public":
                     match_dict = self.__try_parse_field()

@@ -9,7 +9,7 @@ class RuleHTMLBuilder {
     }
 
     withDesc(description) {
-        this.__element += `<div class="ruleDesc">${replace_bugs_with_links(description)}</div>`;
+        this.__element += `<div class="ruleDesc">${description}</div>`;
         return this;
     }
 
@@ -43,7 +43,7 @@ class RuleHTMLBuilder {
     }
 
     withAdditionalInfo(info) {
-        if (info !== "") {
+        if (info.length > 0) {
             this.addAttribute(
                 `Additional Notes:&nbsp;<div class="font-normal indent-8">${info}</div>`
             );
@@ -81,10 +81,4 @@ class RuleHTMLBuilder {
             </div>
         `;
     }
-}
-
-const MOJANG_BUG = new RegExp(/((?:MC|MCAPI|MCCE|MCD|MCL|MCPE|REALMS|BDS|WEB)-\d+)/g)
-
-const replace_bugs_with_links = function (text) {
-    return text.replaceAll(MOJANG_BUG, '<a href="https://bugs.mojang.com/browse/$1" class="link" target="_blank">$1</a>')
 }

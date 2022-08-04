@@ -1,4 +1,5 @@
 import pyjson5 as json
+
 from generator.parsers.v1_parser import V1Parser
 from generator.rule import associate_by
 
@@ -43,6 +44,8 @@ class V2Parser(V1Parser):
                     associated_rules[name].extras = self.__extract_prefixed(
                         f"{manager}.rule.{name}.extra."
                     )
+                elif header == "additional":
+                    associated_rules[name].validators.append(self.lang_file[key])
                 else:
                     raise Exception(
                         f"Unknown header: {header} in {key} for {self.source_path}"

@@ -75,7 +75,7 @@ $(function () {
 });
 
 function filterFrom(type, text, list) {
-    if (text != null && text != "") {
+    if (text != null && text !== "") {
         const regex = new RegExp(`\w*${text.toLowerCase()}\w*`);
         return list.filter((rule) =>
             regex.test(rule[type]?.toLowerCase())
@@ -85,7 +85,7 @@ function filterFrom(type, text, list) {
 }
 
 function filterFromMultiple(type, text, list) {
-    if (text != null && text != "") {
+    if (text != null && text !== "") {
         const regex = new RegExp(`\w*${text.toLowerCase()}\w*`);
         return list.filter((rule) =>
             rule[type]?.some((branch) => 
@@ -143,6 +143,18 @@ function wrapBranches(repo, branches) {
         .join(", ");
 }
 
+function replaceMdLinksWithHtml(string) {
+    if (typeof(string) === "string") {
+        return string.replace(/\[([^\]]+)]\(([^)]+)\)/g, '<a href="$2" class="link" target="_blank">$1</a>');
+    } else {
+        return string.map((val) => replaceMdLinksWithHtml(val));
+    }
+}
+
+function wrapWithDiv(list) {
+    return list.map((val) => `<div>${val}</div>`).join("");
+}
+
 function objToHTML(rule) {
     let description = rule["description"];
     if (rule["extras"] !== null) {
@@ -154,19 +166,19 @@ function objToHTML(rule) {
         options = wrapWithSpan(rule["options"].map((v) => v.toLowerCase()));
     }
 
-    let additionalNotes = "";
+    let additionalNotes = [];
     if (rule["validators"]?.length > 0) {
         additionalNotes = rule["validators"];
     }
 
     return new RuleHTMLBuilder()
         .withName(rule.name)
-        .withDesc(description)
+        .withDesc(replaceMdLinksWithHtml(description))
         .withType(wrapWithSpan([rule.type]))
         .withDefaultValue(wrapWithSpan([rule.value]))
         .withCategory(wrapWithSpan(rule.categories, true))
         .withOptions(options, rule.strict)
-        .withAdditionalInfo(additionalNotes)
+        .withAdditionalInfo(wrapWithDiv(replaceMdLinksWithHtml(additionalNotes)))
         .withRepo(wrapRepo(rule["repo"]))
         .withBranches(wrapBranches(rule["repo"], rule["branches"]))
         .build();

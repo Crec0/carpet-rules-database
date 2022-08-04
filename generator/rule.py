@@ -27,7 +27,7 @@ class Rule:
         self.categories: list[str] = []
         self.options: list[str] | None = None
         self.extras: list[str] | None = None
-        self.validators: list[str] | None = None
+        self.validators: list[str] = []
         self.repo: str = ""
         self.branches: set[str] = set()
 
@@ -64,6 +64,8 @@ def group_by_repo(rules: list[Rule]) -> list[Rule]:
             grouped_rules[rule_hash] = rule
         else:
             grouped_rules[rule_hash].branches |= rule.branches
+            grouped_rules[rule_hash].categories = {*rule.categories, *grouped_rules[rule_hash].categories}
+            grouped_rules[rule_hash].validators = {*rule.validators, *grouped_rules[rule_hash].validators}
     return list(grouped_rules.values())
 
 
