@@ -328,16 +328,6 @@
                 ]
             },
             {
-                "name": "shulker-portal",
-                "owner-repo": "Aleosiss/shulker-portal",
-                "settings-files": [
-                    "com/aleosiss/shulkerportal/carpet/ShulkerPortalCarpetSettings.java"
-                ],
-                "branches": [
-                    "main"
-                ]
-            },
-            {
                 "name": "MoistCraft Carpet Addons",
                 "owner-repo": "CSClub05/moistcraft-carpet-addons",
                 "settings-files": [
