@@ -243,8 +243,7 @@
                     "intricarpet/intricarpetRules.java"
                 ],
                 "branches": [
-                    "master",
-                    "1.17.1"
+                    "master"
                 ]
             },
             {
