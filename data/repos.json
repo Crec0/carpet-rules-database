@@ -444,12 +444,15 @@
             },
             {
                 "name": "johan-carpet",
-                "owner-repo": "IPalmorX/Johan-Carpet-1.18.2",
+                "owner-repo": "JohanVonElectrum/Johan-Carpet",
                 "settings-files": [
                     "com/johanvonelectrum/johan_carpet/JohanSettings.java"
                 ],
                 "branches": [
-                    "1.18.2"
+                    "1.16",
+                    "1.17-dev",
+                    "1.18-dev",
+                    "master"
                 ]
             },
             {
