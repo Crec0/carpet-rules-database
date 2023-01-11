@@ -6,3 +6,8 @@ node_modules/
 venv/
 
 data/downloaded_data.json
+data/assembled_data.json
+data/*.json.bak
+
+pnpm-lock.yaml
+yarn.lock
