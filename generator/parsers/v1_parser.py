@@ -260,8 +260,8 @@ class V1Parser(AbstractParser):
                             value = strip(match_dict["value"])
                         rule.value = self.__resolve(value)
 
-        if not rule.options and 'COMMAND' in rule.categories:
-            rule.options = ['true', 'false', 'ops', '0', '1', '2', '3', '4']
+        if not rule.options and "COMMAND" in rule.categories and rule.type == "String":
+            rule.options = ["true", "false", "ops", "0", "1", "2", "3", "4"]
         self.rules.append(rule)
 
     def parse(self) -> None:
