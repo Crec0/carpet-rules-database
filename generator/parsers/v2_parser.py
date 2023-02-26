@@ -1,7 +1,9 @@
+from typing import Optional, Self
+
 import pyjson5 as json
 
-from generator.parsers.v1_parser import V1Parser
-from generator.rule import associate_by
+from generator.parsers.legacy_parser import V1Parser
+from generator.parsers.rule import associate_by
 
 
 class V2Parser(V1Parser):
@@ -14,44 +16,51 @@ class V2Parser(V1Parser):
     2. Parse the language file to get the descriptions and merge it with the names.
     """
 
-    def __init__(self, source_path: str, source_code: str, lang_file: str):
-        super().__init__(source_path, source_code)
-        self.raw_lang_file = lang_file
-        self.lang_file: dict[str, str] = {}
+    def __init__(
+        self, source_path: str, source_code: str, lang_file: Optional[str]
+    ):
+        super().__init__(source_path, source_code, lang_file)
 
     def load_lang_file(self):
-        self.lang_file.clear()
-        self.lang_file.update(json.loads(self.raw_lang_file))
+        self.lang_dict.clear()
+        self.lang_dict.update(json.loads(self.lang_file))
 
     def __extract_prefixed(self, prefix):
-        return [self.lang_file[key] for key in self.lang_file if key.startswith(prefix)]
+        return [
+            self.lang_dict[key]
+            for key in self.lang_dict
+            if key.startswith(prefix)
+        ]
 
-    def parse_lang_file(self):
+    def process_lang_file(self):
         """
         Parse the language file to get the descriptions and merge it with the names.
         """
         associated_rules = associate_by(self.rules, lambda rule: rule.name)
 
-        for key in self.lang_file:
-            manager, _, name, *rest = key.split(".")
+        for key in self.lang_dict:
+            manager, _, name, *rest = key.split('.')
             if name in associated_rules:
                 header = rest[0]
-                if header == "name":
-                    associated_rules[name].name = self.lang_file[key]
-                elif header == "desc":
-                    associated_rules[name].description = self.lang_file[key]
-                elif header == "extra":
+                if header == 'name':
+                    associated_rules[name].name = self.lang_dict[key]
+                elif header == 'desc':
+                    associated_rules[name].description = self.lang_dict[key]
+                elif header == 'extra':
                     associated_rules[name].extras = self.__extract_prefixed(
-                        f"{manager}.rule.{name}.extra."
+                        f'{manager}.rule.{name}.extra.'
                     )
-                elif header == "additional":
-                    associated_rules[name].validators.append(self.lang_file[key])
+                elif header == 'additional':
+                    associated_rules[name].validators.append(
+                        self.lang_dict[key]
+                    )
                 else:
                     raise Exception(
-                        f"Unknown header: {header} in {key} for {self.source_path}"
+                        f'Unknown header: {header} in {key} for {self.source_path}'
                     )
 
-    def parse(self) -> None:
+    def parse(self) -> Self:
         super().parse()
         self.load_lang_file()
-        self.parse_lang_file()
+        self.process_lang_file()
+        return self

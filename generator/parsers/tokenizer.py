@@ -1,6 +1,6 @@
 import re
 
-from generator.regex import Patterns
+from generator.parsers.regex import Patterns
 
 
 class Tokenizer:
@@ -24,7 +24,7 @@ class Tokenizer:
         Remove ignorable tokens from the token list.
         """
         for expr in Tokenizer.IGNORED:
-            self.data = re.sub(expr, "", self.data)
+            self.data = re.sub(expr, '', self.data)
 
     def tokenize_data(self):
         """
@@ -32,7 +32,7 @@ class Tokenizer:
         """
         tokens = re.sub(
             Patterns.TOKEN_SPLITTER,
-            rf"{Patterns.SPLITTER_STR}\1{Patterns.SPLITTER_STR}",
+            rf'{Patterns.SPLITTER_STR}\1{Patterns.SPLITTER_STR}',
             self.data,
         ).split(Patterns.SPLITTER_STR)
         self.tokens.extend(filter(lambda w: w, tokens))
@@ -64,7 +64,7 @@ class Tokenizer:
         :raises IndexError: if token list is empty.
         """
         if len(self.tokens) == 0:
-            raise IndexError("Token list is empty")
+            raise IndexError('Token list is empty')
         return self.tokens[self.index]
 
     def advance(self, amount: int = 1) -> str | None:

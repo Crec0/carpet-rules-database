@@ -19,16 +19,16 @@ class Rule:
     """
 
     def __init__(self):
-        self.name: str = ""
-        self.description: str = ""
-        self.type: str = ""
-        self.value: str = ""
+        self.name: str = ''
+        self.description: str = ''
+        self.type: str = ''
+        self.value: str = ''
         self.strict: bool = True
         self.categories: list[str] = []
         self.options: list[str] | None = None
         self.extras: list[str] | None = None
         self.validators: list[str] = []
-        self.repo: str = ""
+        self.repo: str = ''
         self.branches: set[str] = set()
 
     def __hash__(self) -> int:
@@ -36,17 +36,17 @@ class Rule:
 
     def __repr__(self):
         return (
-            f"{self.name}\n"
-            f"Type: {self.type}\n"
-            f"Categories: {self.categories}\n"
-            f"Description: {self.description}\n"
-            f"Extras: {self.extras}\n"
-            f"Default Value: {self.value}\n"
-            f"Options: {self.options}\n"
-            f"Strict: {self.strict}\n"
-            f"Validators: {self.validators}\n"
-            f"Repo: {self.repo}\n"
-            f"Branches: {self.branches}"
+            f'{self.name}\n'
+            f'Type: {self.type}\n'
+            f'Categories: {self.categories}\n'
+            f'Description: {self.description}\n'
+            f'Extras: {self.extras}\n'
+            f'Default Value: {self.value}\n'
+            f'Options: {self.options}\n'
+            f'Strict: {self.strict}\n'
+            f'Validators: {self.validators}\n'
+            f'Repo: {self.repo}\n'
+            f'Branches: {self.branches}'
         )
 
 
@@ -64,12 +64,20 @@ def group_by_repo(rules: list[Rule]) -> list[Rule]:
             grouped_rules[rule_hash] = rule
         else:
             grouped_rules[rule_hash].branches |= rule.branches
-            grouped_rules[rule_hash].categories = {*rule.categories, *grouped_rules[rule_hash].categories}
-            grouped_rules[rule_hash].validators = {*rule.validators, *grouped_rules[rule_hash].validators}
+            grouped_rules[rule_hash].categories = {
+                *rule.categories,
+                *grouped_rules[rule_hash].categories,
+            }
+            grouped_rules[rule_hash].validators = {
+                *rule.validators,
+                *grouped_rules[rule_hash].validators,
+            }
     return list(grouped_rules.values())
 
 
-def associate_by(rules: list[Rule], func: Callable[[Rule], str]) -> dict[str, Rule]:
+def associate_by(
+    rules: list[Rule], func: Callable[[Rule], str]
+) -> dict[str, Rule]:
     """
     Associates the rules to a key provided by the function.
 
