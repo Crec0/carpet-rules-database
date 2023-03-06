@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from generator.parsers.rule import Rule
+from generator.tokenizer.rule import Rule
 
 
 def get_default_values_for_type(value_type: str) -> str:
@@ -21,10 +21,7 @@ def get_default_values_for_type(value_type: str) -> str:
             return ''
 
 
-def strip(string: str | None) -> str | None:
-    if string is None:
-        return None
-    return string.strip('", ')
+
 
 
 def webhook_stats(rules: list[Rule]) -> str:

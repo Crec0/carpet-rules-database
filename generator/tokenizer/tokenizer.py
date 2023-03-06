@@ -1,6 +1,6 @@
 import re
 
-from generator.parsers.regex import Patterns
+from generator.tokenizer.regex import Patterns
 
 
 class Tokenizer:

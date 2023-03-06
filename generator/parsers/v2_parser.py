@@ -2,8 +2,8 @@ from typing import Optional, Self
 
 import pyjson5 as json
 
-from generator.parsers.legacy_parser import V1Parser
-from generator.parsers.rule import associate_by
+from generator.parsers.v1_parser import V1Parser
+from generator.tokenizer.rule import associate_by
 
 
 class V2Parser(V1Parser):

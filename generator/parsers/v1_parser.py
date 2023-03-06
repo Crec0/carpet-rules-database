@@ -2,10 +2,10 @@ import re
 from typing import Optional, Self
 
 from generator.parsers.abstract_parser import AbstractParser
-from generator.parsers.regex import Patterns
-from generator.parsers.rule import Rule
-from generator.parsers.tokenizer import Tokenizer
-from generator.util import get_default_values_for_type, strip
+from generator.tokenizer.regex import Patterns
+from generator.tokenizer.rule import Rule
+from generator.tokenizer.tokenizer import Tokenizer
+from generator.util import get_default_values_for_type
 
 
 class V1Parser(AbstractParser):
@@ -36,6 +36,10 @@ class V1Parser(AbstractParser):
         self.validators: dict[str, str] = {}
         self.enums: dict[str, list[str]] = {}
 
+    @staticmethod
+    def __strip(string: str | None) -> str | None:
+        return string.strip('", ') if string is not None else None
+
     def __skip_space(self) -> None:
         while self.tokenizer.has_next() and self.tokenizer.peek().isspace():
             self.tokenizer.advance()
@@ -59,16 +63,10 @@ class V1Parser(AbstractParser):
             if segment and segment[0] != '"' and segment[-1] != '"':
                 ret += f' {self.fields[segment]} '
             else:
-                ret += strip(segment)
-        return strip(ret)
+                ret += self.__strip(segment)
+        return self.__strip(ret)
 
     def __resolve(self, resolvable: str) -> str:
-        """
-        Resolves the string to the value of the field
-
-        :param resolvable: the string to be resolved
-        :return: the resolved string
-        """
         if re.match(Patterns.FLOATING_POINT_NUMBER, resolvable):
             return resolvable
 
@@ -76,19 +74,13 @@ class V1Parser(AbstractParser):
             resolvable = resolvable.split('.')[-1]
 
         if resolvable in self.fields:
-            return strip(self.fields[resolvable])
+            return self.__strip(self.fields[resolvable])
 
         return resolvable
 
     def __read_until(
         self, tokens_to_match: str, ending_chars_to_include: str = ''
     ) -> tuple[str, int]:
-        """
-        Reads the tokens until the given token is reached
-
-        :param tokens_to_match: The tokens to match to terminate the reading
-        :return: The combined string of tokens read
-        """
         read_string: list[str] = []
         advance_count = 0
 
@@ -165,18 +157,15 @@ class V1Parser(AbstractParser):
 
         for match in re.findall(Patterns.LIST_ITEM_READER, values):
             # cleaned_match = map(
-            #     strip, match.split("," + (" " if preserve_comma else ""))
+            #     self.__strip, match.split("," + (" " if preserve_comma else ""))
             # )
             # list_items.extend(v for v in cleaned_match if v)
-            if strip(match):
-                list_items.append(strip(match))
+            if self.__strip(match):
+                list_items.append(self.__strip(match))
 
         return list_items
 
     def __parse_validator(self):
-        """
-        Parses the validator and stores it in the validators list
-        """
         candidate, _ = self.__read_until('{')
         # step back before { so the read_block can function properly
         self.tokenizer.recede()
@@ -191,10 +180,7 @@ class V1Parser(AbstractParser):
                 )
 
     def __parse_enum(self):
-        """
-        Parses the enum and stores it in the enums list
-        """
-        enum_name = strip(self.tokenizer.advance(2))
+        enum_name = self.__strip(self.tokenizer.advance(2))
         self.tokenizer.advance(2)
         enum_values, _ = self.__read_until(';}')
         enum_arg_removed = re.sub(Patterns.ENUM_FILTER, '', enum_values)
@@ -202,10 +188,6 @@ class V1Parser(AbstractParser):
         self.enums[enum_name] = [enum.lower() for enum in enums]
 
     def __try_parse_field(self):
-        """
-        Parses a field if it is a field otherwise does nothing
-        :return:
-        """
         candidate, amount = self.__read_until(';')
         self.tokenizer.recede(amount)
         if match := re.match(Patterns.STATIC_FIELD, candidate):
@@ -213,11 +195,6 @@ class V1Parser(AbstractParser):
         return None
 
     def __parse_rule(self):
-        """
-        Parses the rule itself
-
-        :return: The parsed rule
-        """
         rule = Rule()
         repo, branch = self.source_path.split(Patterns.SPLITTER_STR)
         rule.repo = repo
@@ -286,7 +263,7 @@ class V1Parser(AbstractParser):
                                 match_dict['type']
                             )
                         else:
-                            value = strip(match_dict['value'])
+                            value = self.__strip(match_dict['value'])
                         rule.value = self.__resolve(value)
 
         if not rule.options and "COMMAND" in rule.categories and rule.type == "String":
@@ -294,11 +271,6 @@ class V1Parser(AbstractParser):
         self.rules.append(rule)
 
     def parse(self) -> Self:
-        """
-        parse method performs the parsing
-
-        :return: The parser itself for chaining
-        """
         prev_token = ''
         while self.tokenizer.has_next():
             token = self.tokenizer.peek().strip()
@@ -309,7 +281,7 @@ class V1Parser(AbstractParser):
             elif token in ('public', 'private', 'protected'):
                 if match_dict := self.__try_parse_field():
                     value = match_dict['value']
-                    self.fields[match_dict['name']] = strip(value)
+                    self.fields[match_dict['name']] = self.__strip(value)
             if not token.isspace():
                 prev_token = token
             self.tokenizer.advance()

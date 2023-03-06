@@ -4,7 +4,7 @@ import yaml
 from yaml import Loader
 
 from generator.parsers.v2_parser import V2Parser
-from generator.parsers.rule import associate_by
+from generator.tokenizer.rule import associate_by
 
 
 class V2YamlParser(V2Parser):

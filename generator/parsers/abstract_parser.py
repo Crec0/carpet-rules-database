@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Optional, Self
 
-from generator.parsers.rule import Rule
+from generator.tokenizer.rule import Rule
 
 
 class AbstractParser(ABC):

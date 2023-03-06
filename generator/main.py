@@ -8,13 +8,12 @@ from typing import Optional
 
 import toml
 
-from generator.preprocessor.downloader import fetch_data
+from generator.downloader import fetch_data
 from generator.parsers.parser_type import ParserType
 from generator.parsers.abstract_parser import AbstractParser
-from generator.parsers.legacy_parser import V1Parser
+from generator.parsers.v1_parser import V1Parser
 from generator.parsers.v2_parser import V2Parser
-from generator.parsers.rule import Rule
-from generator.types import ASSEMBLED_DATA
+from generator.tokenizer.rule import Rule
 
 
 async def parse_rules_for_version(
@@ -48,7 +47,7 @@ async def parse_rules_for_version(
     return parsed_rules
 
 
-async def process_data(data_json: ASSEMBLED_DATA) -> list[Rule]:
+async def process_data(data_json) -> list[Rule]:
     return functools.reduce(
         operator.iconcat,
         await asyncio.gather(
@@ -67,22 +66,7 @@ async def process_data(data_json: ASSEMBLED_DATA) -> list[Rule]:
     )
 
 
-def timeit(func):
-    @functools.wraps(func)
-    def wrapper(*args, **kw):
-        ts = time.perf_counter_ns()
-        result = func(*args, **kw)
-        te = time.perf_counter_ns()
-        print(
-            f'func:{func.__name__} args:[{args}, {kw}] took: {(te - ts) / 1_000_000_000:2.4f} sec'
-        )
-        return result
-
-    return wrapper
-
-
-@timeit
-def main():
+async def main():
     with open('../data/repos.toml', 'r') as f:
         repos = toml.load(f)
 
@@ -122,20 +106,20 @@ def main():
     #     f.write(json.dumps(rules))
 
 
-def sort_repos():
-
-    with open('../data/repos.toml', 'r') as file:
-        repos = load(file)
-
-    sorted_repos = {}
-
-    for version, repoz in [repos.items()]:
-        sorted_repos[version] = sorted(repoz, key=lambda repo: repo['name'])
-
-    with open('../data/srepos.toml', 'w') as file:
-        dump(sorted_repos, file)
+# def sort_repos():
+#
+#     with open('../data/repos.toml', 'r') as file:
+#         repos = load(file)
+#
+#     sorted_repos = {}
+#
+#     for version, repoz in [repos.items()]:
+#         sorted_repos[version] = sorted(repoz, key=lambda repo: repo['name'])
+#
+#     with open('../data/srepos.toml', 'w') as file:
+#         dump(sorted_repos, file)
 
 
 if __name__ == '__main__':
-    main()
+    asyncio.run(main())
     # sort_repos()

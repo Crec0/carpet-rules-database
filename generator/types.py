@@ -1,10 +1,6 @@
 from enum import StrEnum
 from typing import TypedDict, Optional
 
-REPOS_JSON = dict[str, dict[str, list[dict[str, str]]]]
-REPO_RESULT = tuple[str, str, str, str, str]
-ASSEMBLED_DATA = dict[str, dict[str, dict[str, str]]]
-
 
 class RepoData(TypedDict):
     name: str
@@ -12,6 +8,11 @@ class RepoData(TypedDict):
     branches: list[str]
     settings_files: list[str]
     lang_file: Optional[str]
+
+
+class RawData(TypedDict):
+    parser: str
+    repos: list[RepoData]
 
 
 class ResultType(StrEnum):
