@@ -21,12 +21,10 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Cache packages
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.cache/pypoetry
           key: packages-cache-${{ runner.os }}-${{ env.PYTHON_VERSION }}
-          restore-keys: |
-            packages-cache-${{ runner.os }}-
 
       - name: Install requirements
         run: |
