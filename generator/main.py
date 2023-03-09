@@ -44,42 +44,20 @@ async def parse_rules_for_version(
         parser.parse()
         parsed_rules.extend(parser.rules)
 
-    return parsed_rules
-
-
-async def process_data(data_json) -> list[Rule]:
-    return functools.reduce(
-        operator.iconcat,
-        await asyncio.gather(
-            *[
-                parse_rules_for_version(
-                    version,
-                    source_lang_dict['source'],
-                    source_lang_dict['lang']
-                    if 'lang' in source_lang_dict
-                    else None,
-                )
-                for (version, source_lang_dict) in data_json.items()
-            ]
-        ),
-        [],
-    )
-
-
-async def main():
-    with open('../data/repos.toml', 'r') as f:
+def main():
+    with open('./data/repos.toml', 'r') as f:
         repos = toml.load(f)
 
     raw_data = fetch_data(repos)
 
-    with open('../data/downloaded_data.json', 'w') as f:
+    with open('./data/downloaded_data.json', 'w') as f:
         f.write(json.dumps(raw_data))
 
-    with open('../data/downloaded_data.json', 'r') as f:
+    with open('./data/downloaded_data.json', 'r') as f:
         raw_data = json.load(f)
 
-    # with open("../data/assembled_data.json", "w") as f:
-    #     f.write(json.dumps(raw_data))
+    with open("./data/assembled_data.json", "w") as f:
+        f.write(json.dumps(raw_data))
 
     parsed_rules = asyncio.run(process_data(raw_data))
 
@@ -102,13 +80,13 @@ async def main():
     # rules = group_by_repo(parsed_rules)
     # print(webhook_stats(rules))
 
-    # with open("../data/parsed_data.json", "w") as f:
+    # with open("./data/parsed_data.json", "w") as f:
     #     f.write(json.dumps(rules))
 
 
 # def sort_repos():
 #
-#     with open('../data/repos.toml', 'r') as file:
+#     with open('./data/repos.toml', 'r') as file:
 #         repos = load(file)
 #
 #     sorted_repos = {}
@@ -116,10 +94,10 @@ async def main():
 #     for version, repoz in [repos.items()]:
 #         sorted_repos[version] = sorted(repoz, key=lambda repo: repo['name'])
 #
-#     with open('../data/srepos.toml', 'w') as file:
+#     with open('./data/srepos.toml', 'w') as file:
 #         dump(sorted_repos, file)
 
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    main()
     # sort_repos()
