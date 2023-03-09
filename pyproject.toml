@@ -5,7 +5,10 @@ description = "Website to track all carpet rules"
 authors = ["Crec0"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "carpet_rules_database"}]
+packages = [{include = "generator"}]
+
+[tool.poetry.scripts]
+generator = "generator.main:main"
 
 [tool.poetry.dependencies]
 python = "^3.11"

@@ -4,6 +4,11 @@ on:
 
   schedule:
     - cron: '* */24 * * *'
+
+
+env:
+  PYTHON_VERSION: '3.11.1'
+
 jobs:
   update-and-upload:
     runs-on: ubuntu-latest
@@ -13,26 +18,26 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11.1'
+          python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Cache packages
         uses: actions/cache@v2
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          path: ~/.cache/pypoetry
+          key: packages-cache-${{ runner.os }}-${{ env.PYTHON_VERSION }}
           restore-keys: |
-            ${{ runner.os }}-pip-
+            packages-cache-${{ runner.os }}-
 
       - name: Install requirements
         run: |
-          pip install -r requirements.txt
+          pip install poetry
+          poetry install
 
       - name: Run the generator
         id: generator
         run: |
-          cd generator                    # going up one level so the relative path's in code dont freak out
           echo "EMBED_DESCRIPTION<<EOF" >> $GITHUB_ENV
-          echo "$(python ../setup-and-run-main.py)" >> $GITHUB_ENV
+          echo "$(poetry run generator)" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       - name: Capture date
