@@ -13,23 +13,20 @@ jobs:
   update-and-upload:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout project
+        uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: pipx install poetry
 
       - name: Setup python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: Cache packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pypoetry
-          key: packages-cache-${{ runner.os }}-${{ env.PYTHON_VERSION }}
+          cache: 'poetry'
 
       - name: Install requirements
-        run: |
-          pip install poetry
-          poetry install
+        run: poetry install
 
       - name: Run the generator
         id: generator
