@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "carpet-rules-database"
+version = "0.1.0"
+description = "Website to track all carpet rules"
+authors = ["Crec0"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "carpet_rules_database"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+httpx = "^0.23.3"
+pyjson5 = "^1.6.2"
+PyYAML = "^6.0"
+toml = "^0.10.2"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.12.0"
+blue = "^0.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
