@@ -38,7 +38,7 @@ jobs:
       - name: Capture date
         id: capture-date
         run: |
-          echo "::set-output name=date::$(date -u)"
+          echo "{date}={$(date -u)}" >> $GITHUB_OUTPUT
 
       - name: Push update
         continue-on-error: true

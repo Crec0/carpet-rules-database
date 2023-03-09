@@ -8,41 +8,64 @@ from typing import Optional
 
 import toml
 
-from generator.downloader import fetch_data
-from generator.parsers.parser_type import ParserType
-from generator.parsers.abstract_parser import AbstractParser
-from generator.parsers.v1_parser import V1Parser
-from generator.parsers.v2_parser import V2Parser
-from generator.tokenizer.rule import Rule
+from .downloader import fetch_data
 
+# from generator.parsers.parser_type import ParserType
+# from generator.parsers.abstract_parser import AbstractParser
+# from generator.parsers.v1_parser import V1Parser
+# from generator.parsers.v2_parser import V2Parser
+# from generator.tokenizer.rule import Rule
+#
+#
+# async def parse_rules_for_version(
+#     version: ParserType,
+#     source_dict: dict[str, str],
+#     lang_dict: Optional[dict[str, str]] = None,
+# ) -> list[Rule]:
+#     if lang_dict is None:
+#         lang_dict = defaultdict(lambda: None)
+#
+#     parsed_rules: list[Rule] = []
+#
+#     for source_path, source in source_dict.items():
+#
+#         parser: AbstractParser
+#
+#         if version == ParserType.LEGACY:
+#             parser = V1Parser(source_path, source, lang_dict[source_path])
+#         elif version == ParserType.TRANSLATIONS_JSON:
+#             parser = V2Parser(source_path, source, lang_dict[source_path])
+#         elif version == ParserType.TRANSLATIONS_YAML:
+#             print('V2YAML')
+#             continue
+#             # parser = V2YamlParser(source_path, source, lang_dict[source_path])
+#         else:
+#             raise ValueError(f'Unknown parser version: {version}')
+#
+#         parser.parse()
+#         parsed_rules.extend(parser.rules)
+#
+#     return parsed_rules
+#
+#
+# async def process_data(data_json) -> list[Rule]:
+#     return functools.reduce(
+#         operator.iconcat,
+#         await asyncio.gather(
+#             *[
+#                 parse_rules_for_version(
+#                     version,
+#                     source_lang_dict['source'],
+#                     source_lang_dict['lang']
+#                     if 'lang' in source_lang_dict
+#                     else None,
+#                 )
+#                 for (version, source_lang_dict) in data_json.items()
+#             ]
+#         ),
+#         [],
+#     )
 
-async def parse_rules_for_version(
-    version: ParserType,
-    source_dict: dict[str, str],
-    lang_dict: Optional[dict[str, str]] = None,
-) -> list[Rule]:
-    if lang_dict is None:
-        lang_dict = defaultdict(lambda: None)
-
-    parsed_rules: list[Rule] = []
-
-    for source_path, source in source_dict.items():
-
-        parser: AbstractParser
-
-        if version == ParserType.LEGACY:
-            parser = V1Parser(source_path, source, lang_dict[source_path])
-        elif version == ParserType.TRANSLATIONS_JSON:
-            parser = V2Parser(source_path, source, lang_dict[source_path])
-        elif version == ParserType.TRANSLATIONS_YAML:
-            print('V2YAML')
-            continue
-            # parser = V2YamlParser(source_path, source, lang_dict[source_path])
-        else:
-            raise ValueError(f'Unknown parser version: {version}')
-
-        parser.parse()
-        parsed_rules.extend(parser.rules)
 
 def main():
     with open('./data/repos.toml', 'r') as f:
