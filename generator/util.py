@@ -21,9 +21,6 @@ def get_default_values_for_type(value_type: str) -> str:
             return ''
 
 
-
-
-
 def webhook_stats(rules: list[Rule]) -> str:
     rule_count = defaultdict(int)
     c = 0

@@ -1,22 +1,11 @@
 import asyncio
-import functools
-import json
-import operator
-import time
-from collections import defaultdict
-from typing import Optional
 
-import toml
+from serde import toml as serde_toml
 
-from .downloader import fetch_data
+from generator.downloader import fetch_data
+from generator.types import RawData
 
-# from generator.parsers.parser_type import ParserType
-# from generator.parsers.abstract_parser import AbstractParser
-# from generator.parsers.v1_parser import V1Parser
-# from generator.parsers.v2_parser import V2Parser
-# from generator.tokenizer.rule import Rule
-#
-#
+
 # async def parse_rules_for_version(
 #     version: ParserType,
 #     source_dict: dict[str, str],
@@ -67,39 +56,39 @@ from .downloader import fetch_data
 #     )
 
 
-def main():
+async def generate():
     with open('./data/repos.toml', 'r') as f:
-        repos = toml.load(f)
+        repos = serde_toml.from_toml(RawData, f.read())
 
-    raw_data = fetch_data(repos)
+    raw_data = await fetch_data(repos)
 
-    with open('./data/downloaded_data.json', 'w') as f:
-        f.write(json.dumps(raw_data))
-
-    with open('./data/downloaded_data.json', 'r') as f:
-        raw_data = json.load(f)
-
-    with open("./data/assembled_data.json", "w") as f:
-        f.write(json.dumps(raw_data))
-
-    parsed_rules = asyncio.run(process_data(raw_data))
-
-    print(
-        *sorted(
-            list(
-                set(
-                    [
-                        f'{rule.repo}/tree/{list(rule.branches)[0]}'
-                        for rule in parsed_rules
-                        if rule.description == ''
-                    ]
-                )
-            )
-        ),
-        sep='\n',
-        end='\n\n',
-    )
-
+    # with open('./data/downloaded_data.json', 'w') as f:
+    #     f.write(json.dumps(raw_data))
+    #
+    # with open('./data/downloaded_data.json', 'r') as f:
+    #     raw_data = json.load(f)
+    #
+    # with open("./data/assembled_data.json", "w") as f:
+    #     f.write(json.dumps(raw_data))
+    #
+    # parsed_rules = await process_data(raw_data)
+    #
+    # print(
+    #     *sorted(
+    #         list(
+    #             set(
+    #                 [
+    #                     f'{rule.repo}/tree/{list(rule.branches)[0]}'
+    #                     for rule in parsed_rules
+    #                     if rule.description == ''
+    #                 ]
+    #             )
+    #         )
+    #     ),
+    #     sep='\n',
+    #     end='\n\n',
+    # )
+    #
     # rules = group_by_repo(parsed_rules)
     # print(webhook_stats(rules))
 
@@ -121,6 +110,9 @@ def main():
 #         dump(sorted_repos, file)
 
 
+def main():
+    asyncio.run(generate())
+
+
 if __name__ == '__main__':
     main()
-    # sort_repos()
