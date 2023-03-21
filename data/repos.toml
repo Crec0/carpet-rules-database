@@ -86,8 +86,14 @@ branches = [ "1.17", "1.18" ]
 [[legacy]]
 name = "Carpet TCTC Addition"
 owner-repo = "The-Cat-Town-Craft/Carpet-TCTC-Addition"
+settings-file-paths = [ "top/catowncraft/carpettctcaddition/CarpetTCTCAdditionSettings.java" ]
+branches = [ "dev" ]
+
+[[legacy]]
+name = "Carpet TCTC Addition"
+owner-repo = "The-Cat-Town-Craft/Carpet-TCTC-Addition"
 settings-file-paths = [ "top/catowncraft/CarpetTCTCAddition/CarpetTCTCAdditionSettings.java" ]
-branches = [ "legacy/1.14.4", "legacy/1.15.2", "legacy/1.16.5", "legacy/1.17.1", "legacy/1.18.2", "legacy/1.19-snapshot", "dev" ]
+branches = [ "legacy/1.14.4", "legacy/1.15.2", "legacy/1.16.5", "legacy/1.17.1", "legacy/1.18.2", "legacy/1.19-snapshot" ]
 
 [[legacy]]
 name = "Carpet-DGBCraft"
