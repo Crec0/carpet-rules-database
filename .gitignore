@@ -1,7 +1,9 @@
 node_modules/
+__pycache__
 
 .idea/
 .venv/
+.fleet/
 
 data/downloaded_data.json
 data/assembled_data.json
