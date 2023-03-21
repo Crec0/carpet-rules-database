@@ -17,6 +17,7 @@ pyjson5 = "^1.6.2"
 PyYAML = "^6.0"
 pyserde = "^0.10.2"
 tomli-w = "^1.0.0"
+blue = "^0.9.1"
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.12.0"
