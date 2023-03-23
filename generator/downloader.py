@@ -74,7 +74,7 @@ async def download_repo(
     return branches
 
 
-async def fetch_data(repos: RepoMeta) -> list[WrappedRepoData]:
+async def fetch_data(repos: RepoMeta) -> list[list[WrappedRepoData]]:
     async with AsyncClient() as client:
         tasks = [
             download_repo(client, parser, repo)

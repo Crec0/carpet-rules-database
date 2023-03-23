@@ -64,4 +64,4 @@ class WrappedDownloadedData:
     For development testing only. Unused otherwise
     """
 
-    repos: list[WrappedRepoData]
+    repos: list[list[WrappedRepoData]]
