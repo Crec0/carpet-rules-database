@@ -1,33 +1,32 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Optional
 
-from serde import serde
+from dataclasses_json import LetterCase, config, dataclass_json
 
-from generator.downloader import RemoteHostTemplate
 from generator.parsers.parser_type import ParserType
+from generator.remote_host_template import RemoteHostTemplate
 
 
-@serde(rename_all='kebabcase')
+@dataclass_json(letter_case=LetterCase.KEBAB)
 @dataclass
 class RepoData:
     name: str
     owner_repo: str
     branches: list[str]
     settings_file_paths: list[str]
-    lang_file_path: Optional[str]
-    source: RemoteHostTemplate
+    source: RemoteHostTemplate = field(
+        default=RemoteHostTemplate.GITHUB,
+        metadata=config(
+            encoder=RemoteHostTemplate.encoder,
+            decoder=RemoteHostTemplate.decoder,
+        ),
+    )
+    lang_file_path: Optional[str] = None
 
-# This one needs redefining. It should not inherit from RepoData since its per branch
+
+@dataclass_json(letter_case=LetterCase.KEBAB)
 @dataclass
-class DownloadedRepoData(RepoData):
-    parser: ParserType
-    settings_files: str
-    lang_files: str
-
-
-@serde(rename_all='kebabcase')
-@dataclass
-class RawData:
+class RepoMeta:
     legacy: list[RepoData]
     translations_json: list[RepoData]
     translations_yaml: list[RepoData]
@@ -38,3 +37,31 @@ class RawData:
             (ParserType.TRANSLATIONS_JSON, self.translations_json),
             (ParserType.TRANSLATIONS_YAML, self.translations_yaml),
         ]
+
+
+@dataclass_json(letter_case=LetterCase.KEBAB)
+@dataclass
+class WrappedRepoData:
+    name: str
+    owner_repo: str
+    branch: str
+    raw_settings_files: list[str]
+    raw_lang_file: Optional[str]
+    parser: str
+    source: RemoteHostTemplate = field(
+        default=RemoteHostTemplate.GITHUB,
+        metadata=config(
+            encoder=RemoteHostTemplate.encoder,
+            decoder=RemoteHostTemplate.decoder,
+        ),
+    )
+
+
+@dataclass_json
+@dataclass
+class WrappedDownloadedData:
+    """
+    For development testing only. Unused otherwise
+    """
+
+    repos: list[WrappedRepoData]
