@@ -9,15 +9,16 @@ packages = [{include = "generator"}]
 
 [tool.poetry.scripts]
 generator = "generator.main:main"
+sort_repos = "generator.main:sort_repos"
 
 [tool.poetry.dependencies]
 python = "^3.11"
 httpx = "^0.23.3"
 pyjson5 = "^1.6.2"
 PyYAML = "^6.0"
-pyserde = "^0.10.2"
-tomli-w = "^1.0.0"
 blue = "^0.9.1"
+dataclasses-json = "^0.5.7"
+pytoml = "^0.1.21"
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.12.0"

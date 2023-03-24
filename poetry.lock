@@ -483,6 +483,18 @@ files = [
 ]
 
 [[package]]
+name = "pytoml"
+version = "0.1.21"
+description = "A parser for TOML-0.4.0"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pytoml-0.1.21-py2.py3-none-any.whl", hash = "sha256:57a21e6347049f73bfb62011ff34cd72774c031b9828cb628a752225136dfc33"},
+    {file = "pytoml-0.1.21.tar.gz", hash = "sha256:8eecf7c8d0adcff3b375b09fe403407aa9b645c499e5ab8cac670ac4a35f61e7"},
+]
+
+[[package]]
 name = "pyyaml"
 version = "6.0"
 description = "YAML parser and emitter for Python"
@@ -605,4 +617,4 @@ typing-extensions = ">=3.7.4"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "fe2d421d16f8a3b98f9b75fe4abdec90be64b85cedde447408cdc7b17dbbfe8a"
+content-hash = "e7a1333a16515aa6df938eb60a40dc21b9646be1171d2a96523adf22bd52ec8c"

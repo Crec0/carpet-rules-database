@@ -96,18 +96,27 @@ async def generate():
     #     f.write(json.dumps(rules))
 
 
-# def sort_repos():
-#
-#     with open('./data/repos.toml', 'r') as file:
-#         repos = load(file)
-#
-#     sorted_repos = {}
-#
-#     for version, repoz in [repos.items()]:
-#         sorted_repos[version] = sorted(repoz, key=lambda repo: repo['name'])
-#
-#     with open('./data/srepos.toml', 'w') as file:
-#         dump(sorted_repos, file)
+# Replace the line `elif isinstance(v, list):` in writer.py from pytoml
+r"""
+elif isinstance(v, list):
+    if len(v) == 1:
+        return '[ {0} ]'.format(', '.join(_format_value(obj) for obj in v))
+    else:
+        return '[\n\t{0}\n]'.format(', \n\t'.join(_format_value(obj) for obj in v))
+"""
+
+
+def sort_repos():
+    with open('./data/repos.toml', 'r') as file:
+        repos = pytoml.load(file)
+
+    sorted_repos = {}
+
+    for version, repoz in repos.items():
+        sorted_repos[version] = sorted(repoz, key=lambda repo: repo['name'])
+
+    with open('./data/repos.toml', 'w') as file:
+        pytoml.dump(sorted_repos, file)
 
 
 def main():
