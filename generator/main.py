@@ -1,9 +1,10 @@
 import asyncio
+import json
 
-from serde import toml as serde_toml
+import pytoml
 
 from generator.downloader import fetch_data
-from generator.types import RawData
+from generator.types import RepoMeta, WrappedDownloadedData
 
 
 # async def parse_rules_for_version(
@@ -58,16 +59,18 @@ from generator.types import RawData
 
 async def generate():
     with open('./data/repos.toml', 'r') as f:
-        repos = serde_toml.from_toml(RawData, f.read())
+        repos = pytoml.load(f)
 
-    raw_data = await fetch_data(repos)
+    metadata = RepoMeta.from_dict(repos)
+    raw_repo_data = await fetch_data(metadata)
 
     # with open('./data/downloaded_data.json', 'w') as f:
-    #     f.write(json.dumps(raw_data))
+    #     json.dump(WrappedDownloadedData(raw_repo_data).to_dict(), f)
     #
     # with open('./data/downloaded_data.json', 'r') as f:
-    #     raw_data = json.load(f)
+    #     raw_data = WrappedDownloadedData.from_dict(json.load(f))
     #
+    # print(raw_data)
     # with open("./data/assembled_data.json", "w") as f:
     #     f.write(json.dumps(raw_data))
     #
