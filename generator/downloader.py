@@ -74,11 +74,17 @@ async def download_repo(
     return branches
 
 
-async def fetch_data(repos: RepoMeta) -> list[list[WrappedRepoData]]:
+async def fetch_data(repos: RepoMeta) -> list[WrappedRepoData]:
     async with AsyncClient() as client:
         tasks = [
             download_repo(client, parser, repo)
             for parser, repos in repos.combined()
             for repo in repos
         ]
-        return await asyncio.gather(*tasks, return_exceptions=False)
+        downloaded_data = await asyncio.gather(*tasks, return_exceptions=False)
+
+    flattened = []
+    for repo_group in downloaded_data:
+        flattened.extend(repo_group)
+
+    return flattened
