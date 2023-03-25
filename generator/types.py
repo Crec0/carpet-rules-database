@@ -60,8 +60,4 @@ class WrappedRepoData:
 @dataclass_json
 @dataclass
 class WrappedDownloadedData:
-    """
-    For development testing only. Unused otherwise
-    """
-
     repos: list[WrappedRepoData]
