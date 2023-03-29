@@ -1,6 +1,11 @@
-from typing import Callable
+from dataclasses import dataclass, field
+from typing import Callable, Optional
+
+from dataclasses_json import dataclass_json
 
 
+@dataclass_json
+@dataclass
 class Rule:
     """
     Rule class that contains all the information about the carpet rule.
@@ -18,36 +23,20 @@ class Rule:
     - branches (list): List of branches the rule is available in the repository.
     """
 
-    def __init__(self):
-        self.name: str = ''
-        self.description: str = ''
-        self.type: str = ''
-        self.value: str = ''
-        self.strict: bool = True
-        self.categories: list[str] = []
-        self.options: list[str] | None = None
-        self.extras: list[str] | None = None
-        self.validators: list[str] = []
-        self.repo: str = ''
-        self.branches: set[str] = set()
+    name: str = None
+    description: str = None
+    type: str = None
+    value: str = None
+    repo: str = None
+    strict: bool = True
+    options: Optional[list[str]] = None
+    extras: Optional[list[str]] = None
+    branches: set[str] = field(default_factory=set)
+    categories: list[str] = field(default_factory=list)
+    validators: list[str] = field(default_factory=list)
 
     def __hash__(self) -> int:
         return hash((hash(self.name), hash(self.type), hash(self.repo)))
-
-    def __repr__(self):
-        return (
-            f'{self.name}\n'
-            f'Type: {self.type}\n'
-            f'Categories: {self.categories}\n'
-            f'Description: {self.description}\n'
-            f'Extras: {self.extras}\n'
-            f'Default Value: {self.value}\n'
-            f'Options: {self.options}\n'
-            f'Strict: {self.strict}\n'
-            f'Validators: {self.validators}\n'
-            f'Repo: {self.repo}\n'
-            f'Branches: {self.branches}'
-        )
 
 
 def group_by_repo(rules: list[Rule]) -> list[Rule]:
