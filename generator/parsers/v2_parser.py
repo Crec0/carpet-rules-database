@@ -4,6 +4,7 @@ import pyjson5 as json
 
 from generator.parsers.v1_parser import V1Parser
 from generator.tokenizer.rule import associate_by
+from generator.types import WrappedRepoData
 
 
 class V2Parser(V1Parser):
@@ -16,19 +17,17 @@ class V2Parser(V1Parser):
     2. Parse the language file to get the descriptions and merge it with the names.
     """
 
-    def __init__(
-        self, source_path: str, source_code: str, lang_file: Optional[str]
-    ):
-        super().__init__(source_path, source_code, lang_file)
+    def __init__(self, repo: WrappedRepoData):
+        super().__init__(repo)
+        self.rules_lang: dict[str, str] = {}
 
     def load_lang_file(self):
-        self.lang_dict.clear()
-        self.lang_dict.update(json.loads(self.lang_file))
+        self.rules_lang = json.loads(self.repo.raw_lang_file)
 
     def __extract_prefixed(self, prefix):
         return [
-            self.lang_dict[key]
-            for key in self.lang_dict
+            self.rules_lang[key]
+            for key in self.rules_lang
             if key.startswith(prefix)
         ]
 
@@ -38,25 +37,25 @@ class V2Parser(V1Parser):
         """
         associated_rules = associate_by(self.rules, lambda rule: rule.name)
 
-        for key in self.lang_dict:
+        for key in self.rules_lang:
             manager, _, name, *rest = key.split('.')
             if name in associated_rules:
                 header = rest[0]
                 if header == 'name':
-                    associated_rules[name].name = self.lang_dict[key]
+                    associated_rules[name].name = self.rules_lang[key]
                 elif header == 'desc':
-                    associated_rules[name].description = self.lang_dict[key]
+                    associated_rules[name].description = self.rules_lang[key]
                 elif header == 'extra':
                     associated_rules[name].extras = self.__extract_prefixed(
                         f'{manager}.rule.{name}.extra.'
                     )
                 elif header == 'additional':
                     associated_rules[name].validators.append(
-                        self.lang_dict[key]
+                        self.rules_lang[key]
                     )
                 else:
                     raise Exception(
-                        f'Unknown header: {header} in {key} for {self.source_path}'
+                        f'Unknown header: {header} in {key} for {self.repo.owner_repo}/{self.repo.branch}'
                     )
 
     def parse(self) -> Self:

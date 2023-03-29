@@ -1,22 +1,15 @@
 from abc import ABC, abstractmethod
-from typing import Optional, Self
+from typing import Self
 
 from generator.tokenizer.rule import Rule
+from generator.tokenizer.tokenizer import Tokenizer
+from generator.types import WrappedRepoData
 
 
 class AbstractParser(ABC):
-    def __init__(
-        self,
-        source_path: str,
-        source_code: str,
-        lang_file: Optional[str] = None,
-    ):
-        self.source_path = source_path
-        self.source_code = source_code
-        self.lang_file = lang_file
 
-        self.rules: list[Rule] = []
-        self.lang_dict: dict[str, str] = {}
+    def __init__(self, repo: WrappedRepoData):
+        self.repo = repo
 
     @abstractmethod
     def parse(self) -> Self:

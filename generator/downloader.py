@@ -31,7 +31,7 @@ async def download_file(
 
 
 async def download_repo(
-    client: AsyncClient, parser: str, repo: RepoData
+    client: AsyncClient, parser: ParserType, repo: RepoData
 ) -> list[WrappedRepoData]:
 
     branches: list[WrappedRepoData] = []
@@ -67,6 +67,7 @@ async def download_repo(
                 raw_settings_files=settings_files,
                 raw_lang_file=raw_lang,
                 source=repo.source,
+                rules_root=repo.rules_root,
                 parser=parser,
             )
         )

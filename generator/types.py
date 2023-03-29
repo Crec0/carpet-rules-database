@@ -14,6 +14,7 @@ class RepoData:
     owner_repo: str
     branches: list[str]
     settings_file_paths: list[str]
+    rules_root: Optional[str] = field(default=None)
     source: RemoteHostTemplate = field(
         default=RemoteHostTemplate.GITHUB,
         metadata=config(
@@ -47,7 +48,8 @@ class WrappedRepoData:
     branch: str
     raw_settings_files: list[str]
     raw_lang_file: Optional[str]
-    parser: str
+    parser: ParserType
+    rules_root: Optional[str] = field(default=None)
     source: RemoteHostTemplate = field(
         default=RemoteHostTemplate.GITHUB,
         metadata=config(
@@ -61,3 +63,4 @@ class WrappedRepoData:
 @dataclass
 class WrappedDownloadedData:
     repos: list[WrappedRepoData]
+

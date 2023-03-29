@@ -5,6 +5,7 @@ from generator.parsers.abstract_parser import AbstractParser
 from generator.tokenizer.regex import Patterns
 from generator.tokenizer.rule import Rule
 from generator.tokenizer.tokenizer import Tokenizer
+from generator.types import WrappedRepoData
 from generator.util import get_default_values_for_type
 
 
@@ -24,17 +25,15 @@ class V1Parser(AbstractParser):
     - Second, rules are parsed and enum/fiend/validator references are resolved\n
     """
 
-    def __init__(
-        self,
-        source_path: str,
-        source_code: str,
-        lang_file: Optional[str] = None,
-    ):
-        super().__init__(source_path, source_code, lang_file)
-        self.tokenizer: Tokenizer = Tokenizer(self.source_code)
+    def __init__(self, repo: WrappedRepoData):
+        super().__init__(repo)
+
+        self.rules: list[Rule] = []
         self.fields: dict[str, str] = {}
         self.validators: dict[str, str] = {}
         self.enums: dict[str, list[str]] = {}
+
+        self.tokenizer: Tokenizer = Tokenizer(''.join(repo.raw_settings_files))
 
     @staticmethod
     def __strip(string: str | None) -> str | None:
@@ -196,9 +195,8 @@ class V1Parser(AbstractParser):
 
     def __parse_rule(self):
         rule = Rule()
-        repo, branch = self.source_path.split(Patterns.SPLITTER_STR)
-        rule.repo = repo
-        rule.branches.add(branch)
+        rule.repo = self.repo.owner_repo
+        rule.branches.add(self.repo.branch)
 
         while (
             self.tokenizer.has_next()
