@@ -14,13 +14,13 @@ class V2YamlParser(V2Parser):
         self.rules_lang = yaml.load(self.repo.raw_lang_file, Loader)
         rules_root = self.repo.rules_root
         if rules_root is not None:
-            for key in rules_root.split("."):
+            for key in rules_root.split('.'):
                 self.rules_lang = self.rules_lang[key]
 
     def process_lang_file(self):
         """
-       Parse the language file to get the descriptions and merge it with the names.
-       """
+        Parse the language file to get the descriptions and merge it with the names.
+        """
         associated_rules = associate_by(self.rules, lambda r: r.name)
 
         for rule in associated_rules:

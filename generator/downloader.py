@@ -1,5 +1,7 @@
 import asyncio
+from functools import reduce
 from http.client import HTTPException
+from operator import iconcat
 
 from httpx import AsyncClient
 
@@ -76,16 +78,10 @@ async def download_repo(
 
 
 async def fetch_data(repos: RepoMeta) -> list[WrappedRepoData]:
-    async with AsyncClient() as client:
+    async with AsyncClient() as client, asyncio.TaskGroup() as tg:
         tasks = [
-            download_repo(client, parser, repo)
+            tg.create_task(download_repo(client, parser, repo))
             for parser, repos in repos.combined()
             for repo in repos
         ]
-        downloaded_data = await asyncio.gather(*tasks, return_exceptions=False)
-
-    flattened = []
-    for repo_group in downloaded_data:
-        flattened.extend(repo_group)
-
-    return flattened
+    return reduce(iconcat, (task.result() for task in tasks), [])

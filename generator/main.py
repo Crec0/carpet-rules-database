@@ -1,5 +1,8 @@
 import asyncio
 import json
+from functools import reduce
+from operator import iconcat
+from typing import Type
 
 import pytoml
 
@@ -33,8 +36,7 @@ async def process_repo(repo: WrappedRepoData) -> list[Rule]:
 async def process_data(data: WrappedDownloadedData) -> list[Rule]:
     async with asyncio.TaskGroup() as tg:
         tasks = [tg.create_task(process_repo(repo)) for repo in data.repos]
-    rules = [task.result() for task in tasks]
-    return reduce(operator.iconcat, rules, [])
+    return reduce(iconcat, (task.result() for task in tasks), [])
 
 
 async def generate():
@@ -49,34 +51,27 @@ async def generate():
     #
     # with open('./data/downloaded_data.json', 'r') as f:
     #     raw_data = WrappedDownloadedData.from_dict(json.load(f))
-    #
-    # print(raw_data)
-    # with open("./data/assembled_data.json", "w") as f:
-    #     f.write(json.dumps(raw_data))
-    #
-    # parsed_rules = await process_data(raw_data)
-    #
+
+    raw_data = WrappedDownloadedData(raw_repo_data)
+    parsed_rules = await process_data(raw_data)
+
     # print(
     #     *sorted(
-    #         list(
-    #             set(
-    #                 [
-    #                     f'{rule.repo}/tree/{list(rule.branches)[0]}'
-    #                     for rule in parsed_rules
-    #                     if rule.description == ''
-    #                 ]
-    #             )
-    #         )
+    #         {
+    #             f'{rule.repo}/tree/{list(rule.branches)[0]}'
+    #             for rule in parsed_rules
+    #             if rule.description == '' or rule.description is None
+    #         }
     #     ),
     #     sep='\n',
     #     end='\n\n',
     # )
-    #
-    # rules = group_by_repo(parsed_rules)
-    # print(webhook_stats(rules))
 
-    # with open("./data/parsed_data.json", "w") as f:
-    #     f.write(json.dumps(rules))
+    rules = group_by_repo(parsed_rules)
+    print(webhook_stats(rules))
+
+    with open('./data/parsed_data.json', 'w') as f:
+        f.write(json.dumps([r.to_dict() for r in rules]))
 
 
 # Replace the line `elif isinstance(v, list):` in writer.py from pytoml

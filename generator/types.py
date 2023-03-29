@@ -63,4 +63,3 @@ class WrappedRepoData:
 @dataclass
 class WrappedDownloadedData:
     repos: list[WrappedRepoData]
-

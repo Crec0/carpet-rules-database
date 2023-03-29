@@ -1,5 +1,5 @@
 import re
-from typing import Optional, Self
+from typing import Self
 
 from generator.parsers.abstract_parser import AbstractParser
 from generator.tokenizer.regex import Patterns
@@ -28,7 +28,6 @@ class V1Parser(AbstractParser):
     def __init__(self, repo: WrappedRepoData):
         super().__init__(repo)
 
-        self.rules: list[Rule] = []
         self.fields: dict[str, str] = {}
         self.validators: dict[str, str] = {}
         self.enums: dict[str, list[str]] = {}
