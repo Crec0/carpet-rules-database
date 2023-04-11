@@ -25,6 +25,12 @@ class V1Parser(AbstractParser):
     - Second, rules are parsed and enum/fiend/validator references are resolved\n
     """
 
+    MINECRAFT_CONSTANTS = {
+        'MAX_SIZE_PER_AXIS': 48,
+        'START_CHUNK_RADIUS': 11,
+        'MAX_PUSH_DEPTH': 12
+    }
+
     def __init__(self, repo: WrappedRepoData):
         super().__init__(repo)
 
@@ -73,6 +79,9 @@ class V1Parser(AbstractParser):
 
         if resolvable in self.fields:
             return self.__strip(self.fields[resolvable])
+
+        if resolvable in V1Parser.MINECRAFT_CONSTANTS:
+            return V1Parser.MINECRAFT_CONSTANTS[resolvable]
 
         return resolvable
 
