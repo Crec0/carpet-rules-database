@@ -22,9 +22,9 @@ name = "Carpet"
 owner-repo = "gnembon/fabric-carpet"
 settings-file-paths = [ "carpet/CarpetSettings.java" ]
 branches = [
-	"master",
-	"1.16.5",
-	"1.17.1",
+	"master", 
+	"1.16.5", 
+	"1.17.1", 
 	"1.18.2"
 ]
 
@@ -33,10 +33,9 @@ name = "Carpet Addons"
 owner-repo = "whoImT/carpet-addons"
 settings-file-paths = [ "carpetaddons/CarpetAddonsSettings.java" ]
 branches = [
-	"1.15.2",
-	"1.16.x",
-	"1.17",
-	"1.18.x"
+	"1.15.2", 
+	"1.16.x", 
+	"1.17"
 ]
 
 [[legacy]]
@@ -44,8 +43,8 @@ name = "Carpet DRC-Addition"
 owner-repo = "DreamRealmCraft/carpet-DRC-Addition"
 settings-file-paths = [ "com/github/Primeppzi/DRCAdditionSettings.java" ]
 branches = [
-	"1.16.5",
-	"1.18.2",
+	"1.16.5", 
+	"1.18.2", 
 	"1.19.2"
 ]
 
@@ -54,8 +53,8 @@ name = "Carpet Extra"
 owner-repo = "gnembon/carpet-extra"
 settings-file-paths = [ "carpetextra/CarpetExtraSettings.java" ]
 branches = [
-	"1.16.5",
-	"1.17.1",
+	"1.16.5", 
+	"1.17.1", 
 	"1.18.2"
 ]
 
@@ -64,7 +63,7 @@ name = "Carpet Fixes"
 owner-repo = "fxmorin/carpet-fixes"
 settings-file-paths = [ "carpetfixes/CarpetFixesSettings.java" ]
 branches = [
-	"1.17",
+	"1.17", 
 	"1.16"
 ]
 
@@ -79,9 +78,8 @@ name = "Carpet Gamerules"
 owner-repo = "RubixDev/CarpetGamerules"
 settings-file-paths = [ "de/rubixdev/carpetgamerules/CarpetGamerulesSettings.java" ]
 branches = [
-	"1.17",
-	"1.18",
-	"1.19"
+	"1.17", 
+	"1.18"
 ]
 
 [[legacy]]
@@ -89,9 +87,9 @@ name = "Carpet Redcraft Addons"
 owner-repo = "MultiCoreNetwork/carpet-redcraft-addons"
 settings-file-paths = [ "it/multicoredev/carpetredcraftaddons/CarpetRedCraftSettings.java" ]
 branches = [
-	"1.16.X",
-	"1.17.X",
-	"1.18.X",
+	"1.16.X", 
+	"1.17.X", 
+	"1.18.X", 
 	"1.19.X"
 ]
 
@@ -105,12 +103,12 @@ branches = [ "1.16.5" ]
 name = "Carpet Shadow"
 owner-repo = "mattymatty97/carpet-shadow"
 settings-file-paths = [
-	"com/carpet_shadow/CarpetShadowSettings.java",
+	"com/carpet_shadow/CarpetShadowSettings.java", 
 	"com/carpet_shadow/CarpetShadowServerSettings.java"
 ]
 branches = [
-	"master",
-	"1.18",
+	"master", 
+	"1.18", 
 	"1.19"
 ]
 
@@ -119,26 +117,20 @@ name = "Carpet Sky Additions"
 owner-repo = "jsorrell/CarpetSkyAdditions"
 settings-file-paths = [ "com/jsorrell/skyblock/SkyBlockSettings.java" ]
 branches = [
-	"1.17",
+	"1.17", 
 	"1.18"
 ]
 
 [[legacy]]
 name = "Carpet TCTC Addition"
 owner-repo = "The-Cat-Town-Craft/Carpet-TCTC-Addition"
-settings-file-paths = [ "top/catowncraft/carpettctcaddition/CarpetTCTCAdditionSettings.java" ]
-branches = [ "dev" ]
-
-[[legacy]]
-name = "Carpet TCTC Addition"
-owner-repo = "The-Cat-Town-Craft/Carpet-TCTC-Addition"
 settings-file-paths = [ "top/catowncraft/CarpetTCTCAddition/CarpetTCTCAdditionSettings.java" ]
 branches = [
-	"legacy/1.14.4",
-	"legacy/1.15.2",
-	"legacy/1.16.5",
-	"legacy/1.17.1",
-	"legacy/1.18.2",
+	"legacy/1.14.4", 
+	"legacy/1.15.2", 
+	"legacy/1.16.5", 
+	"legacy/1.17.1", 
+	"legacy/1.18.2", 
 	"legacy/1.19-snapshot"
 ]
 
@@ -147,15 +139,9 @@ name = "Carpet-DGBCraft"
 owner-repo = "DGBCraft/Carpet-DGBCraft"
 settings-file-paths = [ "online/dgbcraft/carpet/CarpetDGBCraftSetting.java" ]
 branches = [
-	"1.16.x",
+	"1.16.x", 
 	"1.17.x"
 ]
-
-[[legacy]]
-name = "Ceramic"
-owner-repo = "adryd325/ceramic"
-settings-file-paths = [ "com/adryd/ceramic/CeramicSettings.java" ]
-branches = [ "main" ]
 
 [[legacy]]
 name = "Chronos Addons"
@@ -168,7 +154,7 @@ name = "Epsilon-Carpet"
 owner-repo = "EpsilonSMP/Epsilon-Carpet"
 settings-file-paths = [ "world/epsilonsmp/EpsilonCarpet/EpsilonCarpetSettings.java" ]
 branches = [
-	"main",
+	"main", 
 	"1.17"
 ]
 
@@ -183,9 +169,8 @@ name = "Essential Addons"
 owner-repo = "Super-Santa/EssentialAddons"
 settings-file-paths = [ "essentialaddons/EssentialSettings.java" ]
 branches = [
-	"1.17.x",
-	"1.18.x",
-	"1.19.x"
+	"1.17.x", 
+	"1.18.x"
 ]
 
 [[legacy]]
@@ -193,7 +178,7 @@ name = "Hosting-luisch Carpet"
 owner-repo = "luisch444/Hosting-luisch-Carpet"
 settings-file-paths = [ "xyz/luisch444/carpet/HostingluischSettings.java" ]
 branches = [
-	"main",
+	"main", 
 	"1.17"
 ]
 
@@ -208,8 +193,8 @@ name = "Jank Addons"
 owner-repo = "Crec0/JankAddons"
 settings-file-paths = [ "jankaddons/JankAddonsSettings.java" ]
 branches = [
-	"1.18.1",
-	"1.17.1",
+	"1.18.1", 
+	"1.17.1", 
 	"main"
 ]
 
@@ -224,8 +209,8 @@ name = "Lunaar Carpet Addons"
 owner-repo = "Lunaar-SMP/lunaar-carpet-addons"
 settings-file-paths = [ "carpetlunaaraddons/CarpetLunaarSettings.java" ]
 branches = [
-	"1.16",
-	"1.17",
+	"1.16", 
+	"1.17", 
 	"1.18"
 ]
 
@@ -233,14 +218,13 @@ branches = [
 name = "Minitweaks"
 owner-repo = "manyrandomthings/minitweaks"
 settings-file-paths = [
-	"minitweaks/MiniTweaksSettings.java",
+	"minitweaks/MiniTweaksSettings.java", 
 	"minitweaks/MiniTweaksRuleCategory.java"
 ]
 branches = [
-	"1.16",
-	"1.17",
-	"1.18",
-	"1.19"
+	"1.16", 
+	"1.17", 
+	"1.18"
 ]
 
 [[legacy]]
@@ -254,11 +238,11 @@ name = "Plusls Carpet Additions"
 owner-repo = "plusls/plusls-carpet-addition"
 settings-file-paths = [ "com/plusls/carpet/PcaSettings.java" ]
 branches = [
-	"1.14.x",
-	"1.15.x",
-	"1.16.x",
-	"1.17.x",
-	"1.18.x",
+	"1.14.x", 
+	"1.15.x", 
+	"1.16.x", 
+	"1.17.x", 
+	"1.18.x", 
 	"1.19.x"
 ]
 
@@ -273,8 +257,8 @@ name = "Rug"
 owner-repo = "RubixDev/Rug"
 settings-file-paths = [ "de/rubixdev/rug/RugSettings.java" ]
 branches = [
-	"1.16",
-	"1.17",
+	"1.16", 
+	"1.17", 
 	"1.18"
 ]
 
@@ -301,10 +285,9 @@ name = "Toto's Carpet Tweaks"
 owner-repo = "totorewa/totos-carpet-tweaks"
 settings-file-paths = [ "totoscarpettweaks/TotoCarpetSettings.java" ]
 branches = [
-	"mc1.16.x",
-	"mc1.17.x",
-	"mc1.18.x",
-	"mc1.19.x"
+	"mc1.16.x", 
+	"mc1.17.x", 
+	"mc1.18.x"
 ]
 
 [[legacy]]
@@ -324,9 +307,9 @@ name = "johan-carpet"
 owner-repo = "JohanVonElectrum/Johan-Carpet"
 settings-file-paths = [ "com/johanvonelectrum/johan_carpet/JohanSettings.java" ]
 branches = [
-	"1.16",
-	"1.17-dev",
-	"1.18-dev",
+	"1.16", 
+	"1.17-dev", 
+	"1.18-dev", 
 	"master"
 ]
 
@@ -344,6 +327,13 @@ lang-file-path = "carpet-autocraftingtable/lang/en_us.json"
 branches = [ "master" ]
 
 [[translations-json]]
+name = "Carpet Addons"
+owner-repo = "whoImT/carpet-addons"
+settings-file-paths = [ "carpetaddons/CarpetAddonsSettings.java" ]
+lang-file-path = "carpetaddons/lang/en_us.json"
+branches = [ "1.19.x" ]
+
+[[translations-json]]
 name = "Carpet Extra"
 owner-repo = "gnembon/carpet-extra"
 settings-file-paths = [ "carpetextra/CarpetExtraSettings.java" ]
@@ -358,13 +348,51 @@ lang-file-path = "carpet-fixes/lang/en_us.json"
 branches = [ "dev" ]
 
 [[translations-json]]
+name = "Carpet Gamerules"
+owner-repo = "RubixDev/CarpetGamerules"
+settings-file-paths = [ "de/rubixdev/carpetgamerules/CarpetGamerulesSettings.java" ]
+lang-file-path = "carpetgamerules/lang/en_us.json5"
+branches = [ "1.19" ]
+
+[[translations-json]]
 name = "Carpet Sky Additions"
 owner-repo = "jsorrell/CarpetSkyAdditions"
 settings-file-paths = [
-	"com/jsorrell/carpetskyadditions/settings/SkyAdditionsSetting.java",
+	"com/jsorrell/carpetskyadditions/settings/SkyAdditionsSetting.java", 
 	"com/jsorrell/carpetskyadditions/settings/SkyAdditionsSettings.java"
 ]
 lang-file-path = "carpetskyadditions/lang/en_us.json"
+branches = [ "1.19" ]
+
+[[translations-json]]
+name = "Carpet TCTC Addition"
+owner-repo = "The-Cat-Town-Craft/Carpet-TCTC-Addition"
+settings-file-paths = [ "top/catowncraft/carpettctcaddition/CarpetTCTCAdditionSettings.java" ]
+lang-file-path = "carpet-tctc-addition/lang/en_us.json"
+branches = [ "dev" ]
+
+[[translations-json]]
+name = "Ceramic"
+owner-repo = "adryd325/ceramic"
+settings-file-paths = [ "com/adryd/ceramic/CeramicSettings.java" ]
+lang-file-path = "ceramic/lang/en_us.json"
+branches = [ "main" ]
+
+[[translations-json]]
+name = "Essential Addons"
+owner-repo = "Super-Santa/EssentialAddons"
+settings-file-paths = [ "essentialaddons/EssentialSettings.java" ]
+lang-file-path = "essentialaddons/lang/en_us.json"
+branches = [ "1.19.x" ]
+
+[[translations-json]]
+name = "Minitweaks"
+owner-repo = "manyrandomthings/minitweaks"
+settings-file-paths = [
+	"minitweaks/MiniTweaksSettings.java", 
+	"minitweaks/MiniTweaksRuleCategory.java"
+]
+lang-file-path = "minitweaks/lang/en_us.json"
 branches = [ "1.19" ]
 
 [[translations-json]]
@@ -374,20 +402,12 @@ settings-file-paths = [ "de/rubixdev/rug/RugSettings.java" ]
 lang-file-path = "rug/lang/en_us.json5"
 branches = [ "1.19" ]
 
-[[translations-yaml]]
-name = "Ivan Carpet Addition"
-owner-repo = "Ivan-1F/Ivan-Carpet-Addition"
-settings-file-paths = [ "me/ivan/ivancarpetaddition/IvanCarpetAdditionSettings.java" ]
-lang-file-path = "ivancarpetaddition/lang/en_us.yml"
-rules-root = "ivancarpetaddition.carpet_translations.rule"
-branches = [
-	"1.14.4",
-	"1.15.2",
-	"1.16.5",
-	"1.17.1",
-	"1.18.2",
-	"1.19.x"
-]
+[[translations-json]]
+name = "Toto's Carpet Tweaks"
+owner-repo = "totorewa/totos-carpet-tweaks"
+settings-file-paths = [ "totoscarpettweaks/TotoCarpetSettings.java" ]
+lang-file-path = "totos-carpet-tweaks/lang/en_us.json"
+branches = [ "mc1.19.x" ]
 
 [[translations-yaml]]
 name = "Carpet TIS Addition"
@@ -396,3 +416,18 @@ settings-file-paths = [ "carpettisaddition/CarpetTISAdditionSettings.java" ]
 lang-file-path = "carpettisaddition/lang/en_us.yml"
 rules-root = "carpettisaddition.carpet_translations.rule"
 branches = [ "master" ]
+
+[[translations-yaml]]
+name = "Ivan Carpet Addition"
+owner-repo = "Ivan-1F/Ivan-Carpet-Addition"
+settings-file-paths = [ "me/ivan/ivancarpetaddition/IvanCarpetAdditionSettings.java" ]
+lang-file-path = "ivancarpetaddition/lang/en_us.yml"
+rules-root = "ivancarpetaddition.carpet_translations.rule"
+branches = [
+	"1.14.4", 
+	"1.15.2", 
+	"1.16.5", 
+	"1.17.1", 
+	"1.18.2", 
+	"1.19.x"
+]
