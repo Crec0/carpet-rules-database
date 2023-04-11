@@ -124,6 +124,7 @@ function isInvalid(event) {
 
 function wrapWithSpan(list, convertToUpperCase = false) {
     return list
+        .map(val => `${val}`)
         .map((val) =>
             convertToUpperCase ? val.toUpperCase() : val.toLowerCase()
         )
