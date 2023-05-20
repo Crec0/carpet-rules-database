@@ -8,7 +8,7 @@ This project uses a custom parser to read and process the rules from java files 
 ### Adding your repo to the database
 
 If you want to add your extension to the database,  
-please add your extension to [data/repos.json](data/repos.json) and submit a pull request.
+please add your extension to [data/repos.toml](data/repos.toml) and submit a pull request.
 
 NOTE: If different branches use different settings file, please dont put them all inside "settingsFile" property. Duplicate the object and change branch and settings file path.
 
