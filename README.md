@@ -14,15 +14,17 @@ NOTE: If different branches use different settings file, please don't put them a
 
 #### Selecting the parser version:
 
+<pre>
 If your extension uses the new language file translation carpet rules:
     If you use json files: 
         use `translations-json`
     If you use yaml/yml files:
         use `translations-yaml`
     Otherwise
-        [Contact me](#contact)
+        Contact me
 Otherwise:
-    use `legacy`
+    Use `legacy`
+</pre>
 
 For now please only include english lang file. Other languages will be added later.
 
@@ -33,6 +35,7 @@ The schema for rule follows:
 [[parser-version]]
 # Display name for your extension
 name = "Name"
+# Repository for the extension
 # GH/owner/repo
 #    ^^^^^^^^^^
 owner-repo = "owner/repo"
