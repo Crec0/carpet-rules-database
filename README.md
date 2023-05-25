@@ -10,43 +10,45 @@ This project uses a custom parser to read and process the rules from java files 
 If you want to add your extension to the database,  
 please add your extension to [data/repos.toml](data/repos.toml) and submit a pull request.
 
-NOTE: If different branches use different settings file, please dont put them all inside "settingsFile" property. Duplicate the object and change branch and settings file path.
+NOTE: If different branches use different settings file, please don't put them all inside "settingsFile" property. Duplicate the object and change branch and settings file path.
 
-#### Parser version:
+#### Selecting the parser version:
 
-If your extension new language file rules system, put your repo under `v2`
-otherwise put it in `v1`
-
-
-TIS carpet additions gets its own custom parser named `vt` because it uses it's own custom yml language file and custom Rule annotation and preprocessors.
-If your extension happen to use this sort of custom system different from carpet, please contact me.
-
-#### LangFiles:
-
-If your chosen parser is `v2`, you have to include langFiles as well.
-Otherwise, langFiles tag will be ignored.
-
+If your extension uses the new language file translation carpet rules:
+    If you use json files: 
+        use `translations-json`
+    If you use yaml/yml files:
+        use `translations-yaml`
+    Otherwise
+        [Contact me](#contact)
+Otherwise:
+    use `legacy`
 
 For now please only include english lang file. Other languages will be added later.
 
-
 The schema for rule follows:
-```json
-{
-    "name": "Your carpet extension name",
-    "owner-repo": "owner/repo",
-    "settings-files": [
-        "group/path/to/settings/file.java",
-        "group/path/to/another/settings/file.java"
-    ],
-    "lang-files": [
-        "group/path/to/lang/file.java"
-    ],
-    "branches": [
-        "branch",
-        "another-branch"
-    ]
-}
+```toml
+# In the below comments, GH => https://github.com
+
+[[parser-version]]
+# Display name for your extension
+name = "Name"
+# GH/owner/repo
+#    ^^^^^^^^^^
+owner-repo = "owner/repo"
+# Path to the settings file containing @Rule annotated fields
+# GH/owner/repo/main/src/main/java/path/to/SettingsFile.java
+#                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+settings-file-paths = [ "path/to/SettingsFile.java" ]
+# Path to the language file
+# GH/owner/repo/main/src/main/resources/assets/path/to/lang/en_us.yml
+#                                              ^^^^^^^^^^^^^^^^^^^^^^
+lang-file-path = "path/to/lang/en_us.yml" 
+# Root where carpet rules are contained. 
+# ONLY REQUIRED IF YOU USE YAML 
+rules-root = "name.some-subroot.some-root.root" 
+# Branches that share the settings file paths and lang files
+branches = [ "main" ]
 ```
 
 ### Code contributions
