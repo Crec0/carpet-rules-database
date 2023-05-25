@@ -348,6 +348,13 @@ lang-file-path = "carpet-fixes/lang/en_us.json"
 branches = [ "dev" ]
 
 [[translations-json]]
+name = "Carpet Flying"
+owner-repo = "kosma/carpet-flying"
+settings-file-paths = [ "pl/kosma/carpetflying/CarpetFlyingSettings.java" ]
+lang-file-path = "carpet-flying/carpet/lang/en_us.json"
+branches = [ "main" ]
+
+[[translations-json]]
 name = "Carpet Gamerules"
 owner-repo = "RubixDev/CarpetGamerules"
 settings-file-paths = [ "de/rubixdev/carpetgamerules/CarpetGamerulesSettings.java" ]
