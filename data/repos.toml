@@ -438,3 +438,13 @@ branches = [
 	"1.18.2", 
 	"1.19.x"
 ]
+
+[[legacy]]
+name = "Rober-Carpet"
+owner-repo = "RLLD576/Rober-Carpet"
+settings-file-paths = [ "net/rober/robercarpet/RoberCarpetSettings.java" ]
+branches = [
+	"1.17",
+	"1.18", 
+	"1.19.2"
+]
