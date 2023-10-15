@@ -108,8 +108,7 @@ settings-file-paths = [
 ]
 branches = [
 	"master", 
-	"1.18", 
-	"1.19"
+	"1.18"
 ]
 
 [[legacy]]
@@ -401,6 +400,19 @@ settings-file-paths = [
 ]
 lang-file-path = "minitweaks/lang/en_us.json"
 branches = [ "1.19" ]
+
+[[translations-json]]
+name = "Carpet Shadow"
+owner-repo = "mattymatty97/carpet-shadow"
+settings-file-paths = [
+	"com/carpet_shadow/CarpetShadowSettings.java", 
+	"com/carpet_shadow/CarpetShadowServerSettings.java"
+]
+lang-file-path = "carpet-shadow/lang/en_us.json"
+branches = [
+	"1.19", 
+	"1.20"
+]
 
 [[translations-json]]
 name = "Rug"
