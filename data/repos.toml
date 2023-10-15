@@ -405,8 +405,7 @@ branches = [ "1.19" ]
 name = "Carpet Shadow"
 owner-repo = "mattymatty97/carpet-shadow"
 settings-file-paths = [
-	"com/carpet_shadow/CarpetShadowSettings.java", 
-	"com/carpet_shadow/CarpetShadowServerSettings.java"
+	"com/carpet_shadow/CarpetShadowSettings.java"
 ]
 lang-file-path = "carpet-shadow/lang/en_us.json"
 branches = [
