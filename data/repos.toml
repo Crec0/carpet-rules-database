@@ -185,7 +185,7 @@ branches = [
 [[legacy]]
 name = "Intricarpet"
 owner-repo = "lntricate1/intricarpet"
-settings-file-paths = [ "intricarpet/intricarpetRules.java" ]
+settings-file-paths = [ "me/lntricate/intricarpet/Rules.java" ]
 branches = [ "master" ]
 
 [[legacy]]
