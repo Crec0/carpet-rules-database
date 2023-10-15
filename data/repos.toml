@@ -358,8 +358,8 @@ branches = [ "main" ]
 name = "Carpet Gamerules"
 owner-repo = "RubixDev/CarpetGamerules"
 settings-file-paths = [ "de/rubixdev/carpetgamerules/CarpetGamerulesSettings.java" ]
-lang-file-path = "carpetgamerules/lang/en_us.json5"
-branches = [ "1.19" ]
+lang-file-path = "carpetgamerules/lang/en_us.json"
+branches = [ "1.19", "1.20" ]
 
 [[translations-json]]
 name = "Carpet Sky Additions"
