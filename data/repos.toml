@@ -470,7 +470,8 @@ branches = [ "master" ]
 [[translations-json]]
 name = "Carpet Addons Not Found"
 owner-repo = "Gilly7CE/Carpet-Addons-Not-Found"
-settings-file-paths = "carpet-addons-not-found/lang/en_us.json"
+settings-file-paths = [ "carpetaddonsnotfound/CarpetAddonsNotFoundSettings.java" ]
+lang-file-path = "carpet-addons-not-found/lang/en_us.json"
 branches = [
 	"1.19.3",
 	"1.19.4",
@@ -480,7 +481,7 @@ branches = [
 [[legacy]]
 name = "Carpet Addons Not Found"
 owner-repo = "Gilly7CE/Carpet-Addons-Not-Found"
-settings-file-paths = [ "src/main/java/carpetaddonsnotfound/CarpetAddonsNotFoundSettings.java" ]
+settings-file-paths = [ "carpetaddonsnotfound/CarpetAddonsNotFoundSettings.java" ]
 branches = [
 	"1.17.1",
 	"1.18.2", 
