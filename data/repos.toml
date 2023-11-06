@@ -466,3 +466,23 @@ owner-repo = "axialeaa/DoormatCarpetExtension"
 settings-file-paths = [ "com/axialeaa/doormat/DoormatSettings.java" ]
 lang-file-path = "doormat/lang/en_us.json"
 branches = [ "master" ]
+
+[[translations-json]]
+name = "Carpet Addons Not Found"
+owner-repo = "Gilly7CE/Carpet-Addons-Not-Found"
+settings-file-paths = [ "carpetaddonsnotfound/CarpetAddonsNotFoundSettings.java" ]
+lang-file-path = "carpet-addons-not-found/lang/en_us.json"
+branches = [
+	"1.19.3",
+	"1.19.4",
+	"1.20.x",
+]
+
+[[legacy]]
+name = "Carpet Addons Not Found"
+owner-repo = "Gilly7CE/Carpet-Addons-Not-Found"
+settings-file-paths = [ "carpetaddonsnotfound/CarpetAddonsNotFoundSettings.java" ]
+branches = [
+	"1.17.1",
+	"1.18.2", 
+]
