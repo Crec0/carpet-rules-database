@@ -10,3 +10,9 @@ data/assembled_data.json
 data/*.json.bak
 
 pnpm-lock.yaml
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
