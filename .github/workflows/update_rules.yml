@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '* */24 * * *'
+    - cron: '0 0 * * *'
 
 
 env:
