@@ -442,7 +442,7 @@ settings-file-paths = [ "me/ivan/ivancarpetaddition/IvanCarpetAdditionSettings.j
 lang-file-path = "ivancarpetaddition/lang/en_us.yml"
 rules-root = "ivancarpetaddition.carpet_translations.rule"
 branches = [
-	"main"
+	"master"
 ]
 
 [[legacy]]
