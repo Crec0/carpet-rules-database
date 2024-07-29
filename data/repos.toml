@@ -481,3 +481,11 @@ branches = [
 	"1.17.1",
 	"1.18.2", 
 ]
+
+[[translations-yaml]]
+name = "Carpet AMS Addition"
+owner-repo = "Minecraft-AMS/Carpet-AMS-Addition"
+settings-file-paths = [ "club/mcams/carpet/AmsServerSettings.java" ]
+lang-file-path = "carpetamsaddition/lang/en_us.yml"
+rules-root = "carpetamsaddition.rule"
+branches = [ "master" ]
