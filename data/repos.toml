@@ -487,5 +487,16 @@ name = "Carpet AMS Addition"
 owner-repo = "Minecraft-AMS/Carpet-AMS-Addition"
 settings-file-paths = [ "club/mcams/carpet/AmsServerSettings.java" ]
 lang-file-path = "carpetamsaddition/lang/en_us.yml"
-rules-root = "carpetamsaddition.rule"
+rules-root = "carpetamsaddition.carpet_translations.rule"
 branches = [ "master" ]
+
+[[translations-json]]
+name = "Carpet Org Addition"
+owner-repo = "cdqtzrc/Carpet-Org-Addition"
+settings-file-paths = [ "org/carpet_org_addition/CarpetOrgAdditionSettings.java" ]
+lang-file-path = "carpet-org-addition/lang/en_us.json"
+branches = [
+	"1.20.1",
+	"1.20.4",
+	"1.21",
+]
