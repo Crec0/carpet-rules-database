@@ -458,7 +458,7 @@ branches = [
 [[translations-json]]
 name = "Doormat"
 owner-repo = "axialeaa/DoormatCarpetExtension"
-settings-file-paths = [ "com/axialeaa/doormat/DoormatSettings.java" ]
+settings-file-paths = [ "com/axialeaa/doormat/setting/DoormatSettings.java" ]
 lang-file-path = "doormat/lang/en_us.json"
 branches = [ "master" ]
 
