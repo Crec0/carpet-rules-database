@@ -1,0 +1,64 @@
+package dev.crec.generator.artifact.source.curseforge
+
+import com.squareup.moshi.Json
+
+data class FilesResponseSchema(
+    val data: List<ModFileMetadata>,
+    val pagination: Pagination
+)
+
+data class ModFileMetadata(
+    val id: Long,
+    val dateCreated: String,
+    val dateModified: String,
+    val displayName: String? = null,
+    val fileLength: Long,
+    val fileName: String,
+    val status: Long,
+    val gameVersions: List<String>,
+    @Json(name = "gameVersionTypeIds")
+    val gameVersionTypeIDS: List<Long>,
+    val releaseType: Long,
+    val totalDownloads: Long,
+    val user: User,
+    val additionalFilesCount: Long,
+    val hasServerPack: Boolean,
+    val additionalServerPackFilesCount: Long,
+    val isEarlyAccessContent: Boolean
+) {
+    val filteredGameVersions =
+        gameVersions.filterNot { it.contains("Java ") || it.contains("Snapshot") || it.contains("Fabric") }
+
+    /*
+    * CurseForge CDN uses the file id + file name to index files.
+    * The pattern (from testing) seems to be first 4 digits / rest of the digits + file name
+    * The zero padding has to be removed from digits as well.
+    * This function takes the id and converts it into the desired 4-3, 4-2 or 4-1 path
+    *
+    * Example:
+    *   1234500 -> 1234/500
+    *   1234050 -> 1234/50
+    *   1234005 -> 1234/5
+    */
+    fun toCDN(): String {
+        val match = Regex("(\\d{4})(\\d{3})").find(id.toString())
+            ?: throw IllegalArgumentException("CurseForge id: $id doesn't conform to 4-3 split strategy")
+
+        val filePath = match.groupValues.drop(1).joinToString("/") { it.toInt().toString() }
+        return "https://edge.forgecdn.net/files/${filePath}/${fileName}?api-key=267C6CA3"
+    }
+}
+
+data class User(
+    val username: String,
+    val id: Long,
+    @Json(name = "twitchAvatarUrl")
+    val twitchAvatarURL: String,
+    val displayName: String
+)
+
+data class Pagination(
+    val index: Long,
+    val pageSize: Long,
+    val totalCount: Long
+)

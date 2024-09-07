@@ -35,8 +35,9 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
     implementation("com.squareup.okhttp3:okhttp-coroutines:5.0.0-alpha.11")
 
+    implementation("com.google.jimfs:jimfs:1.3.0")
     implementation("io.github.classgraph:classgraph:4.8.149")
-    implementation("com.github.javaparser:javaparser-core:3.25.6")
+
     implementation("net.peanuuutz.tomlkt:tomlkt:0.3.7")
 }
 
