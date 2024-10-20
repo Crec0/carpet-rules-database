@@ -493,7 +493,7 @@ branches = [ "master" ]
 [[translations-json]]
 name = "Carpet Org Addition"
 owner-repo = "cdqtzrc/Carpet-Org-Addition"
-settings-file-paths = [ "org/carpet_org_addition/CarpetOrgAdditionSettings.java" ]
+settings-file-paths = [ "org/carpetorgaddition/CarpetOrgAdditionSettings.java" ]
 lang-file-path = "carpet-org-addition/lang/en_us.json"
 branches = [
 	"1.20.1",
