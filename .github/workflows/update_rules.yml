@@ -58,3 +58,20 @@ jobs:
           username: "Carpet Rules Generator"
           avatar-url: ${{ secrets.CARPET_RULES_AVATAR_URL }}
           content: "${{ steps.capture-date.outputs.date }}"
+
+#    - uses: actions/cache/restore@v3
+#      id: restore-cache
+#      with:
+#        path: |
+#          path/to/dependencies
+#          some/other/dependencies
+#        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+#  .
+#  .
+#  .
+#  - uses: actions/cache/save@v3
+#    with:
+#      path: |
+#        path/to/dependencies
+#        some/other/dependencies
+#      key: ${{ steps.restore-cache.outputs.cache-primary-key }}
