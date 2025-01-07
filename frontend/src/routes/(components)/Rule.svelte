@@ -49,10 +49,6 @@
         return separated;
     }
 
-    function dedupe(categories: string[]): string[] {
-        return [ ...new Set(categories.flatMap(t => t.split(",")).map(t => t.trim())) ];
-    }
-
     function copyRuleLink(name: string) {
         navigator.clipboard.writeText(`${window.location.origin}/?name=${name}`);
     }
@@ -129,7 +125,7 @@
             {#if rule.categories}
                 <span class="font-bold"> Categories </span>
                 <span class="flex flex-wrap gap-1">
-                    {#each dedupe(rule.categories) as category}
+                    {#each rule.categories as category}
                         <Badge variant="secondary" class="select-text">{category}</Badge>
                     {/each}
                 </span>

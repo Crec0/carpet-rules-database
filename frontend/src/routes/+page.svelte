@@ -1,8 +1,5 @@
 <script lang="ts">
-    import rawRules from "$lib/assets/rules.json";
-    import { parse as valibotParse } from "valibot";
-    import type { Rules } from "$lib/types";
-    import { RulesSchema } from "$lib/types.js";
+
     import {
         Pagination,
         PaginationContent,
@@ -16,6 +13,7 @@
     import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
     import { SidebarTrigger, useSidebar } from "$lib/components/ui/sidebar";
     import { cn } from "$lib/utils";
+    import { gState } from "$lib/app-state.svelte";
 
 
     let currentPage = $state(1);
@@ -24,7 +22,6 @@
     const sidebar = useSidebar();
     const pageStart = $derived(( currentPage - 1 ) * PER_PAGE);
     const pageEnd = $derived(pageStart + PER_PAGE);
-    const parsedRules: Rules = valibotParse(RulesSchema, rawRules).sort((a, b) => a.name.localeCompare(b.name));
 </script>
 
 <div class="sticky top-0 flex items-center border-b p-2 shadow-sm bg-background space-x-2">
@@ -33,15 +30,15 @@
 </div>
 
 <div class="mb-14 grid grid-cols-2 gap-4 p-4">
-    {#each parsedRules.slice(pageStart, pageEnd) as rule}
-    <!--{#each parsedRules.filter(r => r.name === "accurateAzaleaLeafDistribution" || r.name === "hopperUpdateFix" || r.name === "reachDistance").slice(pageStart, pageEnd) as rule}-->
+    {#each gState.filteredRules.slice(pageStart, pageEnd) as rule}
+        <!--{#each parsedRules.filter(r => r.name === "accurateAzaleaLeafDistribution" || r.name === "hopperUpdateFix" || r.name === "reachDistance").slice(pageStart, pageEnd) as rule}-->
         <Rule {rule} />
     {/each}
 </div>
 
 <div
     class={cn("fixed bottom-0 w-full border-t p-2 shadow-sm duration-200 ease-linear bg-background contents-center transition-[width]", sidebar.open ? "w-[calc(100%-var(--sidebar-width))]" : "")}>
-    <Pagination bind:page={currentPage} class="w-max" count={parsedRules.length} perPage={PER_PAGE}>
+    <Pagination bind:page={currentPage} class="w-max" count={gState.rulesCount} perPage={PER_PAGE}>
         {#snippet children({ pages, currentPage })}
             <PaginationContent>
                 <PaginationItem>

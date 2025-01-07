@@ -10,7 +10,7 @@
 
 <ModeWatcher/>
 
-<SidebarProvider>
+<SidebarProvider style="--sidebar-width: 18rem">
     <AppSidebar/>
     <main class="w-full h-full">
         {@render children?.()}
