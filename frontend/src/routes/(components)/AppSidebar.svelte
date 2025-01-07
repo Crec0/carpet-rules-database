@@ -17,12 +17,21 @@
     import { Badge } from "$lib/components/ui/badge";
 
 
+    function handleNameFilter(event: Event) {
+        window.umami.track("filter/name", { value: gState.nameFilter });
+    }
+
+    function handleDescriptionFilter(event: Event) {
+        window.umami.track("filter/description", { value: gState.descriptionFilter });
+    }
+
     function toggleType(type: string) {
         if ( gState.typeFilter.includes(type) ) {
             gState.typeFilter.splice(gState.typeFilter.indexOf(type), 1);
         } else {
             gState.typeFilter.push(type);
         }
+        window.umami.track("filter/type", { value: type });
     }
 
     function toggleRepo(repo: string) {
@@ -31,13 +40,16 @@
         } else {
             gState.repoFilter.push(repo);
         }
+        window.umami.track("filter/repo", { value: repo });
     }
+
     function toggleCategory(category: string) {
         if ( gState.categoryFilter.includes(category) ) {
             gState.categoryFilter.splice(gState.categoryFilter.indexOf(category), 1);
         } else {
             gState.categoryFilter.push(category);
         }
+        window.umami.track("filter/category", { value: category });
     }
 </script>
 
@@ -57,7 +69,9 @@
                     </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarInput bind:value={gState.nameFilter} class="h-12"
-                                      id="name-input" placeholder="Search with name..." />
+                                      id="name-input" onchange={handleNameFilter}
+                                      placeholder="Search with name..."
+                        />
                     </SidebarGroupContent>
                 </SidebarGroup>
                 <SidebarGroup>
@@ -69,7 +83,9 @@
                     </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarInput bind:value={gState.descriptionFilter} class="h-12"
-                                      id="description-input" placeholder="Search with description..." />
+                                      id="description-input" onchange={handleDescriptionFilter}
+                                      placeholder="Search with description..."
+                        />
                     </SidebarGroupContent>
                 </SidebarGroup>
                 <SidebarGroup>

@@ -8,6 +8,14 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+
+	declare interface Umami {
+		track: (event: string, data?: Record<string, any>) => void
+	}
+
+	declare interface Window {
+		umami: Umami;
+	}
 }
 
 export {};
