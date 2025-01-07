@@ -16,6 +16,9 @@
     import { gState } from "$lib/app-state.svelte";
     import SiteTitle from "./(components)/SiteTitle.svelte";
     import { Select, SelectContent, SelectItem, SelectTrigger } from "$lib/components/ui/select";
+    import { page } from "$app/state";
+    import { onMount, untrack } from "svelte";
+    import { goto } from "$app/navigation";
 
 
     const availablePerPage = [ "10", "25", "50", "75", "100" ];
@@ -28,6 +31,35 @@
     const perPage = $derived(Number(selectedPerPage));
     const pageStart = $derived(( currentPage - 1 ) * perPage);
     const pageEnd = $derived(pageStart + perPage);
+
+    onMount(() => {
+        const params = page.url.searchParams;
+        const name = params.getAll("name");
+        const description = params.getAll("category");
+        const type = params.getAll("type");
+        const repo = params.getAll("repo");
+        const category = params.getAll("category");
+
+        gState.nameFilter = name.join("|");
+        gState.descriptionFilter = description.join("|");
+        gState.typeFilter = type;
+        gState.repoFilter = repo;
+        gState.categoryFilter = category;
+
+        $effect(() => {
+            const params = new URLSearchParams();
+            gState.nameFilter.split("|").filter(d => d).forEach(v => params.append("name", v));
+            gState.descriptionFilter.split("|").filter(d => d).forEach(v => params.append("description", v));
+            gState.typeFilter.forEach(v => params.append("type", v));
+            gState.repoFilter.forEach(v => params.append("repo", v));
+            gState.categoryFilter.forEach(v => params.append("category", v));
+
+            untrack(() => {
+                page.url.search = params.toString();
+                goto(page.url, { replaceState: true, keepFocus: true, noScroll: true });
+            });
+        });
+    });
 </script>
 
 {#if !sidebar.open}

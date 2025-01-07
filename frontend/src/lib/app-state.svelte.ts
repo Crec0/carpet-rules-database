@@ -45,15 +45,15 @@ class AppState {
 
     private _filteredRules = $derived.by(() =>
         this._rules.filter((rule) => {
-            const name = rule.name;
+            const name = rule.name.toLowerCase();
             const description = rule.description?.toLowerCase() ?? "";
             const type = rule.type ?? "";
             const repo = rule.repo ?? "";
             const categories = rule.categories ?? [];
 
             return (
-                name.includes(this.nameFilter.toLowerCase()) &&
-                description.includes(this.descriptionFilter.toLowerCase()) &&
+                this.nameFilter.toLowerCase().split("|").some(s => name.includes(s)) &&
+                this.descriptionFilter.toLowerCase().split("|").some(s => description.includes(s)) &&
                 ( this.typeFilter.length === 0 || this.typeFilter.includes(type!) ) &&
                 ( this.repoFilter.length === 0 || this.repoFilter.includes(repo!) ) &&
                 ( this.categoryFilter.length === 0 || this.categoryFilter.some((c) => categories.includes(c)) )
