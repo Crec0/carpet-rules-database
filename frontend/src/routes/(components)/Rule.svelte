@@ -3,6 +3,8 @@
     import { Card, CardContent, CardHeader, CardTitle } from "$lib/components/ui/card";
     import OutboundUrl from "./OutboundUrl.svelte";
     import { Badge } from "$lib/components/ui/badge";
+    import { Link, Share } from "lucide-svelte";
+    import { Button } from "$lib/components/ui/button";
 
 
     interface ParsedText {
@@ -50,12 +52,20 @@
     function dedupe(categories: string[]): string[] {
         return [ ...new Set(categories.flatMap(t => t.split(",")).map(t => t.trim())) ];
     }
+
+    function copyRuleLink(name: string) {
+        navigator.clipboard.writeText(`${window.location.origin}/?name=${name}`);
+    }
 </script>
 
 <Card>
     <CardHeader>
-        <CardTitle class="text-lg">
-            {rule.name}
+        <CardTitle class="text-lg flex space-x-2 items-center">
+            <span>{rule.name}</span>
+            <Button size="icon" variant="ghost" class="" onclick={() => copyRuleLink(rule.name)}>
+                <span class="sr-only">Copy link</span>
+                <Link class="" />
+            </Button>
         </CardTitle>
     </CardHeader>
     <CardContent class="flex flex-col">
@@ -88,7 +98,7 @@
                 {/each}
             {/if}
         </div>
-        <div class="grid grid-cols-[max-content_1fr] text-sm gap-x-4 gap-y-2 mt-8">
+        <div class="grid grid-cols-[max-content_1fr] text-sm gap-x-4 gap-y-2 mt-4">
             <span class="font-bold"> Type </span>
             <Badge class="select-text" variant="secondary">{rule.type}</Badge>
 
