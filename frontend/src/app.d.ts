@@ -10,7 +10,7 @@ declare global {
 	}
 
 	declare interface Umami {
-		track: (event: string, data?: Record<string, any>) => void
+		track: (event?: string, data?: Record<string, any>) => void
 	}
 
 	declare interface Window {
