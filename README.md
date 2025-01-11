@@ -62,20 +62,21 @@ Once you are good to go, follow the steps below to submit a pull request.
 - Fork/Clone the repo
 - Change your directory to the local copy
 
-#### Working on HTML, CSS, JS
+#### Working on Frontend
 
-- Run `npm install yarn` if you dont have yarn already
-- Run `yarn install` to install js packages and tailwindcss
-- Run `yarn serve` to start python http local server on port 8000
-- Run `yarn start` to start tailwind with watch flag if you are working on css related things
+- Run `cd frontend`
+- Run `bun i` to install required dependencies
+- Run `bun run dev` to start vite server
 - Add your modifications to the repo
-- Run `yarn build` to build the css
+- Push
+- Open a PR :)
 
 #### Working on generator
 
-- Run `npm install yarn` if you dont have yarn already
 - Run `pip install -r requirements.txt` to install httpx
-- Run `yarn serve` to start python http local server on port 8000
+- Run `bun i` to start vite server
+- Run `bun run copy-rules` to copy over the rules file
+- Run `bun run dev` to start vite server
 - Follow the instructions in generator/main.py to do local testing
 - Add your modifications to the repo
 
@@ -83,4 +84,4 @@ Once you are finished, push the changes and make a PR
 
 ### Contact
 
-Discord: `Crec0#0420`
+Discord: `crec0`
