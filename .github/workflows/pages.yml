@@ -28,7 +28,7 @@ jobs:
                 uses: actions/cache@v4
                 id: cache-dependencies
                 with:
-                    path: node_modules
+                    path: ./frontend/node_modules
                     key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
 
             -   name: Install Dependencies
