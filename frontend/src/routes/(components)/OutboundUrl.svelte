@@ -2,6 +2,7 @@
 
     import { ExternalLink } from "lucide-svelte";
     import { Badge } from "$lib/components/ui/badge";
+    import { onMount } from "svelte";
 
 
     interface Props {
@@ -10,10 +11,13 @@
     }
 
 
-    const {
-        href,
-        name = URL.parse(href)?.host
-    }: Props = $props();
+    let { href, name }: Props = $props();
+
+    onMount(() => {
+        if (name == null) {
+            name = URL.parse(href)?.host;
+        }
+    });
 
 </script>
 
