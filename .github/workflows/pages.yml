@@ -31,16 +31,19 @@ jobs:
                     path: node_modules
                     key: ${{ runner.os }}-node-${{ hashFiles('**/bun.lockb') }}
 
+            -   name: Install Dependencies
+                if: steps.cache-dependencies.outputs.cache-hit != 'true'
+                working-directory: ./frontend
+                run: bun i
+
             -   name: Add commit sha
                 working-directory: ./frontend
                 run: |
                     git_hash=$(git rev-parse --short "$GITHUB_SHA")
                     echo "{\"sha\": \"$git_hash\"}" > ./src/lib/assets/sha.json
-
-            -   name: Install Dependencies
-                if: steps.cache-dependencies.outputs.cache-hit != 'true'
-                working-directory: ./frontend
-                run: bun i
+            
+            -   name: Copy rules
+                run: cp ./data/parsed_rules.json ./frontend/src/lib/assets/rules.json
 
             -   name: Build
                 working-directory: ./frontend
