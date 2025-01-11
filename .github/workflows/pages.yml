@@ -1,0 +1,70 @@
+name: pages
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+                with:
+                    fetch-depth: 0
+
+            -   name: Setup Bun
+                uses: oven-sh/setup-bun@v2
+                with:
+                      bun-version: latest
+
+            -   name: Cache Dependencies
+                uses: actions/cache@v4
+                id: cache-dependencies
+                with:
+                    path: node_modules
+                    key: ${{ runner.os }}-node-${{ hashFiles('**/bun.lockb') }}
+
+            -   name: Add commit sha
+                working-directory: ./frontend
+                run: |
+                    git_hash=$(git rev-parse --short "$GITHUB_SHA")
+                    echo "{\"sha\": \"$git_hash\"}" > ./src/lib/assets/sha.json
+
+            -   name: Install Dependencies
+                if: steps.cache-dependencies.outputs.cache-hit != 'true'
+                working-directory: ./frontend
+                run: bun i
+
+            -   name: Build
+                working-directory: ./frontend
+                run: bun run build
+
+            -   name: Add CNAME
+                working-directory: ./frontend
+                run: echo 'carpet-rules.crec.dev' > ./build/CNAME
+
+            -   name: Upload static files as artifact
+                id: deploy
+                uses: actions/upload-pages-artifact@v3
+                with:
+                    path: ./build
+
+    deploy:
+        permissions:
+            id-token: write
+            pages: write
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            -   name: Deploy pages
+                uses: actions/deploy-pages@v4
+                id: deploy
+                with:
+                    token: ${{ secrets.GITHUB_TOKEN }}
