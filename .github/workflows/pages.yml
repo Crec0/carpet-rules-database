@@ -56,9 +56,8 @@ jobs:
             -   name: Upload static files as artifact
                 id: deploy
                 uses: actions/upload-pages-artifact@v3
-                working-directory: ./frontend
                 with:
-                    path: ./build
+                    path: ./frontend/build
 
     deploy:
         permissions:
