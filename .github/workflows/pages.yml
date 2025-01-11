@@ -29,7 +29,7 @@ jobs:
                 id: cache-dependencies
                 with:
                     path: node_modules
-                    key: ${{ runner.os }}-node-${{ hashFiles('**/bun.lockb') }}
+                    key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
 
             -   name: Install Dependencies
                 if: steps.cache-dependencies.outputs.cache-hit != 'true'
@@ -43,7 +43,7 @@ jobs:
                     echo "{\"sha\": \"$git_hash\"}" > ./src/lib/assets/sha.json
             
             -   name: Copy rules
-                run: cp ./data/parsed_rules.json ./frontend/src/lib/assets/rules.json
+                run: cp ./data/parsed_data.json ./frontend/src/lib/assets/rules.json
 
             -   name: Build
                 working-directory: ./frontend
@@ -56,6 +56,7 @@ jobs:
             -   name: Upload static files as artifact
                 id: deploy
                 uses: actions/upload-pages-artifact@v3
+                working-directory: ./frontend
                 with:
                     path: ./build
 
