@@ -118,7 +118,7 @@
     </Pagination>
     <div class="flex w-full md:w-max items-center justify-between gap-x-4">
         <div class="visible md:hidden">
-            <SidebarTrigger />
+            <SidebarTrigger class="[&_svg]:size-6" />
         </div>
         <div class="w-max">
             <Select bind:value={selectedPerPage} type="single">
