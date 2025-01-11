@@ -3,7 +3,7 @@
     import { Card, CardContent, CardHeader, CardTitle } from "$lib/components/ui/card";
     import OutboundUrl from "./OutboundUrl.svelte";
     import { Badge } from "$lib/components/ui/badge";
-    import { Link, Share } from "lucide-svelte";
+    import { Link } from "lucide-svelte";
     import { Button } from "$lib/components/ui/button";
 
 
@@ -19,7 +19,7 @@
 
     let { rule }: Props = $props();
 
-    const URL_REGEX = /(?:\[(?<name>[^\]]+)])?\(?(?<href>[(htps)?:\/w.a-zA-Z0-9@%_+~#=]{2,256}\.[a-z]{2,6}\b[-a-zA-Z0-9@:%_+.~#?&\/=]*)\)?/g;
+    const URL_REGEX = /(?:\[(?<name>[^\]]+)])?\(?(?<href>[()?:\/.a-zA-Z0-9@%_+~#=]{2,256}\.[a-z]{2,63}\b[-a-zA-Z0-9@:%_+.~#?&\/=]*)\)?/g;
 
     export function replaceLinksWithHtml(texts: ( string | null )[]): ParsedText[] {
         const inputText = texts.filter(t => t != null && t.trim()).join("\n");
@@ -50,22 +50,22 @@
     }
 
     function copyRuleLink(name: string) {
-        navigator.clipboard.writeText(`${window.location.origin}/?name=${name}`);
+        navigator.clipboard.writeText(`${ window.location.origin }/?name=${ name }`);
     }
 </script>
 
 <Card>
     <CardHeader>
-        <CardTitle class="text-lg flex space-x-2 items-center">
-            <span>{rule.name}</span>
-            <Button size="icon" variant="ghost" class="" onclick={() => copyRuleLink(rule.name)}>
+        <CardTitle class="flex items-center text-lg space-x-2">
+            <span class="overflow-x-auto">{rule.name}</span>
+            <Button class="" onclick={() => copyRuleLink(rule.name)} size="icon" variant="ghost">
                 <span class="sr-only">Copy link</span>
                 <Link class="" />
             </Button>
         </CardTitle>
     </CardHeader>
-    <CardContent class="flex flex-col">
-        <div class="text-base">
+    <CardContent class="flex flex-col py-4">
+        <div class="text-sm">
             {#each replaceLinksWithHtml([ rule.description ]) as { type, name, content }}
                 {#if type === "text"}
                     {content}
@@ -94,7 +94,8 @@
                 {/each}
             {/if}
         </div>
-        <div class="grid grid-cols-[max-content_1fr] text-sm gap-x-4 gap-y-2 mt-4">
+        <div
+            class="flex flex-col lg:grid lg:grid-cols-[max-content_minmax(0,1fr)] text-sm lg:gap-x-4 gap-y-2 mt-4 [&>*:nth-child(even)]:mb-2">
             <span class="font-bold"> Type </span>
             <Badge class="select-text" variant="secondary">{rule.type}</Badge>
 

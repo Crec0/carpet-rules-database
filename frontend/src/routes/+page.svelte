@@ -19,6 +19,7 @@
     import { page } from "$app/state";
     import { onMount, untrack } from "svelte";
     import { goto } from "$app/navigation";
+    import { StepBack, StepForward } from "lucide-svelte";
 
 
     const availablePerPage = [ "10", "25", "50", "75", "100" ];
@@ -46,7 +47,7 @@
         gState.repoFilter = repo;
         gState.categoryFilter = category;
 
-        window.umami.track('visit-params', {params: page.url.search });
+        window.umami.track("visit-params", { params: page.url.search });
 
         $effect(() => {
             const params = new URLSearchParams();
@@ -64,29 +65,35 @@
     });
 </script>
 
-{#if !sidebar.open}
-    <SiteTitle background="bg-background" />
-{/if}
 
-<div
-    class={cn("sticky flex items-center border-b p-2 shadow-sm bg-background space-x-2", sidebar.open ? "top-0" : "top-12")}>
-    <SidebarTrigger />
-    <ThemeSwitcher />
+<div class="sticky flex items-center justify-between border-b p-2 shadow-sm bg-background space-x-2">
+    {#if sidebar.isMobile || !sidebar.open}
+        <SiteTitle background="bg-background" />
+    {/if}
+    <div class="invisible px-2 pt-2 md:visible">
+        <SidebarTrigger class="[&_svg]:size-6" />
+    </div>
+    <div class="px-2 pt-2">
+        <ThemeSwitcher />
+    </div>
 </div>
 
-<div class="mb-14 grid grid-cols-2 gap-4 p-4">
+<div class="mb-14 grid grid-cols-1 gap-4 p-4 lg:grid-cols-2 2xl:grid-cols-3">
     {#each gState.filteredRules.slice(pageStart, pageEnd) as rule}
         <Rule {rule} />
     {/each}
 </div>
 
 <div
-    class={cn("fixed bottom-0 flex w-full justify-center border-t p-2 shadow-sm duration-200 ease-linear space-x-4 bg-background contents-center transition-[width]", sidebar.open ? "w-[calc(100%-var(--sidebar-width))]" : "")}>
-    <Pagination bind:page={currentPage} class="mx-0 w-max" count={gState.rulesCount} perPage={perPage}>
+    class={cn("fixed bottom-0 flex w-full flex-col items-center justify-center gap-1 border-t p-2 shadow-sm duration-200 ease-linear space-x-4 bg-background contents-center transition-[width] md:flex-row", !sidebar.isMobile && sidebar.open ? "w-[calc(100%-var(--sidebar-width))]" : "")}>
+    <Pagination bind:page={currentPage} class="mx-0 gap-0 md:gap-1" count={gState.rulesCount} perPage={perPage}
+                siblingCount={1}>
         {#snippet children({ pages, currentPage })}
             <PaginationContent>
                 <PaginationItem>
-                    <PaginationPrevButton />
+                    <PaginationPrevButton>
+                        <StepBack />
+                    </PaginationPrevButton>
                 </PaginationItem>
                 {#each pages as page (page.key)}
                     {#if page.type === "ellipsis"}
@@ -102,22 +109,32 @@
                     {/if}
                 {/each}
                 <PaginationItem>
-                    <PaginationNextButton />
+                    <PaginationNextButton>
+                        <StepForward />
+                    </PaginationNextButton>
                 </PaginationItem>
             </PaginationContent>
         {/snippet}
     </Pagination>
-    <div class="w-max">
-        <Select bind:value={selectedPerPage} type="single">
-            <SelectTrigger class="space-x-2">
-                <span class="text-sm">Per Page</span>
-                <span class="text-sm">{selectedPerPage}</span>
-            </SelectTrigger>
-            <SelectContent>
-                {#each availablePerPage as perPage}
-                    <SelectItem value={perPage}>{perPage}</SelectItem>
-                {/each}
-            </SelectContent>
-        </Select>
+    <div class="flex w-full md:w-max items-center justify-between gap-x-4">
+        <div class="visible md:hidden">
+            <SidebarTrigger />
+        </div>
+        <div class="w-max">
+            <Select bind:value={selectedPerPage} type="single">
+                <SelectTrigger class="space-x-2">
+                    <span class="text-sm">Per Page</span>
+                    <span class="text-sm">{selectedPerPage}</span>
+                </SelectTrigger>
+                <SelectContent>
+                    {#each availablePerPage as perPage}
+                        <SelectItem value={perPage}>{perPage}</SelectItem>
+                    {/each}
+                </SelectContent>
+            </Select>
+        </div>
+        <div class="invisible md:hidden">
+            <SidebarTrigger />
+        </div>
     </div>
 </div>
