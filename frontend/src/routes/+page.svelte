@@ -20,6 +20,8 @@
     import { onMount, untrack } from "svelte";
     import { goto } from "$app/navigation";
     import { StepBack, StepForward } from "lucide-svelte";
+    import { Badge } from "$lib/components/ui/badge";
+    import Github from '$lib/svg/Github.svelte';
 
 
     const availablePerPage = [ "10", "25", "50", "75", "100" ];
@@ -73,7 +75,10 @@
     <div class="invisible px-2 pt-2 md:visible">
         <SidebarTrigger class="[&_svg]:size-6" />
     </div>
-    <div class="px-2 pt-2">
+    <div class="px-2 pt-2 flex gap-4">
+        <Badge href="https://github.com/Crec0/carpet-rules-database" variant="outline" class="size-9 fill-foreground flex p-0 items-center justify-center">
+            <Github class="[&_svg]:size-6" />
+        </Badge>
         <ThemeSwitcher />
     </div>
 </div>

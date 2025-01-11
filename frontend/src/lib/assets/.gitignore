@@ -1,3 +1,2 @@
-rules.json
-types.json
+*.json
 aggregate.py
