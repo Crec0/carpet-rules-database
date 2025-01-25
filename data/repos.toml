@@ -502,9 +502,10 @@ branches = [
 ]
 
 
-[[translations-json]]
+[[translations-yaml]]
 name = "Stackable Shulkers Fix"
 owner-repo = "kikugie/stackable-shulkers-fix"
 settings-file-paths = [ "dev/kikugie/shulkerfix/carpet/ShulkerFixSettings.java" ]
-lang-file-path = "shulkerfix/lang/en_us.json"
+lang-file-path = "shulkerfix/lang/en_us.yml"
+rules-root = "carpet.rule"
 branches = [ "main" ]
