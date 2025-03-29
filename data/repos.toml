@@ -516,3 +516,9 @@ owner-repo = "amateras-server/ama-carpet"
 settings-file-paths = [ "org/amateras_smp/amacarpet/AmaCarpetSettings.java" ]
 lang-file-path = "ama-carpet/lang/en_us.json"
 branches = [ "main" ]
+
+[[legacy]]
+name = "Carpet Ayaka Addition"
+owner-repo = "AyakaCraft/Carpet-Ayaka-Addition"
+settings-file-paths = [ "comayakacraft/carpetayakaaddition/CarpetAyakaSettings.java" ]
+branches = [ "main" ]
