@@ -521,4 +521,4 @@ branches = [ "main" ]
 name = "Carpet Ayaka Addition"
 owner-repo = "AyakaCraft/Carpet-Ayaka-Addition"
 settings-file-paths = [ "comayakacraft/carpetayakaaddition/CarpetAyakaSettings.java" ]
-branches = [ "master" ]
+branches = [ "main" ]
