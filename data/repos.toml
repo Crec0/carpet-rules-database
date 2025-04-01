@@ -520,5 +520,5 @@ branches = [ "main" ]
 [[legacy]]
 name = "Carpet Ayaka Addition"
 owner-repo = "AyakaCraft/Carpet-Ayaka-Addition"
-settings-file-paths = [ "comayakacraft/carpetayakaaddition/CarpetAyakaSettings.java" ]
+settings-file-paths = [ "com/ayakacraft/carpetAyakaAddition/CarpetAyakaSettings.java" ]
 branches = [ "main" ]
