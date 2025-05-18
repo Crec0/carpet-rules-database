@@ -1,5 +1,6 @@
 package dev.crec.generator
 
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.runBlocking
@@ -7,12 +8,13 @@ import kotlinx.coroutines.sync.Semaphore
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.executeAsync
+import okhttp3.coroutines.executeAsync
 
 fun HttpUrl.getRequest() = Request.Builder().url(this).build()
 
 fun String.getRequest() = Request.Builder().url(this).build()
 
+@OptIn(ExperimentalCoroutinesApi::class)
 suspend fun OkHttpClient.execute(request: Request) = this.newCall(request).executeAsync()
 
 suspend fun <T, R> Iterable<T>.mapConcurrently(

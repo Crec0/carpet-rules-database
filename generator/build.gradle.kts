@@ -1,5 +1,7 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    kotlin("jvm") version ("1.9.20")
+    kotlin("jvm") version ("2.1.0")
     id("com.github.johnrengelman.shadow") version "8.1.1"
     application
 }
@@ -24,37 +26,26 @@ dependencies {
     implementation(platform(kotlin("bom")))
     implementation(kotlin("stdlib-jdk8"))
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
 
-    implementation("ch.qos.logback:logback-classic:1.4.14")
-    implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
+    implementation("ch.qos.logback:logback-classic:1.5.16")
+    runtimeOnly("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
-    implementation("com.squareup.moshi:moshi-kotlin:1.15.0")
-    implementation("com.squareup.moshi:moshi-adapters:1.15.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.2")
+    implementation("com.squareup.moshi:moshi-adapters:1.15.2")
 
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
-    implementation("com.squareup.okhttp3:okhttp-coroutines:5.0.0-alpha.11")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
+    implementation("com.squareup.okhttp3:okhttp-coroutines:5.0.0-alpha.14")
 
-    implementation("com.google.jimfs:jimfs:1.3.0")
-    implementation("io.github.classgraph:classgraph:4.8.149")
-
-    implementation("net.peanuuutz.tomlkt:tomlkt:0.3.7")
+    implementation("org.ow2.asm:asm:9.7.1")
+    implementation("net.peanuuutz.tomlkt:tomlkt:0.4.0")
 }
 
 tasks {
     compileJava {
         options.compilerArgs.add("--enable-preview")
-        sourceCompatibility = "21"
-        targetCompatibility = "21"
-    }
-
-    compileKotlin {
-        kotlinOptions {
-            jvmTarget = "21"
-            freeCompilerArgs = listOf("-opt-in=kotlin.RequiresOptIn")
-        }
-        exclude("**/modules/rcon")
-        exclude("**/modules/chatbridge")
+        sourceCompatibility = "22"
+        targetCompatibility = "22"
     }
 
     shadowJar {
@@ -63,9 +54,9 @@ tasks {
 }
 
 kotlin {
-    sourceSets.all {
-        languageSettings {
-            languageVersion = "2.0"
-        }
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_22)
+        freeCompilerArgs = listOf("-opt-in=kotlin.RequiresOptIn")
+        extraWarnings.set(true)
     }
 }
