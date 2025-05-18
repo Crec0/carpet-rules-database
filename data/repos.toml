@@ -517,11 +517,12 @@ settings-file-paths = [ "org/amateras_smp/amacarpet/AmaCarpetSettings.java" ]
 lang-file-path = "ama-carpet/lang/en_us.json"
 branches = [ "main" ]
 
-[[translations-json]]
+[[translations-yaml]]
 name = "Carpet Ayaka Addition"
 owner-repo = "AyakaCraft/Carpet-Ayaka-Addition"
 settings-file-paths = [ "com/ayakacraft/carpetayakaaddition/CarpetAyakaSettings.java" ]
-lang-file-path = "carpet-ayaka-addition/lang/en_us.json"
+lang-file-path = "carpet-ayaka-addition/lang/en_us.yml"
+rules-root = "carpet.rule"
 branches = [ "main" ]
 
 [[translations-json]]
