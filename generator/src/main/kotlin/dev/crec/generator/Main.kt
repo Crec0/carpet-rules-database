@@ -51,7 +51,7 @@ fun main(args: Array<String>) {
     cacheManager.load()
     val cf = CurseforgeProvider(client, moshi)
     runBlocking {
-        cf.process("349239")
+        cf.processLocal("349239")
     }
     cacheManager.save()
 }

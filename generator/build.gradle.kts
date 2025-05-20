@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    kotlin("jvm") version ("2.1.0")
+    kotlin("jvm") version ("2.1.21")
     id("com.github.johnrengelman.shadow") version "8.1.1"
     application
 }
@@ -26,9 +26,9 @@ dependencies {
     implementation(platform(kotlin("bom")))
     implementation(kotlin("stdlib-jdk8"))
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
 
-    implementation("ch.qos.logback:logback-classic:1.5.16")
+    implementation("ch.qos.logback:logback-classic:1.5.18")
     runtimeOnly("io.github.microutils:kotlin-logging-jvm:3.0.5")
 
     implementation("com.squareup.moshi:moshi-kotlin:1.15.2")
@@ -44,8 +44,8 @@ dependencies {
 tasks {
     compileJava {
         options.compilerArgs.add("--enable-preview")
-        sourceCompatibility = "22"
-        targetCompatibility = "22"
+        sourceCompatibility = "17"
+        targetCompatibility = "17"
     }
 
     shadowJar {
@@ -55,7 +55,7 @@ tasks {
 
 kotlin {
     compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_22)
+        jvmTarget.set(JvmTarget.JVM_17)
         freeCompilerArgs = listOf("-opt-in=kotlin.RequiresOptIn")
         extraWarnings.set(true)
     }
