@@ -43,8 +43,8 @@ jobs:
       - name: Commit changes
         continue-on-error: true
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'Crec0'
+          git config --global user.email 'crec0@pm.me'
           git commit -am "Update rules database '${{ steps.capture-date.outputs.date }}'"
 
       - name: Push changes
