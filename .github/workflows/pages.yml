@@ -71,4 +71,10 @@ jobs:
                 uses: actions/deploy-pages@v4
                 id: deploy
                 with:
-                    token: ${{ secrets.GITHUB_TOKEN }}
+                    token: ${{ secrets.PAT }}
+
+            - name: Send discord webhook
+              uses: tsickert/discord-webhook@v4.0.0
+              with:
+                  webhook-url: ${{ secrets.CARPET_RULES_WEBHOOK_URL }}
+                  content: "Successfully deployed: ${{ git rev-parse --short '$GITHUB_SHA' }}"
