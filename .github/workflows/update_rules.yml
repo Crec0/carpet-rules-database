@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v3
+        with:
+            token: ${{ secrets.PAT }}
 
       - name: Install poetry
         run: pipx install poetry
@@ -46,12 +48,7 @@ jobs:
           git config --global user.name 'Crec0'
           git config --global user.email 'crec0@pm.me'
           git commit -am "Update rules database '${{ steps.capture-date.outputs.date }}'"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-            github_token: ${{ secrets.PAT }}
-            branch: "main"
+          git push origin main
 
       - name: Send discord webhook
         uses: tsickert/discord-webhook@v4.0.0
