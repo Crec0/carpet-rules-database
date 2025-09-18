@@ -41,6 +41,7 @@ jobs:
         id: capture-date
         run: |
           echo "date=$(date -u)" >> $GITHUB_OUTPUT
+          touch test.txt
 
       - name: Commit changes
         continue-on-error: true
