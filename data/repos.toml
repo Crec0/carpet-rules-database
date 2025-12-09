@@ -509,6 +509,7 @@ settings-file-paths = [ "dev/kikugie/shulkerfix/carpet/ShulkerFixSettings.java" 
 lang-file-path = "shulkerfix/lang/en_us.yml"
 rules-root = "carpet.rule"
 branches = [ "main" ]
+source = "codeberg"
 
 [[translations-json]]
 name = "AmaCarpet"

@@ -12,6 +12,9 @@ class RemoteHostTemplate(Enum):
     GITLAB = Template(
         'https://gitlab.com/$repo/-/raw/$branch/src/main/$source_path/$file_path'
     )
+    CODEBERG = Template(
+        'https://codeberg.org/$repo/raw/branch/$branch/src/main/$source_path/$file_path'
+    )
 
     def build_url(
         self, repo: str, branch: str, source_path: SourceType, file_path: str
