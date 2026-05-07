@@ -532,3 +532,12 @@ owner-repo = "VeygaX/Carpet-VTT-Extension"
 settings-file-paths = [ "dev/veygax/carpetvttextension/VTTSettings.java" ]
 lang-file-path = "carpetvttextension/lang/en_us.json"
 branches = [ "main" ]
+
+[[translations-json]]
+name = "Carpet Igny Addition"
+owner-repo = "liuyuexiaoyu1/Carpet-Igny-Addition"
+settings-file-paths = [ "com/liuyue/igny/IGNYSettings.java" ]
+lang-file-path = "carpet-igny-addition/lang/en_us.json"
+branches = [
+	"master"
+]
