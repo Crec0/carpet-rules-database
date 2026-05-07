@@ -38,7 +38,13 @@ class V2Parser(V1Parser):
         associated_rules = associate_by(self.rules, lambda rule: rule.name)
 
         for key in self.rules_lang:
-            manager, _, name, *rest = key.split('.')
+            splits = key.split('.')
+            if len(splits) < 4:
+                print(f"Invalid split for {key} for {self.repo.owner_repo}/{self.repo.branch}")
+                continue
+
+            manager, _, name, *rest = splits
+
             if name in associated_rules:
                 header = rest[0]
                 if header == 'name':
