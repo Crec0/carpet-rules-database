@@ -39,7 +39,7 @@ class V2Parser(V1Parser):
 
         for key in self.rules_lang:
             splits = key.split('.')
-            if len(splits) < 4:
+            if len(splits) < 3:
                 print(f"Invalid split for {key} for {self.repo.owner_repo}/{self.repo.branch}")
                 continue
 
@@ -60,7 +60,7 @@ class V2Parser(V1Parser):
                         self.rules_lang[key]
                     )
                 else:
-                    raise Exception(
+                    print(
                         f'Unknown header: {header} in {key} for {self.repo.owner_repo}/{self.repo.branch}'
                     )
 
