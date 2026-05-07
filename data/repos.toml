@@ -479,7 +479,7 @@ branches = [
 [[translations-yaml]]
 name = "Carpet AMS Addition"
 owner-repo = "Minecraft-AMS/Carpet-AMS-Addition"
-settings-file-paths = [ "club/mcams/carpet/AmsServerSettings.java" ]
+settings-file-paths = [ "carpetamsaddition/CarpetAMSAdditionSettings.java" ]
 lang-file-path = "carpetamsaddition/lang/en_us.yml"
 rules-root = "carpetamsaddition.carpet_translations.rule"
 branches = [ "master" ]
