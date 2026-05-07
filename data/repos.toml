@@ -262,12 +262,6 @@ branches = [
 ]
 
 [[legacy]]
-name = "SkyBlock Helper"
-owner-repo = "HuajiMURsMC/SkyBlockHelper"
-settings-file-paths = [ "skyblockhelper/SkyBlockHelperSettings.java" ]
-branches = [ "1.18" ]
-
-[[legacy]]
 name = "SubTick"
 owner-repo = "chiraagChakravarthy/SubTick"
 settings-file-paths = [ "subtick/SubTickSettings.java" ]
