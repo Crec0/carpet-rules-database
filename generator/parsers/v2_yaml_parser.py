@@ -32,7 +32,7 @@ class V2YamlParser(V2Parser):
                     associated_rules[rule].description = lang_entry['desc']
                 if 'extra' in lang_entry:
                     extras = lang_entry['extra']
-                    if 'values' in attrs(extras):
+                    if hasattr(extras, 'values'):
                         associated_rules[rule].extras = extras.values()
                     else:
                         print(f"No extra's found in {self.repo.owner_repo}")
