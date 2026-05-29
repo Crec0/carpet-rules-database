@@ -35,4 +35,4 @@ class V2YamlParser(V2Parser):
                     if hasattr(extras, 'values'):
                         associated_rules[rule].extras = extras.values()
                     else:
-                        print(f"No extra's found in {self.repo.owner_repo}")
+                        print(f"No extra's found for {rule} in {self.repo.owner_repo}")
