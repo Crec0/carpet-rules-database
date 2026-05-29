@@ -227,12 +227,6 @@ branches = [
 ]
 
 [[legacy]]
-name = "MoistCraft Carpet Addons"
-owner-repo = "CSClub05/moistcraft-carpet-addons"
-settings-file-paths = [ "moistcraft/MoistcraftSettings.java" ]
-branches = [ "main" ]
-
-[[legacy]]
 name = "Plusls Carpet Additions"
 owner-repo = "plusls/plusls-carpet-addition"
 settings-file-paths = [ "com/plusls/carpet/PcaSettings.java" ]
