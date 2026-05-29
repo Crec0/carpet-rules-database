@@ -38,41 +38,45 @@ async def download_repo(
 
     branches: list[WrappedRepoData] = []
     for branch in repo.branches:
-        async with asyncio.TaskGroup() as tg:
-            settings_file_tasks = [
-                tg.create_task(
-                    download_file(
-                        client,
-                        repo,
-                        branch,
-                        SourceType.JAVA_SOURCE,
-                        settings_file,
+        try:
+            async with asyncio.TaskGroup() as tg:
+                settings_file_tasks = [
+                    tg.create_task(
+                        download_file(
+                            client,
+                            repo,
+                            branch,
+                            SourceType.JAVA_SOURCE,
+                            settings_file,
+                        )
                     )
+                    for settings_file in repo.settings_file_paths
+                ]
+    
+            settings_files = [task.result() for task in settings_file_tasks]
+    
+            if not parser == ParserType.LEGACY:
+                raw_lang = await download_file(
+                    client, repo, branch, SourceType.LANG_FILE, repo.lang_file_path
                 )
-                for settings_file in repo.settings_file_paths
-            ]
-
-        settings_files = [task.result() for task in settings_file_tasks]
-
-        if not parser == ParserType.LEGACY:
-            raw_lang = await download_file(
-                client, repo, branch, SourceType.LANG_FILE, repo.lang_file_path
+            else:
+                raw_lang = None
+    
+            branches.append(
+                WrappedRepoData(
+                    name=repo.name,
+                    owner_repo=repo.owner_repo,
+                    branch=branch,
+                    raw_settings_files=settings_files,
+                    raw_lang_file=raw_lang,
+                    source=repo.source,
+                    rules_root=repo.rules_root,
+                    parser=parser,
+                )
             )
-        else:
-            raw_lang = None
-
-        branches.append(
-            WrappedRepoData(
-                name=repo.name,
-                owner_repo=repo.owner_repo,
-                branch=branch,
-                raw_settings_files=settings_files,
-                raw_lang_file=raw_lang,
-                source=repo.source,
-                rules_root=repo.rules_root,
-                parser=parser,
-            )
-        )
+        except* HTTPException as ex:
+            for exc in ex.exceptions:
+                print(exc)
 
     return branches
 
