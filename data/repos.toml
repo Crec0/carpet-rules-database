@@ -529,3 +529,10 @@ lang-file-path = "carpet-igny-addition/lang/en_us.json"
 branches = [
 	"master"
 ]
+
+[[translations-json]]
+name = "Carpet SRU Addition"
+owner-repo = "ZhangSihanQWQ/Carpet-SRU-Addition"
+settings-file-paths = [ "carpetsruaddition/CarpetSettings.java" ]
+lang-file-path = "carpet/lang/en_us.json"
+branches = [ "master" ]
