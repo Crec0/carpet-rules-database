@@ -536,3 +536,10 @@ owner-repo = "ZhangSihanQWQ/Carpet-SRU-Addition"
 settings-file-paths = [ "carpetsruaddition/CarpetSettings.java" ]
 lang-file-path = "carpet/lang/en_us.json"
 branches = [ "master" ]
+
+[[translations-json]]
+name = "IBCarpet"
+owner-repo = "TKperson/ibcarpet"
+settings-file-paths = [ "com/ibcarpet/IBCarpetSettings.java" ]
+lang-file-path = "ibcarpet/locale/en_us.json"
+branches = [ "26.2", "26.1.2", "1.21.11" ]
