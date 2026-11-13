@@ -82,7 +82,7 @@ jobs:
                     git config user.name 'Crec0'
                     git config user.email 'crec0@pm.me'
                     
-                    # Stage tracked changes only, matching the original workflow.
+                    # Preserve tracked-files-only staging.
                     git add --update
                     
                     if git diff --cached --quiet; then
@@ -92,8 +92,6 @@ jobs:
                     fi
                     
                     git commit -m "Update rules database '$timestamp'"
-                    
-                    # Fail rather than overwrite concurrent changes to main.
                     git push origin HEAD:main
                     
                     echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -101,7 +99,7 @@ jobs:
                     echo "Database changes committed and pushed." >> "$GITHUB_STEP_SUMMARY"
 
             -   name: Send Discord webhook
-                uses: tsickert/discord-webhook@v4.0.0
+                uses: tsickert/discord-webhook@v7.0.0
                 with:
                     webhook-url: ${{ secrets.CARPET_RULES_WEBHOOK_URL }}
                     embed-title: "Carpet rules database stats"
