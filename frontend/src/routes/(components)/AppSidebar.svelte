@@ -18,11 +18,11 @@
 
 
     function handleNameFilter(event: Event) {
-        window.umami.track("filter/name", { value: gState.nameFilter });
+        window?.umami?.track("filter/name", { value: gState.nameFilter });
     }
 
     function handleDescriptionFilter(event: Event) {
-        window.umami.track("filter/description", { value: gState.descriptionFilter });
+        window?.umami?.track("filter/description", { value: gState.descriptionFilter });
     }
 
     function toggleType(type: string) {
@@ -31,7 +31,7 @@
         } else {
             gState.typeFilter.push(type);
         }
-        window.umami.track("filter/type", { value: type });
+        window?.umami?.track("filter/type", { value: type });
     }
 
     function toggleRepo(repo: string) {
@@ -40,7 +40,8 @@
         } else {
             gState.repoFilter.push(repo);
         }
-        window.umami.track("filter/repo", { value: repo });
+
+        window?.umami?.track("filter/repo", { value: repo });
     }
 
     function toggleCategory(category: string) {
@@ -49,7 +50,7 @@
         } else {
             gState.categoryFilter.push(category);
         }
-        window.umami.track("filter/category", { value: category });
+        window?.umami?.track("filter/category", { value: category });
     }
 </script>
 
@@ -61,6 +62,7 @@
         <SidebarGroup>
             <SidebarGroupLabel class="text-base">Filters</SidebarGroupLabel>
             <SidebarGroupContent>
+
                 <SidebarGroup>
                     <SidebarGroupLabel class="flex justify-between text-sm space-x-4">
                         <span>Name</span>
@@ -74,6 +76,7 @@
                         />
                     </SidebarGroupContent>
                 </SidebarGroup>
+
                 <SidebarGroup>
                     <SidebarGroupLabel class="flex justify-between text-sm space-x-4">
                         <span>Description</span>
@@ -88,6 +91,7 @@
                         />
                     </SidebarGroupContent>
                 </SidebarGroup>
+
                 <SidebarGroup>
                     <SidebarGroupLabel class="flex justify-between text-sm space-x-4">
                         <span>Repository</span>
@@ -114,6 +118,7 @@
                         </ScrollArea>
                     </SidebarGroupContent>
                 </SidebarGroup>
+
                 <SidebarGroup>
                     <SidebarGroupLabel class="flex justify-between text-sm space-x-4">
                         <span>Category</span>
@@ -127,12 +132,12 @@
                     <SidebarGroupContent>
                         <ScrollArea class="h-72 w-full rounded-md border bg-background">
                             <div class="p-4">
-                                {#each gState.categories as repo}
-                                    <button class="flex w-full items-center text-sm space-x-2"
-                                            aria-label="clickable repository" onclick={() => toggleCategory(repo)}>
+                                {#each gState.categories as category}
+                                    <button class="flex w-full items-center text-sm space-x-2 disabled:text-muted-foreground disabled:cursor-not-allowed"
+                                            aria-label="clickable category" onclick={() => toggleCategory(category)}>
                                         <Check
-                                            class={cn("inline-block h-4 w-4", gState.categoryFilter.includes(repo) ? "visible" : "invisible")} />
-                                        <span title="{repo}" class="truncate max-w-44">{repo}</span>
+                                            class={cn("inline-block h-4 w-4", gState.categoryFilter.includes(category) ? "visible" : "invisible")} />
+                                        <span title="{category}" class="truncate max-w-44">{category}</span>
                                     </button>
                                     <Separator class="my-2" />
                                 {/each}
@@ -140,6 +145,7 @@
                         </ScrollArea>
                     </SidebarGroupContent>
                 </SidebarGroup>
+
                 <SidebarGroup>
                     <SidebarGroupLabel class="flex justify-between text-sm space-x-4">
                         <span>Type</span>
@@ -154,7 +160,7 @@
                         <ScrollArea class="h-72 w-full rounded-md border bg-background">
                             <div class="p-4">
                                 {#each gState.types as type}
-                                    <button class="flex w-full items-center text-sm" aria-label="clickable type"
+                                    <button class="flex w-full items-center text-sm  disabled:text-muted-foreground disabled:cursor-not-allowed" aria-label="clickable type"
                                             onclick={() => toggleType(type)}>
                                         <Check
                                             class={cn("mr-2 inline-block h-4 w-4", gState.typeFilter.includes(type) ? "visible" : "invisible")} />

@@ -1,62 +1,112 @@
 name: Update rules database
+
 on:
-  workflow_dispatch:
+    workflow_dispatch:
+    schedule:
+        -   cron: '0 0 * * *'
 
-  schedule:
-    - cron: '0 0 * * *'
+permissions:
+    contents: read
 
+concurrency:
+    group: update-rules-database-main
+    cancel-in-progress: false
 
 env:
-  PYTHON_VERSION: '3.15.2'
+    PYTHON_VERSION: '3.15.2'
+    UV_NO_PROGRESS: '1'
+    PYTHONUNBUFFERED: '1'
+
+defaults:
+    run:
+        shell: bash
 
 jobs:
-  update-and-upload:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout project
-        uses: actions/checkout@v3
-        with:
-            token: ${{ secrets.PAT }}
+    update-and-upload:
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
 
-      - name: Install poetry
-        run: pipx install poetry
+        steps:
+            -   name: Checkout main
+                uses: actions/checkout@v7
+                with:
+                    ref: main
+                    token: ${{ secrets.PAT }}
+                    fetch-depth: 1
 
-      - name: Setup python
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: 'poetry'
+            -   name: Set up uv
+                uses: astral-sh/setup-uv@v10
+                with:
+                    python-version: ${{ env.PYTHON_VERSION }}
+                    enable-cache: true
+                    cache-dependency-glob: |
+                        uv.lock
+                        pyproject.toml
+                        .python-version
 
-      - name: Install requirements
-        run: poetry install
+            -   name: Install Python
+                run: uv python install "$PYTHON_VERSION"
 
-      - name: Run the generator
-        id: generator
-        run: |
-          echo "EMBED_DESCRIPTION<<EOF" >> $GITHUB_ENV
-          echo "$(poetry run generator)" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+            -   name: Install locked dependencies
+                run: uv sync --locked --no-dev
 
-      - name: Capture date
-        id: capture-date
-        run: |
-          echo "date=$(date -u)" >> $GITHUB_OUTPUT
+            -   name: Run generator
+                id: generator
+                run: |
+                    set -euo pipefail
+                    
+                    output_file="$RUNNER_TEMP/generator-output.txt"
+                    
+                    uv run --no-sync generator | tee "$output_file"
+                    
+                    delimiter="EOF_$(cat /proc/sys/kernel/random/uuid)"
+                    {
+                      echo "description<<${delimiter}"
+                      cat "$output_file"
+                      printf '\n%s\n' "$delimiter"
+                    } >> "$GITHUB_OUTPUT"
+                    
+                    {
+                      echo '## Generator output'
+                      cat "$output_file"
+                    } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Commit changes
-        continue-on-error: true
-        run: |
-          git config --global user.name 'Crec0'
-          git config --global user.email 'crec0@pm.me'
-          git commit -am "Update rules database '${{ steps.capture-date.outputs.date }}'"
-          git push origin main
+            -   name: Commit and push changes
+                id: commit
+                run: |
+                    set -euo pipefail
+                    
+                    timestamp="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+                    echo "timestamp=$timestamp" >> "$GITHUB_OUTPUT"
+                    
+                    git config user.name 'Crec0'
+                    git config user.email 'crec0@pm.me'
+                    
+                    # Stage tracked changes only, matching the original workflow.
+                    git add --update
+                    
+                    if git diff --cached --quiet; then
+                      echo "changed=false" >> "$GITHUB_OUTPUT"
+                      echo "No database changes." >> "$GITHUB_STEP_SUMMARY"
+                      exit 0
+                    fi
+                    
+                    git commit -m "Update rules database '$timestamp'"
+                    
+                    # Fail rather than overwrite concurrent changes to main.
+                    git push origin HEAD:main
+                    
+                    echo "changed=true" >> "$GITHUB_OUTPUT"
+                    echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+                    echo "Database changes committed and pushed." >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Send discord webhook
-        uses: tsickert/discord-webhook@v4.0.0
-        with:
-          webhook-url: ${{ secrets.CARPET_RULES_WEBHOOK_URL }}
-          embed-title: "Carpet rules database stats"
-          embed-description: "${{ env.EMBED_DESCRIPTION }}"
-          embed-color: 0xf0932b
-          username: "Carpet Rules Generator"
-          avatar-url: ${{ secrets.CARPET_RULES_AVATAR_URL }}
-          content: "${{ steps.capture-date.outputs.date }}"
+            -   name: Send Discord webhook
+                uses: tsickert/discord-webhook@v4.0.0
+                with:
+                    webhook-url: ${{ secrets.CARPET_RULES_WEBHOOK_URL }}
+                    embed-title: "Carpet rules database stats"
+                    embed-description: ${{ steps.generator.outputs.description }}
+                    embed-color: 0xf0932b
+                    username: "Carpet Rules Generator"
+                    avatar-url: ${{ secrets.CARPET_RULES_AVATAR_URL }}
+                    content: ${{ steps.commit.outputs.timestamp }}

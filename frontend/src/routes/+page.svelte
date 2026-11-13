@@ -49,9 +49,9 @@
         gState.repoFilter = repo;
         gState.categoryFilter = category;
 
-        window.umami.track();
+        window?.umami?.track();
 
-        window.umami.track("visit-params", { params: page.url.search });
+        window?.umami?.track("visit-params", { params: page.url.search });
 
         $effect(() => {
             const params = new URLSearchParams();
