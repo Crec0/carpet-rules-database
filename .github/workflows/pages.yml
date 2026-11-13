@@ -1,80 +1,120 @@
 name: pages
 
-concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
-
 on:
     workflow_dispatch:
     push:
         branches:
             - main
 
+permissions:
+    contents: read
+
+# One Pages deployment workflow at a time.
+# Let an active deployment finish rather than interrupting publication.
+concurrency:
+    group: github-pages
+    cancel-in-progress: false
+
+defaults:
+    run:
+        shell: bash
+
 jobs:
     build:
+        name: Build site
         runs-on: ubuntu-latest
+        timeout-minutes: 15
+
+        defaults:
+            run:
+                shell: bash
+                working-directory: ./frontend
+
         steps:
             -   name: Checkout
-                uses: actions/checkout@v4
+                uses: actions/checkout@v7
                 with:
-                    fetch-depth: 0
-                    token: ${{ secrets.PAT }}
+                    fetch-depth: 1
+                    persist-credentials: false
 
-            -   name: Setup Bun
+            -   name: Set up Bun
+                id: bun
                 uses: oven-sh/setup-bun@v2
                 with:
-                      bun-version: latest
+                    bun-version: latest
 
-            -   name: Cache Dependencies
+            -   name: Get Bun version
+                id: bun-version
+                run: echo "version=$(bun --version)" >> "$GITHUB_OUTPUT"
+
+            -   name: Cache Bun packages
                 uses: actions/cache@v4
-                id: cache-dependencies
                 with:
-                    path: ./frontend/node_modules
-                    key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+                    path: ~/.bun/install/cache
+                    key: >-
+                        ${{ runner.os }}-${{ runner.arch }}-bun-${{
+                        steps.bun-version.outputs.version }}-${{
+                            hashFiles('frontend/bun.lock', 'frontend/bun.lockb', 'frontend/package.json')
+                        }}
+                    restore-keys: |
+                        ${{ runner.os }}-${{ runner.arch }}-bun-${{ steps.bun-version.outputs.version }}-
 
-            -   name: Install Dependencies
-                if: steps.cache-dependencies.outputs.cache-hit != 'true'
-                working-directory: ./frontend
-                run: bun i
+            -   name: Install dependencies
+                run: bun install --frozen-lockfile
 
-            -   name: Add commit sha
-                working-directory: ./frontend
+            -   name: Prepare generated assets
+                env:
+                    SOURCE_SHA: ${{ github.sha }}
                 run: |
-                    git_hash=$(git rev-parse --short "$GITHUB_SHA")
-                    echo "{\"sha\": \"$git_hash\"}" > ./src/lib/assets/sha.json
-            
-            -   name: Copy rules
-                run: cp ./data/parsed_data.json ./frontend/src/lib/assets/rules.json
+                    set -euo pipefail
+                    
+                    mkdir -p ./src/lib/assets
+                    
+                    short_sha="$(git rev-parse --short "$SOURCE_SHA")"
+                    printf '{"sha":"%s"}\n' "$short_sha" \
+                      > ./src/lib/assets/sha.json
+                    
+                    cp ../data/parsed_data.json ./src/lib/assets/rules.json
 
             -   name: Build
-                working-directory: ./frontend
                 run: bun run build
 
-            -   name: Add CNAME
-                working-directory: ./frontend
-                run: echo 'carpet-rules.crec.dev' > ./build/CNAME
+            -   name: Prepare Pages output
+                run: |
+                    set -euo pipefail
+                    
+                    test -f ./build/index.html
+                    printf '%s\n' 'carpet-rules.crec.dev' > ./build/CNAME
 
-            -   name: Upload static files as artifact
-                id: deploy
+            -   name: Upload Pages artifact
                 uses: actions/upload-pages-artifact@v3
                 with:
                     path: ./frontend/build
+                    retention-days: 1
 
     deploy:
-        permissions:
-            id-token: write
-            pages: write
+        name: Deploy site
         runs-on: ubuntu-latest
+        timeout-minutes: 15
         needs: build
-        steps:
-            -   name: Deploy pages
-                uses: actions/deploy-pages@v4
-                id: deploy
-                with:
-                    token: ${{ secrets.PAT }}
 
-            - name: Send discord webhook
-              uses: tsickert/discord-webhook@v4.0.0
-              with:
-                  webhook-url: ${{ secrets.CARPET_RULES_WEBHOOK_URL }}
-                  content: "Successfully deployed"
+        permissions:
+            pages: write
+            id-token: write
+
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+
+        steps:
+            -   name: Deploy Pages
+                id: deployment
+                uses: actions/deploy-pages@v4
+
+            -   name: Send Discord webhook
+                uses: tsickert/discord-webhook@v4.0.0
+                with:
+                    webhook-url: ${{ secrets.CARPET_RULES_WEBHOOK_URL }}
+                    content: >-
+                        Successfully deployed ${{ github.sha }}:
+                        ${{ steps.deployment.outputs.page_url }}
